@@ -1,0 +1,20 @@
+{
+    "list": [
+        null,
+        ""
+    ],
+    "data": {
+        "1": {
+            "id": 1,
+            "blockList": [
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true
+                }
+            ]
+        }
+    }
+}

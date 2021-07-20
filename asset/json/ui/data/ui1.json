@@ -1,0 +1,97 @@
+{
+    "root": {
+        "children": [
+            {
+                "id": "63075592247_0.27715623648571674",
+                "condition": [],
+                "type": "UIButton",
+                "name": "按钮",
+                "x": 500,
+                "y": 365,
+                "width": 200,
+                "height": 50,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [
+                    true
+                ],
+                "isOpen": true,
+                "label": "开始游戏",
+                "image1": "asset/image/picture/control/btn_normal.png",
+                "grid9img1": "0,0,0,0,0",
+                "image2": "asset/image/picture/control/btn_over.png",
+                "grid9img2": "0,0,0,0,0",
+                "image3": "asset/image/picture/control/btn_click.png",
+                "grid9img3": "0,0,0,0,0",
+                "fontSize": 16,
+                "color": "#999999",
+                "overColor": "#999999",
+                "clickColor": "#999999",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 1,
+                "valign": 1,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "textDx": 0,
+                "textDy": 0,
+                "textStroke": 0,
+                "textStrokeColor": "#000000"
+            },
+            {
+                "id": "69204428644_0.908529573846441",
+                "condition": [],
+                "type": "UIString",
+                "name": "文本",
+                "x": 475,
+                "y": 285,
+                "width": 250,
+                "height": 50,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "合成大猫咪",
+                "fontSize": 50,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000"
+            }
+        ]
+    },
+    "id": 1,
+    "hasRootCommand": [
+        true
+    ]
+}

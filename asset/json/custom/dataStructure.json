@@ -1,0 +1,64 @@
+{
+    "list": {
+        "1": [
+            null,
+            ""
+        ],
+        "2": [
+            null,
+            ""
+        ],
+        "3": [
+            null
+        ],
+        "16": [
+            null,
+            ""
+        ]
+    },
+    "type": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "16": ""
+    },
+    "data": {
+        "1": {
+            "id": 1,
+            "blockList": [
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true
+                }
+            ]
+        },
+        "1001": {
+            "id": 1001,
+            "blockList": [
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true
+                }
+            ]
+        },
+        "15001": {
+            "id": 15001,
+            "blockList": [
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true,
+                    "hideBlockTitle": false
+                }
+            ]
+        }
+    }
+}

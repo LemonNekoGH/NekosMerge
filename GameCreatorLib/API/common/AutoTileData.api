@@ -1,0 +1,26 @@
+/**
+ * 自动元件数据
+ * Created by 黑暗之神KDS on 2020-06-08 13:36:16.
+ */
+class AutoTileData {
+    /**
+     * 图片路径
+     */
+    url: string;
+    /**
+     * 数据层数据-由于自动元件仅视为一格
+     * [dataGridIndex] = 1/0
+     */
+    dataLayers: number[] = [];
+    /**
+     * 规格模式
+     * 0-GCAT1的规格
+     */
+    GCATMode: number;
+    /**
+     * 运行时使用，获取图块数据
+     */
+    static getAutoTileData(texID: number): AutoTileData {
+        return null;
+    }
+}

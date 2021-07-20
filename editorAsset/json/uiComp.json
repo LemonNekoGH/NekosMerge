@@ -1,0 +1,5458 @@
+[
+    {
+        "class": "UIRoot",
+        "icon": "editorAsset/img/UIIcon/c_box.png",
+        "name": "容器",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "enabledLimitView",
+                "name": "限制显示在区域内",
+                "tips": "子对象是否在限制区域内显示",
+                "compParam": {},
+                "compType": 15
+            },
+            {
+                "enable": true,
+                "attribute": "scrollShowType",
+                "name": "滚动条显示状态",
+                "tips": "滚动条显示状态",
+                "compType": 2,
+                "compParam": {
+                    "items": "不显示,显示,自动显示,仅显示竖滚动条,仅显示横滚动条"
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "hScrollBar",
+                "name": "横向滚动条滑块皮肤",
+                "tips": "横向滚动条滑块皮肤",
+                "compType": 13,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "hScrollBg",
+                "name": "横向滚动条背景皮肤",
+                "tips": "横向滚动条背景皮肤",
+                "compType": 13,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "vScrollBar",
+                "name": "垂直滚动条滑块皮肤",
+                "tips": "垂直滚动条滑块皮肤",
+                "compType": 13,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "vScrollBg",
+                "name": "垂直滚动条背景皮肤",
+                "tips": "垂直滚动条背景皮肤",
+                "compType": 13,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "scrollWidth",
+                "name": "滚动条宽度",
+                "tips": "滚动条宽度",
+                "compType": 0,
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true,
+                    "lockTextLimit": true,
+                    "limitInteger": true
+                }
+            },
+            {
+                "compParam": {
+                    "items": "仅移动端启用此效果,始终启用此效果,无"
+                },
+                "enable": true,
+                "attribute": "slowmotionType",
+                "name": "滑动内容区域滚屏",
+                "tips": "用鼠标或手滑动容器内区域可以滚动内部的内容区域（需要开启限制显示在区域内并实际内部内容尺寸已超出显示区域）",
+                "compType": 2
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "enabledWheel",
+                "name": "支持滚轮滚动",
+                "tips": "支持滚轮滚动(限制显示在区域内时，取消勾选即可关闭鼠标滚轮事件)",
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 100,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "hScrollValue",
+                "name": "水平方向滚动值",
+                "tips": "设置水平方向容器的滚动位置",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 100,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "vScrollValue",
+                "name": "垂直方向滚动值",
+                "tips": "设置垂直方向容器的滚动位置",
+                "compType": 0
+            },
+            {
+                "enable": false,
+                "attribute": "guiID",
+                "name": "控件ID",
+                "tips": "界面ID",
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            }
+        ],
+        "tips": "容器组件"
+    },
+    {
+        "id": 1,
+        "class": "UIButton",
+        "icon": "editorAsset/img/UIIcon/c_btn.png",
+        "name": "按钮",
+        "attributes": [
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "label",
+                "name": "文本内容",
+                "tips": "按钮文本内容",
+                "compType": 9
+            },
+            {
+                "enable": true,
+                "attribute": "image1",
+                "name": "正常状态图片",
+                "tips": "正常状态下图片",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "grid9img1",
+                "name": "正常状态图片九宫格",
+                "tips": "正常状态下图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "enable": true,
+                "attribute": "image2",
+                "name": "鼠标悬停图片",
+                "tips": "鼠标悬停时图片",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "grid9img2",
+                "name": "鼠标悬停图片九宫格",
+                "tips": "鼠标悬停时图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "image3",
+                "name": "鼠标点击图片",
+                "tips": "鼠标点击时图片",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "grid9img3",
+                "name": "鼠标点击图片九宫格",
+                "tips": "鼠标点击时图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "compParam": {
+                    "minLimit": 12,
+                    "maxLimit": 50,
+                    "tickValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "fontSize",
+                "name": "文本字体大小",
+                "tips": "按钮文本字体大小",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "color",
+                "name": "默认文本颜色",
+                "tips": "按钮文本字体颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "overColor",
+                "name": "鼠标悬停文本颜色",
+                "tips": "",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "clickColor",
+                "name": "鼠标点击文本颜色",
+                "tips": "",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "bold",
+                "name": "文本粗体",
+                "tips": "按钮文本是否是粗体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "italic",
+                "name": "文本斜体",
+                "tips": "按钮文本是否是斜体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "smooth",
+                "name": "文本平滑",
+                "tips": "勾选此项后文本边缘会进行简单的平滑处理",
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "items": "居左,居中,居右"
+                },
+                "enable": true,
+                "attribute": "align",
+                "name": "文本水平对齐",
+                "tips": "按钮文本水平对齐方式",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "items": "居上,居中,居下"
+                },
+                "enable": true,
+                "attribute": "valign",
+                "name": "文本垂直对齐",
+                "tips": "按钮文本垂直对齐方式",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "letterSpacing",
+                "name": "文本字间距",
+                "tips": "文本字体字间距",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "font",
+                "name": "文本字体",
+                "tips": "按钮文本字体格式",
+                "compType": 9
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "textDx",
+                "name": "文本水平偏移",
+                "tips": "按钮文本水平偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "textDy",
+                "name": "文本垂直偏移",
+                "tips": "按钮文本垂直偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "textStroke",
+                "name": "文本描边大小",
+                "tips": "按钮的文字描边效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "textStrokeColor",
+                "name": "文本描边颜色",
+                "tips": "按钮的文字描边颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Skin",
+                "name": "grid9img1Skin",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Skin",
+                "name": "grid9img2Skin",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img3Skin",
+                "name": "grid9img3Skin",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Width",
+                "name": "grid9img1Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Height",
+                "name": "grid9img1Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Width",
+                "name": "grid9img2Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Height",
+                "name": "grid9img2Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img3Width",
+                "name": "grid9img3Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img3Height",
+                "name": "grid9img3Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            }
+        ],
+        "tips": "按钮组件"
+    },
+    {
+        "id": 2,
+        "class": "UIBitmap",
+        "icon": "editorAsset/img/UIIcon/c_pic.png",
+        "name": "图片",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "image",
+                "name": "图片路径",
+                "tips": "图片皮肤路径，若使用变量则会根据变量的当前值显示对应的图片地址",
+                "compType": 14
+            },
+            {
+                "enable": true,
+                "attribute": "grid9",
+                "name": "九宫格",
+                "tips": "九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compParam": {},
+                "compType": 28
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "flip",
+                "name": "水平翻转",
+                "tips": "水平方向翻转",
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "items": "左上角,中心点"
+                },
+                "enable": true,
+                "attribute": "pivotType",
+                "name": "轴心点",
+                "tips": "轴心点(影响图片的旋转,缩放)",
+                "compType": 2
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9Width",
+                "name": "grid9Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9Height",
+                "name": "grid9Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9Skin",
+                "name": "grid9Skin",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            }
+        ],
+        "tips": "图片组件"
+    },
+    {
+        "class": "UIString",
+        "icon": "editorAsset/img/UIIcon/c_txt.png",
+        "name": "文本",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "text",
+                "name": "文本内容",
+                "tips": "文本内容，若使用变量则会根据变量的当前值显示文本",
+                "compType": 10,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "fontSize",
+                "name": "字体大小",
+                "tips": "文本字体大小",
+                "compType": 1,
+                "compParam": {
+                    "minLimit": "12",
+                    "maxLimit": "50",
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "color",
+                "name": "字体颜色",
+                "tips": "文本字体颜色",
+                "compType": 12,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "bold",
+                "name": "粗体",
+                "tips": "文本字体是否粗体",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "italic",
+                "name": "斜体",
+                "tips": "文本文字是否斜体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "smooth",
+                "name": "平滑",
+                "tips": "勾选此项后文本边缘会进行简单的平滑处理",
+                "compType": 15
+            },
+            {
+                "enable": true,
+                "attribute": "align",
+                "name": "水平对齐方式",
+                "tips": "文本字体水平对齐方式",
+                "compParam": {
+                    "items": "居左,居中,居右"
+                },
+                "compType": 2
+            },
+            {
+                "enable": true,
+                "attribute": "valign",
+                "name": "垂直对齐方式",
+                "tips": "文本字体垂直对齐方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "居上,居中,居下"
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "leading",
+                "name": "行间距",
+                "tips": "文本字体行间距",
+                "compType": 0,
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "letterSpacing",
+                "name": "字间距",
+                "tips": "文本字体字间距",
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "font",
+                "name": "字体",
+                "tips": "文本字体格式",
+                "compType": 9,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "wordWrap",
+                "name": "自动换行",
+                "tips": "文本是否自动换行",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "overflow",
+                "name": "文本超出时处理方式",
+                "tips": "文本超出时处理方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "显示,隐藏"
+                }
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowEnabled",
+                "name": "显示阴影",
+                "tips": "文本是否显示阴影",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowColor",
+                "name": "阴影颜色",
+                "tips": "文本阴影颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "shadowDx",
+                "name": "阴影水平偏移",
+                "tips": "文本阴影水平位置偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "shadowDy",
+                "name": "阴影垂直偏移",
+                "tips": "文本阴影垂直位置偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "stroke",
+                "name": "字体描边大小",
+                "tips": "字体描边的效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "strokeColor",
+                "name": "字体描边颜色",
+                "tips": "字体描边颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "varID",
+                "name": "varID",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textWidth",
+                "name": "textWidth",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textHeight",
+                "name": "textHeight",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onChangeFragEvent",
+                "name": "当文本变更时处理",
+                "tips": "当文本发生变更时候调用的片段事件",
+                "compType": 35
+            }
+        ],
+        "tips": "文本组件\\n「支持绑定字符串变量，以便实时显示」"
+    },
+    {
+        "class": "UIVariable",
+        "icon": "editorAsset/img/UIIcon/c_var.png",
+        "name": "数值变量",
+        "attributes": [
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "varID",
+                "name": "显示的数值",
+                "tips": "变量ID，显示该变量的当前值",
+                "compType": 6
+            },
+            {
+                "enable": true,
+                "attribute": "fontSize",
+                "name": "字体大小",
+                "tips": "字体大小",
+                "compType": 1,
+                "compParam": {
+                    "minLimit": "12",
+                    "maxLimit": "50",
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "color",
+                "name": "字体颜色",
+                "tips": "字体颜色",
+                "compType": 12,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "bold",
+                "name": "粗体",
+                "tips": "是否粗体",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "italic",
+                "name": "斜体",
+                "tips": "是否斜体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "smooth",
+                "name": "平滑",
+                "tips": "勾选此项后文本边缘会进行简单的平滑处理",
+                "compType": 15
+            },
+            {
+                "enable": true,
+                "attribute": "align",
+                "name": "水平对齐方式",
+                "tips": "水平对齐方式",
+                "compParam": {
+                    "items": "居左,居中,居右"
+                },
+                "compType": 2
+            },
+            {
+                "enable": true,
+                "attribute": "valign",
+                "name": "垂直对齐方式",
+                "tips": "竖直对齐方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "居上,居中,居下"
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "leading",
+                "name": "行间距",
+                "tips": "行间距",
+                "compType": 0,
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": 10,
+                    "tickValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "letterSpacing",
+                "name": "字间距",
+                "tips": "字间距",
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "font",
+                "name": "字体",
+                "tips": "字体",
+                "compType": 9,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "wordWrap",
+                "name": "自动换行",
+                "tips": "文本是否自动换行",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "overflow",
+                "name": "文本超出时处理方式",
+                "tips": "文本超出时处理方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "出现,隐藏"
+                }
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowEnabled",
+                "name": "显示阴影",
+                "tips": "文本是否显示阴影",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowColor",
+                "name": "阴影颜色",
+                "tips": "阴影颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowDx",
+                "name": "阴影水平偏移",
+                "tips": "阴影水平位置偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowDy",
+                "name": "阴影垂直偏移",
+                "tips": "阴影垂直位置偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "stroke",
+                "name": "文字描边大小",
+                "tips": "文字描边效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "strokeColor",
+                "name": "文字描边颜色",
+                "tips": "文字描边颜色",
+                "compType": 12
+            },
+            {
+                "enable": false,
+                "attribute": "text",
+                "name": "文本内容",
+                "tips": "文本内容",
+                "compType": 6,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textWidth",
+                "name": "textWidth",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textHeight",
+                "name": "textHeight",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onChangeFragEvent",
+                "name": "当数值变更时处理",
+                "tips": "当数值发生变更时候调用的片段事件",
+                "compType": 35
+            }
+        ],
+        "tips": "数值变量组件\\n「绑定游戏内的数值变量，以便实时显示」"
+    },
+    {
+        "class": "UICustomGameNumber",
+        "icon": "editorAsset/img/UIIcon/c_gameValue.png",
+        "name": "游戏数值",
+        "attributes": [
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "customData",
+                "name": "游戏数值",
+                "tips": "编辑器预设的自定义游戏数值\\n不同的模板有不同的游戏数值设定",
+                "compType": 36
+            },
+            {
+                "compParam": {
+                    "items": "游戏数值标题,游戏数值描述,一位数预览,二位数预览,三位数预览,四位数预览,五位数预览 ",
+                    "showIndex": false
+                },
+                "enable": true,
+                "attribute": "previewNum",
+                "name": "编辑器预览",
+                "tips": "编辑器预览效果",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "items": "整数,保留一位小数,保留二位小数,保留三位小数,保留四位小数,保留五位小数,保留六位小数",
+                    "showIndex": false
+                },
+                "enable": true,
+                "attribute": "previewFixed",
+                "name": "小数点设置",
+                "tips": "小数点设置",
+                "compType": 2
+            },
+            {
+                "enable": true,
+                "attribute": "fontSize",
+                "name": "字体大小",
+                "tips": "字体大小",
+                "compType": 1,
+                "compParam": {
+                    "minLimit": "12",
+                    "maxLimit": "50",
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "color",
+                "name": "字体颜色",
+                "tips": "字体颜色",
+                "compType": 12,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "bold",
+                "name": "粗体",
+                "tips": "是否粗体",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "italic",
+                "name": "斜体",
+                "tips": "是否斜体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "smooth",
+                "name": "平滑",
+                "tips": "勾选此项后文本边缘会进行简单的平滑处理",
+                "compType": 15
+            },
+            {
+                "enable": true,
+                "attribute": "align",
+                "name": "水平对齐方式",
+                "tips": "水平对齐方式",
+                "compParam": {
+                    "items": "居左,居中,居右"
+                },
+                "compType": 2
+            },
+            {
+                "enable": true,
+                "attribute": "valign",
+                "name": "垂直对齐方式",
+                "tips": "竖直对齐方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "居上,居中,居下"
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "leading",
+                "name": "行间距",
+                "tips": "文本字体行间距",
+                "compType": 0,
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": "10",
+                    "tickValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "letterSpacing",
+                "name": "字间距",
+                "tips": "文本字体字间距",
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "font",
+                "name": "字体",
+                "tips": "字体",
+                "compType": 9,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "wordWrap",
+                "name": "自动换行",
+                "tips": "文本是否自动换行",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "overflow",
+                "name": "文本超出时处理方式",
+                "tips": "文本超出时处理方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "出现,隐藏"
+                }
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowEnabled",
+                "name": "显示阴影",
+                "tips": "文本是否显示阴影",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowColor",
+                "name": "阴影颜色",
+                "tips": "阴影颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowDx",
+                "name": "阴影水平偏移",
+                "tips": "阴影水平位置偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowDy",
+                "name": "阴影垂直偏移",
+                "tips": "阴影垂直位置",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "stroke",
+                "name": "文字描边大小",
+                "tips": "文字描边效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "strokeColor",
+                "name": "文字描边颜色",
+                "tips": "文字描边颜色",
+                "compType": 12
+            },
+            {
+                "enable": false,
+                "attribute": "text",
+                "name": "文本内容",
+                "tips": "文本内容",
+                "compType": 6,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textWidth",
+                "name": "textWidth",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textHeight",
+                "name": "textHeight",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "varID",
+                "name": "varID",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "onChangeFragEvent",
+                "name": "onChangeFragEvent",
+                "tips": ""
+            }
+        ],
+        "tips": "游戏数值组件\\n 「模板预设的自定义游戏数值\\n不同的模板有不同的游戏数值设定」"
+    },
+    {
+        "class": "UICustomGameString",
+        "icon": "editorAsset/img/UIIcon/c_gameString.png",
+        "name": "游戏字符串",
+        "tips": "游戏字符串组件\\n 「模板预设的自定义游戏字符串\\n不同的模板可能有不同的游戏字符串设定」",
+        "attributes": [
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "customData",
+                "name": "游戏字符串",
+                "tips": "编辑器预设的自定义游戏数值\\n不同的模板有不同的游戏数值设定",
+                "compType": 51
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "inEditorText",
+                "name": "模拟文本",
+                "tips": "编辑器显示的模拟文本，实际游戏运行以游戏字符串数据为准",
+                "compType": 9
+            },
+            {
+                "enable": true,
+                "attribute": "fontSize",
+                "name": "字体大小",
+                "tips": "字体大小",
+                "compType": 1,
+                "compParam": {
+                    "minLimit": "12",
+                    "maxLimit": "50",
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "color",
+                "name": "字体颜色",
+                "tips": "字体颜色",
+                "compType": 12,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "bold",
+                "name": "粗体",
+                "tips": "是否粗体",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "italic",
+                "name": "斜体",
+                "tips": "是否斜体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "smooth",
+                "name": "平滑",
+                "tips": "勾选此项后文本边缘会进行简单的平滑处理",
+                "compType": 15
+            },
+            {
+                "enable": true,
+                "attribute": "align",
+                "name": "水平对齐方式",
+                "tips": "水平对齐方式",
+                "compParam": {
+                    "items": "居左,居中,居右"
+                },
+                "compType": 2
+            },
+            {
+                "enable": true,
+                "attribute": "valign",
+                "name": "垂直对齐方式",
+                "tips": "竖直对齐方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "居上,居中,居下"
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "leading",
+                "name": "行间距",
+                "tips": "文本字体行间距",
+                "compType": 0,
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": "10",
+                    "tickValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "letterSpacing",
+                "name": "字间距",
+                "tips": "文本字体字间距",
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "font",
+                "name": "字体",
+                "tips": "字体",
+                "compType": 9,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "wordWrap",
+                "name": "自动换行",
+                "tips": "文本是否自动换行",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "overflow",
+                "name": "文本超出时处理方式",
+                "tips": "文本超出时处理方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "出现,隐藏"
+                }
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowEnabled",
+                "name": "显示阴影",
+                "tips": "文本是否显示阴影",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowColor",
+                "name": "阴影颜色",
+                "tips": "阴影颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowDx",
+                "name": "阴影水平偏移",
+                "tips": "阴影水平位置偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowDy",
+                "name": "阴影垂直偏移",
+                "tips": "阴影垂直位置",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "stroke",
+                "name": "文字描边大小",
+                "tips": "文字描边效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "strokeColor",
+                "name": "文字描边颜色",
+                "tips": "文字描边颜色",
+                "compType": 12
+            },
+            {
+                "enable": false,
+                "attribute": "text",
+                "name": "文本内容",
+                "tips": "文本内容",
+                "compType": 6,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textWidth",
+                "name": "textWidth",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textHeight",
+                "name": "textHeight",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "varID",
+                "name": "varID",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "onChangeFragEvent",
+                "name": "onChangeFragEvent",
+                "tips": ""
+            }
+        ]
+    },
+    {
+        "class": "UIAvatar",
+        "icon": "editorAsset/img/UIIcon/c_ava.png",
+        "name": "行走图",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "avatarID",
+                "name": "行走图",
+                "tips": "行走图",
+                "compParam": {},
+                "compType": 3
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": 5,
+                    "tickValue": 0.01,
+                    "limitInteger": false,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "scaleNumberX",
+                "name": "水平方向缩放",
+                "tips": "横向缩放",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": 5,
+                    "tickValue": 0.01,
+                    "limitInteger": false,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "scaleNumberY",
+                "name": "垂直方向缩放",
+                "tips": "纵向缩放",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": "7",
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": true
+                },
+                "enable": true,
+                "attribute": "orientationIndex",
+                "name": "面向",
+                "tips": "4方向索引参考（0-下,1-左,2-右,3-上）\\n8方向索引参考（0-左,1-左上,2-上,3-右上,4-右,5-右下,6-下,7-左下）",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "minLimit": 1,
+                    "maxLimit": 120,
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": true
+                },
+                "enable": true,
+                "attribute": "avatarFPS",
+                "name": "播放帧率",
+                "tips": "每秒播放的帧数",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "playOnce",
+                "name": "播放一次",
+                "tips": "播放一次",
+                "compType": 15
+            },
+            {
+                "enable": true,
+                "attribute": "isPlay",
+                "name": "自动播放",
+                "tips": "自动播放",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "avatarFrame",
+                "name": "起始帧",
+                "tips": "表示最初从哪一帧开始显示",
+                "compType": 0,
+                "compParam": {
+                    "lowerLimit": 1,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "actionID",
+                "name": "动作ID",
+                "tips": "动作ID",
+                "compType": 21,
+                "compParam": {}
+            },
+            {
+                "compParam": {
+                    "minLimit": "-255",
+                    "maxLimit": "255",
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": true
+                },
+                "enable": true,
+                "attribute": "avatarHue",
+                "name": "色相",
+                "tips": "色相",
+                "compType": 1
+            },
+            {
+                "enable": false,
+                "attribute": "orientation",
+                "name": "orientation",
+                "tips": "",
+                "compType": 0,
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "avatar",
+                "name": "avatar",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "syncLoadedEventWhenAssetExist",
+                "name": "syncLoadedEventWhenAssetExist",
+                "tips": ""
+            }
+        ],
+        "tips": "行走图组件"
+    },
+    {
+        "class": "UIStandAvatar",
+        "icon": "editorAsset/img/UIIcon/c_savatar.png",
+        "name": "立绘",
+        "tips": "立绘组件",
+        "attributes": [
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "avatarID",
+                "name": "立绘",
+                "tips": "立绘",
+                "compType": 29
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "actionID",
+                "name": "表情",
+                "tips": "表情",
+                "compType": 30
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": 5,
+                    "tickValue": 0.01,
+                    "limitInteger": false,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "scaleNumberX",
+                "name": "水平方向缩放",
+                "tips": "横向缩放",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": 5,
+                    "tickValue": 0.01,
+                    "limitInteger": false,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "scaleNumberY",
+                "name": "垂直方向缩放",
+                "tips": "纵向缩放",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "flip",
+                "name": "水平翻转",
+                "tips": "水平方向翻转",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "playOnce",
+                "name": "播放一次",
+                "tips": "播放一次",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "isPlay",
+                "name": "自动播放",
+                "tips": "自动播放",
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 1,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "avatarFrame",
+                "name": "起始帧",
+                "tips": "表示最初从哪一帧开始显示",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "minLimit": 1,
+                    "maxLimit": 120,
+                    "tickValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": true
+                },
+                "enable": true,
+                "attribute": "avatarFPS",
+                "name": "帧率",
+                "tips": "每秒播放的帧数",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "minLimit": -255,
+                    "maxLimit": 255,
+                    "tickValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": true
+                },
+                "enable": true,
+                "attribute": "avatarHue",
+                "name": "色相",
+                "tips": "色相",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "avatar",
+                "name": "avatar",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "orientationIndex",
+                "name": "orientationIndex",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "orientation",
+                "name": "orientation",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            }
+        ]
+    },
+    {
+        "class": "UIAnimation",
+        "icon": "editorAsset/img/UIIcon/c_ani.png",
+        "name": "动画",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "animationID",
+                "name": "动画",
+                "tips": "动画",
+                "compType": 4,
+                "compParam": {}
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": 5,
+                    "tickValue": 0.01,
+                    "limitInteger": false,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "scaleNumberX",
+                "name": "水平方向缩放",
+                "tips": "横向缩放",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": 5,
+                    "tickValue": 0.01,
+                    "limitInteger": false,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "scaleNumberY",
+                "name": "垂直方向缩放",
+                "tips": "纵向缩放",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 1,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "aniFrame",
+                "name": "起始帧",
+                "tips": "表示最初从哪一帧开始显示",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "minLimit": 1,
+                    "maxLimit": 120,
+                    "tickValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "playFps",
+                "name": "帧率",
+                "tips": "每秒播放的帧数",
+                "compType": 1
+            },
+            {
+                "enable": true,
+                "attribute": "playType",
+                "name": "播放模式",
+                "tips": "播放模式",
+                "compType": 2,
+                "compParam": {
+                    "items": "不播放,播放一次,循环播放"
+                }
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "showHitEffect",
+                "name": "命中模式",
+                "tips": "命中模式",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "silentMode",
+                "name": "静音模式",
+                "tips": "静音模式",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "animation",
+                "name": "animation",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            }
+        ],
+        "tips": "动画组件"
+    },
+    {
+        "class": "UIInput",
+        "icon": "editorAsset/img/UIIcon/c_txtInput.png",
+        "name": "可输入文本",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "text",
+                "name": "默认文本内容",
+                "tips": "默认文本内容",
+                "compParam": {},
+                "compType": 9
+            },
+            {
+                "enable": true,
+                "attribute": "fontSize",
+                "name": "字体大小",
+                "tips": "字体大小",
+                "compType": 1,
+                "compParam": {
+                    "minLimit": 12,
+                    "maxLimit": 50,
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "color",
+                "name": "字体颜色",
+                "tips": "字体颜色",
+                "compType": 12,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "bold",
+                "name": "粗体",
+                "tips": "文本字体是否粗体",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "italic",
+                "name": "斜体",
+                "tips": "文本字体是否斜体",
+                "compType": 15
+            },
+            {
+                "enable": true,
+                "attribute": "align",
+                "name": "水平对齐方式",
+                "tips": "水平对齐方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "居左对齐,居中对齐,居右对齐"
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "leading",
+                "name": "行间距",
+                "tips": "文本字体行间距",
+                "compType": 0,
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": false,
+                "attribute": "letterSpacing",
+                "name": "字间距",
+                "tips": "文本字体字间距",
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "font",
+                "name": "字体",
+                "tips": "文本字体",
+                "compType": 9,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "wordWrap",
+                "name": "自动换行",
+                "tips": "文本是否自动换行",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "restrict",
+                "name": "限制输入的字符",
+                "tips": "限制输入的字符，如A-Za-z0-9",
+                "compParam": {},
+                "compType": 9
+            },
+            {
+                "enable": true,
+                "attribute": "inputMode",
+                "name": "输入类型",
+                "tips": "输入类型",
+                "compParam": {
+                    "items": "文本模式,密码模式,数字模式,多行文本"
+                },
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 99999,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "maxChars",
+                "name": "最大可输入字数",
+                "tips": "字数上限",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowEnabled",
+                "name": "显示阴影",
+                "tips": "文本是否显示阴影",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "shadowColor",
+                "name": "阴影颜色",
+                "tips": "阴影颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "shadowDx",
+                "name": "阴影水平偏移",
+                "tips": "阴影水平位置偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "shadowDy",
+                "name": "阴影垂直偏移",
+                "tips": "阴影垂直偏移",
+                "compType": 0
+            },
+            {
+                "enable": false,
+                "attribute": "valign",
+                "name": "竖直对齐方式",
+                "tips": "竖直对齐方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "居上,居中,居下"
+                }
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": false,
+                "attribute": "stroke",
+                "name": "文字描边大小",
+                "tips": "文字描边效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "strokeColor",
+                "name": "文字描边颜色",
+                "tips": "文字描边颜色",
+                "compType": 12
+            },
+            {
+                "enable": false,
+                "attribute": "overflow",
+                "name": "超出文本时操作",
+                "tips": "超出文本时操作",
+                "compType": 0,
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": false,
+                "attribute": "varID",
+                "name": "varID",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "focus",
+                "name": "focus",
+                "tips": ""
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": false,
+                "attribute": "textWidth",
+                "name": "textWidth",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textHeight",
+                "name": "textHeight",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onInputFragEvent",
+                "name": "当文字输入时处理",
+                "tips": "当文本输入时执行的片段事件",
+                "compType": 35
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onEnterFragEvent",
+                "name": "当确认时处理",
+                "tips": "当Enter键按下时执行的片段事件",
+                "compType": 35
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "smooth",
+                "name": "smooth",
+                "tips": "",
+                "compType": 16
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "onChangeFragEvent",
+                "name": "onChangeFragEvent",
+                "tips": ""
+            }
+        ],
+        "tips": "可输入文本组件"
+    },
+    {
+        "class": "UICheckBox",
+        "icon": "editorAsset/img/UIIcon/c_check.png",
+        "name": "复选框",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "selected",
+                "name": "选中",
+                "tips": "是否选中",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "image1",
+                "name": "未选中时图像",
+                "tips": "未选中时图像",
+                "compParam": {},
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "grid9img1",
+                "name": "未选中图片九宫格",
+                "tips": "未选中图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "enable": true,
+                "attribute": "image2",
+                "name": "选中时图像",
+                "tips": "选中时图像",
+                "compParam": {},
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "grid9img2",
+                "name": "选中图片九宫格",
+                "tips": "选中图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Width",
+                "name": "grid9img1Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Height",
+                "name": "grid9img1Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Skin",
+                "name": "grid9img1Skin",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Width",
+                "name": "grid9img2Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Height",
+                "name": "grid9img2Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Skin",
+                "name": "grid9img2Skin",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onChangeFragEvent",
+                "name": "当选中变更时处理",
+                "tips": "当选中状态发生变更时候调用的片段事件",
+                "compType": 35
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            }
+        ],
+        "tips": "复选框组件"
+    },
+    {
+        "class": "UISwitch",
+        "icon": "editorAsset/img/UIIcon/c_switch.png",
+        "name": "开关",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "selected",
+                "name": "绑定的开关",
+                "tips": "绑定的开关",
+                "compType": 7,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "image1",
+                "name": "开关关闭时图片",
+                "tips": "开关关闭时图片",
+                "compParam": {},
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "grid9img1",
+                "name": "开关关闭时图片九宫格",
+                "tips": "开关关闭时图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "enable": true,
+                "attribute": "image2",
+                "name": "开关开启时图片",
+                "tips": "开关开启时图片",
+                "compParam": {},
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "grid9img2",
+                "name": "开关开启时图片九宫格",
+                "tips": "开关开启时图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "previewselected",
+                "name": "预览选中时效果",
+                "tips": "仅编辑器中预览选中时的效果",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "switchID",
+                "name": "switchID",
+                "tips": "",
+                "compType": 7
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Width",
+                "name": "grid9img1Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Height",
+                "name": "grid9img1Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Skin",
+                "name": "grid9img1Skin",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Width",
+                "name": "grid9img2Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Height",
+                "name": "grid9img2Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Skin",
+                "name": "grid9img2Skin",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onChangeFragEvent",
+                "name": "当选中变更时处理",
+                "tips": "当选中状态发生变更时候调用的片段事件",
+                "compType": 35
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            }
+        ],
+        "tips": "开关组件\\n 「绑定开关变量 ，以便实时显示状态」"
+    },
+    {
+        "class": "UITabBox",
+        "icon": "editorAsset/img/UIIcon/c_tab.png",
+        "name": "UITabBox",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "selectedIndex",
+                "name": "选中项索引",
+                "tips": "选中项索引",
+                "compType": 0,
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "itemImage1",
+                "name": "标签未选中时图片",
+                "tips": "标签未选中时显示的图片",
+                "compParam": {},
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "grid9img1",
+                "name": "标签未选中时九宫格",
+                "tips": "标签未选中时图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "enable": true,
+                "attribute": "itemImage2",
+                "name": "标签选中时图片",
+                "tips": "标签选中时显示的图片",
+                "compParam": {},
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "grid9img2",
+                "name": "标签未选中时九宫格",
+                "tips": "标签选中时图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "enable": true,
+                "attribute": "itemWidth",
+                "name": "标签的宽度",
+                "tips": "标签的宽度",
+                "compParam": {},
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "itemHeight",
+                "name": "标签的高度",
+                "tips": "标签的高度",
+                "compParam": {},
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "items",
+                "name": "标签项",
+                "tips": "标签项，逗号隔开\\n将组件放在该组件的子层级下会自动生效\\n比如有三个标签，则应在其下面放三层子元件以便切换显示",
+                "compParam": {},
+                "compType": 9
+            },
+            {
+                "enable": true,
+                "attribute": "rowMode",
+                "name": "是否纵向排列",
+                "tips": "是否纵向排列",
+                "compType": 15,
+                "compParam": {}
+            },
+            {
+                "enable": true,
+                "attribute": "spacing",
+                "name": "标签间距",
+                "tips": "标签间距",
+                "compType": 0,
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "labelSize",
+                "name": "文本字体大小",
+                "tips": "文本字体大小",
+                "compType": 1,
+                "compParam": {
+                    "minLimit": "1",
+                    "maxLimit": "100",
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                }
+            },
+            {
+                "enable": true,
+                "attribute": "labelColor",
+                "name": "未选中时文本颜色",
+                "tips": "未选中时文本颜色",
+                "compType": 12,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "labelFont",
+                "name": "文本字体",
+                "tips": "文本字体",
+                "compType": 9
+            },
+            {
+                "enable": true,
+                "attribute": "labelBold",
+                "name": "文本粗体",
+                "tips": "文本是否粗体",
+                "compParam": {},
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "labelItalic",
+                "name": "文本斜体",
+                "tips": "文本是否斜体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "smooth",
+                "name": "文本平滑",
+                "tips": "勾选此项后文本边缘会进行简单的平滑处理",
+                "compType": 15
+            },
+            {
+                "enable": true,
+                "attribute": "labelAlign",
+                "name": "文本水平对齐方式",
+                "tips": "文本水平对齐方式",
+                "compType": 2,
+                "compParam": {
+                    "items": "居左,居中,居右"
+                }
+            },
+            {
+                "compParam": {
+                    "items": "居上,居中,居下",
+                    "showIndex": true
+                },
+                "enable": true,
+                "attribute": "labelValign",
+                "name": "文本垂直对齐方式",
+                "tips": "文本垂直对齐方式",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "labelLetterSpacing",
+                "name": "文本字间距",
+                "tips": "文本字间距",
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "labelSelectedColor",
+                "name": "选中时文本颜色",
+                "tips": "选中时文本颜色",
+                "compType": 12,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "labelDx",
+                "name": "标签文本水平偏移",
+                "tips": "标签文本水平方向的偏移值",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "labelDy",
+                "name": "标签文本垂直偏移",
+                "tips": "标签文本垂直方向的偏移值",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "labelStroke",
+                "name": "文本描边大小",
+                "tips": "文本描边效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "labelStrokeColor",
+                "name": "文本描边颜色",
+                "tips": "文本描边颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Skin",
+                "name": "grid9img1Skin",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Skin",
+                "name": "grid9img2Skin",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Width",
+                "name": "grid9img1Width",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img1Height",
+                "name": "grid9img1Height",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Width",
+                "name": "grid9img2Width",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9img2Height",
+                "name": "grid9img2Height",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "length",
+                "name": "length",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onChangeFragEvent",
+                "name": "当选中项变更时处理",
+                "tips": "当选中项发生变更时候调用的片段事件",
+                "compType": 35
+            }
+        ],
+        "tips": "标签选项卡组件\\n「将组件放在该组件的子层级下会自动生效\\n比如有三个标签，则应在其下面放三层子元件以便切换显示」"
+    },
+    {
+        "class": "UISlider",
+        "icon": "editorAsset/img/UIIcon/c_slider.png",
+        "name": "滑块控件",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "image1",
+                "name": "背景图片",
+                "tips": "滑块背景图片",
+                "compType": 13,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "bgGrid9",
+                "name": "背景图片九宫格",
+                "tips": "背景图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "enable": true,
+                "attribute": "image2",
+                "name": "滑块图片",
+                "tips": "滑块图片",
+                "compType": 13,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "blockGrid9",
+                "name": "滑块图片九宫格",
+                "tips": "滑块图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "image3",
+                "name": "填充图片",
+                "tips": "填充图片",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "blockFillGrid9",
+                "name": "填充图九宫格",
+                "tips": "填充图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "enable": true,
+                "attribute": "step",
+                "name": "步进值",
+                "tips": "步进值",
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "min",
+                "name": "最小值",
+                "tips": "最小值",
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "max",
+                "name": "最大值",
+                "tips": "最大值",
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "value",
+                "name": "值",
+                "tips": "值",
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "compType": 0
+            },
+            {
+                "enable": true,
+                "attribute": "transverseMode",
+                "name": "横向模式",
+                "tips": "是否是横向模式",
+                "compParam": {},
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "items": "块模式,填充模式,块与填充同时显示"
+                },
+                "enable": true,
+                "attribute": "blockFillMode",
+                "name": "显示模式",
+                "tips": "进度条显示的模式",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "items": "滑块内边界对齐,滑块中心点对齐,滑块外边界对齐",
+                    "showIndex": false
+                },
+                "enable": true,
+                "attribute": "blockPosMode",
+                "name": "初始滑块位置",
+                "tips": "默认滑块内边界对齐",
+                "compType": 2
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "fillStrething",
+                "name": "填充图片使用遮罩",
+                "tips": "使用遮罩模式，不拉伸控件同等宽高的填充图片",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "blockGrid9Width",
+                "name": "blockGrid9Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "blockGrid9Height",
+                "name": "blockGrid9Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "blockGrid9Skin",
+                "name": "blockGrid9Skin",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "bgGrid9Width",
+                "name": "bgGrid9Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "bgGrid9Height",
+                "name": "bgGrid9Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "bgGrid9Skin",
+                "name": "bgGrid9Skin",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "blockFillGrid9Skin",
+                "name": "blockFillGrid9Skin",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "blockFillGrid9Width",
+                "name": "blockFillGrid9Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "blockFillGrid9Height",
+                "name": "blockFillGrid9Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onChangeFragEvent",
+                "name": "当值变更时处理",
+                "tips": "当值发生变更时候调用的片段事件",
+                "compType": 35
+            }
+        ],
+        "tips": "滑块组件"
+    },
+    {
+        "class": "UIGUI",
+        "icon": "editorAsset/img/UIIcon/c_ui.png",
+        "name": "UI界面",
+        "attributes": [
+            {
+                "enable": true,
+                "attribute": "guiID",
+                "name": "指定界面",
+                "tips": "界面",
+                "compType": 5,
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "instanceClassName",
+                "name": "绑定类",
+                "tips": "绑定类，系统会优先采用该处填写的绑定类，如果不存在再检测对应界面中预设的绑定类来使用",
+                "compType": 9
+            },
+            {
+                "enable": false,
+                "attribute": "root",
+                "name": "root",
+                "tips": "根容器",
+                "compParam": {}
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 10,
+                    "stepValue": 0.01,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            }
+        ],
+        "tips": "子界面组件\\n「用于嵌套指定的界面」"
+    },
+    {
+        "class": "UIList",
+        "icon": "editorAsset/img/UIIcon/c_list.png",
+        "name": "列表",
+        "tips": "列表组件",
+        "attributes": [
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemModelGUI",
+                "name": "项模型",
+                "tips": "项模型",
+                "compType": 5
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "previewSize",
+                "name": "编辑器预览项个数",
+                "tips": "仅用于编辑器预览显示效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "selectEnable",
+                "name": "允许选中",
+                "tips": "控件是否允许选中",
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "minLimit": "1",
+                    "maxLimit": 1000,
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "repeatX",
+                "name": "横向最大单元格数量",
+                "tips": "横向最大单元格数量",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemWidth",
+                "name": "单元格宽度",
+                "tips": "单元格宽度",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemHeight",
+                "name": "单元格高度",
+                "tips": "单元格高度",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "minLimit": "0",
+                    "maxLimit": "100",
+                    "tickValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "spaceX",
+                "name": "单元格横向间隔",
+                "tips": "单元格横向间隔",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": "100",
+                    "tickValue": 1,
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "spaceY",
+                "name": "单元格竖直间隔",
+                "tips": "单元格竖直间隔",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "items": "不显示,显示,自动显示,仅显示竖滚动条,仅显示横滚动条"
+                },
+                "enable": true,
+                "attribute": "scrollShowType",
+                "name": "滚动类型",
+                "tips": "滚动类型",
+                "compType": 2
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "hScrollBar",
+                "name": "横向滚动条滑块皮肤",
+                "tips": "横向滚动条滑块皮肤",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "hScrollBg",
+                "name": "横向滚动条背景皮肤",
+                "tips": "横向滚动条背景皮肤",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "vScrollBar",
+                "name": "垂直滚动条滑块皮肤",
+                "tips": "垂直滚动条滑块皮肤",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "vScrollBg",
+                "name": "垂直滚动条背景皮肤",
+                "tips": "垂直滚动条背景皮肤",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "scrollWidth",
+                "name": "滚动条宽度",
+                "tips": "滚动条宽度",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "selectImageURL",
+                "name": "选中效果图片",
+                "tips": "选中效果图片",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "selectImageGrid9",
+                "name": "选中效果图片九宫格",
+                "tips": "选中效果图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": "1",
+                    "tickValue": "0.01",
+                    "limitInteger": false,
+                    "lockTextLimit": true
+                },
+                "enable": true,
+                "attribute": "selectedImageAlpha",
+                "name": "选中效果图片透明度",
+                "tips": "选中效果图片透明度",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "selectedImageOnTop",
+                "name": "选中效果图片是否位于最上层",
+                "tips": "选中效果图片是否位于最上层",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "overImageURL",
+                "name": "光标悬停图片",
+                "tips": "光标效果图片",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "overImageGrid9",
+                "name": "光标悬停图片九宫格",
+                "tips": "光标效果图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": "1",
+                    "tickValue": "0.01",
+                    "limitInteger": false,
+                    "lockTextLimit": true
+                },
+                "enable": true,
+                "attribute": "overImageAlpha",
+                "name": "光标悬停图片透明度",
+                "tips": "光标效果图片透明度",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "overImageOnTop",
+                "name": "光标悬停图片是否位于最上层",
+                "tips": "光标效果图片是否位于最上层",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "overSelectMode",
+                "name": "光标悬停即选中模式",
+                "tips": "光标悬停则作为选中效果（取消勾选则仅显示悬停效果）",
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "items": "仅移动端启用此效果,始终启用此效果,无"
+                },
+                "enable": true,
+                "attribute": "slowmotionType",
+                "name": "滑动内容区域滚屏",
+                "tips": "用鼠标或手滑动容器内区域可以滚动内部的内容区域（需要开启限制显示在区域内并实际内部内容尺寸已超出显示区域）",
+                "compType": 2
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "itemModelClass",
+                "name": "itemModelClass",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "guiID",
+                "name": "guiID",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "items",
+                "name": "items",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "length",
+                "name": "length",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "enabledLimitView",
+                "name": "enabledLimitView",
+                "tips": "",
+                "compType": 16
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "selectedIndex",
+                "name": "selectedIndex",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "selectedItem",
+                "name": "selectedItem",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "overImage",
+                "name": "overImage",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "selectImage",
+                "name": "selectImage",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "subitemIndentation",
+                "name": "subitemIndentation",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "itemSprites",
+                "name": "itemSprites",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "overImageGrid9Width",
+                "name": "overImageGrid9Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "overImageGrid9Height",
+                "name": "overImageGrid9Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "selectImageGrid9Width",
+                "name": "selectImageGrid9Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "selectImageGrid9Height",
+                "name": "selectImageGrid9Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "overImageGrid9Skin",
+                "name": "overImageGrid9Skin",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "selectImageGrid9Skin",
+                "name": "selectImageGrid9Skin",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "selectedImage",
+                "name": "selectedImage",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "overIndex",
+                "name": "overIndex",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "cancelSelectedIndex",
+                "name": "cancelSelectedIndex",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "enabledWheel",
+                "name": "enabledWheel",
+                "tips": "",
+                "compType": 16
+            }
+        ]
+    },
+    {
+        "class": "UIComboBox",
+        "icon": "editorAsset/img/UIIcon/c_comboBox.png",
+        "name": "下拉框",
+        "tips": "下拉框组件",
+        "attributes": [
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemLabels",
+                "name": "选项",
+                "tips": "下拉框选项，逗号隔开",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "selectedIndex",
+                "name": "默认选中的索引",
+                "tips": "默认选中索引，对应预设的选项，0表示第一个选中项",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "bgSkin",
+                "name": "背景图片",
+                "tips": "下拉框背景图片",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "bgGrid9",
+                "name": "背景图片九宫格",
+                "tips": "下拉框背景图片九宫格 (格式：上边距，右边距，下边距，左边距，是否平铺)",
+                "compType": 28
+            },
+            {
+                "compParam": {
+                    "minLimit": "12",
+                    "maxLimit": "50",
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "fontSize",
+                "name": "文本文字大小",
+                "tips": "文本文字大小",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "color",
+                "name": "文本文字颜色",
+                "tips": "文本文字颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "bold",
+                "name": "文本粗体",
+                "tips": "文本是否是粗体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "italic",
+                "name": "文本斜体",
+                "tips": "文本是否是斜体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "smooth",
+                "name": "文本平滑",
+                "tips": "勾选此项后文本边缘会进行简单的平滑处理",
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "items": "居左,居中,居右"
+                },
+                "enable": true,
+                "attribute": "align",
+                "name": "文本水平对齐",
+                "tips": "文本水平对齐方式",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "items": "居上,居中,居下"
+                },
+                "enable": true,
+                "attribute": "valign",
+                "name": "文本垂直对齐",
+                "tips": "文本垂直对齐方式",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "letterSpacing",
+                "name": "文本字间距",
+                "tips": "文本字体字间距",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "font",
+                "name": "文本文字样式",
+                "tips": "文本文字样式",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "textDx",
+                "name": "文本水平方向偏移",
+                "tips": "文本水平方向偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "textStroke",
+                "name": "文本描边大小",
+                "tips": "文本描边效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "textStrokeColor",
+                "name": "文本描边颜色",
+                "tips": "文本描边颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "displayItemSize",
+                "name": "显示的单元格数量",
+                "tips": "显示的单元格数量",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "listScrollBg",
+                "name": "下拉框滚动条背景图",
+                "tips": "下拉框滚动条背景图片",
+                "compType": 13
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "listScrollBar",
+                "name": "下拉框滚动条滑块",
+                "tips": "下拉框滚动条滑块",
+                "compType": 13
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": 1,
+                    "tickValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true
+                },
+                "enable": true,
+                "attribute": "listAlpha",
+                "name": "下拉框列表透明度",
+                "tips": "拉框列表透明度",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemHeight",
+                "name": "单元格高度",
+                "tips": "下拉框单元格高度",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "listBgColor",
+                "name": "滚动条背景颜色",
+                "tips": "下拉框滚动条背景颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {
+                    "minLimit": "12",
+                    "maxLimit": "50",
+                    "tickValue": "1",
+                    "limitInteger": true,
+                    "lockTextLimit": false
+                },
+                "enable": true,
+                "attribute": "itemFontSize",
+                "name": "单元格文本字体大小",
+                "tips": "单元格文本字体大小",
+                "compType": 1
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemColor",
+                "name": "单元格文本颜色",
+                "tips": "单元格文本颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemBold",
+                "name": "单元格粗体",
+                "tips": "下拉框单元格文本是否是粗体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemItalic",
+                "name": "单元格斜体",
+                "tips": "下拉框单元格文本是否是斜体",
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "items": "居左,居中,居右"
+                },
+                "enable": true,
+                "attribute": "itemAlign",
+                "name": "单元格水平对齐方式",
+                "tips": "下拉框单元格水平对齐方式",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "items": "居上,居中,居下"
+                },
+                "enable": true,
+                "attribute": "itemValign",
+                "name": "单元格垂直对齐方式",
+                "tips": "下拉框单元格水平对齐方式",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "lowerLimit": -1000,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "itemLetterSpacing",
+                "name": "单元格字间距",
+                "tips": "下拉单元格字间距",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemFont",
+                "name": "单元格文本字体样式",
+                "tips": "单元格文本字体样式",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemOverColor",
+                "name": "单元格悬停文本颜色",
+                "tips": "单元格悬停文本颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemOverBgColor",
+                "name": "单元格悬停背景色",
+                "tips": "鼠标放在单元格文本上的背景颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemTextDx",
+                "name": "单元格文本水平偏移",
+                "tips": "单元格文本水平方向偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemTextDy",
+                "name": "单元格文本垂直偏移",
+                "tips": "单元格文本垂直方向偏移",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 0.1,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "itemTextStroke",
+                "name": "单元格文本描边大小",
+                "tips": "单元格文本描边效果",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "itemTextStrokeColor",
+                "name": "单元格文本描边颜色",
+                "tips": "单元格文本描边颜色",
+                "compType": 12
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "textDy",
+                "name": "textDy",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "bgGrid9Width",
+                "name": "bgGrid9Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "bgGrid9Height",
+                "name": "bgGrid9Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "bgGrid9Skin",
+                "name": "bgGrid9Skin",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onChangeFragEvent",
+                "name": "当选中项变更时处理",
+                "tips": "当选中项发生变更时候调用的片段事件",
+                "compType": 35
+            }
+        ]
+    },
+    {
+        "class": "UIVideo",
+        "icon": "editorAsset/img/UIIcon/c_video.png",
+        "name": "视频",
+        "tips": "视频组件\\n移动端不支持",
+        "attributes": [
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "editorCompMode",
+                "name": "editorCompMode",
+                "tips": "",
+                "compType": 16
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "duration",
+                "name": "duration",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "networkState",
+                "name": "networkState",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "modeType": 0,
+                    "rootPath": "asset/video/",
+                    "formatType": "mp4,webm,ogg"
+                },
+                "enable": true,
+                "attribute": "videoURL",
+                "name": "视频地址",
+                "tips": "支持格式：MP4、WebM、Ogg",
+                "compType": 13
+            },
+            {
+                "compParam": {
+                    "items": "播放,停止播放,暂停播放",
+                    "showIndex": false
+                },
+                "enable": true,
+                "attribute": "playType",
+                "name": "播放模式",
+                "tips": "",
+                "compType": 2
+            },
+            {
+                "compParam": {
+                    "minLimit": 0,
+                    "maxLimit": 1,
+                    "tickValue": 0.01,
+                    "limitInteger": false,
+                    "lockTextLimit": true
+                },
+                "enable": true,
+                "attribute": "volume",
+                "name": "音量",
+                "tips": "",
+                "compType": 1
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 10,
+                    "stepValue": 0.01,
+                    "limitInteger": false,
+                    "lockTextLimit": true,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "playbackRate",
+                "name": "播放速率",
+                "tips": "1表示100%速率",
+                "compType": 0
+            },
+            {
+                "compParam": {
+                    "lowerLimit": 0,
+                    "upperLimit": 1000,
+                    "stepValue": 1,
+                    "limitInteger": false,
+                    "lockTextLimit": false,
+                    "xDragEnabled": true,
+                    "yDragEnabled": true
+                },
+                "enable": true,
+                "attribute": "currentTime",
+                "name": "起始时间",
+                "tips": "单位：秒\\n浏览器下不支持该属性",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "muted",
+                "name": "静音模式",
+                "tips": "浏览器下默认会强制设置为静音模式，点击游戏窗口区域后会恢复声音播放。",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "loop",
+                "name": "循环播放",
+                "tips": "",
+                "compType": 15
+            },
+            {
+                "compParam": {
+                    "items": "左上角,中心点",
+                    "showIndex": false
+                },
+                "enable": true,
+                "attribute": "pivotType",
+                "name": "轴心点",
+                "tips": "",
+                "compType": 2
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "flip",
+                "name": "水平翻转",
+                "tips": "",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "image",
+                "name": "image",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9Width",
+                "name": "grid9Width",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9Height",
+                "name": "grid9Height",
+                "tips": "",
+                "compType": 0
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9Skin",
+                "name": "grid9Skin",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "grid9",
+                "name": "grid9",
+                "tips": "",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "useDPCoord",
+                "name": "useDPCoord",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpOpacity",
+                "name": "dpOpacity",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpX",
+                "name": "dpX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpY",
+                "name": "dpY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleX",
+                "name": "dpScaleX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpScaleY",
+                "name": "dpScaleY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraX",
+                "name": "dpCameraX",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraY",
+                "name": "dpCameraY",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpCameraZ",
+                "name": "dpCameraZ",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpWidth",
+                "name": "dpWidth",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": false,
+                "attribute": "dpHeight",
+                "name": "dpHeight",
+                "tips": ""
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onLoadedFragEvent",
+                "name": "当加载完毕时处理",
+                "tips": "当视频加载完成时候调用的片段事件",
+                "compType": 35
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onErrorFragEvent",
+                "name": "当发生错误时处理",
+                "tips": "当视频发生错误时调用的片段事件",
+                "compType": 35
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "onCompleteFragEvent",
+                "name": "当播放完成时处理",
+                "tips": "当视频播放完成时候调用的片段事件",
+                "compType": 35
+            }
+        ]
+    }
+]

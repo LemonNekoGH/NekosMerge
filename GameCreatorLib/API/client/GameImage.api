@@ -1,0 +1,82 @@
+/**
+ * 图像系统
+ * 特性
+ *    可操作：图片、动画、界面、立绘等，除界面外都以通道编号统一管理，界面则以界面ID作为唯一的标识
+ *    每组图像事件都是独立的（内部如果有等待则独立计时），不会阻止事件页流程推进，
+ *    除非内部含有对话事件或者外部存在等待图像播放结束。
+ *    其中对话事件会占用唯一的玩家输入通道（多个事件同时执行的话可能会排队）
+ *    等待图像播放完毕的事件是等待其派发出去的所有图像系统播放完毕才执行后续的事件
+ *    
+ * Created by 黑暗之神KDS on 2019-02-06 21:03:38.
+ */
+class GameImage extends UIBitmap {
+    //------------------------------------------------------------------------------------------------------
+    // 静态：图像处理
+    //------------------------------------------------------------------------------------------------------
+    /**
+     * 监听图像组播放完毕，监听某一触发线中派发的图像系统执行完毕
+     * <code>
+     * // groupTriggerLineID 表示当前图像组所在的触发线
+     * EventUtils.addEventListener(GameImage, GameImage.EVENT_PLAY_OVER, c = Callback.New((groupTriggerLineID: number) => {
+     *   // to do
+     * }, this));
+     * </code>
+     */
+    static EVENT_PLAY_OVER: string;
+    /**
+     * 清理全部图片和动画
+     */
+    static clear(): void {
+
+    }
+    //------------------------------------------------------------------------------------------------------
+    // 图像命令组
+    //------------------------------------------------------------------------------------------------------
+    /**
+     * 添加图像组
+     * 关于imageInfos参数的参考
+     * type 0-显示图片 [type,id,url,pivotType,x,y,w,h,rotation,alpha,blendMode]
+     * type 1-移动图片 [type,id,frame,pivotType,x,y,w,h,rotation,alpha,blendMode,tweenID]
+     * type 2-自动旋转 [type,id,angle]
+     * type 3-更改图片色调 [type,id,r,g,b,gray,t,mr,gr,br,tweenID]
+     * type 4-消除图片 [type,id]
+     * type 5-显示动画 [type,id,AniID,x,y,scaleX,scaleY,rotation,alpha,loop,fps]
+     * type 6-移动动画 [type,id,t,x,y,scaleX,scaleY,rotation,alpha,tweenID]
+     * type 8-等待 [type,frame]
+     * type 9-显示对话 [type,对话框ID,头像,名称,播放速度,漫画对话框模式,内容,漫画对象动态计算ID] （-3无 -2主角 -1当前执行对象 0-N 场景对象）
+     * type 10-播放音效 [type,音乐地址,音量,音调]
+     * type 11-显示立绘 [type,id,x,y,rotation,alpha,scaleX,scaleY,行走图ID,播放帧率,是否播放,起始帧数,动作ID,色相]
+     * type 12-移动立绘 [type,id,x,y,rotation,alpha,scaleX,scaleY,frame,播放帧率,是否播放,起始帧数,动作ID,色相,tweenID]
+     * type 13-显示界面 [type,id,x,y,rotation,alpha,scaleX,scaleY,id]
+     * type 14-移动界面 [type,id,x,y,rotation,alpha,scaleX,scaleY,frame,tweenID,uiID]
+     * type 15-消除界面 [type,uiID]
+     * type 16-移动界面组件 [type,uiID,frame,tweenID,NonTweenType,atts] NonTweenType=无法渐变的属性处理 0/1  atts=变更的属性集，格式 { [id: string]: [string, { [attrName: string]: any }] }
+     * 如 [[0,1,"asset/image/x.png",0,0,0,100,100,0,1,null],[1,1,60,200,300,100,100,0,1,null,0]] 
+     * 表示显示1号图片，然后60帧后移动到200,300的坐标中 
+     * 
+     * @param triggerLineID 触发线ID 
+     * @param imageInfos 二维数组，一维存放命令集，二维存放具体命令的参数 [[],[],[]]
+     */
+    static addGroup(triggerLineID: number, imageInfos: any[]): void {
+        
+    }
+    /**
+     * 是否存在播放中的图像（还处于等待中或播放对话中则算作播放）
+     * @param triggerLineID 触发线 -1则表示全部触发线（即判定全局是否存在图像组）
+     * @return [boolean] 
+     */
+    static isPlaying(triggerLineID: number): boolean {
+        return false;
+    }
+    //------------------------------------------------------------------------------------------------------
+    // [代码示例]
+    // 添加一组图像（在事件页中的代码插入）
+    // <code>
+    // // 显示1号图片，然后60帧后移动到200,300的坐标中
+    // GameImage.addGroup(trigger.id,[
+    //    [0,1,"asset/image/x.png",0,0,0,100,100,0,1,null],
+    //    [1,1,60,200,300,100,100,0,1,null,0]
+    // ]);
+    // </code>
+    //------------------------------------------------------------------------------------------------------
+}

@@ -1,0 +1,83 @@
+{
+    "list": {
+        "1": [
+            null,
+            "切换到指定场景",
+            "切换到指定界面"
+        ],
+        "2": [
+            null,
+            "wocaniawa"
+        ],
+        "3": [
+            null
+        ],
+        "16": [
+            null,
+            ""
+        ]
+    },
+    "type": {
+        "1": "游戏系统",
+        "2": "",
+        "3": "",
+        "16": ""
+    },
+    "data": {
+        "1": {
+            "compAutoOrderLimitHeight": 0,
+            "id": 1,
+            "blockList": [
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true,
+                    "cmdColor": "#FFFFFF"
+                }
+            ],
+            "isCustomPhraseDesc": false
+        },
+        "2": {
+            "compAutoOrderLimitHeight": 0,
+            "id": 2,
+            "blockList": [
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true,
+                    "cmdColor": "#FFFFFF"
+                }
+            ]
+        },
+        "1001": {
+            "compAutoOrderLimitHeight": 0,
+            "id": 1001,
+            "blockList": [
+                {
+                    "name": "掉落道具",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 96,
+                    "autoOrder": true
+                }
+            ]
+        },
+        "15001": {
+            "compAutoOrderLimitHeight": 0,
+            "id": 15001,
+            "blockList": [
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true
+                }
+            ]
+        }
+    }
+}

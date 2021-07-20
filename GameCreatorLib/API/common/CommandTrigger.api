@@ -1,0 +1,342 @@
+/**
+ * 事件触发器
+ * 触发器用于触发事件，总是绑定在场景对象身上的，并且由某个对象触发并由某个对象执行（即触发者和执行者）
+ * 触发器的主种类分为：场景的触发器、场景对象的触发器、界面控件的触发器、独立公共事件触发器、独立事件片段触发器
+ * 支持同一时间内多个触发器同时执行事件
+ * 支持自定义触发器，比如场景的进入事件、界面控件的点击事件等
+ * 支持暂停执行事件以及暂停等待的时间推进
+ * 支持多线模式：不用等待该事件执行完毕也仍然可以再次执行该事件
+ * 支持接收玩家的自定义参数输入（如制作等待玩家输入名字、等待玩家输入密码、QTE等功能）
+ * 跨场景执行：部分触发器可以跨场景执行，并不会因为更换场景而终止，满足以下条件即可：
+ *   -- 触发者和执行者都是玩家的场景对象（如界面控件的点击事件）
+ * 读档后会恢复全部正在执行的事件（如读档前A事件执行到第3行，那么读档后A事件从第4行开始执行）
+ * 
+ * 相关类：[Command]、[CommandPage]、[CommandTrigger]
+ * 
+ * Created by 黑暗之神KDS on 2018-10-11 20:48:57.
+ */
+class CommandTrigger {
+    /**
+     * 执行开始事件：当触发器开始执行时派发的一个事件（Event）
+     * <code>
+     * // trigger = [CommandTrigger] 触发器
+     * EventUtils.addEventListener(trigger, CommandTrigger.EVENT_START, Callback.New(()=>{
+     *       // to do   
+     * }, this));
+     * </code>
+     */
+    static EVENT_START: string;
+    /**
+     * 执行结束事件：当触发器执行结束时派发的一个事件（Event）
+     * <code>
+     * // trigger = [CommandTrigger] 触发器
+     * EventUtils.addEventListener(trigger, CommandTrigger.EVENT_OVER, Callback.New(()=>{
+     *       // to do   
+     * }, this));
+     * </code>
+     */
+    static EVENT_OVER: string;
+    /**
+     * 该触发器此前派发的对象行为事件执行完毕时事件：（同命令中的[等待行为结束]）
+     * <code>
+     * // trigger = [CommandTrigger] 触发器
+     * EventUtils.addEventListener(trigger, CommandTrigger.EVENT_BEHAVIOR_OVER, Callback.New(()=>{
+     *       // to do   
+     * }, this));
+     * </code>
+     */
+    static EVENT_BEHAVIOR_OVER: string;
+    /**
+     * 枚举-事件主类别：场景相关的事件类别
+     */
+    static COMMAND_MAIN_TYPE_SCENE: number = 0;
+    /**
+     * 枚举-事件主类别：场景对象相关的事件类别
+     */
+    static COMMAND_MAIN_TYPE_SCENE_OBJECT: number = 1;
+    /**
+     * 枚举-事件主类别：界面相关的事件类别
+     */
+    static COMMAND_MAIN_TYPE_UI: number = 2;
+    /**
+     * 枚举-事件主类别：独立公共事件的事件类别
+     */
+    static COMMAND_MAIN_TYPE_CALL_COMMON_EVENT: number = 3;
+    /**
+     * 枚举-事件主类别：片段事件的事件类别
+     */
+    static COMMAND_MAIN_TYPE_FRAGMENT_EVENT: number = 4;
+    /**
+     * 唯一ID，触发线（TriggerLineID）对应的就是触发器的ID
+     */
+    id: number;
+    /**
+     * 触发器主类型 对应CommandTrigger::COMMAND_MAIN_TYPE_XXXXX
+     * 如：这是一个场景对象相关的事件
+     */
+    mainType: number;
+    /**
+     * 触发器子类型 主类型下的子类型
+     * 如：这是一个场景对象的“点击事件”
+     */
+    indexType: number;
+    /**
+     * 记录对应事件来源
+     * 0-场景：无
+     * 1-场景对象：对象index
+     * 2-界面：sid唯一随机ID
+     * 3-公共事件：公共事件ID
+     * 4-事件页片段：sid唯一随机ID
+     */
+    from: any;
+    /**
+     * 是否多线模式：表示该触发器是每次生成的一个新触发器，独立运行
+     * 比如：界面中控件的点击事件是一个每次点击都会执行一个循环事件-在10秒内每秒增加1号数值变量20点，
+     *       则玩家点击N次，每次事件需要10秒才能执行结束。
+     *       如果开启了多线模式：无需等待上一个10秒事件，启动一个新的10秒事件（会同时执行）
+     *       如果关闭了多线模式：需要等待上一个10秒事件执行完毕，才能生效，否则此次点击忽略。
+     */
+    multiline: boolean;
+    /**
+     * 所在的场景，此处一般指当前游戏场景
+     */
+    scene: ClientScene;
+    /**
+     * 触发事件的场景对象（事件触发者）
+     * 如RPG游戏中，玩家点击NPC时，玩家的场景对象是触发者
+     */
+    trigger: SceneObjectEntity;
+    /**
+     * 执行事件的目标（事件执行者）
+     * 如RPG游戏中，玩家点击NPC时，NPC是执行者
+     */
+    executor: SceneObjectEntity;
+    /**
+     * 暂停命令继续推进：暂停执行标记，表示事件暂时停止执行
+     * 同时命令停止了命令的索引推进，停留在当前行，如果继续执行的话，仍然是当前行命令执行，
+     * 所以一般情况下可以调用offset方法偏移命令行，也可以通过玩家提交输入的信息来区分同一个命令下的不同状态
+     */
+    pause: boolean;
+    /**
+     * 是否暂停【等待】命令继续执行（在等待中也会暂停，而恢复后会等待剩余的时间/帧数）
+     * 一般用于制作需要主动暂停某些事件，比如RPG模板中场景中的某些事件遇到Game.pause时暂停了，
+     * 以便打开战斗场景进入“另一个空间”战斗结束后恢复暂停。
+     */
+    delayPause: boolean;
+    /**
+     * 中断执行标记，表示事件命令该作用域中断了，返回到上一层作用域继续执行（如若已经是顶层则事件命令执行完毕）
+     * 如系统命令-[中断命令执行]则设置该参数为true，表示当前层的事件后续不再执行
+     */
+    cmdReturn: boolean;
+    /**
+     * 玩家提交输入值
+     * 一般配合系统命令-[等待玩家输入]一并使用（当然自定义的等待同样有效）
+     * 客户端通过[GameCommand]的inputMessageAndContinueExecute方法来提交玩家的输入信息
+     * 比如制作等待玩家鼠标点击屏幕，然后通过提交鼠标位置信息给事件接收，以便获取信息后执行逻辑
+     */
+    inputMessage: any[] = [];
+    /**
+     * 获取触发事件的玩家，单机版只有当前的唯一玩家
+     * @return [Player] 
+     */
+    get triggerPlayer(): Player {
+        return null;
+    }
+    /**
+     * 偏移命令行
+     * @param value 偏移量时
+     */
+    offset(value: number): void {
+
+    }
+    /**
+     * 等待指定帧数后继续执行命令
+     * @param frame 等待的帧数
+     */
+    waitFrame(frame: number): void {
+
+    }
+    /**
+     * 等待指定时间后继续执行
+     * @param time 等待的时间，单位：毫秒
+     */
+    waitTime(time: number): void {
+
+    }
+    /**
+     * 添加对象行为组
+     * 对象身上每次添加对象行为组时都会新增一层行为，只有当这一层执行完毕后才会回到上一层继续执行
+     * 比如A对象默认行为是123，在执行完1时添加了新的行为组456，此时执行完456后回到第一层继续执行23，所以总顺序应是：1-4-5-6-2-3
+     * @param targetSo 目标对象（行为执行者）
+     * @param behaviorData 行为数据 [[行为1-ID,参数1,参数2],[行为2-ID,参数1,参数2],....]
+     * 由于行为是自定义的，具体行为的作用请参考游戏的模板高级制作者可以在：GameCreator编辑器菜单-自定义编辑器-自定义行为中配合脚本来编辑行为
+     *
+     * @param loop 是否循环，一旦循环执行则会无限在该层循环，除非再添加一层新的行为组
+     * @param targetSceneObject 事件触发者
+     * @param cover 是否覆盖，一旦覆盖则将此前的行为组清空（连同其默认的行为）
+     * @param startIndex [可选] 默认值=0 该行为组的开始播放的行为索引，默认0，表示从最开头开始播放
+     * @param Immediate [可选] 默认值=true 是否立即刷新，否则会等待下一帧才刷新
+     * @param forceStopLastBehavior [可选] 默认值=false 是否强制停止正在执行的行为，由项目层实现，以便当前行为组能够立即执行
+     * @param delayFrame [可选] 默认值=0 行为内部的需要等待的帧数
+     * @param executor [可选] 默认值=null 执行事件者（也是行为派发者）
+     */
+    addBehavior(targetSo: SceneObjectEntity, behaviorData: any[], loop: boolean, targetSceneObject: SceneObject, cover: boolean, startIndex: number = 0, Immediate: boolean = true, forceStopLastBehavior: boolean = false, delayFrame: number = 0, executor: SceneObjectEntity = null): void {
+
+    }
+    /**
+     * 该触发器是否还有派发出去仍未执行完毕的行为
+     * 一个触发器可以同时派发多个对象行为事件，比如让A执行123，让B执行456，
+     * 当所有派发出去的行为执行完毕后该属性才返回false（或者当前没有派发任何对象行为的事件）。
+     */
+    get hasBehavior(): boolean {
+        return null;
+    }
+    /**
+     * 追加公共事件层级，在当前的触发器中追加执行指定的公共事件，在公共事件执行完毕后会回到原来的事件中继续接着执行
+     * 一般用于在命令执行中追加公共事件
+     * @param commonEventID 公共事件ID 
+     */
+    addCommonEventCommandPageLayer(commonEventID: number): void {
+
+    }
+    /**
+     * 追加片段事件层级，在当前的触发器中追加执行片段事件，在该片段事件执行完毕后会回到原来的事件中继续接着执行
+     * 一般用于在命令执行中追加事件片段
+     * @param feData 片段事件数据
+     */
+    addFragmentEventCommandPageLayer(feData: string): void {
+
+    }
+    //------------------------------------------------------------------------------------------------------
+    // [代码示例]
+    // 【制作自定义命令】：如制作一个暂停当前触发器事件的执行，并于2秒后继续执行的自定义命令
+    // 1.可视化制作该命令的编辑器：GC编辑器-菜单-命令设定编辑
+    // 2.编写代码：必须在CommandExecute模块内，编写对应命令ID的命名方法（如customCommand_1）
+    // <code>
+    // module CommandExecute {
+    // /**
+    //  * 我的自定义命令1
+    //  * @param commandPage 当前执行的命令页
+    //  * @param cmd 当前的命令
+    //  * @param trigger 触发器
+    //  * @param triggerPlayer 玩家
+    //  * @param playerInput 玩家提交输入的信息
+    //  * @param cp 编辑器根据可视化自动生成的数据结构
+    //  */
+    //  export function customCommand_1(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, triggerPlayer: ClientPlayer, playerInput: any[], cp: CustomCommandParams_1): void {
+    //    trace("执行自定义命令1");
+    //    // 暂停命令执行
+    //    trigger.pause = true;
+    //    // 由于前面暂停了命令执行，这里手动让命令索引的偏移+1
+    //    trigger.offset(1);
+    //    // 等待2秒后自动继续执行
+    //    setTimeout(()=>{
+    //       CommandPage.executeEvent(trigger);
+    //    },2000);
+    //  }
+    // }
+    // </code>
+    //
+    // 
+    // 【预编译自定义命令】：以便提升命令运行时的效率
+    // 1.可视化制作该命令的编辑器：GC编辑器-菜单-命令设定编辑 制作两个数值变量，a和b
+    // 2.执行该自定义命令时输入它们的和（a+b）
+    // <code>
+    // module CommandExecute {
+    // /**
+    //  * 我的自定义命令1
+    //  * @param commandPage 当前执行的命令页
+    //  * @param cmd 当前的命令
+    //  * @param trigger 触发器
+    //  * @param triggerPlayer 玩家
+    //  * @param playerInput 玩家提交输入的信息
+    //  * @param cp 编辑器根据可视化自动生成的数据结构
+    //  */
+    //  export function customCommand_2(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, triggerPlayer: ClientPlayer, playerInput: any[], cp: CustomCommandParams_1): void {
+    //    trace("执行自定义命令2：它们的和=",cmd.paramsCompiled[0]);
+    //  }
+    // /**
+    //  * 预编译
+    //  * @param commandPage 事件页
+    //  * @param cmd 命令
+    //  * @param index 命令所在事件页的索引
+    //  * @param cp 自定义参数
+    //  */
+    //  export function customCommandPrecompile_1(commandPage: CommandPage, cmd: Command, index: number, cp: CustomCommandParams_1): void {
+    //     // 预编译即在初始化时会先执行该函数，以便在事件调用时减少计算等以更快的速度执行。
+    //     // 此处举例预编译缓存a+b的和
+    //     var sum = cp.a + cp.b;
+    //     cmd.paramsCompiled = [sum];
+    //     trace("自定义1的事件预编译结果：" + sum);
+    //  }
+    // }
+    // </code>
+    //
+    // 【制作等待玩家输入鼠标位置信息的自定义命令】：需要阻塞客户端以便同一时间只有一个人输入
+    // 1.制作自定义命令，执行时暂停命令等待玩家输入并且调用客户端的命令方法
+    // 2.制作客户端自定义命令方法，以便阻塞，再未排到队时不出现相关逻辑让玩家输入，而是自动加入一个等待队列
+    // 3.当排队到该次输入时，玩家输入后即提交完毕
+    // PS：关于排队等待玩家输入，主要是由于各种事件交杂在一起，可能其他事件也要求玩家输入，GC的机制就是排队
+    //     等待玩家一一提交输入，比如最对话事件就是一个需要等待玩家输入（等待玩家点击后继续执行）的系统事件
+    // <code>
+    // // 自定义命令
+    // module CommandExecute {
+    // /**
+    //  * 等待玩家提交鼠标位置信息
+    //  * @param commandPage 当前执行的命令页
+    //  * @param cmd 当前的命令
+    //  * @param trigger 触发器
+    //  * @param triggerPlayer 玩家
+    //  * @param playerInput 玩家提交输入的信息
+    //  * @param cp 编辑器根据可视化自动生成的数据结构
+    //  */
+    //  export function customCommand_2(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, triggerPlayer: ClientPlayer, playerInput: any[], cp: CustomCommandParams_1): void {
+    //    // 如果玩家提交的参数是空则代表首次执行该命令
+    //    if(trigger.inputMessage.length==0){
+    //       // 事件暂停
+    //       trigger.pause = true;
+    //       // 调用客户端的该命令事件（以便阻塞和排队等待玩家输入）
+    //          这里的cp.limitInputTime是一个自定义的参数，让玩家只有limitInputTime秒的时间内提交输入
+    //          否则系统自动帮忙提交信息（参数在自定义命令-客户端版中按参数顺序排列）。
+    //       cmd.callExecuteFunction(trigger.id,trigger.triggerPlayer,[cp.limitInputTime]);
+    //    }
+    //    // 如果接收到玩家提交的输入信息
+    //    else {
+    //       var mouseX = trigger.inputMessage[0];
+    //       var mouseY = trigger.inputMessage[1];
+    //       trace("玩家输入的鼠标位置=",mouseX,mouseY);
+    //    }
+    //  }
+    // }
+    // 
+    // // 自定义命令-客户端版本
+    // module CommandExecuteGame {
+    // /**
+    //  * 等待玩家输入鼠标信息
+    //  * @param triggerLineID 头像
+    //  * @param dialogID 对话框ID
+    //  * @param selContents 内容
+    //  */
+    // export function command_3(triggerLineID: number, limitInputTime:number): number {
+    //    // 不处于输入状态时 或 在同一触发线时
+    //    if (!GameCommand.isNeedPlayerInput || triggerLineID == GameCommand.inputTriggerLine) {
+    //        var inputed = false;
+    //        stage.once(EventObject.CLICK, this, (e: EventObject) => {
+    //            if (inputed) return;
+    //            inputed = true;
+    //            GameCommand.inputMessageAndContinueExecute([e.stageX, e.stageY]);
+    //        });
+    //        // 超出限制时间范围内，提交-1表示超时
+    //        setTimeout(() => {
+    //           inputed = true;
+    //            GameCommand.inputMessageAndContinueExecute([-1, -1]);
+    //        }, limitInputTime * 1000);
+    //    }
+    //    // 返回值是等待玩家输入，这样才能阻塞和排队等待
+    //    return GameCommand.COMMAND_STATE_NEED_INPUT;
+    //  }
+    // }
+    // </code>
+    // 
+    //------------------------------------------------------------------------------------------------------
+}

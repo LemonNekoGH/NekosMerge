@@ -1,0 +1,14 @@
+{
+    "list": [
+        null,
+        "点击事件"
+    ],
+    "data": [
+        null,
+        {
+            "id": 1,
+            "tips": "当组件被点击时触发的事件",
+            "multiline": true
+        }
+    ]
+}

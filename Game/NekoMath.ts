@@ -1,20 +1,19 @@
 /**
  * Created by LemonNekoGC on 2021-07-27 01:35:21.
  */
-class NekoMath {
-    static degressToRadians(degress: number): number {
-        return degress * Math.PI / 180
-    }
+const NekoMath = {
+    ceki32: 32 / 2 * squareRoot3,
+    bfhl32: squareRoot3 / 32 * 1,
 
-    static sin(degress: number): number {
-        return Math.sin(this.degressToRadians(degress))
-    }
+    ceki64: 64 / 2 * squareRoot3,
+    bfhl64: squareRoot3 / 64 * 1,
 
-    static cos(degress: number): number {
-        return Math.cos(this.degressToRadians(degress))
-    }
+    ceki96: 96 / 2 * squareRoot3,
+    bfhl96: squareRoot3 / 96 * 1,
 
-    static tan(degress: number): number {
-        return Math.tan(this.degressToRadians(degress))
-    }
+    ceki128: 128 / 2 * squareRoot3,
+    bfhl128: squareRoot3 / 128 * 1,
+
+    ceki160: 160 / 2 * squareRoot3,
+    bfhl160: squareRoot3 / 160 * 1,
 }

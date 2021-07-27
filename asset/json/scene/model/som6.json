@@ -1,0 +1,20 @@
+{
+    "preLayer": [
+        {
+            "varName": "avatar",
+            "type": 1,
+            "id": 1,
+            "idList": [
+                1
+            ],
+            "isPreView": true,
+            "inEditorShowMode": 0
+        }
+    ],
+    "varAttributes": [],
+    "serverInstanceClassName": "ServerSceneObject_6",
+    "clientInstanceClassName": "ClientSceneObject_6",
+    "supportTriggerTypes": [],
+    "supportStatusPage": true,
+    "id": 6
+}

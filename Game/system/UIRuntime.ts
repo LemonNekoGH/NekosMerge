@@ -23,6 +23,7 @@ class GUI_2 extends GUI_BASE {
    界面容器:UIRoot;
    标题:UIString;
    猫咪边界:UIString;
+   退出按钮:UIButton;
    按钮:UIButton;
    玩法说明:UIString;
    分数:UIString;

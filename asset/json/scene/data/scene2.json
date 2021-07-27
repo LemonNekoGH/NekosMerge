@@ -8,9 +8,9 @@
     "preLoadAssets": [],
     "serverInstanceClassName": "ServerScene",
     "clientInstanceClassName": "ClientScene",
-    "id": 1,
-    "name": "场景1",
-    "width": 1184,
+    "id": 2,
+    "name": "辅助场景",
+    "width": 1216,
     "height": 704,
     "LayerDatas": [
         {
@@ -20,6 +20,7 @@
             "scaleY": 1,
             "skewX": 0,
             "skewY": 0,
+            "rotation": 0,
             "xMove": 0,
             "yMove": 0,
             "prospectsPerX": 1,
@@ -32,6 +33,8 @@
             "tileData": [],
             "autoTileDataCache": [],
             "img": null,
+            "modeType": true,
+            "modeLock": false,
             "showOnEditor": true
         },
         {
@@ -41,6 +44,7 @@
             "scaleY": 1,
             "skewX": 0,
             "skewY": 0,
+            "rotation": 0,
             "xMove": 0,
             "yMove": 0,
             "prospectsPerX": 1,
@@ -53,8 +57,10 @@
             "tileData": [],
             "autoTileDataCache": [],
             "img": null,
-            "tileTexIDs": {},
-            "showOnEditor": true
+            "modeType": true,
+            "modeLock": false,
+            "showOnEditor": true,
+            "tileTexIDs": {}
         },
         {
             "dx": 0,
@@ -63,6 +69,7 @@
             "scaleY": 1,
             "skewX": 0,
             "skewY": 0,
+            "rotation": 0,
             "xMove": 0,
             "yMove": 0,
             "prospectsPerX": 1,
@@ -75,8 +82,10 @@
             "tileData": [],
             "autoTileDataCache": [],
             "img": null,
-            "tileTexIDs": {},
-            "showOnEditor": true
+            "modeType": true,
+            "modeLock": false,
+            "showOnEditor": true,
+            "tileTexIDs": {}
         },
         {
             "dx": 0,
@@ -85,6 +94,7 @@
             "scaleY": 1,
             "skewX": 0,
             "skewY": 0,
+            "rotation": 0,
             "xMove": 0,
             "yMove": 0,
             "prospectsPerX": 1,
@@ -97,8 +107,10 @@
             "tileData": [],
             "autoTileDataCache": [],
             "img": null,
-            "tileTexIDs": {},
-            "showOnEditor": true
+            "modeType": true,
+            "modeLock": false,
+            "showOnEditor": true,
+            "tileTexIDs": {}
         },
         {
             "p": true,
@@ -111,6 +123,7 @@
             "scaleY": 1,
             "skewX": 0,
             "skewY": 0,
+            "rotation": 0,
             "xMove": 0,
             "yMove": 0,
             "prospectsPerX": 1,
@@ -123,8 +136,10 @@
             "tileData": [],
             "autoTileDataCache": [],
             "img": null,
-            "tileTexIDs": {},
-            "showOnEditor": true
+            "modeType": true,
+            "modeLock": false,
+            "showOnEditor": true,
+            "tileTexIDs": {}
         }
     ]
 }

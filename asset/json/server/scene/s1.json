@@ -42,7 +42,13 @@
         null
     ],
     "customCommands": [
-        []
+        [
+            [
+                10002,
+                null,
+                "69211049720_0.07319869560074421"
+            ]
+        ]
     ],
     "customAttributes": [
         null,
@@ -74,9 +80,6 @@
         null,
         null
     ],
-    "statusPagesSelectedIndexs": [
-        null,
-        null
-    ],
+    "statusPagesSelectedIndexs": [],
     "id": 1
 }

@@ -23,6 +23,7 @@
                 "showOnEditor": true,
                 "hasCommand": [],
                 "isOpen": true,
+                "enabledLimitView": null,
                 "scrollShowType": 2,
                 "hScrollBar": "asset/image/picture/control/hscroll_bar.png",
                 "hScrollBg": "asset/image/picture/control/hscroll_bg.png",
@@ -61,6 +62,7 @@
                         "color": "#ffffff",
                         "bold": false,
                         "italic": false,
+                        "smooth": null,
                         "align": 0,
                         "valign": 0,
                         "leading": 0,
@@ -68,11 +70,13 @@
                         "font": "宋体",
                         "wordWrap": true,
                         "overflow": 0,
+                        "shadowEnabled": null,
                         "shadowColor": "#000000",
                         "shadowDx": 1,
                         "shadowDy": 1,
                         "stroke": 0,
-                        "strokeColor": "#000000"
+                        "strokeColor": "#000000",
+                        "onChangeFragEvent": null
                     },
                     {
                         "id": "69131855804_0.8395516311229645",
@@ -101,6 +105,7 @@
                         "color": "#ffffff",
                         "bold": false,
                         "italic": false,
+                        "smooth": null,
                         "align": 0,
                         "valign": 0,
                         "leading": 0,
@@ -108,17 +113,19 @@
                         "font": "宋体",
                         "wordWrap": true,
                         "overflow": 0,
+                        "shadowEnabled": null,
                         "shadowColor": "#000000",
                         "shadowDx": 1,
                         "shadowDy": 1,
                         "stroke": 0,
-                        "strokeColor": "#000000"
+                        "strokeColor": "#000000",
+                        "onChangeFragEvent": null
                     },
                     {
                         "id": "69205920457_0.4496320685252291",
                         "condition": [],
                         "type": "UIButton",
-                        "name": "按钮",
+                        "name": "退出按钮",
                         "x": 1020,
                         "y": 30,
                         "width": 150,
@@ -134,7 +141,9 @@
                         ],
                         "mouseEventEnabledInEditor": true,
                         "showOnEditor": true,
-                        "hasCommand": [],
+                        "hasCommand": [
+                            true
+                        ],
                         "isOpen": true,
                         "label": "退出",
                         "image1": "asset/image/picture/control/btn_normal.png",
@@ -149,6 +158,7 @@
                         "clickColor": "#999999",
                         "bold": false,
                         "italic": false,
+                        "smooth": null,
                         "align": 1,
                         "valign": 1,
                         "letterSpacing": 0,
@@ -193,6 +203,7 @@
                         "clickColor": "#999999",
                         "bold": false,
                         "italic": false,
+                        "smooth": null,
                         "align": 1,
                         "valign": 1,
                         "letterSpacing": 0,
@@ -229,6 +240,7 @@
                         "color": "#ffffff",
                         "bold": false,
                         "italic": false,
+                        "smooth": null,
                         "align": 0,
                         "valign": 0,
                         "leading": 0,
@@ -236,11 +248,13 @@
                         "font": "宋体",
                         "wordWrap": true,
                         "overflow": 0,
+                        "shadowEnabled": null,
                         "shadowColor": "#000000",
                         "shadowDx": 1,
                         "shadowDy": 1,
                         "stroke": 0,
-                        "strokeColor": "#000000"
+                        "strokeColor": "#000000",
+                        "onChangeFragEvent": null
                     },
                     {
                         "id": "69207124295_0.19357361517020877",
@@ -269,6 +283,7 @@
                         "color": "#ffffff",
                         "bold": false,
                         "italic": false,
+                        "smooth": null,
                         "align": 0,
                         "valign": 0,
                         "leading": 0,
@@ -276,11 +291,13 @@
                         "font": "宋体",
                         "wordWrap": true,
                         "overflow": 0,
+                        "shadowEnabled": null,
                         "shadowColor": "#000000",
                         "shadowDx": 1,
                         "shadowDy": 1,
                         "stroke": 0,
-                        "strokeColor": "#000000"
+                        "strokeColor": "#000000",
+                        "onChangeFragEvent": null
                     },
                     {
                         "id": "69207226380_0.6965890153668006",
@@ -309,6 +326,7 @@
                         "color": "#ffffff",
                         "bold": false,
                         "italic": false,
+                        "smooth": null,
                         "align": 0,
                         "valign": 0,
                         "leading": 0,
@@ -316,11 +334,13 @@
                         "font": "宋体",
                         "wordWrap": true,
                         "overflow": 0,
+                        "shadowEnabled": null,
                         "shadowColor": "#000000",
                         "shadowDx": 1,
                         "shadowDy": 1,
                         "stroke": 0,
-                        "strokeColor": "#000000"
+                        "strokeColor": "#000000",
+                        "onChangeFragEvent": null
                     }
                 ]
             }

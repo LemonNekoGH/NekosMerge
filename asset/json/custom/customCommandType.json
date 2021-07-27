@@ -2,8 +2,9 @@
     "list": {
         "1": [
             null,
-            "切换到指定场景",
-            "切换到指定界面"
+            "开始游戏",
+            "在任意位置生成一个等级小于4级的猫咪",
+            "退出到主界面"
         ],
         "2": [
             null,
@@ -42,6 +43,20 @@
         "2": {
             "compAutoOrderLimitHeight": 0,
             "id": 2,
+            "blockList": [
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true,
+                    "cmdColor": "#FFFFFF"
+                }
+            ]
+        },
+        "3": {
+            "compAutoOrderLimitHeight": 0,
+            "id": 3,
             "blockList": [
                 {
                     "name": "未命名块",

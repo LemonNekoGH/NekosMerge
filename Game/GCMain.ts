@@ -18,4 +18,6 @@ class GCMain {
     }
 }
 
+const squareRoot3 = Math.sqrt(3)
+
 new GCMain()

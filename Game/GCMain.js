@@ -9,5 +9,6 @@ var GCMain = (function () {
     };
     return GCMain;
 }());
+var squareRoot3 = Math.sqrt(3);
 new GCMain();
 //# sourceMappingURL=GCMain.js.map

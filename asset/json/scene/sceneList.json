@@ -2,7 +2,7 @@
     "list": [
         null,
         "场景1",
-        null,
+        "辅助场景",
         null,
         null,
         null,
@@ -34,6 +34,12 @@
         {
             "id": 1,
             "name": "场景1",
+            "children": [],
+            "isOpen": true
+        },
+        {
+            "id": 2,
+            "name": "辅助场景",
             "children": []
         }
     ]

@@ -75,6 +75,7 @@
                 "color": "#ffffff",
                 "bold": false,
                 "italic": false,
+                "smooth": null,
                 "align": 0,
                 "valign": 0,
                 "leading": 0,
@@ -82,11 +83,13 @@
                 "font": "宋体",
                 "wordWrap": true,
                 "overflow": 0,
+                "shadowEnabled": null,
                 "shadowColor": "#000000",
                 "shadowDx": 1,
                 "shadowDy": 1,
                 "stroke": 0,
-                "strokeColor": "#000000"
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
             }
         ]
     },

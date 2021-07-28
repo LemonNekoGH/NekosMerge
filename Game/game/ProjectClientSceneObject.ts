@@ -64,23 +64,37 @@ class ProjectClientSceneObject extends ClientSceneObject_2 {
     // 获取模拟十二边形十二个点的坐标，用于碰撞检测
     get hexCordinate(): { x: number, y: number }[] {
         const ceki = NekoMath["ceki" + this.size]
+        const ceki_2 = NekoMath["ceki" + this.size / 2]
         const bfhl = NekoMath["bfhl" + this.size]
+        const bfhl_2 = NekoMath["bfhl" + this.size / 2]
 
         const center = { x: this.x, y: this.y - this.size }
         const a = { x: center.x, y: center.y - this.size }
+        const aa = { x: center.x, y: center.y - this.size / 2 }
         const b = { x: center.x + this.size / 2, y: center.y - bfhl }
+        const bb = { x: center.x + this.size / 4, y: center.y - bfhl_2 }
         const c = { x: center.x + ceki, y: center.y - this.size / 2 }
+        const cc = { x: center.x + ceki_2, y: center.y - this.size / 4 }
         const d = { x: center.x + this.size, y: this.y }
+        const dd = { x: center.x + this.size / 2, y: this.y }
         const e = { x: center.x + ceki, y: center.y + this.size / 2 }
+        const ee = { x: center.x + ceki_2, y: center.y + this.size / 4 }
         const f = { x: center.x + this.size / 2, y: center.y + bfhl }
+        const ff = { x: center.x + this.size / 4, y: center.y + bfhl_2 }
         const g = { x: center.x, y: center.y + this.size }
+        const gg = { x: center.x, y: center.y + this.size / 2 }
         const h = { x: center.x - this.size / 2, y: center.y + bfhl }
+        const hh = { x: center.x - this.size / 4, y: center.y + bfhl_2 }
         const i = { x: center.x - ceki, y: center.y + this.size / 2 }
+        const ii = { x: center.x - ceki_2, y: center.y + this.size / 4 }
         const j = { x: center.x - this.size, y: center.y }
+        const jj = { x: center.x - this.size / 2, y: center.y }
         const k = { x: center.x - ceki, y: center.y - this.size / 2 }
+        const kk = { x: center.x - ceki_2, y: center.y - this.size / 4 }
         const l = { x: center.x - this.size / 2, y: center.y - bfhl }
+        const ll = { x: center.x - this.size / 4, y: center.y - bfhl_2 }
 
-        return [a, b, c, d, e, f, j, h, i, j, k, l]
+        return [a,aa, b, bb, c, cc, d, dd, e, ee, f, ff, g, gg, h, hh, i, ii, j, jj, k, kk, l, ll]
     }
 
     /**

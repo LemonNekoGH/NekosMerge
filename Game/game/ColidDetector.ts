@@ -2,6 +2,8 @@
  * Created by LemonNekoGC on 2021-07-27 17:31:44.
  */
 class ColidDetector {
+    noDetect: boolean = false
+
     /**
      * 开始检测碰撞
      */
@@ -52,6 +54,11 @@ class ColidDetector {
                 self.speed = 0
             }
 
+            // 每两帧检测一次碰撞
+            if (me.noDetect) {
+                continue
+            }
+
             for (let j in me.objects) {
                 // 被检测体
                 const other = me.objects[j]
@@ -72,6 +79,7 @@ class ColidDetector {
                 }
                 // 撞上了
                 if (decoration != -1) {
+                    self.speed = 0
                     if (self.modelID === other.modelID) {
                         // 两只猫咪相同，应当合并
                         Game.currentScene.event(ProjectClientSceneObject.EVENT_MERGED, {
@@ -82,13 +90,43 @@ class ColidDetector {
                         me.remove(self)
                         me.remove(other)
                     } else {
-                        const left = decoration > 5
-                        // 左边被撞应该向右移动
-                        self.x += left ? 3 : -3
+                        if (decoration < 2) {
+                            // 顶部相撞，让对方向上移动
+                            other.y -= 4
+                        } else if (decoration < 6) {
+                            // 顶部右侧相撞，让对方向上和右侧移动，让自身向左侧移动
+                            console.log("右上方撞上了")
+                            other.x += 2
+                            other.y -= 2
+                            self.x -= 4
+                        } else if (decoration < 10) {
+                            // 右侧相撞，让自身向左移动
+                            self.x -= 4
+                        } else if (decoration < 13) {
+                            // 右下侧相撞，让自身向左上方移动
+                            self.x -= 2
+                            self.y -= 2
+                        } else if (decoration < 15) {
+                            // 底部相撞，让自身向上移动
+                            self.y -= 4
+                        } else if (decoration < 19) {
+                            // 左下边相撞，让自身向右上方移动
+                            self.x += 2
+                            self.y -= 2
+                        } else if (decoration < 21) {
+                            // 左侧相撞，让自身向右移动
+                            self.x += 4
+                        } else if (decoration < 24) {
+                            // 左上方相撞，让对方向左上方移动，并让自己向右方移动
+                            other.x -= 2
+                            other.y -= 2
+                            self.x += 4
+                        }
                     }
                 }
             }
         }
+        me.noDetect = !me.noDetect
     }
 }
 

@@ -6,10 +6,28 @@ var GCMain = (function () {
     }
     GCMain.prototype.onClientWorldInit = function () {
         GameUI.show(1);
-        os.showFPS();
+        os.add_ENTERFRAME(function () {
+            if (Game.currentScene !== ClientScene.EMPTY) {
+                var sprites = [];
+                collectSprites(Game.currentScene.displayObject, sprites);
+                console.log(sprites.length);
+                if (sprites.length > 200) {
+                    debugger;
+                    console.log(sprites);
+                }
+            }
+        }, Game);
     };
     return GCMain;
 }());
-var squareRoot3 = Math.sqrt(3);
+function collectSprites(sprite, sprites) {
+    for (var i = 0; i < sprite.numChildren; i++) {
+        var node = sprite.getChildAt(i);
+        if (node instanceof GameSprite) {
+            collectSprites(node, sprites);
+        }
+    }
+    sprites.push(sprite);
+}
 new GCMain();
 //# sourceMappingURL=GCMain.js.map

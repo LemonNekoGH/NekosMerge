@@ -15,10 +15,30 @@ class GCMain {
     // 显示 1 号界面
     onClientWorldInit() {
         GameUI.show(1)
-        os.showFPS();
+        // os.showFPS();
+        os.add_ENTERFRAME(() => {
+            if (Game.currentScene !== ClientScene.EMPTY) {
+                const sprites: GameSprite[] = []
+                collectSprites(Game.currentScene.displayObject, sprites)
+                console.log(sprites.length)
+                if (sprites.length > 200) {
+                    debugger
+                    console.log(sprites)
+                }
+            }
+        }, Game)
     }
 }
 
-const squareRoot3 = Math.sqrt(3)
+// 收集所有精灵信息
+function collectSprites(sprite: GameSprite, sprites: GameSprite[]) {
+    for (let i = 0; i < sprite.numChildren; i++) {
+        const node = sprite.getChildAt(i)
+        if (node instanceof GameSprite) {
+            collectSprites(node, sprites)
+        }
+    }
+    sprites.push(sprite)
+}
 
 new GCMain()

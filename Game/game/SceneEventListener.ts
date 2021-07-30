@@ -124,8 +124,8 @@ class SceneEventListener {
         const y = me.y
 
         // 销毁掉这些猫咪
-        it.avatar.dispose()
-        me.avatar.dispose()
+        it.root.dispose()
+        me.root.dispose()
 
         it.dispose()
         me.dispose()

@@ -74,8 +74,8 @@ var SceneEventListener = (function () {
         var upLevel = me.level + 1;
         var x = me.x;
         var y = me.y;
-        it.avatar.dispose();
-        me.avatar.dispose();
+        it.root.dispose();
+        me.root.dispose();
         it.dispose();
         me.dispose();
         var nekoObj = Game.currentScene.addSceneObjectFromClone(2, upLevel - 1, true);

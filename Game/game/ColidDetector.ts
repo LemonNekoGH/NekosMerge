@@ -8,7 +8,7 @@ class ColidDetector {
      * 开始检测碰撞
      */
     constructor() {
-        setInterval(this.doDetect, 100 / 6)
+        os.add_ENTERFRAME(this.doDetect, this)
     }
 
     objects: ProjectClientSceneObject[] = []
@@ -141,15 +141,15 @@ class ColidDetector {
             }
 
             // 速度不能太快
-            if (self.speed.x > 32) {
-                self.speed.x = 32
-            } else if (self.speed.x < -32) {
-                self.speed.x = -32
+            if (self.speed.x > 16) {
+                self.speed.x = 16
+            } else if (self.speed.x < -16) {
+                self.speed.x = -16
             }
-            if (self.speed.y > 32) {
-                self.speed.y = 32
-            } else if (self.speed.y < -32) {
-                self.speed.y = -32
+            if (self.speed.y > 16) {
+                self.speed.y = 16
+            } else if (self.speed.y < -16) {
+                self.speed.y = -16
             }
 
             self.x += self.speed.x

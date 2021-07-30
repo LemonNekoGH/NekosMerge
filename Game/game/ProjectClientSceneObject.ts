@@ -68,16 +68,6 @@ class ProjectClientSceneObject extends ClientSceneObject_2 {
 
         const vertex = NekoMath.polygonCordinates(center, this.size, 24)
 
-        if (this.colidIndicator) {
-            let i = 0
-            for (let index in vertex) {
-                const text: UIString = this.colidIndicator["碰撞位置" + (i + 1)]
-                text.x = vertex[i].x - this.x
-                text.y = vertex[i].y - this.y
-                i++
-            }
-        }
-
         return vertex
     }
 

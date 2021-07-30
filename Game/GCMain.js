@@ -6,6 +6,7 @@ var GCMain = (function () {
     }
     GCMain.prototype.onClientWorldInit = function () {
         GameUI.show(1);
+        os.showFPS();
     };
     return GCMain;
 }());

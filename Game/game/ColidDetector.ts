@@ -41,17 +41,18 @@ class ColidDetector {
             // 先检测与容器的碰撞
             if (self.isColidContainerLeft) {
                 // 左边碰到容器了，向右移动 3 个像素
-                self.x += 3
+                self.speed.x += 1
             } else if (self.isColidContainerRight) {
                 // 右边碰到容器了，向左移动 3 个像素
-                self.x -= 3
+                self.speed.x -= 1
             }
             if (!self.isColidContainerBottom) {
                 // 没有碰到容器底部，继续下落
-                self.y += self.speed
-                self.speed += 0.2
+                self.speed.y += 0.2
             } else {
-                self.speed = 0
+                if (self.speed.y > 0) {
+                    self.speed.y = - self.speed.y
+                }
             }
 
             // 每两帧检测一次碰撞
@@ -79,7 +80,6 @@ class ColidDetector {
                 }
                 // 撞上了
                 if (decoration != -1) {
-                    self.speed = 0
                     if (self.modelID === other.modelID) {
                         // 两只猫咪相同，应当合并
                         Game.currentScene.event(ProjectClientSceneObject.EVENT_MERGED, {
@@ -90,41 +90,70 @@ class ColidDetector {
                         me.remove(self)
                         me.remove(other)
                     } else {
-                        if (decoration < 2) {
-                            // 顶部相撞，让对方向上移动
-                            other.y -= 4
-                        } else if (decoration < 6) {
-                            // 顶部右侧相撞，让对方向上和右侧移动，让自身向左侧移动
-                            console.log("右上方撞上了")
-                            other.x += 2
-                            other.y -= 2
-                            self.x -= 4
-                        } else if (decoration < 10) {
+                        if (decoration === 0) {
                             // 右侧相撞，让自身向左移动
-                            self.x -= 4
-                        } else if (decoration < 13) {
+                            self.speed.x -= 1.5
+                        } else if (decoration > 0 && decoration < 6) {
                             // 右下侧相撞，让自身向左上方移动
-                            self.x -= 2
-                            self.y -= 2
-                        } else if (decoration < 15) {
+                            self.speed.x -= 1
+                            self.speed.y -= 1
+                        } else if (decoration === 6) {
                             // 底部相撞，让自身向上移动
-                            self.y -= 4
-                        } else if (decoration < 19) {
+                            self.speed.x -= 1
+                        } else if (decoration > 6 && decoration < 12) {
                             // 左下边相撞，让自身向右上方移动
-                            self.x += 2
-                            self.y -= 2
-                        } else if (decoration < 21) {
+                            self.speed.x += 1
+                            self.speed.y -= 1
+                        } else if (decoration === 12) {
                             // 左侧相撞，让自身向右移动
-                            self.x += 4
-                        } else if (decoration < 24) {
-                            // 左上方相撞，让对方向左上方移动，并让自己向右方移动
-                            other.x -= 2
-                            other.y -= 2
-                            self.x += 4
+                            self.speed.x += 1.5
+                        } else if (decoration > 12 && decoration < 18) {
+                            // 左上方相撞，让对方向左上方移动
+                            other.speed.x -= 1
+                            other.speed.y -= 1
+                            self.speed.x += 1.5
+                        } else if (decoration === 18) {
+                            // 顶部相撞，让对方向上移动
+                        } else if (decoration < 24 && decoration > 18) {
+                            // 顶部右侧相撞，让对方向上和右侧移动
+                            other.speed.x += 1
+                            other.speed.y -= 1
+                            self.speed.x -= 1.5
                         }
                     }
                 }
             }
+
+            // 如果正在向上弹，速度应该越来越小
+            if (self.speed.y < - 0.3) {
+                self.speed.y += 0.4
+            } else if (self.speed.y < 0.3) {
+                self.speed.y = 0
+            }
+
+            // 受到空气阻力，减少惯性
+            if (self.speed.x > 0.3) {
+                self.speed.x -= 0.2
+            } else if (self.speed.x <= 0.3 && self.speed.x >= -0.3) {
+                self.speed.x = 0
+            } else if (self.speed.x < -0.3) {
+                self.speed.x += 0.2
+            }
+
+            // 速度不能太快
+            if (self.speed.x > 32) {
+                self.speed.x = 32
+            } else if (self.speed.x < -32) {
+                self.speed.x = -32
+            }
+            if (self.speed.y > 32) {
+                self.speed.y = 32
+            } else if (self.speed.y < -32) {
+                self.speed.y = -32
+            }
+
+            self.x += self.speed.x
+            self.y += self.speed.y
         }
         me.noDetect = !me.noDetect
     }

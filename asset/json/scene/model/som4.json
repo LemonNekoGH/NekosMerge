@@ -9,6 +9,16 @@
             ],
             "isPreView": true,
             "inEditorShowMode": 0
+        },
+        {
+            "varName": "colidIndicator",
+            "type": 2,
+            "id": 1001,
+            "idList": [
+                1001
+            ],
+            "inEditorShowMode": 0,
+            "isPreView": false
         }
     ],
     "varAttributes": [],

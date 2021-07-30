@@ -15,9 +15,10 @@ module CommandExecute {
             var nekoObj = Game.currentScene.addSceneObjectFromClone(2, 0, true);
             new ProjectClientSceneObject(nekoObj, Game.currentScene, 1, false);
         }, this);
-        AssetManager.preLoadSceneAsset(2, sceneAssetLoadCallback);
+        AssetManager.preLoadSceneAsset(2, sceneAssetLoadCallback, false, false, false);
     }
     export function customCommand_3(commandPage, cmd, trigger, player, playerInput, p) {
+        // SinglePlayerGame.
         Game.currentScene.dispose();
         GameUI.show(1);
         started = false;

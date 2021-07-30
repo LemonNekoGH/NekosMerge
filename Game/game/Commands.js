@@ -14,7 +14,7 @@ var CommandExecute;
             var nekoObj = Game.currentScene.addSceneObjectFromClone(2, 0, true);
             new ProjectClientSceneObject(nekoObj, Game.currentScene, 1, false);
         }, this);
-        AssetManager.preLoadSceneAsset(2, sceneAssetLoadCallback);
+        AssetManager.preLoadSceneAsset(2, sceneAssetLoadCallback, false, false, false);
     }
     CommandExecute.customCommand_2 = customCommand_2;
     function customCommand_3(commandPage, cmd, trigger, player, playerInput, p) {

@@ -14,6 +14,7 @@ class ClientSceneObject_1 extends ClientSceneObject {
  * 场景对象模型：猫咪等级1
  */
 class ClientSceneObject_2 extends ClientSceneObject {
+    colidIndicator: GUI_1001;
     constructor(soData: SceneObject, scene: ClientScene) {
         super(soData,scene);
     }
@@ -22,6 +23,7 @@ class ClientSceneObject_2 extends ClientSceneObject {
  * 场景对象模型：猫咪等级2
  */
 class ClientSceneObject_3 extends ClientSceneObject {
+    colidIndicator: GUI_1001;
     constructor(soData: SceneObject, scene: ClientScene) {
         super(soData,scene);
     }
@@ -30,6 +32,7 @@ class ClientSceneObject_3 extends ClientSceneObject {
  * 场景对象模型：猫咪等级3
  */
 class ClientSceneObject_4 extends ClientSceneObject {
+    colidIndicator: GUI_1001;
     constructor(soData: SceneObject, scene: ClientScene) {
         super(soData,scene);
     }
@@ -38,6 +41,7 @@ class ClientSceneObject_4 extends ClientSceneObject {
  * 场景对象模型：猫咪等级4
  */
 class ClientSceneObject_5 extends ClientSceneObject {
+    colidIndicator: GUI_1001;
     constructor(soData: SceneObject, scene: ClientScene) {
         super(soData,scene);
     }

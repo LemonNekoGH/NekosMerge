@@ -41,6 +41,86 @@ class ListItem_2 extends UIListItemData {
 }
 
 /**
+ * 3- 设置界面 [BASE]
+ */
+class GUI_3 extends GUI_BASE {
+   图片:UIBitmap;
+   文本:UIString;
+   开发者模式开关:UISwitch;
+   开发者模式开关标签:UIString;
+   完成按钮:UIButton;
+   constructor(){
+      super(3);
+   }
+}
+class ListItem_3 extends UIListItemData {
+   图片:string;
+   文本:string;
+   开发者模式开关:number;
+   开发者模式开关标签:string;
+
+}
+
+/**
+ * 1001-模拟碰撞边界 [BASE]
+ */
+class GUI_1001 extends GUI_BASE {
+   碰撞位置1:UIString;
+   碰撞位置2:UIString;
+   碰撞位置3:UIString;
+   碰撞位置4:UIString;
+   碰撞位置5:UIString;
+   碰撞位置6:UIString;
+   碰撞位置7:UIString;
+   碰撞位置8:UIString;
+   碰撞位置9:UIString;
+   碰撞位置10:UIString;
+   碰撞位置11:UIString;
+   碰撞位置12:UIString;
+   碰撞位置13:UIString;
+   碰撞位置14:UIString;
+   碰撞位置15:UIString;
+   碰撞位置16:UIString;
+   碰撞位置17:UIString;
+   碰撞位置18:UIString;
+   碰撞位置19:UIString;
+   碰撞位置20:UIString;
+   碰撞位置21:UIString;
+   碰撞位置22:UIString;
+   碰撞位置23:UIString;
+   碰撞位置24:UIString;
+   constructor(){
+      super(1001);
+   }
+}
+class ListItem_1001 extends UIListItemData {
+   碰撞位置1:string;
+   碰撞位置2:string;
+   碰撞位置3:string;
+   碰撞位置4:string;
+   碰撞位置5:string;
+   碰撞位置6:string;
+   碰撞位置7:string;
+   碰撞位置8:string;
+   碰撞位置9:string;
+   碰撞位置10:string;
+   碰撞位置11:string;
+   碰撞位置12:string;
+   碰撞位置13:string;
+   碰撞位置14:string;
+   碰撞位置15:string;
+   碰撞位置16:string;
+   碰撞位置17:string;
+   碰撞位置18:string;
+   碰撞位置19:string;
+   碰撞位置20:string;
+   碰撞位置21:string;
+   碰撞位置22:string;
+   碰撞位置23:string;
+   碰撞位置24:string;
+}
+
+/**
  * 15001- [BASE]
  */
 class GUI_15001 extends GUI_BASE {

@@ -27,6 +27,14 @@
                 "avatar": {
                     "type": 1,
                     "id": 1
+                },
+                "碰撞": {
+                    "type": 3,
+                    "id": 0
+                },
+                "colidIndicator": {
+                    "type": 2,
+                    "id": 1001
                 }
             },
             "layerLevel": 1,
@@ -39,7 +47,7 @@
             "modelID": 3,
             "index": 1,
             "name": "猫咪2",
-            "x": 190,
+            "x": 192,
             "y": 128,
             "z": 0,
             "materialData": [

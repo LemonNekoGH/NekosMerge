@@ -31,6 +31,34 @@ var ListItem_2 = (function (_super) {
     }
     return ListItem_2;
 }(UIListItemData));
+var GUI_3 = (function (_super) {
+    __extends(GUI_3, _super);
+    function GUI_3() {
+        _super.call(this, 3);
+    }
+    return GUI_3;
+}(GUI_BASE));
+var ListItem_3 = (function (_super) {
+    __extends(ListItem_3, _super);
+    function ListItem_3() {
+        _super.apply(this, arguments);
+    }
+    return ListItem_3;
+}(UIListItemData));
+var GUI_1001 = (function (_super) {
+    __extends(GUI_1001, _super);
+    function GUI_1001() {
+        _super.call(this, 1001);
+    }
+    return GUI_1001;
+}(GUI_BASE));
+var ListItem_1001 = (function (_super) {
+    __extends(ListItem_1001, _super);
+    function ListItem_1001() {
+        _super.apply(this, arguments);
+    }
+    return ListItem_1001;
+}(UIListItemData));
 var GUI_15001 = (function (_super) {
     __extends(GUI_15001, _super);
     function GUI_15001() {

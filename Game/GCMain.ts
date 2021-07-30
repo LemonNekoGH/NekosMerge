@@ -15,6 +15,7 @@ class GCMain {
     // 显示 1 号界面
     onClientWorldInit() {
         GameUI.show(1)
+        os.showFPS();
     }
 }
 

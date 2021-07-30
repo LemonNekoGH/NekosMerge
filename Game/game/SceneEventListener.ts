@@ -94,8 +94,10 @@ class SceneEventListener {
             // 触发拖动结束事件
             it.event(EventObject.DRAG_END)
         })
-        // 生成一只新的猫咪
-        const sceneAssetLoadCallback = Callback.New(() => {
+
+        const _this = this
+        function newNeko() {
+            // 生成一只新的猫咪
             const rand = MathUtils.rand(2)
 
             // 把辅助场景中的猫咪复制到场景中
@@ -103,10 +105,10 @@ class SceneEventListener {
             const obj = new ProjectClientSceneObject(nekoObj, Game.currentScene, rand + 1, false)
 
             console.log(`from index ${rand}, modelID: ${obj.modelID}`)
-        }, this)
-        // 加载辅助场景
-        AssetManager.preLoadSceneAsset(2, sceneAssetLoadCallback)
-        this.mouseDown = false
+            _this.mouseDown = false
+        }
+
+        setTimeout(newNeko, 1000)
     }
 
     /**
@@ -122,20 +124,18 @@ class SceneEventListener {
         const y = me.y
 
         // 销毁掉这些猫咪
+        it.avatar.dispose()
+        me.avatar.dispose()
+
         it.dispose()
         me.dispose()
 
         // 生成一只新的猫咪
-        const sceneAssetLoadCallback = Callback.New(() => {
-            // 把辅助场景中的猫咪复制到场景中
-            const nekoObj = Game.currentScene.addSceneObjectFromClone(2, upLevel - 1, true)
-            const obj = new ProjectClientSceneObject(nekoObj, Game.currentScene, upLevel, true)
-            obj.x = x
-            obj.y = y
+        const nekoObj = Game.currentScene.addSceneObjectFromClone(2, upLevel - 1, true)
+        const obj = new ProjectClientSceneObject(nekoObj, Game.currentScene, upLevel, true)
+        obj.x = x
+        obj.y = y
 
-            console.log(`猫咪升级了，等级 ${obj.level}，模型ID ${obj.modelID}`)
-        }, this)
-        // 加载辅助场景
-        AssetManager.preLoadSceneAsset(2, sceneAssetLoadCallback)
+        console.log(`猫咪升级了，等级 ${obj.level}，模型ID ${obj.modelID}`)
     }
 }

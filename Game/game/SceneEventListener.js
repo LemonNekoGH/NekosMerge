@@ -59,30 +59,30 @@ var SceneEventListener = (function () {
         scene.sceneObjects.forEach(function (it) {
             it.event(EventObject.DRAG_END);
         });
-        var sceneAssetLoadCallback = Callback.New(function () {
+        var _this = this;
+        function newNeko() {
             var rand = MathUtils.rand(2);
             var nekoObj = Game.currentScene.addSceneObjectFromClone(2, rand, true);
             var obj = new ProjectClientSceneObject(nekoObj, Game.currentScene, rand + 1, false);
             console.log("from index " + rand + ", modelID: " + obj.modelID);
-        }, this);
-        AssetManager.preLoadSceneAsset(2, sceneAssetLoadCallback);
-        this.mouseDown = false;
+            _this.mouseDown = false;
+        }
+        setTimeout(newNeko, 1000);
     };
     SceneEventListener.prototype.nekoMerged = function (args) {
         var it = args.it, me = args.me;
         var upLevel = me.level + 1;
         var x = me.x;
         var y = me.y;
+        it.avatar.dispose();
+        me.avatar.dispose();
         it.dispose();
         me.dispose();
-        var sceneAssetLoadCallback = Callback.New(function () {
-            var nekoObj = Game.currentScene.addSceneObjectFromClone(2, upLevel - 1, true);
-            var obj = new ProjectClientSceneObject(nekoObj, Game.currentScene, upLevel, true);
-            obj.x = x;
-            obj.y = y;
-            console.log("\u732B\u54AA\u5347\u7EA7\u4E86\uFF0C\u7B49\u7EA7 " + obj.level + "\uFF0C\u6A21\u578BID " + obj.modelID);
-        }, this);
-        AssetManager.preLoadSceneAsset(2, sceneAssetLoadCallback);
+        var nekoObj = Game.currentScene.addSceneObjectFromClone(2, upLevel - 1, true);
+        var obj = new ProjectClientSceneObject(nekoObj, Game.currentScene, upLevel, true);
+        obj.x = x;
+        obj.y = y;
+        console.log("\u732B\u54AA\u5347\u7EA7\u4E86\uFF0C\u7B49\u7EA7 " + obj.level + "\uFF0C\u6A21\u578BID " + obj.modelID);
     };
     return SceneEventListener;
 }());

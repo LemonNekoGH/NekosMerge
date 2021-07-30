@@ -1,0 +1,203 @@
+{
+    "root": {
+        "children": [
+            {
+                "id": "70078783950_0.18764676049284001",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 2,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIBitmap",
+                "name": "图片",
+                "x": 342,
+                "y": 100,
+                "width": 500,
+                "height": 440,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "image": "asset/image/picture/control/btn_normal.png",
+                "grid9": "4,4,4,4,0",
+                "pivotType": 0
+            },
+            {
+                "id": "70079046332_0.7281758351440559",
+                "condition": [],
+                "type": "UIString",
+                "name": "文本",
+                "x": 565,
+                "y": 128,
+                "width": 60,
+                "height": 30,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "设置",
+                "fontSize": 30,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000"
+            },
+            {
+                "id": "70079143980_0.06394080481344577",
+                "condition": [],
+                "type": "UISwitch",
+                "name": "开发者模式开关",
+                "x": 375,
+                "y": 185,
+                "width": 20,
+                "height": 20,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "selected": 1,
+                "image1": "asset/image/picture/control/check_unselected.png",
+                "grid9img1": "0,0,0,0,0",
+                "image2": "asset/image/picture/control/check_selected.png",
+                "grid9img2": "0,0,0,0,0",
+                "previewselected": true
+            },
+            {
+                "id": "70079316921_0.8243500558875787",
+                "condition": [],
+                "type": "UIString",
+                "name": "开发者模式开关标签",
+                "x": 419,
+                "y": 185,
+                "width": 100,
+                "height": 20,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "开发者模式",
+                "fontSize": 20,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000"
+            },
+            {
+                "id": "70079431116_0.16842101087653671",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 2,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIButton",
+                "name": "完成按钮",
+                "x": 342,
+                "y": 548,
+                "width": 500,
+                "height": 50,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [
+                    true
+                ],
+                "isOpen": true,
+                "label": "完成",
+                "image1": "asset/image/picture/control/btn_normal.png",
+                "grid9img1": "4,4,4,4,0",
+                "image2": "asset/image/picture/control/btn_over.png",
+                "grid9img2": "4,4,4,4,0",
+                "image3": "asset/image/picture/control/btn_click.png",
+                "grid9img3": "4,4,4,4,0",
+                "fontSize": 16,
+                "color": "#999999",
+                "overColor": "#999999",
+                "clickColor": "#999999",
+                "bold": false,
+                "italic": false,
+                "align": 1,
+                "valign": 1,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "textDx": 0,
+                "textDy": 0,
+                "textStroke": 0,
+                "textStrokeColor": "#000000"
+            }
+        ]
+    },
+    "id": 3,
+    "hasRootCommand": []
+}

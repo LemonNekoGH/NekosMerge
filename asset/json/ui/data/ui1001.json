@@ -1,0 +1,1206 @@
+{
+    "root": {
+        "children": [
+            {
+                "id": "70060478820_0.5180581650595939",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置1",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "0",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000"
+            },
+            {
+                "id": "70060541185_0.22067243830043948",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置2",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "1",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060543999_0.2012273877633004",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置3",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "2",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060545282_0.7956983016602355",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置4",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "3",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060546617_0.6018651807173623",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置5",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "4",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060566606_0.1940166593874697",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置6",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "5",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060568014_0.7716120839155303",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置7",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "6",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060569157_0.9516231485153726",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置8",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "7",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060570539_0.3516544578383578",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置9",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "8",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060571737_0.012838202408190558",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置10",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "9",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060729734_0.8586027243520225",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置11",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "10",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70060734171_0.4281152061505664",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置12",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "11",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922037_0.42800983841413553",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置13",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "12",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922037_0.9366602557539787",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置14",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "13",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922037_0.16777131676408485",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置15",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "14",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922037_0.6139670339095269",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置16",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "15",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922038_0.9773699408020722",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置17",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "16",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922038_0.8197712557242751",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置18",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "17",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922038_0.750908246183811",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置19",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "18",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922038_0.32765904163259285",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置20",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "19",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922039_0.380149835043577",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置21",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "20",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922039_0.17964638737133565",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置22",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "21",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922039_0.10717038426732839",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置23",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "22",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            },
+            {
+                "id": "70077922039_0.8661935232449454",
+                "condition": [
+                    {
+                        "type": 0,
+                        "varID": 1,
+                        "compare": 1,
+                        "value": 1
+                    }
+                ],
+                "type": "UIString",
+                "name": "碰撞位置24",
+                "x": 1,
+                "y": -149,
+                "width": 16,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "23",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "smooth": null,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "宋体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowEnabled": null,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000",
+                "onChangeFragEvent": null
+            }
+        ]
+    },
+    "id": 1001,
+    "avatarMode": true,
+    "hasRootCommand": []
+}

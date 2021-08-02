@@ -20,7 +20,7 @@ var CommandExecute;
         root2.on(EventObject.MOUSE_MOVE, this, onMouseMove);
         root2.on(EventObject.MOUSE_UP, this, onMouseUp);
         root2.on(EventObject.CLICK, this, onClick);
-        root2.on(ProjectClientSceneObject.EVENT_MERGED, this, onNekoMerge);
+        root2.on(UINeko.EVENT_MERGED, this, onNekoMerge);
         var mouseDown = false;
         function onMouseDown() {
             mouseDown = true;

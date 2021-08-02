@@ -6,6 +6,8 @@ class UINeko extends UIBitmap {
     level: number
     speed: Cordinate
 
+    static EVENT_MERGED = "neko_merged"
+
     constructor(level: number, fromMerge: boolean) {
         super()
 
@@ -90,7 +92,13 @@ class UINeko extends UIBitmap {
      * 当拖动时调用
      */
     onDrag(params: Point) {
-        this.x = params.x - this.size
+        if (params.x - this.size < 0) {
+            this.x = 0
+        } else if (params.x + 2 * this.size > 1184) {
+            this.x = 1184 - 2 * this.size
+        } {
+            this.x = params.x - this.size
+        }
         this.y = 200 - this.size
     }
 
@@ -98,6 +106,11 @@ class UINeko extends UIBitmap {
      * 结束拖动时调用
      */
     onDragEnd(params: Point) {
+        if (params.x - this.size < 0) {
+            this.x = 0
+        } else {
+            this.x = params.x - this.size
+        }
         this.x = params.x - this.size
         this.y = 200 - this.size
         this.off(EventObject.DRAG_MOVE, this, this.onDrag)

@@ -41,16 +41,18 @@ class ColidDetector {
             // 先检测与容器的碰撞
             if (self.isColidContainerLeft) {
                 // 左边碰到容器了，向右移动 3 个像素
-                // self.speed.x += 1
                 if (self.speed.x < 0) {
                     self.speed.x = - self.speed.x
+                } else if (self.speed.x === 0) {
+                    self.x += 1
                 }
             }
             if (self.isColidContainerRight) {
                 // 右边碰到容器了，向左移动 3 个像素
-                // self.speed.x -= 1
                 if (self.speed.x > 0) {
                     self.speed.x = - self.speed.x
+                } else if (self.speed.x === 0) {
+                    self.x -= 1
                 }
             }
             if (!self.isColidContainerBottom) {
@@ -89,7 +91,7 @@ class ColidDetector {
                 if (decoration != -1) {
                     if (self.level === other.level) {
                         // 两只猫咪相同，应当合并
-                        GameUI.get(2).getChildAt(0).event(ProjectClientSceneObject.EVENT_MERGED, {
+                        GameUI.get(2).getChildAt(0).event(UINeko.EVENT_MERGED, {
                             me: self,
                             it: other
                         })

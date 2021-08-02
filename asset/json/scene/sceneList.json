@@ -1,8 +1,8 @@
 {
     "list": [
         null,
-        "场景1",
-        "辅助场景",
+        null,
+        null,
         null,
         null,
         null,
@@ -30,17 +30,5 @@
         null,
         null
     ],
-    "node": [
-        {
-            "id": 1,
-            "name": "场景1",
-            "children": [],
-            "isOpen": true
-        },
-        {
-            "id": 2,
-            "name": "辅助场景",
-            "children": []
-        }
-    ]
+    "node": []
 }

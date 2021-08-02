@@ -103,8 +103,6 @@ class SceneEventListener {
             // 把辅助场景中的猫咪复制到场景中
             const nekoObj = Game.currentScene.addSceneObjectFromClone(2, rand, true)
             const obj = new ProjectClientSceneObject(nekoObj, Game.currentScene, rand + 1, false)
-
-            console.log(`from index ${rand}, modelID: ${obj.modelID}`)
             _this.mouseDown = false
         }
 

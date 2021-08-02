@@ -2,14 +2,14 @@
     "root": {
         "children": [
             {
-                "id": "69204802739_0.127049777034836",
+                "id": "70331998512_0.7119158487151789",
                 "condition": [],
-                "type": "UIRoot",
-                "name": "界面容器",
+                "type": "UIBitmap",
+                "name": "背景",
                 "x": 0,
                 "y": 0,
-                "width": 1200,
-                "height": 200,
+                "width": 1184,
+                "height": 704,
                 "opacity": 1,
                 "rotation": 0,
                 "show": true,
@@ -23,6 +23,35 @@
                 "showOnEditor": true,
                 "hasCommand": [],
                 "isOpen": true,
+                "image": "asset/image/picture/control/uibitmap.png",
+                "grid9": "0,0,0,0,0",
+                "pivotType": 0
+            },
+            {
+                "id": "69204802739_0.127049777034836",
+                "condition": [],
+                "type": "UIRoot",
+                "name": "界面容器",
+                "x": 0,
+                "y": 0,
+                "width": 1188,
+                "height": 200,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [
+                    null,
+                    true
+                ],
+                "isOpen": false,
                 "enabledLimitView": null,
                 "scrollShowType": 2,
                 "hScrollBar": "asset/image/picture/control/hscroll_bar.png",

@@ -11,19 +11,19 @@ class ColidDetector {
         os.add_ENTERFRAME(this.doDetect, this)
     }
 
-    objects: ProjectClientSceneObject[] = []
+    objects: UINeko[] = []
 
     /**
      * 添加猫咪到碰撞容器中去
      */
-    add(obj: ProjectClientSceneObject) {
+    add(obj: UINeko) {
         this.objects.push(obj)
     }
 
     /**
      * 将猫咪从碰撞容器中移除
      */
-    remove(obj: ProjectClientSceneObject) {
+    remove(obj: UINeko) {
         const index = this.objects.indexOf(obj)
         ArrayUtils.delete(this.objects, index)
     }
@@ -41,10 +41,17 @@ class ColidDetector {
             // 先检测与容器的碰撞
             if (self.isColidContainerLeft) {
                 // 左边碰到容器了，向右移动 3 个像素
-                self.speed.x += 1
-            } else if (self.isColidContainerRight) {
+                // self.speed.x += 1
+                if (self.speed.x < 0) {
+                    self.speed.x = - self.speed.x
+                }
+            }
+            if (self.isColidContainerRight) {
                 // 右边碰到容器了，向左移动 3 个像素
-                self.speed.x -= 1
+                // self.speed.x -= 1
+                if (self.speed.x > 0) {
+                    self.speed.x = - self.speed.x
+                }
             }
             if (!self.isColidContainerBottom) {
                 // 没有碰到容器底部，继续下落
@@ -64,15 +71,15 @@ class ColidDetector {
                 // 被检测体
                 const other = me.objects[j]
                 // 不能检测自己
-                if (other.index === self.index) {
+                if (other.id === self.id) {
                     continue
                 }
 
                 let decoration = -1
                 let detectTimes = 0
-                for (let index in self.hexCordinate) {
-                    const {x, y} = self.hexCordinate[index]
-                    if (other.avatar.hitTestPoint(x, y)) {
+                for (let index in self.polygon12Cors) {
+                    const {x, y} = self.polygon12Cors[index]
+                    if (other.hitTestPoint(x, y)) {
                         decoration = detectTimes
                         break
                     }
@@ -80,9 +87,9 @@ class ColidDetector {
                 }
                 // 撞上了
                 if (decoration != -1) {
-                    if (self.modelID === other.modelID) {
+                    if (self.level === other.level) {
                         // 两只猫咪相同，应当合并
-                        Game.currentScene.event(ProjectClientSceneObject.EVENT_MERGED, {
+                        GameUI.get(2).getChildAt(0).event(ProjectClientSceneObject.EVENT_MERGED, {
                             me: self,
                             it: other
                         })

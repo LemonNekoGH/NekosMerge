@@ -8,25 +8,13 @@ class GCMain {
     constructor() {
         // 监听引擎初始化事件
         EventUtils.addEventListenerFunction(ClientWorld, ClientWorld.EVENT_INITED, this.onClientWorldInit, null)
-        // 监听各种场景事件
-        new SceneEventListener()
     }
 
     // 显示 1 号界面
     onClientWorldInit() {
         GameUI.show(1)
-        // os.showFPS();
-        os.add_ENTERFRAME(() => {
-            if (Game.currentScene !== ClientScene.EMPTY) {
-                const sprites: GameSprite[] = []
-                collectSprites(Game.currentScene.displayObject, sprites)
-                console.log(sprites.length)
-                if (sprites.length > 200) {
-                    debugger
-                    console.log(sprites)
-                }
-            }
-        }, Game)
+        // 监听各种场景事件
+        new SceneEventListener()
     }
 }
 

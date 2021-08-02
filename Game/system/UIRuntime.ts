@@ -20,6 +20,7 @@ class ListItem_1 extends UIListItemData {
  * 2-界面2_场景1 [BASE]
  */
 class GUI_2 extends GUI_BASE {
+   背景:UIBitmap;
    界面容器:UIRoot;
    标题:UIString;
    猫咪边界:UIString;
@@ -33,6 +34,7 @@ class GUI_2 extends GUI_BASE {
    }
 }
 class ListItem_2 extends UIListItemData {
+   背景:string;
    标题:string;
    猫咪边界:string;
    玩法说明:string;
@@ -41,14 +43,17 @@ class ListItem_2 extends UIListItemData {
 }
 
 /**
- * 3- 设置界面 [BASE]
+ * 3-设置界面 [BASE]
  */
 class GUI_3 extends GUI_BASE {
+   容器:UIRoot;
    图片:UIBitmap;
    文本:UIString;
    开发者模式开关:UISwitch;
    开发者模式开关标签:UIString;
    完成按钮:UIButton;
+   FPS开关:UISwitch;
+   FPS开关标签:UIString;
    constructor(){
       super(3);
    }
@@ -58,7 +63,8 @@ class ListItem_3 extends UIListItemData {
    文本:string;
    开发者模式开关:number;
    开发者模式开关标签:string;
-
+   FPS开关:number;
+   FPS开关标签:string;
 }
 
 /**

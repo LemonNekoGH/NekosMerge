@@ -64,7 +64,6 @@ var SceneEventListener = (function () {
             var rand = MathUtils.rand(2);
             var nekoObj = Game.currentScene.addSceneObjectFromClone(2, rand, true);
             var obj = new ProjectClientSceneObject(nekoObj, Game.currentScene, rand + 1, false);
-            console.log("from index " + rand + ", modelID: " + obj.modelID);
             _this.mouseDown = false;
         }
         setTimeout(newNeko, 1000);

@@ -57,7 +57,7 @@ class ColidDetector {
             }
             if (!self.isColidContainerBottom) {
                 // 没有碰到容器底部，继续下落
-                self.speed.y += 0.2
+                self.speed.y += 0.1
             } else {
                 if (self.speed.y > 0) {
                     self.speed.y = - self.speed.y
@@ -101,33 +101,33 @@ class ColidDetector {
                     } else {
                         if (decoration === 0) {
                             // 右侧相撞，让自身向左移动
-                            self.speed.x -= 1.5
+                            self.speed.x -= speedUpLeftRight
                         } else if (decoration > 0 && decoration < 6) {
                             // 右下侧相撞，让自身向左上方移动
-                            self.speed.x -= 1
-                            self.speed.y -= 1
+                            self.speed.x -= speedUpTopBottom
+                            self.speed.y -= speedUpTopBottom
                         } else if (decoration === 6) {
                             // 底部相撞，让自身向上移动
-                            self.speed.x -= 1
+                            self.speed.x -= speedUpLeftRight
                         } else if (decoration > 6 && decoration < 12) {
                             // 左下边相撞，让自身向右上方移动
-                            self.speed.x += 1
-                            self.speed.y -= 1
+                            self.speed.x += speedUpTopBottom
+                            self.speed.y -= speedUpTopBottom
                         } else if (decoration === 12) {
                             // 左侧相撞，让自身向右移动
-                            self.speed.x += 1.5
+                            self.speed.x += speedUpLeftRight
                         } else if (decoration > 12 && decoration < 18) {
                             // 左上方相撞，让对方向左上方移动
-                            other.speed.x -= 1
-                            other.speed.y -= 1
-                            self.speed.x += 1.5
+                            other.speed.x -= speedUpTopBottom
+                            other.speed.y -= speedUpTopBottom
+                            self.speed.x += speedUpLeftRight
                         } else if (decoration === 18) {
                             // 顶部相撞，让对方向上移动
                         } else if (decoration < 24 && decoration > 18) {
                             // 顶部右侧相撞，让对方向上和右侧移动
-                            other.speed.x += 1
-                            other.speed.y -= 1
-                            self.speed.x -= 1.5
+                            other.speed.x += speedUpTopBottom
+                            other.speed.y -= speedUpTopBottom
+                            self.speed.x -= speedUpLeftRight
                         }
                     }
                 }
@@ -137,7 +137,9 @@ class ColidDetector {
             if (self.speed.y < - 0.3) {
                 self.speed.y += 0.4
             } else if (self.speed.y < 0.3) {
-                self.speed.y = 0
+                if (self.isColidContainerBottom) {
+                    self.speed.y = 0
+                }
             }
 
             // 受到空气阻力，减少惯性
@@ -167,5 +169,8 @@ class ColidDetector {
         me.noDetect = !me.noDetect
     }
 }
+
+const speedUpLeftRight = 1
+const speedUpTopBottom = 0.5
 
 const colidDetector: ColidDetector = new ColidDetector()

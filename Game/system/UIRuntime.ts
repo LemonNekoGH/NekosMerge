@@ -27,8 +27,10 @@ class GUI_2 extends GUI_BASE {
    退出按钮:UIButton;
    按钮:UIButton;
    玩法说明:UIString;
-   分数:UIString;
-   最高分数:UIString;
+   分数标签:UIString;
+   最高分数标签:UIString;
+   分数:UIVariable;
+   最高分数:UIVariable;
    constructor(){
       super(2);
    }
@@ -38,8 +40,10 @@ class ListItem_2 extends UIListItemData {
    标题:string;
    猫咪边界:string;
    玩法说明:string;
-   分数:string;
-   最高分数:string;
+   分数标签:string;
+   最高分数标签:string;
+   分数:number;
+   最高分数:number;
 }
 
 /**

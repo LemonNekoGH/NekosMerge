@@ -12,7 +12,7 @@ class UINeko extends UIBitmap {
         super()
 
         this.level = level
-        this.speed = { x: 0, y: 0 }
+        this.speed = { x: 0, y: 1 }
 
         this.width = this.size * 2
         this.height = this.size * 2

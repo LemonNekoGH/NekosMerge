@@ -14,6 +14,13 @@ var CommandExecute;
             return;
         GameUI.dispose(1);
         GameUI.show(2);
+        var topScore = SinglePlayerGame.getSaveCustomGlobalData("topScore");
+        if (topScore) {
+            Game.player.variable.setVariable(2, topScore);
+        }
+        else {
+            Game.player.variable.setVariable(2, 0);
+        }
         var ui2 = GameUI.get(2);
         var root2 = ui2.getChildAt(0);
         root2.on(EventObject.MOUSE_DOWN, this, onMouseDown);
@@ -60,6 +67,14 @@ var CommandExecute;
             GameUI.get(2).getChildAt(0).addChild(nekoObj);
             nekoObj.x = x;
             nekoObj.y = y - nekoObj.size;
+            var score = Game.player.variable.getVariable(1);
+            score += upLevel;
+            Game.player.variable.setVariable(1, score);
+            var bestScore = Game.player.variable.getVariable(2);
+            if (bestScore < score) {
+                bestScore = score;
+                Game.player.variable.setVariable(2, bestScore);
+            }
             console.log("\u732B\u54AA\u5347\u7EA7\u4E86\uFF0C\u7B49\u7EA7 " + nekoObj.level);
         }
         started = true;
@@ -73,6 +88,12 @@ var CommandExecute;
         if (!started)
             return;
         GameUI.dispose(2);
+        SinglePlayerGame.regSaveCustomGlobalData("topScore", Callback.New(function () {
+            var topScore = Game.player.variable.getVariable(2);
+            console.log("准备退出游戏，正在保存最高分：" + topScore);
+            return topScore;
+        }, this));
+        SinglePlayerGame.saveGlobalData(null);
         GameUI.show(1);
         started = false;
     }

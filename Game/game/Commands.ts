@@ -19,6 +19,14 @@ module CommandExecute {
         GameUI.dispose(1);
         GameUI.show(2)
 
+        // 读取最高分数
+        const topScore = SinglePlayerGame.getSaveCustomGlobalData("topScore")
+        if (topScore) {
+            Game.player.variable.setVariable(2, topScore)
+        } else {
+            Game.player.variable.setVariable(2, 0)
+        }
+
         // 注册各种事件
         const ui2 = GameUI.get(2)
         const root2 = ui2.getChildAt(0)
@@ -82,6 +90,18 @@ module CommandExecute {
             nekoObj.x = x
             nekoObj.y = y - nekoObj.size
 
+            // 加分
+            let score = Game.player.variable.getVariable(1)
+            score += upLevel
+            Game.player.variable.setVariable(1, score)
+
+            // 如果超过了最高分，把最高分设置成当前分数
+            let bestScore = Game.player.variable.getVariable(2)
+            if (bestScore < score) {
+                bestScore = score
+                Game.player.variable.setVariable(2, bestScore)
+            }
+
             console.log(`猫咪升级了，等级 ${nekoObj.level}`)
         }
 
@@ -99,7 +119,17 @@ module CommandExecute {
     export function customCommand_3(commandPage, cmd, trigger, player, playerInput, p) {
         if (!started) return
         GameUI.dispose(2)
+
+        // 保存最高分数
+        SinglePlayerGame.regSaveCustomGlobalData("topScore", Callback.New(() => {
+            const topScore = Game.player.variable.getVariable(2)
+            console.log("准备退出游戏，正在保存最高分：" + topScore)
+            return topScore
+        }, this))
+        SinglePlayerGame.saveGlobalData(null)
+        
         GameUI.show(1);
+
         started = false;
     }
 }

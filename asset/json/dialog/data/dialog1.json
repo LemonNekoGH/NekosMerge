@@ -8,8 +8,15 @@
         "height": 259,
         "alpha": 1,
         "image": "asset/image/picture/control/dialogBg.png",
+        "flip": false,
+        "grid9": "0,0,0,0,0",
         "showOnEditor": true,
         "mouseEventEnabledInEditor": true,
+        "materialData": [
+            {
+                "materials": []
+            }
+        ],
         "index": 0
     },
     "headBox": {
@@ -30,31 +37,47 @@
         "viewscaleX": 1,
         "viewscaleY": 1,
         "viewFps": 12,
+        "viewPlayOnce": false,
         "showOnEditor": true,
         "mouseEventEnabledInEditor": true,
+        "materialData": [
+            {
+                "materials": []
+            }
+        ],
         "index": 1
     },
     "optionBox": {
         "x": 225,
         "y": 234,
         "width": 397,
-        "height": 45,
+        "height": 50,
         "alpha": 1,
         "column": 2,
         "columnSpaceing": 5,
+        "row": 1,
         "rowSpaceing": 5,
-        "image1": "asset/image/picture/control/dialogNormal.png",
-        "image2": "asset/image/picture/control/dialogOpOver.png",
-        "image3": "asset/image/picture/control/dialogOpDown.png",
+        "image1": "asset/image/picture/control/NekosMergeButton.png",
+        "grid9img1": "0,0,0,0,0",
+        "image2": "asset/image/picture/control/NekosMergeButtonHover.png",
+        "grid9img2": "0,0,0,0,0",
+        "image3": "asset/image/picture/control/NekosMergeButtonClick.png",
+        "grid9img3": "0,0,0,0,0",
         "overSe": "",
         "overVolume": 1,
         "overPitch": 1,
         "clickSe": "",
         "clickVolume": 1,
         "clikcPitch": 1,
-        "selectImageURL": "asset/image/picture/control/dialogOpDown.png",
+        "selectImageURL": "asset/image/picture/control/NekosMergeButton.png",
+        "grid9img4": "0,0,0,0,0",
         "showOnEditor": true,
         "mouseEventEnabledInEditor": true,
+        "materialData": [
+            {
+                "materials": []
+            }
+        ],
         "index": 2
     },
     "dialog": {
@@ -67,38 +90,59 @@
         "color": "#FFFFFF",
         "bold": false,
         "italic": false,
+        "smooth": false,
         "align": 0,
         "leading": 5,
+        "letterSpacing": 0,
         "font": "微软雅黑",
-        "valign": 0,
         "shadowEnabled": false,
         "shadowColor": "#000000",
         "shadowDx": 1,
         "shadowDy": 1,
+        "stroke": 0,
+        "strokeColor": "#000000",
         "showOnEditor": true,
         "mouseEventEnabledInEditor": true,
-        "index": 3
+        "wordWrap": false,
+        "materialData": [
+            {
+                "materials": []
+            }
+        ],
+        "index": 3,
+        "valign": 0
     },
     "option": {
-        "x": 241,
-        "y": 230,
+        "x": 245,
+        "y": 234,
         "width": 364,
         "height": 40,
         "alpha": 1,
         "fontSize": 24,
-        "color": "#FFFFFF",
-        "bold": false,
+        "color": "#f5caa7",
+        "overColor": "#FFFFFF",
+        "clickColor": "#FFFFFF",
+        "bold": true,
         "italic": false,
+        "smooth": true,
         "align": 1,
         "leading": 0,
-        "font": "宋体",
+        "letterSpacing": 0,
+        "font": "幼圆",
         "valign": 1,
         "shadowEnabled": false,
         "shadowColor": "#000000",
         "shadowDx": 1,
         "shadowDy": 1,
+        "stroke": 0,
+        "strokeColor": "#000000",
         "showOnEditor": true,
         "mouseEventEnabledInEditor": true,
+        "materialData": [
+            {
+                "materials": []
+            }
+        ],
         "index": 4
     },
     "nameBox": {
@@ -111,16 +155,25 @@
         "color": "#FFFFFF",
         "bold": false,
         "italic": false,
+        "smooth": false,
         "align": 1,
         "leading": 0,
+        "letterSpacing": 0,
         "font": "宋体",
         "valign": 1,
         "shadowEnabled": false,
         "shadowColor": "#000000",
         "shadowDx": 1,
         "shadowDy": 1,
+        "stroke": 0,
+        "strokeColor": "#000000",
         "showOnEditor": true,
         "mouseEventEnabledInEditor": true,
+        "materialData": [
+            {
+                "materials": []
+            }
+        ],
         "index": 5
     },
     "skipBox": {

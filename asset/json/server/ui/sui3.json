@@ -1,78 +1,148 @@
 {
     "root": {
         "commands": [
+            [],
+            [],
+            [],
+            [],
             []
         ]
     },
     "70078783950_0.18764676049284001": {
         "condition": [],
         "commands": [
+            [],
+            [],
+            [],
+            [],
             []
         ]
     },
     "70079046332_0.7281758351440559": {
         "condition": [],
         "commands": [
+            [],
+            [],
+            [],
+            [],
             []
         ]
     },
     "70079143980_0.06394080481344577": {
         "condition": [],
         "commands": [
+            [
+                [
+                    20,
+                    "开关开发者模式",
+                    "// 当前的事件触发器：trigger: CommandTrigger;\nGame.player.variable.setSwitch(1, 1 - Game.player.variable.getSwitch(1))",
+                    "Game.player.variable.setSwitch(1, 1 - Game.player.variable.getSwitch(1));\n",
+                    {
+                        "___cmdID": "70423463040_0.50251922937067"
+                    }
+                ]
+            ],
+            [],
+            [],
+            [],
             []
         ]
     },
     "70079316921_0.8243500558875787": {
         "condition": [],
         "commands": [
-            []
-        ]
-    },
-    "70079431116_0.16842101087653671": {
-        "condition": [],
-        "commands": [
             [
                 [
-                    13,
-                    4,
-                    2,
-                    0,
-                    0,
-                    0,
-                    1,
-                    1,
-                    [
-                        0,
-                        100
-                    ],
-                    0,
-                    -1,
-                    [],
-                    0,
-                    0,
-                    0,
+                    20,
+                    "开关开发者模式",
+                    "// 当前的事件触发器：trigger: CommandTrigger;\nGame.player.variable.setSwitch(1, 1 - Game.player.variable.getSwitch(1))",
+                    "Game.player.variable.setSwitch(1, 1 - Game.player.variable.getSwitch(1));\n",
                     {
-                        "___cmdID": "70079716980_0.13863076921203965"
+                        "___cmdID": "70423574073_0.3737139099983289"
                     }
                 ]
-            ]
+            ],
+            [],
+            [],
+            [],
+            []
         ]
     },
     "70087431525_0.032625057026419935": {
         "condition": [],
         "commands": [
+            [],
+            [],
+            [],
+            [],
             []
         ]
     },
     "70316324505_0.6175477151512101": {
         "condition": [],
         "commands": [
+            [
+                [
+                    20,
+                    "切换显示FPS",
+                    "// 当前的事件触发器：trigger: CommandTrigger;\nGame.player.variable.setSwitch(2, 1 - Game.player.variable.getSwitch(2))",
+                    "Game.player.variable.setSwitch(2, 1 - Game.player.variable.getSwitch(2));\n",
+                    {
+                        "___cmdID": "70423600456_0.08703695618372453"
+                    }
+                ]
+            ],
+            [],
+            [],
+            [],
             []
         ]
     },
     "70316324505_0.974769676276142": {
         "condition": [],
         "commands": [
+            [
+                [
+                    20,
+                    "切换显示FPS",
+                    "// 当前的事件触发器：trigger: CommandTrigger;\nGame.player.variable.setSwitch(2, 1 - Game.player.variable.getSwitch(2))",
+                    "Game.player.variable.setSwitch(2, 1 - Game.player.variable.getSwitch(2));\n",
+                    {
+                        "___cmdID": "70423636836_0.6853954673671017"
+                    }
+                ]
+            ],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    "70421923785_0.7479515194126649": {
+        "condition": [],
+        "commands": [
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    "70422047804_0.308392829857169": {
+        "condition": [],
+        "commands": [
+            [
+                [
+                    10005,
+                    {
+                        "70420035763_0.5177036269479316": 3
+                    },
+                    "70423346002_0.5221010626634774"
+                ]
+            ],
+            [],
+            [],
+            [],
             []
         ]
     }

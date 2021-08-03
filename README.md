@@ -1,8 +1,7 @@
-# 合成大猫咪 0.2.0
+# 合成大猫咪 0.2.1
 这是一个用 GameCreator 制作的类似合成大西瓜的游戏
 
-目前的截屏：
-![](./screenshot.png)
+预览版本已经发布至 [GC 云平台](http://f.gamecreator.com.cn/game.php?id=346)
 
 ### 使用核心模板和以下可视化编辑器：
 
@@ -22,6 +21,8 @@
 - [ ] 正常结束游戏
 - [x] 退出和重新进入游戏
 - [ ] 排行榜
+- [ ] 移除退出并重新进入游戏后的幽灵猫咪
+- [ ] 更改猫咪大小
 - 优化界面
     - [ ] 自定义按钮图片
     - [ ] 自定义字体
@@ -30,10 +31,15 @@
 - [ ] 更科学的分数计算方式
 - [ ] 继续优化碰撞检测
 - [ ] 显示设置按钮
+- [ ] 显示对话框时不应该响应鼠标事件
 - 设置选项
-    - [ ] 保存设置
+    - [x] 保存设置
     - [ ] 重置设置
     -  开发者模式
-        - [ ] 显示 FPS
+        - [x] 显示 FPS
         - [ ] 在游戏内部执行脚本
+        - [ ] 关闭开发者模式时，子选项应当都被关闭
     - [ ] 开发者信息
+
+### 许可声明 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+源代码使用 Apache 2.0 许可证开源，图片素材等使用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可。

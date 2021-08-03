@@ -6,6 +6,17 @@ var GCMain = (function () {
     GCMain.prototype.onClientWorldInit = function () {
         GameUI.show(1);
         new SceneEventListener();
+        var showFPS = false;
+        os.add_ENTERFRAME(function () {
+            if (Game.player.variable.getSwitch(2) && !showFPS) {
+                os.showFPS();
+                showFPS = true;
+            }
+            else if (!Game.player.variable.getSwitch(2) && showFPS) {
+                os.hideFPS();
+                showFPS = false;
+            }
+        }, null);
     };
     return GCMain;
 }());

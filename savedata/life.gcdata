@@ -4,10 +4,16 @@
         "switchs": [],
         "strings": []
     },
-    "saveIDs": [],
+    "saveIDs": [
+        {
+            "id": 0,
+            "indexInfo": {},
+            "now": 1627897427364
+        }
+    ],
     "globalData": {
         "___globalData": null,
         "___useNewGlobalData": true,
-        "topScore": 5
+        "topScore": 6
     }
 }

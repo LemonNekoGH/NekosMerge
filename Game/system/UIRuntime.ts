@@ -6,14 +6,18 @@
  * 1-界面1 [BASE]
  */
 class GUI_1 extends GUI_BASE {
-   按钮:UIButton;
-   文本:UIString;
+   背景:UIBitmap;
+   标题:UIString;
+   开始按钮:UIButton;
+   设置按钮:UIButton;
    constructor(){
       super(1);
    }
 }
 class ListItem_1 extends UIListItemData {
-   文本:string;
+   背景:string;
+   标题:string;
+
 }
 
 /**
@@ -21,54 +25,75 @@ class ListItem_1 extends UIListItemData {
  */
 class GUI_2 extends GUI_BASE {
    背景:UIBitmap;
-   界面容器:UIRoot;
+   分数:UIVariable;
+   最高分数:UIVariable;
    标题:UIString;
-   猫咪边界:UIString;
    退出按钮:UIButton;
-   按钮:UIButton;
+   暂停按钮:UIButton;
    玩法说明:UIString;
    分数标签:UIString;
    最高分数标签:UIString;
-   分数:UIVariable;
-   最高分数:UIVariable;
+   设置按钮:UIButton;
    constructor(){
       super(2);
    }
 }
 class ListItem_2 extends UIListItemData {
    背景:string;
+   分数:number;
+   最高分数:number;
    标题:string;
-   猫咪边界:string;
    玩法说明:string;
    分数标签:string;
    最高分数标签:string;
-   分数:number;
-   最高分数:number;
+
 }
 
 /**
  * 3-设置界面 [BASE]
  */
 class GUI_3 extends GUI_BASE {
+   对话框遮罩:UIBitmap;
    容器:UIRoot;
-   图片:UIBitmap;
+   对话框背景:UIBitmap;
    文本:UIString;
    开发者模式开关:UISwitch;
    开发者模式开关标签:UIString;
-   完成按钮:UIButton;
    FPS开关:UISwitch;
    FPS开关标签:UIString;
+   确定按钮:UIButton;
    constructor(){
       super(3);
    }
 }
 class ListItem_3 extends UIListItemData {
-   图片:string;
+   对话框遮罩:string;
+   对话框背景:string;
    文本:string;
    开发者模式开关:number;
    开发者模式开关标签:string;
    FPS开关:number;
    FPS开关标签:string;
+
+}
+
+/**
+ * 4-退出对话框 [BASE]
+ */
+class GUI_4 extends GUI_BASE {
+   对话框遮罩:UIBitmap;
+   对话框背景图片:UIBitmap;
+   确定按钮:UIButton;
+   取消按钮:UIButton;
+   退出提示:UIString;
+   constructor(){
+      super(4);
+   }
+}
+class ListItem_4 extends UIListItemData {
+   对话框遮罩:string;
+   对话框背景图片:string;
+   退出提示:string;
 }
 
 /**

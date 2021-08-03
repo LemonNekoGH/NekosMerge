@@ -9,6 +9,7 @@ var CommandExecute;
             uiRoot.getChildAt(0).addChild(neko);
         }
     }
+    CommandExecute.newNeko = newNeko;
     function customCommand_1(commandPage, cmd, trigger, player, playerInput, p) {
         if (started)
             return;
@@ -21,62 +22,7 @@ var CommandExecute;
         else {
             Game.player.variable.setVariable(2, 0);
         }
-        var ui2 = GameUI.get(2);
-        var root2 = ui2.getChildAt(0);
-        root2.on(EventObject.MOUSE_DOWN, this, onMouseDown);
-        root2.on(EventObject.MOUSE_MOVE, this, onMouseMove);
-        root2.on(EventObject.MOUSE_UP, this, onMouseUp);
-        root2.on(EventObject.CLICK, this, onClick);
-        root2.on(UINeko.EVENT_MERGED, this, onNekoMerge);
-        var mouseDown = false;
-        function onMouseDown() {
-            mouseDown = true;
-        }
-        function onMouseMove() {
-            if (mouseDown) {
-                for (var i = 0; i < root2.numChildren; i++) {
-                    var child = root2.getChildAt(i);
-                    child.event(EventObject.DRAG_MOVE, new Point(ui2.mouseX, ui2.mouseY));
-                }
-            }
-        }
-        function onMouseUp() {
-            if (mouseDown) {
-                for (var i = 0; i < root2.numChildren; i++) {
-                    var child = root2.getChildAt(i);
-                    child.event(EventObject.DRAG_END, new Point(ui2.mouseX, ui2.mouseY));
-                }
-                mouseDown = false;
-                setTimeout(newNeko, 1500);
-            }
-        }
-        function onClick() {
-            for (var i = 0; i < root2.numChildren; i++) {
-                var child = root2.getChildAt(i);
-                child.event(EventObject.DRAG_END, new Point(ui2.mouseX, ui2.mouseY));
-            }
-        }
-        function onNekoMerge(data) {
-            var it = data.it, me = data.me;
-            var upLevel = me.level + 1;
-            var x = me.x;
-            var y = me.y;
-            it.dispose();
-            me.dispose();
-            var nekoObj = new UINeko(upLevel, true);
-            GameUI.get(2).getChildAt(0).addChild(nekoObj);
-            nekoObj.x = x;
-            nekoObj.y = y - nekoObj.size;
-            var score = Game.player.variable.getVariable(1);
-            score += upLevel;
-            Game.player.variable.setVariable(1, score);
-            var bestScore = Game.player.variable.getVariable(2);
-            if (bestScore < score) {
-                bestScore = score;
-                Game.player.variable.setVariable(2, bestScore);
-            }
-            console.log("\u732B\u54AA\u5347\u7EA7\u4E86\uFF0C\u7B49\u7EA7 " + nekoObj.level);
-        }
+        new ProjectGUI2(GameUI.get(2));
         started = true;
     }
     CommandExecute.customCommand_1 = customCommand_1;
@@ -98,5 +44,13 @@ var CommandExecute;
         started = false;
     }
     CommandExecute.customCommand_3 = customCommand_3;
+    function customCommand_4(commandPage, cmd, trigger, player, playerInput, params) {
+        GameUI.show(params.要显示的界面ID);
+    }
+    CommandExecute.customCommand_4 = customCommand_4;
+    function customCommand_5(commandPage, cmd, trigger, player, playerInput, params) {
+        GameUI.dispose(params.要关闭的界面ID);
+    }
+    CommandExecute.customCommand_5 = customCommand_5;
 })(CommandExecute || (CommandExecute = {}));
 //# sourceMappingURL=Commands.js.map

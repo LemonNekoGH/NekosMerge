@@ -206,6 +206,21 @@
             ]
         },
         {
+            "typeName": "界面",
+            "commandList": [
+                [
+                    10004,
+                    "显示指定界面",
+                    false
+                ],
+                [
+                    10005,
+                    "关闭指定界面",
+                    false
+                ]
+            ]
+        },
+        {
             "typeName": "插件指令",
             "commandList": [
                 [

@@ -4,7 +4,9 @@
             null,
             "开始游戏",
             "在任意位置生成一个等级小于4级的猫咪",
-            "退出到主界面"
+            "退出到主界面",
+            "显示指定界面",
+            "关闭指定界面"
         ],
         "2": [
             null,
@@ -61,6 +63,110 @@
                 {
                     "name": "未命名块",
                     "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true,
+                    "cmdColor": "#FFFFFF"
+                }
+            ]
+        },
+        "4": {
+            "compAutoOrderLimitHeight": 0,
+            "id": 4,
+            "blockList": [
+                {
+                    "name": "显示指定界面",
+                    "blockAttrs": [
+                        {
+                            "attr": {
+                                "id": "70419974469_0.39627468900428653",
+                                "varName": "要显示的界面ID",
+                                "varType": 0,
+                                "compData": {
+                                    "compType": 0,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "",
+                                "alias": "",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": true,
+                                "titleWidth": 100,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 0,
+                            "x": 0,
+                            "width": 200,
+                            "height": 32
+                        }
+                    ],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true,
+                    "cmdColor": "#FFFFFF"
+                }
+            ]
+        },
+        "5": {
+            "compAutoOrderLimitHeight": 0,
+            "id": 5,
+            "blockList": [
+                {
+                    "name": "关闭指定界面",
+                    "blockAttrs": [
+                        {
+                            "attr": {
+                                "id": "70420035763_0.5177036269479316",
+                                "varName": "要关闭的界面ID",
+                                "varType": 0,
+                                "compData": {
+                                    "compType": 0,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "",
+                                "alias": "",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": true,
+                                "titleWidth": 100,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 0,
+                            "x": 0,
+                            "width": 200,
+                            "height": 32
+                        }
+                    ],
                     "blockCondition": [],
                     "blockHeight": 300,
                     "autoOrder": true,

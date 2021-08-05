@@ -171,7 +171,7 @@
                 "showOnEditor": true,
                 "hasCommand": [],
                 "isOpen": true,
-                "text": "确定要退出吗？最高分将被保存",
+                "text": "确定要退出吗？最高分已被保存",
                 "fontSize": 20,
                 "color": "#f5caa7",
                 "bold": true,

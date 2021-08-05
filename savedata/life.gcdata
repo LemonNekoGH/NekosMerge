@@ -14,6 +14,10 @@
     "globalData": {
         "___globalData": null,
         "___useNewGlobalData": true,
-        "devMode": 1
+        "GLOBAL_DATA": {
+            "topScore": 0,
+            "devMode": false,
+            "showFPS": false
+        }
     }
 }

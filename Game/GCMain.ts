@@ -18,13 +18,8 @@ function collectSprites(sprite: GameSprite, sprites: GameSprite[]) {
 const GCMain = {
     onClientWorldInit() {
         GameUI.show(1)
-        const devMode = SinglePlayerGame.getSaveCustomGlobalData("devMode") as number
-        const showFPS0 = SinglePlayerGame.getSaveCustomGlobalData("showFPS") as number
-
-        GCMain.variables.开发者模式 = devMode === 1
-        GCMain.variables.显示FPS = showFPS0 === 1
-
-        console.log(`从存档中获取到：开发者模式开启状态：${devMode}，显示FPS：${showFPS0}`)
+        
+        GlobalData.restore()
 
         // 当显示 FPS 开关打开时，显示 FPS
         let showFPS = false
@@ -37,6 +32,8 @@ const GCMain = {
                 showFPS = false
             }
         }, null)
+
+        SinglePlayerGame.regSaveCustomGlobalData("GLOBAL_DATA", Callback.New(() => new GlobalData, this))
     },
     // 各种游戏变量
     variables: {

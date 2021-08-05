@@ -11,11 +11,7 @@ function collectSprites(sprite, sprites) {
 var GCMain = {
     onClientWorldInit: function () {
         GameUI.show(1);
-        var devMode = SinglePlayerGame.getSaveCustomGlobalData("devMode");
-        var showFPS0 = SinglePlayerGame.getSaveCustomGlobalData("showFPS");
-        GCMain.variables.开发者模式 = devMode === 1;
-        GCMain.variables.显示FPS = showFPS0 === 1;
-        console.log("\u4ECE\u5B58\u6863\u4E2D\u83B7\u53D6\u5230\uFF1A\u5F00\u53D1\u8005\u6A21\u5F0F\u5F00\u542F\u72B6\u6001\uFF1A" + devMode + "\uFF0C\u663E\u793AFPS\uFF1A" + showFPS0);
+        GlobalData.restore();
         var showFPS = false;
         os.add_ENTERFRAME(function () {
             if (GCMain.variables.显示FPS && !showFPS) {
@@ -27,6 +23,7 @@ var GCMain = {
                 showFPS = false;
             }
         }, null);
+        SinglePlayerGame.regSaveCustomGlobalData("GLOBAL_DATA", Callback.New(function () { return new GlobalData; }, this));
     },
     variables: {
         setVariable: function (num, payload) {

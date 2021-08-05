@@ -1,4 +1,4 @@
-# 合成大猫咪 0.2.1
+# 合成大猫咪 0.2.2
 这是一个用 GameCreator 制作的类似合成大西瓜的游戏
 
 预览版本已经发布至 [GC 云平台](http://f.gamecreator.com.cn/game.php?id=346)

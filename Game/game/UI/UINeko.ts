@@ -14,8 +14,8 @@ class UINeko extends UIBitmap {
         this.level = level
         this.speed = { x: 0, y: 1 }
 
-        this.width = this.size * 2
-        this.height = this.size * 2
+        this.width = level1Size * Math.pow(sizecoefficient, level)
+        this.height = this.width
 
         if (fromMerge) {
             colidDetector.add(this)
@@ -31,7 +31,7 @@ class UINeko extends UIBitmap {
 
     // 猫咪半径
     get size(): number {
-        return this.level * level1Size
+        return level1Size * Math.pow(sizecoefficient, this.level) / 2
     }
 
     // 返回全局坐标

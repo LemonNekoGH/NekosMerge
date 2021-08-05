@@ -97,6 +97,24 @@ class ListItem_4 extends UIListItemData {
 }
 
 /**
+ * 5-暂停提示 [BASE]
+ */
+class GUI_5 extends GUI_BASE {
+   对话框遮罩:UIBitmap;
+   对话框背景图片:UIBitmap;
+   继续按钮:UIButton;
+   暂停提示:UIString;
+   constructor(){
+      super(5);
+   }
+}
+class ListItem_5 extends UIListItemData {
+   对话框遮罩:string;
+   对话框背景图片:string;
+   暂停提示:string;
+}
+
+/**
  * 1001-模拟碰撞边界 [BASE]
  */
 class GUI_1001 extends GUI_BASE {

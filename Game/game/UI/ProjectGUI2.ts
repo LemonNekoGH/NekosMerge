@@ -21,6 +21,10 @@ class ProjectGUI2 {
 
         function onMouseMove() {
             // 鼠标是按下的，给各子组件派发鼠标拖动事件
+            // 暂停时不派发事件
+            if (Game.pause) {
+                return
+            }
             if (mouseDown) {
                 for (let i = 0; i < root2.numChildren; i++) {
                     const child = root2.getChildAt(i)
@@ -31,17 +35,30 @@ class ProjectGUI2 {
 
         function onMouseUp() {
             // 鼠标是按下的，给各子组件派发结束拖动事件
-            if (mouseDown) {
-                for (let i = 0; i < root2.numChildren; i++) {
-                    const child = root2.getChildAt(i)
-                    child.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
-                }
-                mouseDown = false
-                setTimeout(CommandExecute.newNeko, 1500)
+            // 暂停时不派发事件
+            if (Game.pause) {
+                return
             }
+            if (!mouseDown) {
+                return
+            }
+            for (let i = 0; i < root2.numChildren; i++) {
+                const child = root2.getChildAt(i)
+                child.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
+            }
+            mouseDown = false
+            if (GCMain.variables.等待下一个猫咪出现 === 1) {
+                return
+            }
+            setTimeout(CommandExecute.newNeko, 1500)
+            GCMain.variables.等待下一个猫咪出现 = 1
         }
 
         function onClick() {
+            // 暂停时不派发事件
+            if (Game.pause) {
+                return
+            }
             for (let i = 0; i < root2.numChildren; i++) {
                 const child = root2.getChildAt(i)
                 child.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
@@ -68,18 +85,17 @@ class ProjectGUI2 {
             nekoObj.y = y - nekoObj.size
 
             // 加分
-            let score = Game.player.variable.getVariable(1)
-            score += upLevel
-            Game.player.variable.setVariable(1, score)
+            GCMain.variables.分数 += upLevel
 
             // 如果超过了最高分，把最高分设置成当前分数
-            let bestScore = Game.player.variable.getVariable(2)
-            if (bestScore < score) {
-                bestScore = score
-                Game.player.variable.setVariable(2, bestScore)
+            if (GCMain.variables.最高分数 < GCMain.variables.分数) {
+                GCMain.variables.最高分数 = GCMain.variables.分数
             }
 
-            console.log(`猫咪升级了，等级 ${nekoObj.level}`)
+            // 更新最高猫咪等级
+            if (GCMain.variables.最高的猫咪等级 < upLevel) {
+                GCMain.variables.最高的猫咪等级 = upLevel
+            }
         }
     }
 }

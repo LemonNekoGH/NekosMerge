@@ -165,8 +165,8 @@
                 "condition": [],
                 "type": "UIButton",
                 "name": "退出按钮",
-                "x": 1018,
-                "y": 28,
+                "x": 1009,
+                "y": 27,
                 "width": 150,
                 "height": 50,
                 "opacity": 1,
@@ -227,7 +227,9 @@
                 ],
                 "mouseEventEnabledInEditor": true,
                 "showOnEditor": true,
-                "hasCommand": [],
+                "hasCommand": [
+                    true
+                ],
                 "isOpen": true,
                 "label": "暂停",
                 "image1": "asset/image/picture/control/NekosMergeButton.png",

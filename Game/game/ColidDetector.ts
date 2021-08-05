@@ -21,6 +21,13 @@ class ColidDetector {
     }
 
     /**
+     * 清除所有猫咪
+     */
+    clearAll() {
+        this.objects = []
+    }
+
+    /**
      * 将猫咪从碰撞容器中移除
      */
     remove(obj: UINeko) {
@@ -32,6 +39,10 @@ class ColidDetector {
         const me = colidDetector
         // 没有对象，不进行检测
         if (!me.objects) {
+            return
+        }
+        // 游戏暂停，不进行检测
+        if (Game.pause) {
             return
         }
 
@@ -172,5 +183,6 @@ class ColidDetector {
 
 const speedUpLeftRight = 1
 const speedUpTopBottom = 0.5
+const sizecoefficient = 1.3
 
 const colidDetector: ColidDetector = new ColidDetector()

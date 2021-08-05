@@ -2,12 +2,27 @@ var CommandExecute;
 (function (CommandExecute) {
     var started = false;
     function newNeko() {
-        var randLevel = MathUtils.rand(2) + 1;
+        if (Game.pause) {
+            setTimeout(newNeko, 1500);
+            return;
+        }
+        var randLevel = 0;
+        var topLevel = GCMain.variables.最高的猫咪等级;
+        if (topLevel > 7) {
+            randLevel = MathUtils.rand(4) + 1;
+        }
+        else if (topLevel >= 5) {
+            randLevel = MathUtils.rand(topLevel - 3) + 1;
+        }
+        else {
+            randLevel = MathUtils.rand(2) + 1;
+        }
         var neko = new UINeko(randLevel, false);
         var uiRoot = GameUI.get(2);
         if (uiRoot) {
             uiRoot.getChildAt(0).addChild(neko);
         }
+        GCMain.variables.等待下一个猫咪出现 = 0;
     }
     CommandExecute.newNeko = newNeko;
     function customCommand_1(commandPage, cmd, trigger, player, playerInput, p) {
@@ -17,11 +32,12 @@ var CommandExecute;
         GameUI.show(2);
         var topScore = SinglePlayerGame.getSaveCustomGlobalData("topScore");
         if (topScore) {
-            Game.player.variable.setVariable(2, topScore);
+            GCMain.variables.最高分数 = topScore;
         }
         else {
-            Game.player.variable.setVariable(2, 0);
+            GCMain.variables.最高分数 = 0;
         }
+        GCMain.variables.分数 = 0;
         new ProjectGUI2(GameUI.get(2));
         started = true;
     }
@@ -52,5 +68,14 @@ var CommandExecute;
         GameUI.dispose(params.要关闭的界面ID);
     }
     CommandExecute.customCommand_5 = customCommand_5;
+    function customCommand_6(commandPage, cmd, trigger, player, playerInput, params) {
+        var shouldPause = params.是否暂停 === 1;
+        if (shouldPause === Game.pause) {
+            console.log("\u6E38\u620F" + (shouldPause ? '已经' : '没有') + "\u5904\u4E8E\u6682\u505C\u72B6\u6001");
+            return;
+        }
+        Game.pause = shouldPause;
+    }
+    CommandExecute.customCommand_6 = customCommand_6;
 })(CommandExecute || (CommandExecute = {}));
 //# sourceMappingURL=Commands.js.map

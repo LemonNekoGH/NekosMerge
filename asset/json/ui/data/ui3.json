@@ -162,7 +162,7 @@
                         "image2": "asset/image/picture/control/NekosMergeCheckBoxSelected.png",
                         "grid9img2": "0,0,0,0,0",
                         "previewselected": true,
-                        "onChangeFragEvent": null
+                        "onChangeFragEvent": "切换开发者模式开关\u000570602425751_0.9393077478876817\u0005[]"
                     },
                     {
                         "id": "70079316921_0.8243500558875787",
@@ -176,7 +176,7 @@
                         "opacity": 1,
                         "rotation": 0,
                         "show": true,
-                        "mouseEventEnabledData": false,
+                        "mouseEventEnabledData": true,
                         "materialData": [
                             {
                                 "materials": []
@@ -267,7 +267,7 @@
                         "opacity": 1,
                         "rotation": 0,
                         "show": true,
-                        "mouseEventEnabledData": false,
+                        "mouseEventEnabledData": true,
                         "materialData": [
                             {
                                 "materials": []

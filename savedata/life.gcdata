@@ -8,12 +8,12 @@
         {
             "id": 0,
             "indexInfo": {},
-            "now": 1627897427364
+            "now": 1628157218000
         }
     ],
     "globalData": {
         "___globalData": null,
         "___useNewGlobalData": true,
-        "topScore": 6
+        "devMode": 1
     }
 }

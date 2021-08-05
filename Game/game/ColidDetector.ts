@@ -42,7 +42,7 @@ class ColidDetector {
             return
         }
         // 游戏暂停，不进行检测
-        if (Game.pause) {
+        if (Game && Game.pause) {
             return
         }
 

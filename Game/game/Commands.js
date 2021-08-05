@@ -77,5 +77,42 @@ var CommandExecute;
         Game.pause = shouldPause;
     }
     CommandExecute.customCommand_6 = customCommand_6;
+    var globalData = {
+        varType: 0,
+        varIndex: 0
+    };
+    function customCommand_7(commandPage, cmd, trigger, player, playerInput, params) {
+        var name = params.全局名称;
+        var value = params.要设置的值;
+        var varType = params.变量类型;
+        var varIndex = params.开关编号 || params.变量编号 || params.字符串编号;
+        console.log("varType " + varType + " varIndex " + varIndex);
+        switch (varType) {
+            case 0:
+                Game.player.variable.setSwitch(varIndex, value);
+                break;
+            case 1:
+                Game.player.variable.setVariable(varIndex, value);
+                break;
+            case 2:
+                Game.player.variable.setString(varIndex, value + "");
+                break;
+        }
+        function saveData() {
+            switch (globalData.varType) {
+                case 0: return Game.player.variable.getSwitch(globalData.varIndex);
+                case 1: return Game.player.variable.getVariable(globalData.varIndex);
+                case 2: return Game.player.variable.getString(globalData.varIndex);
+            }
+        }
+        SinglePlayerGame.regSaveCustomGlobalData(name, Callback.New(saveData, this));
+        globalData.varType = varType;
+        globalData.varIndex = varIndex;
+        SinglePlayerGame.saveGlobalData(Callback.New(function (success) {
+            console.log(success ? '保存成功' : '保存失败');
+            console.log(SinglePlayerGame.getSaveCustomGlobalData(name));
+        }, this));
+    }
+    CommandExecute.customCommand_7 = customCommand_7;
 })(CommandExecute || (CommandExecute = {}));
 //# sourceMappingURL=Commands.js.map

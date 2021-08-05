@@ -16,7 +16,7 @@ module CommandExecute {
         } else {
             randLevel = MathUtils.rand(2) + 1
         }
-        
+
         const neko = new UINeko(randLevel, false)
         const uiRoot = GameUI.get(2)
         if (uiRoot) {
@@ -69,7 +69,7 @@ module CommandExecute {
             return topScore
         }, this))
         SinglePlayerGame.saveGlobalData(null)
-        
+
         GameUI.show(1);
 
         started = false;
@@ -100,5 +100,50 @@ module CommandExecute {
         }
 
         Game.pause = shouldPause
+    }
+
+    const globalData = {
+        varType: 0,
+        varIndex: 0
+    }
+
+    /**
+     * 变量设值并存为全局变量
+     * 变量类型： 
+     * 0 - 开关
+     * 1 - 数值
+     * 2 - 字符串
+     */
+    export function customCommand_7(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, params: CustomCommandParams_7): void {
+        const name = params.全局名称
+        const value = params.要设置的值
+        const varType = params.变量类型
+        const varIndex = params.开关编号 || params.变量编号 || params.字符串编号
+        console.log(`varType ${varType} varIndex ${varIndex}`)
+
+        switch (varType) {
+            case 0: Game.player.variable.setSwitch(varIndex, value); break
+            case 1: Game.player.variable.setVariable(varIndex, value); break
+            // TODO：此处需要修改为字符串
+            case 2: Game.player.variable.setString(varIndex, value + ""); break
+        }
+
+        function saveData(): number | string {
+            switch (globalData.varType) {
+                case 0: return Game.player.variable.getSwitch(globalData.varIndex)
+                case 1: return Game.player.variable.getVariable(globalData.varIndex)
+                case 2: return Game.player.variable.getString(globalData.varIndex)
+            }
+        }
+
+        SinglePlayerGame.regSaveCustomGlobalData(name, Callback.New(saveData, this))
+
+        globalData.varType = varType
+        globalData.varIndex = varIndex
+
+        SinglePlayerGame.saveGlobalData(Callback.New((success) => {
+            console.log(success ? '保存成功' : '保存失败')
+            console.log(SinglePlayerGame.getSaveCustomGlobalData(name))
+        }, this))
     }
 }

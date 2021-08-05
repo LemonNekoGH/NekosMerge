@@ -11,13 +11,18 @@ function collectSprites(sprite, sprites) {
 var GCMain = {
     onClientWorldInit: function () {
         GameUI.show(1);
+        var devMode = SinglePlayerGame.getSaveCustomGlobalData("devMode");
+        var showFPS0 = SinglePlayerGame.getSaveCustomGlobalData("showFPS");
+        GCMain.variables.开发者模式 = devMode === 1;
+        GCMain.variables.显示FPS = showFPS0 === 1;
+        console.log("\u4ECE\u5B58\u6863\u4E2D\u83B7\u53D6\u5230\uFF1A\u5F00\u53D1\u8005\u6A21\u5F0F\u5F00\u542F\u72B6\u6001\uFF1A" + devMode + "\uFF0C\u663E\u793AFPS\uFF1A" + showFPS0);
         var showFPS = false;
         os.add_ENTERFRAME(function () {
-            if (Game.player.variable.getSwitch(2) && !showFPS) {
+            if (GCMain.variables.显示FPS && !showFPS) {
                 os.showFPS();
                 showFPS = true;
             }
-            else if (!Game.player.variable.getSwitch(2) && showFPS) {
+            else if (!GCMain.variables.显示FPS && showFPS) {
                 os.hideFPS();
                 showFPS = false;
             }
@@ -29,6 +34,12 @@ var GCMain = {
         },
         getVariable: function (num) {
             return Game.player.variable.getVariable(num);
+        },
+        setSwitch: function (index, payload) {
+            Game.player.variable.setSwitch(index, payload ? 1 : 0);
+        },
+        getSwitch: function (index) {
+            return Game.player.variable.getSwitch(index) === 1;
         },
         get 分数() {
             return this.getVariable(1);
@@ -59,6 +70,18 @@ var GCMain = {
         },
         set 最高的猫咪等级(top) {
             this.setVariable(5, top);
+        },
+        get 开发者模式() {
+            return this.getSwitch(1);
+        },
+        set 开发者模式(devMode) {
+            this.setSwitch(1, devMode);
+        },
+        get 显示FPS() {
+            return this.getSwitch(2);
+        },
+        set 显示FPS(devMode) {
+            this.setSwitch(2, devMode);
         }
     },
     guis: {

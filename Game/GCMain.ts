@@ -18,13 +18,21 @@ function collectSprites(sprite: GameSprite, sprites: GameSprite[]) {
 const GCMain = {
     onClientWorldInit() {
         GameUI.show(1)
+        const devMode = SinglePlayerGame.getSaveCustomGlobalData("devMode") as number
+        const showFPS0 = SinglePlayerGame.getSaveCustomGlobalData("showFPS") as number
+
+        GCMain.variables.开发者模式 = devMode === 1
+        GCMain.variables.显示FPS = showFPS0 === 1
+
+        console.log(`从存档中获取到：开发者模式开启状态：${devMode}，显示FPS：${showFPS0}`)
+
         // 当显示 FPS 开关打开时，显示 FPS
         let showFPS = false
         os.add_ENTERFRAME(() => {
-            if (Game.player.variable.getSwitch(2) && !showFPS) {
+            if (GCMain.variables.显示FPS && !showFPS) {
                 os.showFPS()
                 showFPS = true
-            } else if (!Game.player.variable.getSwitch(2) && showFPS) {
+            } else if (!GCMain.variables.显示FPS && showFPS) {
                 os.hideFPS()
                 showFPS = false
             }
@@ -37,6 +45,12 @@ const GCMain = {
         },
         getVariable(num: number): number {
             return Game.player.variable.getVariable(num)
+        },
+        setSwitch(index: number, payload: boolean) {
+            Game.player.variable.setSwitch(index, payload ? 1 : 0)
+        },
+        getSwitch(index: number): boolean{
+            return Game.player.variable.getSwitch(index) === 1
         },
         get 分数(): number {
             return this.getVariable(1)
@@ -67,6 +81,18 @@ const GCMain = {
         },
         set 最高的猫咪等级(top: number) {
             this.setVariable(5, top)
+        },
+        get 开发者模式(): boolean {
+            return this.getSwitch(1)
+        },
+        set 开发者模式(devMode) {
+            this.setSwitch(1, devMode)
+        },
+        get 显示FPS(): boolean {
+            return this.getSwitch(2)
+        },
+        set 显示FPS(devMode) {
+            this.setSwitch(2, devMode)
         }
     },
     guis: {

@@ -12,8 +12,61 @@ class ProjectGUI2 {
         root2.on(EventObject.MOUSE_UP, this, onMouseUp)
         root2.on(EventObject.CLICK, this, onClick)
         root2.on(UINeko.EVENT_MERGED, this, onNekoMerge)
+        root2.on(UINeko.EVENT_OUT_OF_CONTAINER, this, onNekoOutOfContainer)
+        root2.on(UINeko.EVENT_BACK_IN_TO_CONTAINER, this, onNekoBackIntoContainer)
 
         let mouseDown = false
+        let outOfContainerCount = 0
+        let countDownText0 = 3
+        let countDownText: UIString = undefined
+
+        /**
+         * 当猫咪飞出容器时调用
+         */
+        function onNekoOutOfContainer() {
+            // 计数器 +1
+            outOfContainerCount++
+            // 开始计时
+            if (!countDownText) {
+                countDownText = new UIString()
+                root2.addChild(countDownText)
+                
+                countDownText.font = "幼圆"
+                countDownText.fontSize = 20
+                countDownText.color = "#000000"
+                countDownText.text = "" + countDownText0
+                countDownText.x = 0
+                countDownText.y = 190
+
+                setTimeout(countDown, 1000)
+            }
+        }
+
+        /**
+         * 游戏结束倒计时
+         */
+        function countDown() {
+            if (countDownText) {
+                countDownText0--
+                countDownText.text = "" + countDownText0
+                setTimeout(countDown, 1000)
+            } else {
+                countDownText0 = 3
+            }
+        }
+
+        /**
+         * 当猫咪回到容器中时调用
+         */
+        function onNekoBackIntoContainer() {
+            // 计数器 -1
+            outOfContainerCount--
+            // 如果计数器为 0 ，重置计时器
+            if (outOfContainerCount === 0) {
+                countDownText.dispose()
+                countDownText = undefined
+            }
+        }
 
         function onMouseDown() {
             mouseDown = true

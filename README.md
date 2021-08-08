@@ -12,7 +12,6 @@
 5. 对话框样式编辑器
 
 ### TODO-List
-- [ ] 游戏方法指引
 - [ ] 手机端检测
 - [x] 碰撞检测
 - [x] 优化碰撞检测
@@ -53,6 +52,3 @@
 
 ### 许可声明 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
 源代码使用 Apache 2.0 许可证开源，图片素材等使用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可。
-
-### 临时记录
-- GC bug：无法模拟手机端测试

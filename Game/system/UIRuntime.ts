@@ -3,7 +3,7 @@
  */
 
 /**
- * 1-界面1 [BASE]
+ * 1-开始界面 [BASE]
  */
 class GUI_1 extends GUI_BASE {
    背景:UIBitmap;
@@ -21,7 +21,7 @@ class ListItem_1 extends UIListItemData {
 }
 
 /**
- * 2-界面2_场景1 [BASE]
+ * 2-游戏中 [BASE]
  */
 class GUI_2 extends GUI_BASE {
    背景:UIBitmap;

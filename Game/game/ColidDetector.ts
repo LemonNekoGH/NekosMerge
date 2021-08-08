@@ -3,6 +3,7 @@
  */
 class ColidDetector {
     noDetect: boolean = false
+    detectOddNumber: number = 1
 
     /**
      * 开始检测碰撞
@@ -46,7 +47,7 @@ class ColidDetector {
             return
         }
 
-        for (let i in me.objects) {
+        for (let i = 0; i < me.objects.length; i++) {
             // 检测主体
             const self = me.objects[i]
             // 先检测与容器的碰撞
@@ -72,73 +73,100 @@ class ColidDetector {
             } else {
                 if (self.speed.y > 0) {
                     self.speed.y = - self.speed.y
+                } else {
+                    self.y -= 0.5
                 }
             }
 
-            // 每两帧检测一次碰撞
-            if (me.noDetect) {
-                continue
+            // 猫咪飞出容器了，告诉界面开始计时
+            if (self.isOutOfContainer) {
+                GCMain.guis.游戏中.event(UINeko.EVENT_OUT_OF_CONTAINER)
             }
 
-            for (let j in me.objects) {
-                // 被检测体
-                const other = me.objects[j]
-                // 不能检测自己
-                if (other.id === self.id) {
-                    continue
-                }
-
-                let decoration = -1
-                let detectTimes = 0
-                for (let index in self.polygon12Cors) {
-                    const {x, y} = self.polygon12Cors[index]
-                    if (other.hitTestPoint(x, y)) {
-                        decoration = detectTimes
-                        break
+            // 单数帧只检测下标是单数的猫咪
+            if (i % 2 == me.detectOddNumber) {
+                for (let j in me.objects) {
+                    // 被检测体
+                    const other = me.objects[j]
+                    // 不能检测自己
+                    if (other.id === self.id) {
+                        continue
                     }
-                    detectTimes++
-                }
-                // 撞上了
-                if (decoration != -1) {
-                    if (self.level === other.level) {
-                        // 两只猫咪相同，应当合并
-                        GameUI.get(2).getChildAt(0).event(UINeko.EVENT_MERGED, {
-                            me: self,
-                            it: other
-                        })
-                        // 然后从检测列表里删除
-                        me.remove(self)
-                        me.remove(other)
-                    } else {
-                        if (decoration === 0) {
-                            // 右侧相撞，让自身向左移动
-                            self.speed.x -= speedUpLeftRight
-                        } else if (decoration > 0 && decoration < 6) {
-                            // 右下侧相撞，让自身向左上方移动
-                            self.speed.x -= speedUpTopBottom
-                            self.speed.y -= speedUpTopBottom
-                        } else if (decoration === 6) {
-                            // 底部相撞，让自身向上移动
-                            self.speed.x -= speedUpLeftRight
-                        } else if (decoration > 6 && decoration < 12) {
-                            // 左下边相撞，让自身向右上方移动
-                            self.speed.x += speedUpTopBottom
-                            self.speed.y -= speedUpTopBottom
-                        } else if (decoration === 12) {
-                            // 左侧相撞，让自身向右移动
-                            self.speed.x += speedUpLeftRight
-                        } else if (decoration > 12 && decoration < 18) {
-                            // 左上方相撞，让对方向左上方移动
-                            other.speed.x -= speedUpTopBottom
-                            other.speed.y -= speedUpTopBottom
-                            self.speed.x += speedUpLeftRight
-                        } else if (decoration === 18) {
-                            // 顶部相撞，让对方向上移动
-                        } else if (decoration < 24 && decoration > 18) {
-                            // 顶部右侧相撞，让对方向上和右侧移动
-                            other.speed.x += speedUpTopBottom
-                            other.speed.y -= speedUpTopBottom
-                            self.speed.x -= speedUpLeftRight
+
+                    const cors = self.polygon24Cors
+
+                    const colidedIndex: number[] = []
+                    for (let index = 0; index < cors.length; index++) {
+                        const {x, y} = cors[index]
+                        if (other.hitTestPoint(x, y)) {
+                            colidedIndex.push(index)
+                        }
+                    }
+
+                    const isTopLeftColided = NekoUtils.Array.includes(colidedIndex, [13, 14, 15, 16, 17])
+                    const isTopColided = NekoUtils.Array.includes(colidedIndex, 18)
+                    const isTopRightColided = NekoUtils.Array.includes(colidedIndex, [19, 20, 21, 22, 23])
+                    const isRightColided = NekoUtils.Array.includes(colidedIndex, [0])
+                    const isBottomRightColided = NekoUtils.Array.includes(colidedIndex, [1, 2, 3, 4, 5])
+                    const isBottomColided = NekoUtils.Array.includes(colidedIndex, [6])
+                    const isBottomLeftColided = NekoUtils.Array.includes(colidedIndex, [7, 8, 9, 10, 11])
+                    const isLeftColided = NekoUtils.Array.includes(colidedIndex, [12])
+
+                    // 撞上了
+                    if (colidedIndex.length > 0) {
+                        console.log(colidedIndex)
+                        if (self.level === other.level) {
+                            // 从检测列表里删除
+                            me.remove(self)
+                            me.remove(other)
+                            // 然后合并
+                            GameUI.get(2).getChildAt(0).event(UINeko.EVENT_MERGED, {
+                                me: self,
+                                it: other
+                            })
+                        } else {
+                            // 当左上方被碰撞时
+                            if (isTopLeftColided) {
+                                if (!other.speedChanged) {
+                                    const angleTopLeft = 225
+                                    const speedAngle = NekoMath.atan2(other.speed)
+                                    console.log(`id: ${other.id}, 速度方向是： ${speedAngle}`)
+                                    const diff = speedAngle - angleTopLeft
+                                    other.speed = NekoMath.vectorRotation(other.speed, 2 * diff)
+                                    console.log(`id: ${other.id}, 改变之后它的速度方向是：${NekoMath.atan2(other.speed)}`)
+
+                                    // 速度被改变，一段时间内不应该再次改变
+                                    other.speedChanged = true
+
+                                    Callback.New((it: UINeko) => {
+                                        it.speedChanged = false
+                                    }, this).delayRun(1000, setTimeout, [other])
+
+                                }
+
+                                if (!isBottomRightColided) {
+                                    self.x += 1
+                                    if (!isBottomColided && !self.isColidContainerBottom) {
+                                        self.y += 1
+                                    }
+                                }
+                            } else if (isTopRightColided) {
+                                // 当右上方被碰撞时
+                                const angleTopRight = 135
+                                const speedAngle = NekoMath.atan2(other.speed)
+                                const diff = speedAngle - angleTopRight
+                                other.speed = NekoMath.vectorRotation(other.speed, 2 * diff)
+                                if (!isBottomRightColided) {
+                                    self.x -= 1
+                                    if (!isBottomColided && !self.isColidContainerBottom) {
+                                        self.y += 1
+                                    }
+                                }
+                            }
+
+                            if (isBottomRightColided) {
+                                console.log(`colided other`)
+                            }
                         }
                     }
                 }
@@ -177,12 +205,12 @@ class ColidDetector {
             self.x += self.speed.x
             self.y += self.speed.y
         }
-        me.noDetect = !me.noDetect
+        me.detectOddNumber = 1 - me.detectOddNumber
     }
 }
 
-const speedUpLeftRight = 1
-const speedUpTopBottom = 0.5
+const speedUpLeftRight = 3
+const speedUpTopBottom = 3
 const sizecoefficient = 1.3
 
 const colidDetector: ColidDetector = new ColidDetector()

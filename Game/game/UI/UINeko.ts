@@ -4,15 +4,21 @@
  */
 class UINeko extends UIBitmap {
     level: number
-    speed: Cordinate
-
+    speed: Point
+    // 猫咪合并事件
     static EVENT_MERGED = "neko_merged"
+    // 猫咪飞出容器事件
+    static EVENT_OUT_OF_CONTAINER = "neko_out_of_container"
+    // 猫咪回到容器事件
+    static EVENT_BACK_IN_TO_CONTAINER = "neko_back_in_to_container"
+
+    speedChanged: boolean = false
 
     constructor(level: number, fromMerge: boolean) {
         super()
 
         this.level = level
-        this.speed = { x: 0, y: 1 }
+        this.speed = new Point(0, 0)
 
         this.width = level1Size * Math.pow(sizecoefficient, level)
         this.height = this.width
@@ -45,11 +51,8 @@ class UINeko extends UIBitmap {
     }
 
     // 返回 24 边形的坐标
-    get polygon12Cors(): Cordinate[] {
-        return NekoMath.polygonCordinates({
-            x: this.centerPos.x,
-            y: this.centerPos.y
-        }, this.size, 24)
+    get polygon24Cors(): Point[] {
+        return NekoMath.polygonCordinates(this.centerPos, this.size, 24)
     }
 
     // 是否与容器左侧碰撞
@@ -67,13 +70,21 @@ class UINeko extends UIBitmap {
         return this.centerPos.distance(this.centerPos.x, 704) <= this.size
     }
 
-    hitTestPoint(cor: Cordinate): boolean
+    /**
+     * 是否飞出容器
+     * 因为猫咪弹力十足，所以只有猫咪的中心点出容器了才算
+     */
+    get isOutOfContainer(): boolean {
+        return this.centerPos.y <= 200
+    }
+
+    hitTestPoint(cor: Point): boolean
     hitTestPoint(x: number, y: number): boolean
 
     /**
      * 返回给定的点是否在碰撞范围内
      */
-    hitTestPoint(x: number | Cordinate, y?: number): boolean {
+    hitTestPoint(x: number | Point, y?: number): boolean {
         let localX = 0
         let localY = 0
 

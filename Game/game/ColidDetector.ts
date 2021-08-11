@@ -1,216 +1,128 @@
 /**
  * Created by LemonNekoGC on 2021-07-27 17:31:44.
  */
-class ColidDetector {
-    noDetect: boolean = false
-    detectOddNumber: number = 1
-
+class ColidDetector extends b2ContactListener {
     /**
-     * 开始检测碰撞
+     * 物理世界
      */
+    physicsWorld: b2World
+    nekos: UINeko[] = []
+
     constructor() {
-        os.add_ENTERFRAME(this.doDetect, this)
-    }
-
-    objects: UINeko[] = []
-
-    /**
-     * 添加猫咪到碰撞容器中去
-     */
-    add(obj: UINeko) {
-        this.objects.push(obj)
+        super()
+        this.physicsWorld = new b2World(worldGravity)
+        this.createEdge()
+        this.physicsWorld.SetContactListener(this)
     }
 
     /**
-     * 清除所有猫咪
+     * 创建默认的材质
      */
-    clearAll() {
-        this.objects = []
+    createDefaultFixtureDef(): b2FixtureDef {
+        const fixture = new b2FixtureDef()
+        fixture.density = nekoDensity
+        fixture.friction = nekoFriction
+        fixture.restitution = nekoFriction
+
+        return fixture
     }
 
     /**
-     * 将猫咪从碰撞容器中移除
+     * 创建边界刚体
      */
-    remove(obj: UINeko) {
-        const index = this.objects.indexOf(obj)
-        ArrayUtils.delete(this.objects, index)
+    createEdge() {
+        // 创建材质
+        const fixtureDef = this.createDefaultFixtureDef()
+        {
+            const shape = new b2EdgeShape()
+            // 创建左面边界
+            shape.SetTwoSided(new b2Vec2(0, 0), new b2Vec2(0, 704))
+            // 创建底面边界
+            shape.SetTwoSided(new b2Vec2(0, 704), new b2Vec2(1184, 704))
+            // 创建右面边界
+            shape.SetTwoSided(new b2Vec2(1184, 0), new b2Vec2(1184, 704))
+            fixtureDef.shape = shape
+        }
+        // 创建刚体定义并设置刚体类型为“静态的”
+        const bodyDef = new b2BodyDef()
+        bodyDef.type = b2BodyType.b2_staticBody
+        // 创建刚体并应用材质
+        const body = this.physicsWorld.CreateBody(bodyDef)
+        body.CreateFixture(fixtureDef)
     }
 
-    doDetect() {
-        const me = colidDetector
-        // 没有对象，不进行检测
-        if (!me.objects) {
-            return
-        }
-        // 游戏暂停，不进行检测
-        if (Game && Game.pause) {
-            return
-        }
+    /**
+     * 创建圆形刚体
+     */
+    createCircleBody(radius: number, position: b2Vec2): b2Body {
+        const fixture = this.createDefaultFixtureDef()
+        fixture.shape = new b2CircleShape(radius)
+        const bodyDef = new b2BodyDef()
+        bodyDef.type = b2BodyType.b2_dynamicBody
+        bodyDef.position.Set(position.x, position.y)
 
-        for (let i = 0; i < me.objects.length; i++) {
-            // 检测主体
-            const self = me.objects[i]
-            // 先检测与容器的碰撞
-            if (self.isColidContainerLeft) {
-                // 左边碰到容器了，向右移动 3 个像素
-                if (self.speed.x < 0) {
-                    self.speed.x = - self.speed.x
-                } else if (self.speed.x === 0) {
-                    self.x += 1
-                }
-            }
-            if (self.isColidContainerRight) {
-                // 右边碰到容器了，向左移动 3 个像素
-                if (self.speed.x > 0) {
-                    self.speed.x = - self.speed.x
-                } else if (self.speed.x === 0) {
-                    self.x -= 1
-                }
-            }
-            if (!self.isColidContainerBottom) {
-                // 没有碰到容器底部，继续下落
-                self.speed.y += 0.1
-            } else {
-                if (self.speed.y > 0) {
-                    self.speed.y = - self.speed.y
-                } else {
-                    self.y -= 0.5
-                }
-            }
+        const body = this.physicsWorld.CreateBody(bodyDef)
+        body.CreateFixture(fixture)
 
-            // 猫咪飞出容器了，告诉界面开始计时
-            if (self.isOutOfContainer) {
-                GCMain.guis.游戏中.event(UINeko.EVENT_OUT_OF_CONTAINER)
-            }
+        return body
+    }
 
-            // 单数帧只检测下标是单数的猫咪
-            if (i % 2 == me.detectOddNumber) {
-                for (let j in me.objects) {
-                    // 被检测体
-                    const other = me.objects[j]
-                    // 不能检测自己
-                    if (other.id === self.id) {
-                        continue
-                    }
+    /**
+     * 将猫咪添加到世界中
+     * 同时绑定一个刚体
+     */
+    add(neko: UINeko) {
+        const body = this.createCircleBody(neko.size, new b2Vec2(neko.x, neko.y))
+        neko.body = body
+        neko.body.m_fixtureList.m_userData = neko
 
-                    const cors = self.polygon24Cors
+        this.nekos.push(neko)
+    }
 
-                    const colidedIndex: number[] = []
-                    for (let index = 0; index < cors.length; index++) {
-                        const {x, y} = cors[index]
-                        if (other.hitTestPoint(x, y)) {
-                            colidedIndex.push(index)
-                        }
-                    }
+    /**
+     * 将猫咪从世界中移除
+     * 并摧毁刚体
+     */
+    remove(neko: UINeko) {
+        this.physicsWorld.DestroyBody(neko.body)
+        neko.body = null
 
-                    const isTopLeftColided = NekoUtils.Array.includes(colidedIndex, [13, 14, 15, 16, 17])
-                    const isTopColided = NekoUtils.Array.includes(colidedIndex, 18)
-                    const isTopRightColided = NekoUtils.Array.includes(colidedIndex, [19, 20, 21, 22, 23])
-                    const isRightColided = NekoUtils.Array.includes(colidedIndex, [0])
-                    const isBottomRightColided = NekoUtils.Array.includes(colidedIndex, [1, 2, 3, 4, 5])
-                    const isBottomColided = NekoUtils.Array.includes(colidedIndex, [6])
-                    const isBottomLeftColided = NekoUtils.Array.includes(colidedIndex, [7, 8, 9, 10, 11])
-                    const isLeftColided = NekoUtils.Array.includes(colidedIndex, [12])
+        this.nekos = ArrayUtils.remove(this.nekos, neko)
+    }
 
-                    // 撞上了
-                    if (colidedIndex.length > 0) {
-                        console.log(colidedIndex)
-                        if (self.level === other.level) {
-                            // 从检测列表里删除
-                            me.remove(self)
-                            me.remove(other)
-                            // 然后合并
-                            GameUI.get(2).getChildAt(0).event(UINeko.EVENT_MERGED, {
-                                me: self,
-                                it: other
-                            })
-                        } else {
-                            // 当左上方被碰撞时
-                            if (isTopLeftColided) {
-                                if (!other.speedChanged) {
-                                    const angleTopLeft = 225
-                                    const speedAngle = NekoMath.atan2(other.speed)
-                                    console.log(`id: ${other.id}, 速度方向是： ${speedAngle}`)
-                                    const diff = speedAngle - angleTopLeft
-                                    other.speed = NekoMath.vectorRotation(other.speed, 2 * diff)
-                                    console.log(`id: ${other.id}, 改变之后它的速度方向是：${NekoMath.atan2(other.speed)}`)
+    /**
+     * 当猫咪碰撞时调用
+     */
+    BeginContact(contact: b2Contact<b2Shape, b2Shape>): void {
+        const it = contact.m_fixtureA.m_userData as UINeko
+        const me = contact.m_fixtureA.m_userData as UINeko
 
-                                    // 速度被改变，一段时间内不应该再次改变
-                                    other.speedChanged = true
+        GCMain.guis.游戏中.event(UINeko.EVENT_MERGED, { it, me })
+    }
 
-                                    Callback.New((it: UINeko) => {
-                                        it.speedChanged = false
-                                    }, this).delayRun(1000, setTimeout, [other])
-
-                                }
-
-                                if (!isBottomRightColided) {
-                                    self.x += 1
-                                    if (!isBottomColided && !self.isColidContainerBottom) {
-                                        self.y += 1
-                                    }
-                                }
-                            } else if (isTopRightColided) {
-                                // 当右上方被碰撞时
-                                const angleTopRight = 135
-                                const speedAngle = NekoMath.atan2(other.speed)
-                                const diff = speedAngle - angleTopRight
-                                other.speed = NekoMath.vectorRotation(other.speed, 2 * diff)
-                                if (!isBottomRightColided) {
-                                    self.x -= 1
-                                    if (!isBottomColided && !self.isColidContainerBottom) {
-                                        self.y += 1
-                                    }
-                                }
-                            }
-
-                            if (isBottomRightColided) {
-                                console.log(`colided other`)
-                            }
-                        }
-                    }
-                }
-            }
-
-            // 如果正在向上弹，速度应该越来越小
-            if (self.speed.y < - 0.3) {
-                self.speed.y += 0.4
-            } else if (self.speed.y < 0.3) {
-                if (self.isColidContainerBottom) {
-                    self.speed.y = 0
-                }
-            }
-
-            // 受到空气阻力，减少惯性
-            if (self.speed.x > 0.3) {
-                self.speed.x -= 0.2
-            } else if (self.speed.x <= 0.3 && self.speed.x >= -0.3) {
-                self.speed.x = 0
-            } else if (self.speed.x < -0.3) {
-                self.speed.x += 0.2
-            }
-
-            // 速度不能太快
-            if (self.speed.x > 16) {
-                self.speed.x = 16
-            } else if (self.speed.x < -16) {
-                self.speed.x = -16
-            }
-            if (self.speed.y > 16) {
-                self.speed.y = 16
-            } else if (self.speed.y < -16) {
-                self.speed.y = -16
-            }
-
-            self.x += self.speed.x
-            self.y += self.speed.y
-        }
-        me.detectOddNumber = 1 - me.detectOddNumber
+    /**
+     * 执行模拟
+     */
+    step() {
+        this.nekos.forEach((it: UINeko) => {
+            it.x = it.body.m_xf.p.x
+            it.y = it.body.m_xf.p.y
+        })
+        this.physicsWorld.Step(1 / 60, 8 , 3)
     }
 }
 
-const speedUpLeftRight = 3
-const speedUpTopBottom = 3
+/**
+ * 每个等级比前一个等级增加的半径
+ */
 const sizecoefficient = 1.3
+const worldSize: b2Vec2 = new b2Vec2(1184, 704)
+const worldGravity: b2Vec2 = new b2Vec2(0, 10)
+/**
+ * 猫咪刚体的参数
+ */
+const nekoDensity = 1
+const nekoFriction = 1
+const nekoRestitution = 1
 
 const colidDetector: ColidDetector = new ColidDetector()

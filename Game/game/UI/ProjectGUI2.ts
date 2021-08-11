@@ -6,14 +6,13 @@ class ProjectGUI2 {
     constructor(gui: GUI_2) {
         this.gui = gui
 
-        const root2 = gui.背景
-        root2.on(EventObject.MOUSE_DOWN, this, onMouseDown)
-        root2.on(EventObject.MOUSE_MOVE, this, onMouseMove)
-        root2.on(EventObject.MOUSE_UP, this, onMouseUp)
-        root2.on(EventObject.CLICK, this, onClick)
-        root2.on(UINeko.EVENT_MERGED, this, onNekoMerge)
-        root2.on(UINeko.EVENT_OUT_OF_CONTAINER, this, onNekoOutOfContainer)
-        root2.on(UINeko.EVENT_BACK_IN_TO_CONTAINER, this, onNekoBackIntoContainer)
+        this.gui.on(EventObject.MOUSE_DOWN, this, onMouseDown)
+        this.gui.on(EventObject.MOUSE_MOVE, this, onMouseMove)
+        this.gui.on(EventObject.MOUSE_UP, this, onMouseUp)
+        this.gui.on(EventObject.CLICK, this, onClick)
+        this.gui.on(UINeko.EVENT_MERGED, this, onNekoMerge)
+        this.gui.on(UINeko.EVENT_OUT_OF_CONTAINER, this, onNekoOutOfContainer)
+        this.gui.on(UINeko.EVENT_BACK_IN_TO_CONTAINER, this, onNekoBackIntoContainer)
 
         let mouseDown = false
         let outOfContainerCount = 0
@@ -29,7 +28,7 @@ class ProjectGUI2 {
             // 开始计时
             if (!countDownText) {
                 countDownText = new UIString()
-                root2.addChild(countDownText)
+                this.gui.addChild(countDownText)
                 
                 countDownText.font = "幼圆"
                 countDownText.fontSize = 20
@@ -79,8 +78,8 @@ class ProjectGUI2 {
                 return
             }
             if (mouseDown) {
-                for (let i = 0; i < root2.numChildren; i++) {
-                    const child = root2.getChildAt(i)
+                for (let i = 0; i < this.gui.numChildren; i++) {
+                    const child = this.gui.getChildAt(i)
                     child.event(EventObject.DRAG_MOVE, new Point(gui.mouseX, gui.mouseY))
                 }
             }
@@ -95,8 +94,8 @@ class ProjectGUI2 {
             if (!mouseDown) {
                 return
             }
-            for (let i = 0; i < root2.numChildren; i++) {
-                const child = root2.getChildAt(i)
+            for (let i = 0; i < this.gui.numChildren; i++) {
+                const child = this.gui.getChildAt(i)
                 child.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
             }
             mouseDown = false
@@ -112,8 +111,8 @@ class ProjectGUI2 {
             if (Game.pause) {
                 return
             }
-            for (let i = 0; i < root2.numChildren; i++) {
-                const child = root2.getChildAt(i)
+            for (let i = 0; i < this.gui.numChildren; i++) {
+                const child = this.gui.getChildAt(i)
                 child.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
             }
         }

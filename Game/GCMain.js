@@ -22,6 +22,7 @@ var GCMain = {
                 os.hideFPS();
                 showFPS = false;
             }
+            colidDetector.step();
         }, null);
         SinglePlayerGame.regSaveCustomGlobalData("GLOBAL_DATA", Callback.New(function () { return new GlobalData; }, this));
     },

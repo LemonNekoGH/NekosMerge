@@ -4,7 +4,11 @@
  */
 class UINeko extends UIBitmap {
     level: number
-    speed: Point
+    /**
+     * 绑定到猫咪身上的 Box2D 刚体
+     */
+    body: b2Body
+
     // 猫咪合并事件
     static EVENT_MERGED = "neko_merged"
     // 猫咪飞出容器事件
@@ -12,13 +16,10 @@ class UINeko extends UIBitmap {
     // 猫咪回到容器事件
     static EVENT_BACK_IN_TO_CONTAINER = "neko_back_in_to_container"
 
-    speedChanged: boolean = false
-
     constructor(level: number, fromMerge: boolean) {
         super()
 
         this.level = level
-        this.speed = new Point(0, 0)
 
         this.width = level1Size * Math.pow(sizecoefficient, level)
         this.height = this.width
@@ -33,6 +34,11 @@ class UINeko extends UIBitmap {
         }
 
         this.image = `asset/image/avatar/NekoHead${this.level}.png`
+    }
+
+    dispose() {
+        colidDetector.remove(this)
+        super.dispose()
     }
 
     // 猫咪半径

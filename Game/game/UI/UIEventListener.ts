@@ -11,14 +11,27 @@ function executeCommand(indexType: number): (component: UIBase) => void {
 }
 
 /**
- * 自定义鼠标样式，按下
+ * 自定义鼠标样式
+ * state
+ * --- 1 鼠标按下
+ * --- 2 鼠标抬起
+ * --- 3 鼠标悬浮
  */
-function changeCursor(down: boolean) {
-    if (down) {
-        document.body.style.cursor = 'url("./asset/image/picture/control/cursor-down.cur"), auto'
-        return
+function changeCursor(state: number) {
+    switch (state) {
+        case 1:
+            document.body.style.cursor = 'url("./asset/image/picture/control/cursor-down.cur"), auto'
+            break
+        case 2:
+            document.body.style.cursor = 'url("./asset/image/picture/control/cursor.cur"), auto'
+            break
+        case 3:
+            document.body.style.cursor = 'url("./asset/image/picture/control/cursor-over.cur"), auto'
+            break
+        default:
+            document.body.style.cursor = 'url("./asset/image/picture/control/cursor.cur"), auto'
+            break
     }
-    document.body.style.cursor = 'url("./asset/image/picture/control/cursor.cur"), auto'
 }
 
 
@@ -75,17 +88,21 @@ function onUiComponentInit(isRoot: boolean, component: UIBase) {
     }
 
     component.on(EventObject.MOUSE_DOWN, this, () => {
-        changeCursor(true)
+        changeCursor(1)
         moveText(btn, 1)
     })
     component.on(EventObject.MOUSE_UP, this, () => {
-        changeCursor(false)
+        changeCursor(2)
         moveText(btn, 2)
     })
     component.on(EventObject.MOUSE_OVER, this, () => {
+        if (btn || component instanceof UINeko) {
+            changeCursor(3)
+        }
         moveText(btn, 3)
     })
     component.on(EventObject.MOUSE_OUT, this, () => {
+        changeCursor(4)
         moveText(btn, 4)
     })
 }

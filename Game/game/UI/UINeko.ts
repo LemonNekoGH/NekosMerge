@@ -36,6 +36,8 @@ class UINeko extends UIBitmap {
         }
 
         this.image = `asset/image/avatar/NekoHead${this.level}.png`
+
+        onUiComponentInit(false, this)
     }
 
     dispose() {

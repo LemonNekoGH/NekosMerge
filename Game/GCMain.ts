@@ -17,6 +17,7 @@ function collectSprites(sprite: GameSprite, sprites: GameSprite[]) {
 
 const GCMain = {
     onClientWorldInit() {
+        document.body.style.cursor = 'url("./asset/image/picture/control/cursor.cur"), auto'
         GameUI.show(1)
         
         GlobalData.restore()

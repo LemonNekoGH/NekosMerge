@@ -10,6 +10,44 @@ function executeCommand(indexType: number): (component: UIBase) => void {
     }
 }
 
+/**
+ * 自定义鼠标样式，按下
+ */
+function changeCursor(down: boolean) {
+    if (down) {
+        document.body.style.cursor = 'url("./asset/image/picture/control/cursor-down.cur"), auto'
+        return
+    }
+    document.body.style.cursor = 'url("./asset/image/picture/control/cursor.cur"), auto'
+}
+
+
+/**
+ * state
+ * --- 1 鼠标按下
+ * --- 2 鼠标抬起
+ * --- 3 鼠标悬浮
+ */
+function moveText(component: UIButton, state: number) {
+    if (!component) {
+        return
+    }
+    switch (state) {
+        case 1:
+            component.textDy = 5
+            break
+        case 2:
+            component.textDy = 0
+            break
+        case 3:
+            component.textDy = 0
+            break
+        default:
+            component.textDy = -5
+            break
+    }
+}
+
 // 追加逻辑
 function onUiComponentInit(isRoot: boolean, component: UIBase) {
     // 注册鼠标点击事件
@@ -31,21 +69,23 @@ function onUiComponentInit(isRoot: boolean, component: UIBase) {
     }
 
     // 如果是按钮，就改成自己的样式
-    if (!(component instanceof UIButton)) {
-        return
+    let btn: UIButton = undefined
+    if (component instanceof UIButton) {
+        btn = component as UIButton
     }
-    const btn = component as UIButton
 
     component.on(EventObject.MOUSE_DOWN, this, () => {
-        btn.textDy = 5
+        changeCursor(true)
+        moveText(btn, 1)
     })
     component.on(EventObject.MOUSE_UP, this, () => {
-        btn.textDy = 0
+        changeCursor(false)
+        moveText(btn, 2)
     })
     component.on(EventObject.MOUSE_OVER, this, () => {
-        btn.textDy = 0
+        moveText(btn, 3)
     })
     component.on(EventObject.MOUSE_OUT, this, () => {
-        btn.textDy = -5
+        moveText(btn, 4)
     })
 }

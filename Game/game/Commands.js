@@ -61,6 +61,7 @@ var CommandExecute;
             console.log("\u6E38\u620F" + (shouldPause ? '已经' : '没有') + "\u5904\u4E8E\u6682\u505C\u72B6\u6001");
             return;
         }
+        GCMain.variables.游戏暂停 = params.是否暂停;
         Game.pause = shouldPause;
     }
     CommandExecute.customCommand_6 = customCommand_6;

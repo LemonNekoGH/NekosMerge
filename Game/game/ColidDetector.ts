@@ -11,11 +11,18 @@ class ColidDetector extends b2.ContactListener {
     shouldBeMergeA: UINeko
     shouldBeMergeB: UINeko
 
+    /**
+     * 用于修复时间步长不稳定的问题
+     */
+    currentTime: number = 0
+    accumulator: number = 0
+
     constructor() {
         super()
         this.physicsWorld = new b2.World(worldGravity)
         this.createEdge()
         this.physicsWorld.SetContactListener(this)
+        this.currentTime = Date.now()
     }
 
     /**
@@ -61,6 +68,7 @@ class ColidDetector extends b2.ContactListener {
         fixture.shape = new b2.CircleShape(radius)
         const bodyDef = new b2.BodyDef()
 
+        bodyDef.gravityScale = 2
         bodyDef.linearDamping = 0.5
         bodyDef.angularDamping = 0.5
         bodyDef.type = b2.BodyType.b2_dynamicBody
@@ -115,7 +123,7 @@ class ColidDetector extends b2.ContactListener {
      * 清除所有猫咪
      */
     clearAll() {
-        for (let index = 0; index < this.nekos.length; index ++) {
+        for (let index = 0; index < this.nekos.length; index++) {
             this.physicsWorld.DestroyBody(this.nekos[index].body)
         }
         this.nekos = []
@@ -124,18 +132,31 @@ class ColidDetector extends b2.ContactListener {
     /**
      * 执行模拟
      */
-    step() {
-        if (this.shouldBeMergeA && this.shouldBeMergeB) {
-            GameUI.get(2).event(UINeko.EVENT_MERGED, { it: this.shouldBeMergeA, me: this.shouldBeMergeB })
-            this.shouldBeMergeA = undefined
-            this.shouldBeMergeB = undefined
+    step(self: ColidDetector) {
+        const timeStep = 1 / 60
+
+        if (Game.pause) {
+            return
+        }
+        if (self.shouldBeMergeA && self.shouldBeMergeB) {
+            GameUI.get(2).event(UINeko.EVENT_MERGED, { it: self.shouldBeMergeA, me: self.shouldBeMergeB })
+            self.shouldBeMergeA = undefined
+            self.shouldBeMergeB = undefined
         }
 
-        this.nekos.forEach((it: UINeko) => {
+        self.nekos.forEach((it: UINeko) => {
             it.x = it.body.m_xf.p.x - it.size
             it.y = it.body.m_xf.p.y - it.size
         })
-        this.physicsWorld.Step(1 / 60, 8, 3)
+        self.physicsWorld.Step(1 / 60, 8, 3)
+        self.physicsWorld.ClearForces()
+
+        // 获取渲染时间
+        let newTime = Date.now()
+        let frameTime = Math.min(newTime - self.currentTime, 0.25)
+
+        self.currentTime = newTime
+        self.physicsWorld.Step(timeStep, 8, 3)
     }
 }
 
@@ -148,8 +169,8 @@ const worldGravity: b2.Vec2 = new b2.Vec2(0, 100)
 /**
  * 猫咪刚体的参数
  */
-const nekoDensity = 10
+const nekoDensity = 100
 const nekoFriction = 0.6
-const nekoRestitution = .1
+const nekoRestitution = 0.2
 
 const colidDetector: ColidDetector = new ColidDetector()

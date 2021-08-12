@@ -31,8 +31,7 @@ const GCMain = {
                 os.hideFPS()
                 showFPS = false
             }
-
-            colidDetector.step()
+            colidDetector.step(colidDetector)
         }, null)
 
         SinglePlayerGame.regSaveCustomGlobalData("GLOBAL_DATA", Callback.New(() => new GlobalData, this))

@@ -82,6 +82,7 @@ module CommandExecute {
             return
         }
 
+        GCMain.variables.游戏暂停 = params.是否暂停
         Game.pause = shouldPause
     }
 

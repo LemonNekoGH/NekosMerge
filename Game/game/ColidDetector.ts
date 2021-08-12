@@ -1,7 +1,7 @@
 /**
  * Created by LemonNekoGC on 2021-07-27 17:31:44.
  */
-class ColidDetector extends b2ContactListener {
+class ColidDetector extends b2.ContactListener {
     /**
      * 物理世界
      */
@@ -10,7 +10,7 @@ class ColidDetector extends b2ContactListener {
 
     constructor() {
         super()
-        this.physicsWorld = new b2World(worldGravity)
+        this.physicsWorld = new b2.World(worldGravity)
         this.createEdge()
         this.physicsWorld.SetContactListener(this)
     }
@@ -44,8 +44,8 @@ class ColidDetector extends b2ContactListener {
             fixtureDef.shape = shape
         }
         // 创建刚体定义并设置刚体类型为“静态的”
-        const bodyDef = new b2BodyDef()
-        bodyDef.type = b2BodyType.b2_staticBody
+        const bodyDef = new b2.BodyDef()
+        bodyDef.type = b2.BodyType.b2_staticBody
         // 创建刚体并应用材质
         const body = this.physicsWorld.CreateBody(bodyDef)
         body.CreateFixture(fixtureDef)
@@ -54,10 +54,10 @@ class ColidDetector extends b2ContactListener {
     /**
      * 创建圆形刚体
      */
-    createCircleBody(radius: number, position: b2Vec2): b2Body {
+    createCircleBody(radius: number, position: b2.Vec2): b2.Body {
         const fixture = this.createDefaultFixtureDef()
-        fixture.shape = new b2CircleShape(radius)
-        const bodyDef = new b2BodyDef()
+        fixture.shape = new b2.CircleShape(radius)
+        const bodyDef = new b2.BodyDef()
         bodyDef.type = b2BodyType.b2_dynamicBody
         bodyDef.position.Set(position.x, position.y)
 
@@ -93,7 +93,7 @@ class ColidDetector extends b2ContactListener {
     /**
      * 当猫咪碰撞时调用
      */
-    BeginContact(contact: b2Contact<b2Shape, b2Shape>): void {
+    BeginContact(contact: b2.Contact<b2.Shape, b2.Shape>): void {
         const it = contact.m_fixtureA.m_userData as UINeko
         const me = contact.m_fixtureA.m_userData as UINeko
 
@@ -116,8 +116,8 @@ class ColidDetector extends b2ContactListener {
  * 每个等级比前一个等级增加的半径
  */
 const sizecoefficient = 1.3
-const worldSize: b2Vec2 = new b2Vec2(1184, 704)
-const worldGravity: b2Vec2 = new b2Vec2(0, 10)
+const worldSize: b2.Vec2 = new b2.Vec2(1184, 704)
+const worldGravity: b2.Vec2 = new b2.Vec2(0, 10)
 /**
  * 猫咪刚体的参数
  */

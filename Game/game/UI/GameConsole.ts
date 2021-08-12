@@ -14,7 +14,7 @@ class GameConsole {
             console.log("请在\"游戏中\"界面调用此命令")
             return false
         }
-        const neko = new UINeko(level, true)
+        const neko = new UINeko(level, true, x, y)
         GCMain.guis.游戏中.addChild(neko)
         neko.x = x
         neko.y = y

@@ -6,13 +6,13 @@ class ProjectGUI2 {
     constructor(gui: GUI_2) {
         this.gui = gui
 
-        this.gui.on(EventObject.MOUSE_DOWN, this, onMouseDown)
-        this.gui.on(EventObject.MOUSE_MOVE, this, onMouseMove)
-        this.gui.on(EventObject.MOUSE_UP, this, onMouseUp)
-        this.gui.on(EventObject.CLICK, this, onClick)
-        this.gui.on(UINeko.EVENT_MERGED, this, onNekoMerge)
-        this.gui.on(UINeko.EVENT_OUT_OF_CONTAINER, this, onNekoOutOfContainer)
-        this.gui.on(UINeko.EVENT_BACK_IN_TO_CONTAINER, this, onNekoBackIntoContainer)
+        GameUI.get(2).on(EventObject.MOUSE_DOWN, this, onMouseDown)
+        GameUI.get(2).on(EventObject.MOUSE_MOVE, this, onMouseMove)
+        GameUI.get(2).on(EventObject.MOUSE_UP, this, onMouseUp)
+        GameUI.get(2).on(EventObject.CLICK, this, onClick)
+        GameUI.get(2).on(UINeko.EVENT_MERGED, this, onNekoMerge)
+        GameUI.get(2).on(UINeko.EVENT_OUT_OF_CONTAINER, this, onNekoOutOfContainer)
+        GameUI.get(2).on(UINeko.EVENT_BACK_IN_TO_CONTAINER, this, onNekoBackIntoContainer)
 
         let mouseDown = false
         let outOfContainerCount = 0
@@ -79,7 +79,7 @@ class ProjectGUI2 {
             }
             if (mouseDown) {
                 for (let i = 0; i < this.gui.numChildren; i++) {
-                    const child = this.gui.getChildAt(i)
+                    const child = GameUI.get(2).getChildAt(i)
                     child.event(EventObject.DRAG_MOVE, new Point(gui.mouseX, gui.mouseY))
                 }
             }
@@ -126,15 +126,15 @@ class ProjectGUI2 {
             const x = me.x
             const y = me.y
 
+            console.log(x, y)
+
             // 销毁掉这些猫咪
             it.dispose()
             me.dispose()
 
             // 生成一只新的猫咪
-            const nekoObj = new UINeko(upLevel, true)
-            GameUI.get(2).getChildAt(0).addChild(nekoObj)
-            nekoObj.x = x
-            nekoObj.y = y - nekoObj.size
+            const nekoObj = new UINeko(upLevel, true, x, y)
+            GameUI.get(2).addChild(nekoObj)
 
             // 加分
             GCMain.variables.分数 += upLevel

@@ -32,13 +32,13 @@ interface XY {
 declare class b2Vec2 implements XY {
     x: number;
     y: number;
-    static readonly ZERO: Readonly<b2Vec2>;
-    static readonly UNITX: Readonly<b2Vec2>;
-    static readonly UNITY: Readonly<b2Vec2>;
-    static readonly s_t0: b2Vec2;
-    static readonly s_t1: b2Vec2;
-    static readonly s_t2: b2Vec2;
-    static readonly s_t3: b2Vec2;
+    static ZERO: b2Vec2;
+    static UNITX: Readonly<b2Vec2>;
+    static UNITY: Readonly<b2Vec2>;
+    static s_t0: b2Vec2;
+    static s_t1: b2Vec2;
+    static s_t2: b2Vec2;
+    static s_t3: b2Vec2;
     constructor(x?: number, y?: number);
     Clone(): b2Vec2;
     SetZero(): this;
@@ -95,7 +95,7 @@ declare class b2Vec2 implements XY {
 }
 declare const b2Vec2_zero: Readonly<b2Vec2>;
 declare class b2TypedVec2 implements b2Vec2 {
-    readonly data: Float32Array;
+   data: Float32Array;
     get x(): number;
     set x(value: number);
     get y(): number;
@@ -135,9 +135,9 @@ interface XYZ extends XY {
     z: number;
 }
 declare class b2Vec3 implements XYZ {
-    static readonly ZERO: Readonly<b2Vec3>;
-    static readonly s_t0: b2Vec3;
-    readonly data: Float32Array;
+    staticZERO: Readonly<b2Vec3>;
+    statics_t0: b2Vec3;
+   data: Float32Array;
     get x(): number;
     set x(value: number);
     get y(): number;
@@ -161,9 +161,9 @@ declare class b2Vec3 implements XYZ {
     static CrossV3V3<T extends XYZ>(a: XYZ, b: XYZ, out: T): T;
 }
 declare class b2Mat22 {
-    static readonly IDENTITY: Readonly<b2Mat22>;
-    readonly ex: b2Vec2;
-    readonly ey: b2Vec2;
+    staticIDENTITY: Readonly<b2Mat22>;
+   ex: b2Vec2;
+   ey: b2Vec2;
     Clone(): b2Mat22;
     static FromVV(c1: XY, c2: XY): b2Mat22;
     static FromSSSS(r1c1: number, r1c2: number, r2c1: number, r2c2: number): b2Mat22;
@@ -189,11 +189,11 @@ declare class b2Mat22 {
     static MulTMM(A: b2Mat22, B: b2Mat22, out: b2Mat22): b2Mat22;
 }
 declare class b2Mat33 {
-    static readonly IDENTITY: Readonly<b2Mat33>;
-    readonly data: Float32Array;
-    readonly ex: b2Vec3;
-    readonly ey: b2Vec3;
-    readonly ez: b2Vec3;
+    staticIDENTITY: Readonly<b2Mat33>;
+   data: Float32Array;
+   ex: b2Vec3;
+   ey: b2Vec3;
+   ez: b2Vec3;
     Clone(): b2Mat33;
     SetVVV(c1: XYZ, c2: XYZ, c3: XYZ): this;
     Copy(other: b2Mat33): this;
@@ -210,7 +210,7 @@ declare class b2Mat33 {
     static MulM33XY<T extends XY>(A: b2Mat33, x: number, y: number, out: T): T;
 }
 declare class b2Rot {
-    static readonly IDENTITY: Readonly<b2Rot>;
+    staticIDENTITY: Readonly<b2Rot>;
     s: number;
     c: number;
     constructor(angle?: number);
@@ -227,9 +227,9 @@ declare class b2Rot {
     static MulTRV<T extends XY>(q: b2Rot, v: XY, out: T): T;
 }
 declare class b2Transform {
-    static readonly IDENTITY: Readonly<b2Transform>;
-    readonly p: b2Vec2;
-    readonly q: b2Rot;
+    staticIDENTITY: Readonly<b2Transform>;
+   p: b2Vec2;
+   q: b2Rot;
     Clone(): b2Transform;
     Copy(other: b2Transform): this;
     SetIdentity(): this;
@@ -249,9 +249,9 @@ declare class b2Transform {
     static MulTXX(A: b2Transform, B: b2Transform, out: b2Transform): b2Transform;
 }
 declare class b2Sweep {
-    readonly localCenter: b2Vec2;
-    readonly c0: b2Vec2;
-    readonly c: b2Vec2;
+   localCenter: b2Vec2;
+   c0: b2Vec2;
+   c: b2Vec2;
     a0: number;
     a: number;
     alpha0: number;
@@ -275,10 +275,10 @@ declare class b2Color implements RGBA {
     g: number;
     b: number;
     a: number;
-    static readonly ZERO: Readonly<b2Color>;
-    static readonly RED: Readonly<b2Color>;
-    static readonly GREEN: Readonly<b2Color>;
-    static readonly BLUE: Readonly<b2Color>;
+    staticZERO: Readonly<b2Color>;
+    staticRED: Readonly<b2Color>;
+    staticGREEN: Readonly<b2Color>;
+    staticBLUE: Readonly<b2Color>;
     constructor(r?: number, g?: number, b?: number, a?: number);
     Clone(): b2Color;
     Copy(other: RGBA): this;
@@ -339,7 +339,7 @@ declare class b2GrowableStack<T> {
     GetCount(): number;
 }
 
-declare function b2Assert(condition: boolean, ...args: any[]): asserts condition;
+declare function b2Assert(condition: boolean, ...args: any[]): void;
 declare function b2Maybe<T>(value: T | undefined, def: T): T;
 declare const b2_maxFloat: number;
 declare const b2_epsilon: number;
@@ -419,7 +419,7 @@ declare class b2Counter {
 }
 
 declare class b2DistanceProxy {
-    readonly m_buffer: b2Vec2[];
+   m_buffer: b2Vec2[];
     m_vertices: b2Vec2[];
     m_count: number;
     m_radius: number;
@@ -435,35 +435,35 @@ declare class b2DistanceProxy {
 declare class b2SimplexCache {
     metric: number;
     count: number;
-    readonly indexA: [number, number, number];
-    readonly indexB: [number, number, number];
+   indexA: [number, number, number];
+   indexB: [number, number, number];
     Reset(): b2SimplexCache;
 }
 declare class b2DistanceInput {
-    readonly proxyA: b2DistanceProxy;
-    readonly proxyB: b2DistanceProxy;
-    readonly transformA: b2Transform;
-    readonly transformB: b2Transform;
+   proxyA: b2DistanceProxy;
+   proxyB: b2DistanceProxy;
+   transformA: b2Transform;
+   transformB: b2Transform;
     useRadii: boolean;
     Reset(): b2DistanceInput;
 }
 declare class b2DistanceOutput {
-    readonly pointA: b2Vec2;
-    readonly pointB: b2Vec2;
+   pointA: b2Vec2;
+   pointB: b2Vec2;
     distance: number;
     iterations: number;
     Reset(): b2DistanceOutput;
 }
 declare class b2ShapeCastInput {
-    readonly proxyA: b2DistanceProxy;
-    readonly proxyB: b2DistanceProxy;
-    readonly transformA: b2Transform;
-    readonly transformB: b2Transform;
-    readonly translationB: b2Vec2;
+   proxyA: b2DistanceProxy;
+   proxyB: b2DistanceProxy;
+   transformA: b2Transform;
+   transformB: b2Transform;
+   translationB: b2Vec2;
 }
 declare class b2ShapeCastOutput {
-    readonly point: b2Vec2;
-    readonly normal: b2Vec2;
+   point: b2Vec2;
+   normal: b2Vec2;
     lambda: number;
     iterations: number;
 }
@@ -472,19 +472,19 @@ declare let b2_gjkIters: number;
 declare let b2_gjkMaxIters: number;
 declare function b2_gjk_reset(): void;
 declare class b2SimplexVertex {
-    readonly wA: b2Vec2;
-    readonly wB: b2Vec2;
-    readonly w: b2Vec2;
+   wA: b2Vec2;
+   wB: b2Vec2;
+   w: b2Vec2;
     a: number;
     indexA: number;
     indexB: number;
     Copy(other: b2SimplexVertex): b2SimplexVertex;
 }
 declare class b2Simplex {
-    readonly m_v1: b2SimplexVertex;
-    readonly m_v2: b2SimplexVertex;
-    readonly m_v3: b2SimplexVertex;
-    readonly m_vertices: b2SimplexVertex[];
+   m_v1: b2SimplexVertex;
+   m_v2: b2SimplexVertex;
+   m_v3: b2SimplexVertex;
+   m_vertices: b2SimplexVertex[];
     m_count: number;
     constructor();
     ReadCache(cache: b2SimplexCache, proxyA: b2DistanceProxy, transformA: b2Transform, proxyB: b2DistanceProxy, transformB: b2Transform): void;
@@ -504,7 +504,7 @@ declare function b2ShapeCast(output: b2ShapeCastOutput, input: b2ShapeCastInput)
 
 declare class b2MassData {
     mass: number;
-    readonly center: b2Vec2;
+   center: b2Vec2;
     I: number;
 }
 declare enum b2ShapeType {
@@ -516,7 +516,7 @@ declare enum b2ShapeType {
     e_shapeTypeCount = 4
 }
 declare abstract class b2Shape {
-    readonly m_type: b2ShapeType;
+   m_type: b2ShapeType;
     m_radius: number;
     constructor(type: b2ShapeType, radius: number);
     abstract Clone(): b2Shape;
@@ -556,17 +556,17 @@ declare class b2ContactFeature {
     set typeB(value: number);
 }
 declare class b2ContactID {
-    readonly cf: b2ContactFeature;
+   cf: b2ContactFeature;
     Copy(o: b2ContactID): b2ContactID;
     Clone(): b2ContactID;
     get key(): number;
     set key(value: number);
 }
 declare class b2ManifoldPoint {
-    readonly localPoint: b2Vec2;
+   localPoint: b2Vec2;
     normalImpulse: number;
     tangentImpulse: number;
-    readonly id: b2ContactID;
+   id: b2ContactID;
     static MakeArray(length: number): b2ManifoldPoint[];
     Reset(): void;
     Copy(o: b2ManifoldPoint): b2ManifoldPoint;
@@ -578,9 +578,9 @@ declare enum b2ManifoldType {
     e_faceB = 2
 }
 declare class b2Manifold {
-    readonly points: b2ManifoldPoint[];
-    readonly localNormal: b2Vec2;
-    readonly localPoint: b2Vec2;
+   points: b2ManifoldPoint[];
+   localNormal: b2Vec2;
+   localPoint: b2Vec2;
     type: b2ManifoldType;
     pointCount: number;
     Reset(): void;
@@ -588,9 +588,9 @@ declare class b2Manifold {
     Clone(): b2Manifold;
 }
 declare class b2WorldManifold {
-    readonly normal: b2Vec2;
-    readonly points: b2Vec2[];
-    readonly separations: number[];
+   normal: b2Vec2;
+   points: b2Vec2[];
+   separations: number[];
     private static Initialize_s_pointA;
     private static Initialize_s_pointB;
     private static Initialize_s_cA;
@@ -607,27 +607,27 @@ declare enum b2PointState {
 }
 declare function b2GetPointStates(state1: b2PointState[], state2: b2PointState[], manifold1: b2Manifold, manifold2: b2Manifold): void;
 declare class b2ClipVertex {
-    readonly v: b2Vec2;
-    readonly id: b2ContactID;
+   v: b2Vec2;
+   id: b2ContactID;
     static MakeArray(length: number): b2ClipVertex[];
     Copy(other: b2ClipVertex): b2ClipVertex;
 }
 declare class b2RayCastInput {
-    readonly p1: b2Vec2;
-    readonly p2: b2Vec2;
+   p1: b2Vec2;
+   p2: b2Vec2;
     maxFraction: number;
     Copy(o: b2RayCastInput): b2RayCastInput;
 }
 declare class b2RayCastOutput {
-    readonly normal: b2Vec2;
+   normal: b2Vec2;
     fraction: number;
     Copy(o: b2RayCastOutput): b2RayCastOutput;
 }
 declare class b2AABB {
-    readonly lowerBound: b2Vec2;
-    readonly upperBound: b2Vec2;
-    private readonly m_cache_center;
-    private readonly m_cache_extent;
+   lowerBound: b2Vec2;
+   upperBound: b2Vec2;
+    privatem_cache_center;
+    privatem_cache_extent;
     Copy(o: b2AABB): b2AABB;
     IsValid(): boolean;
     GetCenter(): b2Vec2;
@@ -646,8 +646,8 @@ declare function b2ClipSegmentToLine(vOut: [b2ClipVertex, b2ClipVertex], vIn: [b
 declare function b2TestOverlapShape(shapeA: b2Shape, indexA: number, shapeB: b2Shape, indexB: number, xfA: b2Transform, xfB: b2Transform): boolean;
 
 declare class b2TreeNode<T> {
-    readonly m_id: number;
-    readonly aabb: b2AABB;
+   m_id: number;
+   aabb: b2AABB;
     private _userData;
     get userData(): T;
     set userData(value: T);
@@ -664,14 +664,14 @@ declare class b2DynamicTree<T> {
     m_root: b2TreeNode<T> | null;
     m_freeList: b2TreeNode<T> | null;
     m_insertionCount: number;
-    readonly m_stack: b2GrowableStack<b2TreeNode<T> | null>;
-    static readonly s_r: b2Vec2;
-    static readonly s_v: b2Vec2;
-    static readonly s_abs_v: b2Vec2;
-    static readonly s_segmentAABB: b2AABB;
-    static readonly s_subInput: b2RayCastInput;
-    static readonly s_combinedAABB: b2AABB;
-    static readonly s_aabb: b2AABB;
+   m_stack: b2GrowableStack<b2TreeNode<T> | null>;
+    statics_r: b2Vec2;
+    statics_v: b2Vec2;
+    statics_abs_v: b2Vec2;
+    statics_segmentAABB: b2AABB;
+    statics_subInput: b2RayCastInput;
+    statics_combinedAABB: b2AABB;
+    statics_aabb: b2AABB;
     Query(aabb: b2AABB, callback: (node: b2TreeNode<T>) => boolean): void;
     QueryPoint(point: XY, callback: (node: b2TreeNode<T>) => boolean): void;
     RayCast(input: b2RayCastInput, callback: (input: b2RayCastInput, node: b2TreeNode<T>) => number): void;
@@ -707,12 +707,12 @@ declare class b2Pair<T> {
     constructor(proxyA: b2TreeNode<T>, proxyB: b2TreeNode<T>);
 }
 declare class b2BroadPhase<T> {
-    readonly m_tree: b2DynamicTree<T>;
+   m_tree: b2DynamicTree<T>;
     m_proxyCount: number;
     m_moveCount: number;
-    readonly m_moveBuffer: Array<b2TreeNode<T> | null>;
+   m_moveBuffer: Array<b2TreeNode<T> | null>;
     m_pairCount: number;
-    readonly m_pairBuffer: Array<b2Pair<T>>;
+   m_pairBuffer: Array<b2Pair<T>>;
     CreateProxy(aabb: b2AABB, userData: T): b2TreeNode<T>;
     DestroyProxy(proxy: b2TreeNode<T>): void;
     MoveProxy(proxy: b2TreeNode<T>, aabb: b2AABB, displacement: b2Vec2): void;
@@ -731,10 +731,10 @@ declare class b2BroadPhase<T> {
 }
 
 declare class b2EdgeShape extends b2Shape {
-    readonly m_vertex1: b2Vec2;
-    readonly m_vertex2: b2Vec2;
-    readonly m_vertex0: b2Vec2;
-    readonly m_vertex3: b2Vec2;
+   m_vertex1: b2Vec2;
+   m_vertex2: b2Vec2;
+   m_vertex0: b2Vec2;
+   m_vertex3: b2Vec2;
     m_oneSided: boolean;
     constructor();
     SetOneSided(v0: XY, v1: XY, v2: XY, v3: XY): b2EdgeShape;
@@ -767,8 +767,8 @@ declare class b2EdgeShape extends b2Shape {
 declare class b2ChainShape extends b2Shape {
     m_vertices: b2Vec2[];
     m_count: number;
-    readonly m_prevVertex: b2Vec2;
-    readonly m_nextVertex: b2Vec2;
+   m_prevVertex: b2Vec2;
+   m_nextVertex: b2Vec2;
     constructor();
     CreateLoop(vertices: XY[]): b2ChainShape;
     CreateLoop(vertices: XY[], count: number): b2ChainShape;
@@ -799,7 +799,7 @@ declare class b2ChainShape extends b2Shape {
 }
 
 declare class b2CircleShape extends b2Shape {
-    readonly m_p: b2Vec2;
+   m_p: b2Vec2;
     constructor(radius?: number);
     Set(position: XY, radius?: number): this;
     Clone(): b2CircleShape;
@@ -823,7 +823,7 @@ declare class b2CircleShape extends b2Shape {
 }
 
 declare class b2PolygonShape extends b2Shape {
-    readonly m_centroid: b2Vec2;
+   m_centroid: b2Vec2;
     m_vertices: b2Vec2[];
     m_normals: b2Vec2[];
     m_count: number;
@@ -893,10 +893,10 @@ declare let b2_toiRootIters: number;
 declare let b2_toiMaxRootIters: number;
 declare function b2_toi_reset(): void;
 declare class b2TOIInput {
-    readonly proxyA: b2DistanceProxy;
-    readonly proxyB: b2DistanceProxy;
-    readonly sweepA: b2Sweep;
-    readonly sweepB: b2Sweep;
+   proxyA: b2DistanceProxy;
+   proxyB: b2DistanceProxy;
+   sweepA: b2Sweep;
+   sweepB: b2Sweep;
     tMax: number;
 }
 declare enum b2TOIOutputState {
@@ -919,11 +919,11 @@ declare enum b2SeparationFunctionType {
 declare class b2SeparationFunction {
     m_proxyA: b2DistanceProxy;
     m_proxyB: b2DistanceProxy;
-    readonly m_sweepA: b2Sweep;
-    readonly m_sweepB: b2Sweep;
+   m_sweepA: b2Sweep;
+   m_sweepB: b2Sweep;
     m_type: b2SeparationFunctionType;
-    readonly m_localPoint: b2Vec2;
-    readonly m_axis: b2Vec2;
+   m_localPoint: b2Vec2;
+   m_axis: b2Vec2;
     Initialize(cache: b2SimplexCache, proxyA: b2DistanceProxy, sweepA: b2Sweep, proxyB: b2DistanceProxy, sweepB: b2Sweep, t1: number): number;
     FindMinSeparation(indexA: [number], indexB: [number], t: number): number;
     Evaluate(indexA: number, indexB: number, t: number): number;
@@ -936,7 +936,7 @@ interface b2IFilter {
     groupIndex?: number;
 }
 declare class b2Filter implements b2IFilter {
-    static readonly DEFAULT: Readonly<b2Filter>;
+    staticDEFAULT: Readonly<b2Filter>;
     categoryBits: number;
     maskBits: number;
     groupIndex: number;
@@ -961,12 +961,12 @@ declare class b2FixtureDef implements b2IFixtureDef {
     restitutionThreshold: number;
     density: number;
     isSensor: boolean;
-    readonly filter: b2Filter;
+   filter: b2Filter;
 }
 declare class b2FixtureProxy {
-    readonly aabb: b2AABB;
-    readonly fixture: b2Fixture;
-    readonly childIndex: number;
+   aabb: b2AABB;
+   fixture: b2Fixture;
+   childIndex: number;
     treeNode: b2TreeNode<b2FixtureProxy>;
     constructor(fixture: b2Fixture, childIndex: number);
     Reset(): void;
@@ -979,14 +979,14 @@ declare class b2FixtureProxy {
 declare class b2Fixture {
     m_density: number;
     m_next: b2Fixture | null;
-    readonly m_body: b2Body;
-    readonly m_shape: b2Shape;
+   m_body: b2Body;
+   m_shape: b2Shape;
     m_friction: number;
     m_restitution: number;
     m_restitutionThreshold: number;
-    readonly m_proxies: b2FixtureProxy[];
+   m_proxies: b2FixtureProxy[];
     get m_proxyCount(): number;
-    readonly m_filter: b2Filter;
+   m_filter: b2Filter;
     m_isSensor: boolean;
     m_userData: any;
     constructor(body: b2Body, def: b2IFixtureDef);
@@ -1056,9 +1056,9 @@ interface b2IParticleDef {
 }
 declare class b2ParticleDef implements b2IParticleDef {
     flags: b2ParticleFlag;
-    readonly position: b2Vec2;
-    readonly velocity: b2Vec2;
-    readonly color: b2Color;
+   position: b2Vec2;
+   velocity: b2Vec2;
+   color: b2Color;
     lifetime: number;
     userData: any;
     group: b2ParticleGroup | null;
@@ -1092,17 +1092,17 @@ declare class b2TimeStep {
     Copy(step: b2TimeStep): b2TimeStep;
 }
 declare class b2Position {
-    readonly c: b2Vec2;
+   c: b2Vec2;
     a: number;
     static MakeArray(length: number): b2Position[];
 }
 declare class b2Velocity {
-    readonly v: b2Vec2;
+   v: b2Vec2;
     w: number;
     static MakeArray(length: number): b2Velocity[];
 }
 declare class b2SolverData {
-    readonly step: b2TimeStep;
+   step: b2TimeStep;
     positions: b2Position[];
     velocities: b2Velocity[];
 }
@@ -1117,8 +1117,8 @@ interface b2IDistanceJointDef extends b2IJointDef {
     damping?: number;
 }
 declare class b2DistanceJointDef extends b2JointDef implements b2IDistanceJointDef {
-    readonly localAnchorA: b2Vec2;
-    readonly localAnchorB: b2Vec2;
+   localAnchorA: b2Vec2;
+   localAnchorB: b2Vec2;
     length: number;
     minLength: number;
     maxLength: number;
@@ -1134,19 +1134,19 @@ declare class b2DistanceJoint extends b2Joint {
     m_length: number;
     m_minLength: number;
     m_maxLength: number;
-    readonly m_localAnchorA: b2Vec2;
-    readonly m_localAnchorB: b2Vec2;
+   m_localAnchorA: b2Vec2;
+   m_localAnchorB: b2Vec2;
     m_gamma: number;
     m_impulse: number;
     m_lowerImpulse: number;
     m_upperImpulse: number;
     m_indexA: number;
     m_indexB: number;
-    readonly m_u: b2Vec2;
-    readonly m_rA: b2Vec2;
-    readonly m_rB: b2Vec2;
-    readonly m_localCenterA: b2Vec2;
-    readonly m_localCenterB: b2Vec2;
+   m_u: b2Vec2;
+   m_rA: b2Vec2;
+   m_rB: b2Vec2;
+   m_localCenterA: b2Vec2;
+   m_localCenterB: b2Vec2;
     m_currentLength: number;
     m_invMassA: number;
     m_invMassB: number;
@@ -1154,10 +1154,10 @@ declare class b2DistanceJoint extends b2Joint {
     m_invIB: number;
     m_softMass: number;
     m_mass: number;
-    readonly m_qA: b2Rot;
-    readonly m_qB: b2Rot;
-    readonly m_lalcA: b2Vec2;
-    readonly m_lalcB: b2Vec2;
+   m_qA: b2Rot;
+   m_qB: b2Rot;
+   m_lalcA: b2Vec2;
+   m_lalcB: b2Vec2;
     constructor(def: b2IDistanceJointDef);
     GetAnchorA<T extends XY>(out: T): T;
     GetAnchorB<T extends XY>(out: T): T;
@@ -1203,37 +1203,37 @@ interface b2IFrictionJointDef extends b2IJointDef {
     maxTorque?: number;
 }
 declare class b2FrictionJointDef extends b2JointDef implements b2IFrictionJointDef {
-    readonly localAnchorA: b2Vec2;
-    readonly localAnchorB: b2Vec2;
+   localAnchorA: b2Vec2;
+   localAnchorB: b2Vec2;
     maxForce: number;
     maxTorque: number;
     constructor();
     Initialize(bA: b2Body, bB: b2Body, anchor: b2Vec2): void;
 }
 declare class b2FrictionJoint extends b2Joint {
-    readonly m_localAnchorA: b2Vec2;
-    readonly m_localAnchorB: b2Vec2;
-    readonly m_linearImpulse: b2Vec2;
+   m_localAnchorA: b2Vec2;
+   m_localAnchorB: b2Vec2;
+   m_linearImpulse: b2Vec2;
     m_angularImpulse: number;
     m_maxForce: number;
     m_maxTorque: number;
     m_indexA: number;
     m_indexB: number;
-    readonly m_rA: b2Vec2;
-    readonly m_rB: b2Vec2;
-    readonly m_localCenterA: b2Vec2;
-    readonly m_localCenterB: b2Vec2;
+   m_rA: b2Vec2;
+   m_rB: b2Vec2;
+   m_localCenterA: b2Vec2;
+   m_localCenterB: b2Vec2;
     m_invMassA: number;
     m_invMassB: number;
     m_invIA: number;
     m_invIB: number;
-    readonly m_linearMass: b2Mat22;
+   m_linearMass: b2Mat22;
     m_angularMass: number;
-    readonly m_qA: b2Rot;
-    readonly m_qB: b2Rot;
-    readonly m_lalcA: b2Vec2;
-    readonly m_lalcB: b2Vec2;
-    readonly m_K: b2Mat22;
+   m_qA: b2Rot;
+   m_qB: b2Rot;
+   m_lalcA: b2Vec2;
+   m_lalcB: b2Vec2;
+   m_K: b2Mat22;
     constructor(def: b2IFrictionJointDef);
     InitVelocityConstraints(data: b2SolverData): void;
     private static SolveVelocityConstraints_s_Cdot_v2;
@@ -1267,9 +1267,9 @@ interface b2IPrismaticJointDef extends b2IJointDef {
     motorSpeed?: number;
 }
 declare class b2PrismaticJointDef extends b2JointDef implements b2IPrismaticJointDef {
-    readonly localAnchorA: b2Vec2;
-    readonly localAnchorB: b2Vec2;
-    readonly localAxisA: b2Vec2;
+   localAnchorA: b2Vec2;
+   localAnchorB: b2Vec2;
+   localAxisA: b2Vec2;
     referenceAngle: number;
     enableLimit: boolean;
     lowerTranslation: number;
@@ -1281,12 +1281,12 @@ declare class b2PrismaticJointDef extends b2JointDef implements b2IPrismaticJoin
     Initialize(bA: b2Body, bB: b2Body, anchor: b2Vec2, axis: b2Vec2): void;
 }
 declare class b2PrismaticJoint extends b2Joint {
-    readonly m_localAnchorA: b2Vec2;
-    readonly m_localAnchorB: b2Vec2;
-    readonly m_localXAxisA: b2Vec2;
-    readonly m_localYAxisA: b2Vec2;
+   m_localAnchorA: b2Vec2;
+   m_localAnchorB: b2Vec2;
+   m_localXAxisA: b2Vec2;
+   m_localYAxisA: b2Vec2;
     m_referenceAngle: number;
-    readonly m_impulse: b2Vec2;
+   m_impulse: b2Vec2;
     m_motorImpulse: number;
     m_lowerImpulse: number;
     m_upperImpulse: number;
@@ -1298,29 +1298,29 @@ declare class b2PrismaticJoint extends b2Joint {
     m_enableMotor: boolean;
     m_indexA: number;
     m_indexB: number;
-    readonly m_localCenterA: b2Vec2;
-    readonly m_localCenterB: b2Vec2;
+   m_localCenterA: b2Vec2;
+   m_localCenterB: b2Vec2;
     m_invMassA: number;
     m_invMassB: number;
     m_invIA: number;
     m_invIB: number;
-    readonly m_axis: b2Vec2;
-    readonly m_perp: b2Vec2;
+   m_axis: b2Vec2;
+   m_perp: b2Vec2;
     m_s1: number;
     m_s2: number;
     m_a1: number;
     m_a2: number;
-    readonly m_K: b2Mat22;
-    readonly m_K3: b2Mat33;
-    readonly m_K2: b2Mat22;
+   m_K: b2Mat22;
+   m_K3: b2Mat33;
+   m_K2: b2Mat22;
     m_translation: number;
     m_axialMass: number;
-    readonly m_qA: b2Rot;
-    readonly m_qB: b2Rot;
-    readonly m_lalcA: b2Vec2;
-    readonly m_lalcB: b2Vec2;
-    readonly m_rA: b2Vec2;
-    readonly m_rB: b2Vec2;
+   m_qA: b2Rot;
+   m_qB: b2Rot;
+   m_lalcA: b2Vec2;
+   m_lalcB: b2Vec2;
+   m_rA: b2Vec2;
+   m_rB: b2Vec2;
     constructor(def: b2IPrismaticJointDef);
     private static InitVelocityConstraints_s_d;
     private static InitVelocityConstraints_s_P;
@@ -1386,8 +1386,8 @@ interface b2IRevoluteJointDef extends b2IJointDef {
     maxMotorTorque?: number;
 }
 declare class b2RevoluteJointDef extends b2JointDef implements b2IRevoluteJointDef {
-    readonly localAnchorA: b2Vec2;
-    readonly localAnchorB: b2Vec2;
+   localAnchorA: b2Vec2;
+   localAnchorB: b2Vec2;
     referenceAngle: number;
     enableLimit: boolean;
     lowerAngle: number;
@@ -1399,9 +1399,9 @@ declare class b2RevoluteJointDef extends b2JointDef implements b2IRevoluteJointD
     Initialize(bA: b2Body, bB: b2Body, anchor: XY): void;
 }
 declare class b2RevoluteJoint extends b2Joint {
-    readonly m_localAnchorA: b2Vec2;
-    readonly m_localAnchorB: b2Vec2;
-    readonly m_impulse: b2Vec2;
+   m_localAnchorA: b2Vec2;
+   m_localAnchorB: b2Vec2;
+   m_impulse: b2Vec2;
     m_motorImpulse: number;
     m_lowerImpulse: number;
     m_upperImpulse: number;
@@ -1414,21 +1414,21 @@ declare class b2RevoluteJoint extends b2Joint {
     m_upperAngle: number;
     m_indexA: number;
     m_indexB: number;
-    readonly m_rA: b2Vec2;
-    readonly m_rB: b2Vec2;
-    readonly m_localCenterA: b2Vec2;
-    readonly m_localCenterB: b2Vec2;
+   m_rA: b2Vec2;
+   m_rB: b2Vec2;
+   m_localCenterA: b2Vec2;
+   m_localCenterB: b2Vec2;
     m_invMassA: number;
     m_invMassB: number;
     m_invIA: number;
     m_invIB: number;
-    readonly m_K: b2Mat22;
+   m_K: b2Mat22;
     m_angle: number;
     m_axialMass: number;
-    readonly m_qA: b2Rot;
-    readonly m_qB: b2Rot;
-    readonly m_lalcA: b2Vec2;
-    readonly m_lalcB: b2Vec2;
+   m_qA: b2Rot;
+   m_qB: b2Rot;
+   m_lalcA: b2Vec2;
+   m_lalcB: b2Vec2;
     constructor(def: b2IRevoluteJointDef);
     private static InitVelocityConstraints_s_P;
     InitVelocityConstraints(data: b2SolverData): void;
@@ -1492,12 +1492,12 @@ declare class b2GearJoint extends b2Joint {
     m_typeB: b2JointType;
     m_bodyC: b2Body;
     m_bodyD: b2Body;
-    readonly m_localAnchorA: b2Vec2;
-    readonly m_localAnchorB: b2Vec2;
-    readonly m_localAnchorC: b2Vec2;
-    readonly m_localAnchorD: b2Vec2;
-    readonly m_localAxisC: b2Vec2;
-    readonly m_localAxisD: b2Vec2;
+   m_localAnchorA: b2Vec2;
+   m_localAnchorB: b2Vec2;
+   m_localAnchorC: b2Vec2;
+   m_localAnchorD: b2Vec2;
+   m_localAxisC: b2Vec2;
+   m_localAxisD: b2Vec2;
     m_referenceAngleA: number;
     m_referenceAngleB: number;
     m_constant: number;
@@ -1507,10 +1507,10 @@ declare class b2GearJoint extends b2Joint {
     m_indexB: number;
     m_indexC: number;
     m_indexD: number;
-    readonly m_lcA: b2Vec2;
-    readonly m_lcB: b2Vec2;
-    readonly m_lcC: b2Vec2;
-    readonly m_lcD: b2Vec2;
+   m_lcA: b2Vec2;
+   m_lcB: b2Vec2;
+   m_lcC: b2Vec2;
+   m_lcD: b2Vec2;
     m_mA: number;
     m_mB: number;
     m_mC: number;
@@ -1519,21 +1519,21 @@ declare class b2GearJoint extends b2Joint {
     m_iB: number;
     m_iC: number;
     m_iD: number;
-    readonly m_JvAC: b2Vec2;
-    readonly m_JvBD: b2Vec2;
+   m_JvAC: b2Vec2;
+   m_JvBD: b2Vec2;
     m_JwA: number;
     m_JwB: number;
     m_JwC: number;
     m_JwD: number;
     m_mass: number;
-    readonly m_qA: b2Rot;
-    readonly m_qB: b2Rot;
-    readonly m_qC: b2Rot;
-    readonly m_qD: b2Rot;
-    readonly m_lalcA: b2Vec2;
-    readonly m_lalcB: b2Vec2;
-    readonly m_lalcC: b2Vec2;
-    readonly m_lalcD: b2Vec2;
+   m_qA: b2Rot;
+   m_qB: b2Rot;
+   m_qC: b2Rot;
+   m_qD: b2Rot;
+   m_lalcA: b2Vec2;
+   m_lalcB: b2Vec2;
+   m_lalcC: b2Vec2;
+   m_lalcD: b2Vec2;
     constructor(def: b2IGearJointDef);
     private static InitVelocityConstraints_s_u;
     private static InitVelocityConstraints_s_rA;
@@ -1567,7 +1567,7 @@ interface b2IMotorJointDef extends b2IJointDef {
     correctionFactor?: number;
 }
 declare class b2MotorJointDef extends b2JointDef implements b2IMotorJointDef {
-    readonly linearOffset: b2Vec2;
+   linearOffset: b2Vec2;
     angularOffset: number;
     maxForce: number;
     maxTorque: number;
@@ -1576,30 +1576,30 @@ declare class b2MotorJointDef extends b2JointDef implements b2IMotorJointDef {
     Initialize(bA: b2Body, bB: b2Body): void;
 }
 declare class b2MotorJoint extends b2Joint {
-    readonly m_linearOffset: b2Vec2;
+   m_linearOffset: b2Vec2;
     m_angularOffset: number;
-    readonly m_linearImpulse: b2Vec2;
+   m_linearImpulse: b2Vec2;
     m_angularImpulse: number;
     m_maxForce: number;
     m_maxTorque: number;
     m_correctionFactor: number;
     m_indexA: number;
     m_indexB: number;
-    readonly m_rA: b2Vec2;
-    readonly m_rB: b2Vec2;
-    readonly m_localCenterA: b2Vec2;
-    readonly m_localCenterB: b2Vec2;
-    readonly m_linearError: b2Vec2;
+   m_rA: b2Vec2;
+   m_rB: b2Vec2;
+   m_localCenterA: b2Vec2;
+   m_localCenterB: b2Vec2;
+   m_linearError: b2Vec2;
     m_angularError: number;
     m_invMassA: number;
     m_invMassB: number;
     m_invIA: number;
     m_invIB: number;
-    readonly m_linearMass: b2Mat22;
+   m_linearMass: b2Mat22;
     m_angularMass: number;
-    readonly m_qA: b2Rot;
-    readonly m_qB: b2Rot;
-    readonly m_K: b2Mat22;
+   m_qA: b2Rot;
+   m_qB: b2Rot;
+   m_K: b2Mat22;
     constructor(def: b2IMotorJointDef);
     GetAnchorA<T extends XY>(out: T): T;
     GetAnchorB<T extends XY>(out: T): T;
@@ -1629,32 +1629,32 @@ interface b2IMouseJointDef extends b2IJointDef {
     damping?: number;
 }
 declare class b2MouseJointDef extends b2JointDef implements b2IMouseJointDef {
-    readonly target: b2Vec2;
+   target: b2Vec2;
     maxForce: number;
     stiffness: number;
     damping: number;
     constructor();
 }
 declare class b2MouseJoint extends b2Joint {
-    readonly m_localAnchorB: b2Vec2;
-    readonly m_targetA: b2Vec2;
+   m_localAnchorB: b2Vec2;
+   m_targetA: b2Vec2;
     m_stiffness: number;
     m_damping: number;
     m_beta: number;
-    readonly m_impulse: b2Vec2;
+   m_impulse: b2Vec2;
     m_maxForce: number;
     m_gamma: number;
     m_indexA: number;
     m_indexB: number;
-    readonly m_rB: b2Vec2;
-    readonly m_localCenterB: b2Vec2;
+   m_rB: b2Vec2;
+   m_localCenterB: b2Vec2;
     m_invMassB: number;
     m_invIB: number;
-    readonly m_mass: b2Mat22;
-    readonly m_C: b2Vec2;
-    readonly m_qB: b2Rot;
-    readonly m_lalcB: b2Vec2;
-    readonly m_K: b2Mat22;
+   m_mass: b2Mat22;
+   m_C: b2Vec2;
+   m_qB: b2Rot;
+   m_lalcB: b2Vec2;
+   m_K: b2Mat22;
     constructor(def: b2IMouseJointDef);
     SetTarget(target: b2Vec2): void;
     GetTarget(): b2Vec2;
@@ -1689,10 +1689,10 @@ interface b2IPulleyJointDef extends b2IJointDef {
     ratio?: number;
 }
 declare class b2PulleyJointDef extends b2JointDef implements b2IPulleyJointDef {
-    readonly groundAnchorA: b2Vec2;
-    readonly groundAnchorB: b2Vec2;
-    readonly localAnchorA: b2Vec2;
-    readonly localAnchorB: b2Vec2;
+   groundAnchorA: b2Vec2;
+   groundAnchorB: b2Vec2;
+   localAnchorA: b2Vec2;
+   localAnchorB: b2Vec2;
     lengthA: number;
     lengthB: number;
     ratio: number;
@@ -1700,32 +1700,32 @@ declare class b2PulleyJointDef extends b2JointDef implements b2IPulleyJointDef {
     Initialize(bA: b2Body, bB: b2Body, groundA: b2Vec2, groundB: b2Vec2, anchorA: b2Vec2, anchorB: b2Vec2, r: number): void;
 }
 declare class b2PulleyJoint extends b2Joint {
-    readonly m_groundAnchorA: b2Vec2;
-    readonly m_groundAnchorB: b2Vec2;
+   m_groundAnchorA: b2Vec2;
+   m_groundAnchorB: b2Vec2;
     m_lengthA: number;
     m_lengthB: number;
-    readonly m_localAnchorA: b2Vec2;
-    readonly m_localAnchorB: b2Vec2;
+   m_localAnchorA: b2Vec2;
+   m_localAnchorB: b2Vec2;
     m_constant: number;
     m_ratio: number;
     m_impulse: number;
     m_indexA: number;
     m_indexB: number;
-    readonly m_uA: b2Vec2;
-    readonly m_uB: b2Vec2;
-    readonly m_rA: b2Vec2;
-    readonly m_rB: b2Vec2;
-    readonly m_localCenterA: b2Vec2;
-    readonly m_localCenterB: b2Vec2;
+   m_uA: b2Vec2;
+   m_uB: b2Vec2;
+   m_rA: b2Vec2;
+   m_rB: b2Vec2;
+   m_localCenterA: b2Vec2;
+   m_localCenterB: b2Vec2;
     m_invMassA: number;
     m_invMassB: number;
     m_invIA: number;
     m_invIB: number;
     m_mass: number;
-    readonly m_qA: b2Rot;
-    readonly m_qB: b2Rot;
-    readonly m_lalcA: b2Vec2;
-    readonly m_lalcB: b2Vec2;
+   m_qA: b2Rot;
+   m_qB: b2Rot;
+   m_lalcA: b2Vec2;
+   m_lalcB: b2Vec2;
     constructor(def: b2IPulleyJointDef);
     private static InitVelocityConstraints_s_PA;
     private static InitVelocityConstraints_s_PB;
@@ -1763,8 +1763,8 @@ interface b2IWeldJointDef extends b2IJointDef {
     damping?: number;
 }
 declare class b2WeldJointDef extends b2JointDef implements b2IWeldJointDef {
-    readonly localAnchorA: b2Vec2;
-    readonly localAnchorB: b2Vec2;
+   localAnchorA: b2Vec2;
+   localAnchorB: b2Vec2;
     referenceAngle: number;
     stiffness: number;
     damping: number;
@@ -1775,27 +1775,27 @@ declare class b2WeldJoint extends b2Joint {
     m_stiffness: number;
     m_damping: number;
     m_bias: number;
-    readonly m_localAnchorA: b2Vec2;
-    readonly m_localAnchorB: b2Vec2;
+   m_localAnchorA: b2Vec2;
+   m_localAnchorB: b2Vec2;
     m_referenceAngle: number;
     m_gamma: number;
-    readonly m_impulse: b2Vec3;
+   m_impulse: b2Vec3;
     m_indexA: number;
     m_indexB: number;
-    readonly m_rA: b2Vec2;
-    readonly m_rB: b2Vec2;
-    readonly m_localCenterA: b2Vec2;
-    readonly m_localCenterB: b2Vec2;
+   m_rA: b2Vec2;
+   m_rB: b2Vec2;
+   m_localCenterA: b2Vec2;
+   m_localCenterB: b2Vec2;
     m_invMassA: number;
     m_invMassB: number;
     m_invIA: number;
     m_invIB: number;
-    readonly m_mass: b2Mat33;
-    readonly m_qA: b2Rot;
-    readonly m_qB: b2Rot;
-    readonly m_lalcA: b2Vec2;
-    readonly m_lalcB: b2Vec2;
-    readonly m_K: b2Mat33;
+   m_mass: b2Mat33;
+   m_qA: b2Rot;
+   m_qB: b2Rot;
+   m_lalcA: b2Vec2;
+   m_lalcB: b2Vec2;
+   m_K: b2Mat33;
     constructor(def: b2IWeldJointDef);
     private static InitVelocityConstraints_s_P;
     InitVelocityConstraints(data: b2SolverData): void;
@@ -1836,9 +1836,9 @@ interface b2IWheelJointDef extends b2IJointDef {
     damping?: number;
 }
 declare class b2WheelJointDef extends b2JointDef implements b2IWheelJointDef {
-    readonly localAnchorA: b2Vec2;
-    readonly localAnchorB: b2Vec2;
-    readonly localAxisA: b2Vec2;
+   localAnchorA: b2Vec2;
+   localAnchorB: b2Vec2;
+   localAxisA: b2Vec2;
     enableLimit: boolean;
     lowerTranslation: number;
     upperTranslation: number;
@@ -1851,10 +1851,10 @@ declare class b2WheelJointDef extends b2JointDef implements b2IWheelJointDef {
     Initialize(bA: b2Body, bB: b2Body, anchor: b2Vec2, axis: b2Vec2): void;
 }
 declare class b2WheelJoint extends b2Joint {
-    readonly m_localAnchorA: b2Vec2;
-    readonly m_localAnchorB: b2Vec2;
-    readonly m_localXAxisA: b2Vec2;
-    readonly m_localYAxisA: b2Vec2;
+   m_localAnchorA: b2Vec2;
+   m_localAnchorB: b2Vec2;
+   m_localXAxisA: b2Vec2;
+   m_localYAxisA: b2Vec2;
     m_impulse: number;
     m_motorImpulse: number;
     m_springImpulse: number;
@@ -1871,14 +1871,14 @@ declare class b2WheelJoint extends b2Joint {
     m_damping: number;
     m_indexA: number;
     m_indexB: number;
-    readonly m_localCenterA: b2Vec2;
-    readonly m_localCenterB: b2Vec2;
+   m_localCenterA: b2Vec2;
+   m_localCenterB: b2Vec2;
     m_invMassA: number;
     m_invMassB: number;
     m_invIA: number;
     m_invIB: number;
-    readonly m_ax: b2Vec2;
-    readonly m_ay: b2Vec2;
+   m_ax: b2Vec2;
+   m_ay: b2Vec2;
     m_sAx: number;
     m_sBx: number;
     m_sAy: number;
@@ -1889,12 +1889,12 @@ declare class b2WheelJoint extends b2Joint {
     m_springMass: number;
     m_bias: number;
     m_gamma: number;
-    readonly m_qA: b2Rot;
-    readonly m_qB: b2Rot;
-    readonly m_lalcA: b2Vec2;
-    readonly m_lalcB: b2Vec2;
-    readonly m_rA: b2Vec2;
-    readonly m_rB: b2Vec2;
+   m_qA: b2Rot;
+   m_qB: b2Rot;
+   m_lalcA: b2Vec2;
+   m_lalcB: b2Vec2;
+   m_rA: b2Vec2;
+   m_rB: b2Vec2;
     constructor(def: b2IWheelJointDef);
     GetMotorSpeed(): number;
     GetMaxMotorTorque(): number;
@@ -1958,7 +1958,7 @@ declare class b2ContactRegister {
     primary: boolean;
 }
 declare class b2ContactFactory {
-    readonly m_registers: b2ContactRegister[][];
+   m_registers: b2ContactRegister[][];
     constructor();
     private AddType;
     private InitializeRegisters;
@@ -1967,12 +1967,12 @@ declare class b2ContactFactory {
 }
 
 declare class b2ContactManager {
-    readonly m_broadPhase: b2BroadPhase<b2FixtureProxy>;
+   m_broadPhase: b2BroadPhase<b2FixtureProxy>;
     m_contactList: b2Contact | null;
     m_contactCount: number;
     m_contactFilter: b2ContactFilter;
     m_contactListener: b2ContactListener;
-    readonly m_contactFactory: b2ContactFactory;
+   m_contactFactory: b2ContactFactory;
     AddPair(proxyA: b2FixtureProxy, proxyB: b2FixtureProxy): void;
     FindNewContacts(): void;
     Destroy(c: b2Contact): void;
@@ -1983,8 +1983,8 @@ declare let g_blockSolve: boolean;
 declare function get_g_blockSolve(): boolean;
 declare function set_g_blockSolve(value: boolean): void;
 declare class b2VelocityConstraintPoint {
-    readonly rA: b2Vec2;
-    readonly rB: b2Vec2;
+   rA: b2Vec2;
+   rB: b2Vec2;
     normalImpulse: number;
     tangentImpulse: number;
     normalMass: number;
@@ -1993,11 +1993,11 @@ declare class b2VelocityConstraintPoint {
     static MakeArray(length: number): b2VelocityConstraintPoint[];
 }
 declare class b2ContactVelocityConstraint {
-    readonly points: b2VelocityConstraintPoint[];
-    readonly normal: b2Vec2;
-    readonly tangent: b2Vec2;
-    readonly normalMass: b2Mat22;
-    readonly K: b2Mat22;
+   points: b2VelocityConstraintPoint[];
+   normal: b2Vec2;
+   tangent: b2Vec2;
+   normalMass: b2Mat22;
+   K: b2Mat22;
     indexA: number;
     indexB: number;
     invMassA: number;
@@ -2013,15 +2013,15 @@ declare class b2ContactVelocityConstraint {
     static MakeArray(length: number): b2ContactVelocityConstraint[];
 }
 declare class b2ContactPositionConstraint {
-    readonly localPoints: b2Vec2[];
-    readonly localNormal: b2Vec2;
-    readonly localPoint: b2Vec2;
+   localPoints: b2Vec2[];
+   localNormal: b2Vec2;
+   localPoint: b2Vec2;
     indexA: number;
     indexB: number;
     invMassA: number;
     invMassB: number;
-    readonly localCenterA: b2Vec2;
-    readonly localCenterB: b2Vec2;
+   localCenterA: b2Vec2;
+   localCenterB: b2Vec2;
     invIA: number;
     invIB: number;
     type: b2ManifoldType;
@@ -2031,15 +2031,15 @@ declare class b2ContactPositionConstraint {
     static MakeArray(length: number): b2ContactPositionConstraint[];
 }
 declare class b2ContactSolverDef {
-    readonly step: b2TimeStep;
+   step: b2TimeStep;
     contacts: b2Contact[];
     count: number;
     positions: b2Position[];
     velocities: b2Velocity[];
 }
 declare class b2PositionSolverManifold {
-    readonly normal: b2Vec2;
-    readonly point: b2Vec2;
+   normal: b2Vec2;
+   point: b2Vec2;
     separation: number;
     private static Initialize_s_pointA;
     private static Initialize_s_pointB;
@@ -2048,11 +2048,11 @@ declare class b2PositionSolverManifold {
     Initialize(pc: b2ContactPositionConstraint, xfA: b2Transform, xfB: b2Transform, index: number): void;
 }
 declare class b2ContactSolver {
-    readonly m_step: b2TimeStep;
+   m_step: b2TimeStep;
     m_positions: b2Position[];
     m_velocities: b2Velocity[];
-    readonly m_positionConstraints: b2ContactPositionConstraint[];
-    readonly m_velocityConstraints: b2ContactVelocityConstraint[];
+   m_positionConstraints: b2ContactPositionConstraint[];
+   m_velocityConstraints: b2ContactVelocityConstraint[];
     m_contacts: b2Contact[];
     m_count: number;
     Initialize(def: b2ContactSolverDef): b2ContactSolver;
@@ -2093,11 +2093,11 @@ declare class b2ContactSolver {
 
 declare class b2Island {
     m_listener: b2ContactListener;
-    readonly m_bodies: b2Body[];
-    readonly m_contacts: b2Contact[];
-    readonly m_joints: b2Joint[];
-    readonly m_positions: b2Position[];
-    readonly m_velocities: b2Velocity[];
+   m_bodies: b2Body[];
+   m_contacts: b2Contact[];
+   m_joints: b2Joint[];
+   m_positions: b2Position[];
+   m_velocities: b2Velocity[];
     m_bodyCount: number;
     m_jointCount: number;
     m_contactCount: number;
@@ -2125,8 +2125,8 @@ declare class b2Island {
  * together in a bipartite graph.
  */
 declare class b2ControllerEdge {
-    readonly controller: b2Controller;
-    readonly body: b2Body;
+   controller: b2Controller;
+   body: b2Body;
     prevBody: b2ControllerEdge | null;
     nextBody: b2ControllerEdge | null;
     prevController: b2ControllerEdge | null;
@@ -2180,13 +2180,13 @@ declare abstract class b2Controller {
 }
 
 declare class b2World {
-    readonly m_contactManager: b2ContactManager;
+   m_contactManager: b2ContactManager;
     m_bodyList: b2Body | null;
     m_jointList: b2Joint | null;
     m_particleSystemList: b2ParticleSystem | null;
     m_bodyCount: number;
     m_jointCount: number;
-    readonly m_gravity: b2Vec2;
+   m_gravity: b2Vec2;
     m_allowSleep: boolean;
     m_destructionListener: b2DestructionListener | null;
     m_debugDraw: b2Draw | null;
@@ -2198,9 +2198,9 @@ declare class b2World {
     m_continuousPhysics: boolean;
     m_subStepping: boolean;
     m_stepComplete: boolean;
-    readonly m_profile: b2Profile;
-    readonly m_island: b2Island;
-    readonly s_stack: Array<b2Body | null>;
+   m_profile: b2Profile;
+   m_island: b2Island;
+   s_stack: Array<b2Body | null>;
     m_controllerList: b2Controller | null;
     m_controllerCount: number;
     constructor(gravity: XY);
@@ -2603,16 +2603,16 @@ declare class b2ParticleSystem {
     m_world: b2World;
     m_prev: b2ParticleSystem | null;
     m_next: b2ParticleSystem | null;
-    static readonly xTruncBits: number;
-    static readonly yTruncBits: number;
-    static readonly tagBits: number;
-    static readonly yOffset: number;
-    static readonly yShift: number;
-    static readonly xShift: number;
-    static readonly xScale: number;
-    static readonly xOffset: number;
-    static readonly yMask: number;
-    static readonly xMask: number;
+    staticxTruncBits: number;
+    staticyTruncBits: number;
+    statictagBits: number;
+    staticyOffset: number;
+    staticyShift: number;
+    staticxShift: number;
+    staticxScale: number;
+    staticxOffset: number;
+    staticyMask: number;
+    staticxMask: number;
     static computeTag(x: number, y: number): number;
     static computeRelativeTag(tag: number, x: number, y: number): number;
     constructor(def: b2ParticleSystemDef, world: b2World);
@@ -2679,7 +2679,7 @@ declare class b2ParticleSystem {
      *      destroyed.
      */
     DestroyParticlesInShape(shape: b2Shape, xf: b2Transform, callDestructionListener?: boolean): number;
-    static readonly DestroyParticlesInShape_s_aabb: b2AABB;
+    staticDestroyParticlesInShape_s_aabb: b2AABB;
     /**
      * Create a particle group whose properties have been defined.
      *
@@ -2688,7 +2688,7 @@ declare class b2ParticleSystem {
      * warning: This function is locked during callbacks.
      */
     CreateParticleGroup(groupDef: b2IParticleGroupDef): b2ParticleGroup;
-    static readonly CreateParticleGroup_s_transform: b2Transform;
+    staticCreateParticleGroup_s_transform: b2Transform;
     /**
      * Join two particle groups.
      *
@@ -2986,7 +2986,7 @@ declare class b2ParticleSystem {
      * Compute the kinetic energy that can be lost by damping force
      */
     ComputeCollisionEnergy(): number;
-    static readonly ComputeCollisionEnergy_s_v: b2Vec2;
+    staticComputeCollisionEnergy_s_v: b2Vec2;
     /**
      * Set strict Particle/Body contact check.
      *
@@ -3127,9 +3127,9 @@ declare class b2ParticleSystem {
      * @param childIndex
      */
     QueryShapeAABB(callback: b2QueryCallback, shape: b2Shape, xf: b2Transform, childIndex?: number): void;
-    static readonly QueryShapeAABB_s_aabb: b2AABB;
+    staticQueryShapeAABB_s_aabb: b2AABB;
     QueryPointAABB(callback: b2QueryCallback, point: XY, slop?: number): void;
-    static readonly QueryPointAABB_s_aabb: b2AABB;
+    staticQueryPointAABB_s_aabb: b2AABB;
     /**
      * Ray-cast the particle system for all particles in the path of
      * the ray. Your callback controls whether you get the closest
@@ -3142,11 +3142,11 @@ declare class b2ParticleSystem {
      * @param point2 the ray ending point
      */
     RayCast(callback: b2RayCastCallback, point1: XY, point2: XY): void;
-    static readonly RayCast_s_aabb: b2AABB;
-    static readonly RayCast_s_p: b2Vec2;
-    static readonly RayCast_s_v: b2Vec2;
-    static readonly RayCast_s_n: b2Vec2;
-    static readonly RayCast_s_point: b2Vec2;
+    staticRayCast_s_aabb: b2AABB;
+    staticRayCast_s_p: b2Vec2;
+    staticRayCast_s_v: b2Vec2;
+    staticRayCast_s_n: b2Vec2;
+    staticRayCast_s_point: b2Vec2;
     /**
      * Compute the axis-aligned bounding box for all particles
      * contained within this particle system.
@@ -3156,20 +3156,20 @@ declare class b2ParticleSystem {
     /**
      * All particle types that require creating pairs
      */
-    static readonly k_pairFlags: number;
+    statick_pairFlags: number;
     /**
      * All particle types that require creating triads
      */
-    static readonly k_triadFlags: b2ParticleFlag;
+    statick_triadFlags: b2ParticleFlag;
     /**
      * All particle types that do not produce dynamic pressure
      */
-    static readonly k_noPressureFlags: number;
+    statick_noPressureFlags: number;
     /**
      * All particle types that apply extra damping force with bodies
      */
-    static readonly k_extraDampingFlags: b2ParticleFlag;
-    static readonly k_barrierWallFlags: number;
+    statick_extraDampingFlags: b2ParticleFlag;
+    statick_barrierWallFlags: number;
     FreeBuffer<T>(b: T[] | null, capacity: number): void;
     FreeUserOverridableBuffer<T>(b: b2ParticleSystem_UserOverridableBuffer<T>): void;
     /**
@@ -3193,12 +3193,12 @@ declare class b2ParticleSystem {
     ReallocateInternalAllocatedBuffers(capacity: number): void;
     CreateParticleForGroup(groupDef: b2IParticleGroupDef, xf: b2Transform, p: XY): void;
     CreateParticlesStrokeShapeForGroup(shape: b2Shape, groupDef: b2IParticleGroupDef, xf: b2Transform): void;
-    static readonly CreateParticlesStrokeShapeForGroup_s_edge: b2EdgeShape;
-    static readonly CreateParticlesStrokeShapeForGroup_s_d: b2Vec2;
-    static readonly CreateParticlesStrokeShapeForGroup_s_p: b2Vec2;
+    staticCreateParticlesStrokeShapeForGroup_s_edge: b2EdgeShape;
+    staticCreateParticlesStrokeShapeForGroup_s_d: b2Vec2;
+    staticCreateParticlesStrokeShapeForGroup_s_p: b2Vec2;
     CreateParticlesFillShapeForGroup(shape: b2Shape, groupDef: b2IParticleGroupDef, xf: b2Transform): void;
-    static readonly CreateParticlesFillShapeForGroup_s_aabb: b2AABB;
-    static readonly CreateParticlesFillShapeForGroup_s_p: b2Vec2;
+    staticCreateParticlesFillShapeForGroup_s_aabb: b2AABB;
+    staticCreateParticlesFillShapeForGroup_s_p: b2Vec2;
     CreateParticlesWithShapeForGroup(shape: b2Shape, groupDef: b2IParticleGroupDef, xf: b2Transform): void;
     CreateParticlesWithShapesForGroup(shapes: b2Shape[], shapeCount: number, groupDef: b2IParticleGroupDef, xf: b2Transform): void;
     CloneParticle(oldIndex: number, group: b2ParticleGroup): number;
@@ -3227,7 +3227,7 @@ declare class b2ParticleSystem {
     UpdateAllParticleFlags(): void;
     UpdateAllGroupFlags(): void;
     AddContact(a: number, b: number, contacts: b2GrowableBuffer<b2ParticleContact>): void;
-    static readonly AddContact_s_d: b2Vec2;
+    staticAddContact_s_d: b2Vec2;
     FindContacts_Reference(contacts: b2GrowableBuffer<b2ParticleContact>): void;
     FindContacts(contacts: b2GrowableBuffer<b2ParticleContact>): void;
     UpdateProxies_Reference(proxies: b2GrowableBuffer<b2ParticleSystem_Proxy>): void;
@@ -3241,74 +3241,74 @@ declare class b2ParticleSystem {
     NotifyBodyContactListenerPreContact(fixtureSet: b2ParticleSystem_FixtureParticleSet): void;
     NotifyBodyContactListenerPostContact(fixtureSet: b2ParticleSystem_FixtureParticleSet): void;
     UpdateBodyContacts(): void;
-    static readonly UpdateBodyContacts_s_aabb: b2AABB;
+    staticUpdateBodyContacts_s_aabb: b2AABB;
     UpdateBodyContacts_callback: b2ParticleSystem_UpdateBodyContactsCallback | null;
     Solve(step: b2TimeStep): void;
-    static readonly Solve_s_subStep: b2TimeStep;
+    staticSolve_s_subStep: b2TimeStep;
     SolveCollision(step: b2TimeStep): void;
-    static readonly SolveCollision_s_aabb: b2AABB;
+    staticSolveCollision_s_aabb: b2AABB;
     SolveCollision_callback: b2ParticleSystem_SolveCollisionCallback | null;
     LimitVelocity(step: b2TimeStep): void;
     SolveGravity(step: b2TimeStep): void;
-    static readonly SolveGravity_s_gravity: b2Vec2;
+    staticSolveGravity_s_gravity: b2Vec2;
     SolveBarrier(step: b2TimeStep): void;
-    static readonly SolveBarrier_s_aabb: b2AABB;
-    static readonly SolveBarrier_s_va: b2Vec2;
-    static readonly SolveBarrier_s_vb: b2Vec2;
-    static readonly SolveBarrier_s_pba: b2Vec2;
-    static readonly SolveBarrier_s_vba: b2Vec2;
-    static readonly SolveBarrier_s_vc: b2Vec2;
-    static readonly SolveBarrier_s_pca: b2Vec2;
-    static readonly SolveBarrier_s_vca: b2Vec2;
-    static readonly SolveBarrier_s_qba: b2Vec2;
-    static readonly SolveBarrier_s_qca: b2Vec2;
-    static readonly SolveBarrier_s_dv: b2Vec2;
-    static readonly SolveBarrier_s_f: b2Vec2;
+    staticSolveBarrier_s_aabb: b2AABB;
+    staticSolveBarrier_s_va: b2Vec2;
+    staticSolveBarrier_s_vb: b2Vec2;
+    staticSolveBarrier_s_pba: b2Vec2;
+    staticSolveBarrier_s_vba: b2Vec2;
+    staticSolveBarrier_s_vc: b2Vec2;
+    staticSolveBarrier_s_pca: b2Vec2;
+    staticSolveBarrier_s_vca: b2Vec2;
+    staticSolveBarrier_s_qba: b2Vec2;
+    staticSolveBarrier_s_qca: b2Vec2;
+    staticSolveBarrier_s_dv: b2Vec2;
+    staticSolveBarrier_s_f: b2Vec2;
     SolveStaticPressure(step: b2TimeStep): void;
     ComputeWeight(): void;
     SolvePressure(step: b2TimeStep): void;
-    static readonly SolvePressure_s_f: b2Vec2;
+    staticSolvePressure_s_f: b2Vec2;
     SolveDamping(step: b2TimeStep): void;
-    static readonly SolveDamping_s_v: b2Vec2;
-    static readonly SolveDamping_s_f: b2Vec2;
+    staticSolveDamping_s_v: b2Vec2;
+    staticSolveDamping_s_f: b2Vec2;
     SolveRigidDamping(): void;
-    static readonly SolveRigidDamping_s_t0: b2Vec2;
-    static readonly SolveRigidDamping_s_t1: b2Vec2;
-    static readonly SolveRigidDamping_s_p: b2Vec2;
-    static readonly SolveRigidDamping_s_v: b2Vec2;
+    staticSolveRigidDamping_s_t0: b2Vec2;
+    staticSolveRigidDamping_s_t1: b2Vec2;
+    staticSolveRigidDamping_s_p: b2Vec2;
+    staticSolveRigidDamping_s_v: b2Vec2;
     SolveExtraDamping(): void;
-    static readonly SolveExtraDamping_s_v: b2Vec2;
-    static readonly SolveExtraDamping_s_f: b2Vec2;
+    staticSolveExtraDamping_s_v: b2Vec2;
+    staticSolveExtraDamping_s_f: b2Vec2;
     SolveWall(): void;
     SolveRigid(step: b2TimeStep): void;
-    static readonly SolveRigid_s_position: b2Vec2;
-    static readonly SolveRigid_s_rotation: b2Rot;
-    static readonly SolveRigid_s_transform: b2Transform;
-    static readonly SolveRigid_s_velocityTransform: b2Transform;
+    staticSolveRigid_s_position: b2Vec2;
+    staticSolveRigid_s_rotation: b2Rot;
+    staticSolveRigid_s_transform: b2Transform;
+    staticSolveRigid_s_velocityTransform: b2Transform;
     SolveElastic(step: b2TimeStep): void;
-    static readonly SolveElastic_s_pa: b2Vec2;
-    static readonly SolveElastic_s_pb: b2Vec2;
-    static readonly SolveElastic_s_pc: b2Vec2;
-    static readonly SolveElastic_s_r: b2Rot;
-    static readonly SolveElastic_s_t0: b2Vec2;
+    staticSolveElastic_s_pa: b2Vec2;
+    staticSolveElastic_s_pb: b2Vec2;
+    staticSolveElastic_s_pc: b2Vec2;
+    staticSolveElastic_s_r: b2Rot;
+    staticSolveElastic_s_t0: b2Vec2;
     SolveSpring(step: b2TimeStep): void;
-    static readonly SolveSpring_s_pa: b2Vec2;
-    static readonly SolveSpring_s_pb: b2Vec2;
-    static readonly SolveSpring_s_d: b2Vec2;
-    static readonly SolveSpring_s_f: b2Vec2;
+    staticSolveSpring_s_pa: b2Vec2;
+    staticSolveSpring_s_pb: b2Vec2;
+    staticSolveSpring_s_d: b2Vec2;
+    staticSolveSpring_s_f: b2Vec2;
     SolveTensile(step: b2TimeStep): void;
-    static readonly SolveTensile_s_weightedNormal: b2Vec2;
-    static readonly SolveTensile_s_s: b2Vec2;
-    static readonly SolveTensile_s_f: b2Vec2;
+    staticSolveTensile_s_weightedNormal: b2Vec2;
+    staticSolveTensile_s_s: b2Vec2;
+    staticSolveTensile_s_f: b2Vec2;
     SolveViscous(): void;
-    static readonly SolveViscous_s_v: b2Vec2;
-    static readonly SolveViscous_s_f: b2Vec2;
+    staticSolveViscous_s_v: b2Vec2;
+    staticSolveViscous_s_f: b2Vec2;
     SolveRepulsive(step: b2TimeStep): void;
-    static readonly SolveRepulsive_s_f: b2Vec2;
+    staticSolveRepulsive_s_f: b2Vec2;
     SolvePowder(step: b2TimeStep): void;
-    static readonly SolvePowder_s_f: b2Vec2;
+    staticSolvePowder_s_f: b2Vec2;
     SolveSolid(step: b2TimeStep): void;
-    static readonly SolveSolid_s_f: b2Vec2;
+    staticSolveSolid_s_f: b2Vec2;
     SolveForce(step: b2TimeStep): void;
     SolveColorMixing(): void;
     SolveZombie(): void;
@@ -3540,19 +3540,19 @@ declare class b2ParticleSystem_UpdateBodyContactsCallback extends b2FixtureParti
     constructor(system: b2ParticleSystem, contactFilter?: b2ContactFilter | null);
     ShouldCollideFixtureParticle(fixture: b2Fixture, particleSystem: b2ParticleSystem, particleIndex: number): boolean;
     ReportFixtureAndParticle(fixture: b2Fixture, childIndex: number, a: number): void;
-    static readonly ReportFixtureAndParticle_s_n: b2Vec2;
-    static readonly ReportFixtureAndParticle_s_rp: b2Vec2;
+    staticReportFixtureAndParticle_s_n: b2Vec2;
+    staticReportFixtureAndParticle_s_rp: b2Vec2;
 }
 declare class b2ParticleSystem_SolveCollisionCallback extends b2FixtureParticleQueryCallback {
     m_step: b2TimeStep;
     constructor(system: b2ParticleSystem, step: b2TimeStep);
     ReportFixtureAndParticle(fixture: b2Fixture, childIndex: number, a: number): void;
-    static readonly ReportFixtureAndParticle_s_p1: b2Vec2;
-    static readonly ReportFixtureAndParticle_s_output: b2RayCastOutput;
-    static readonly ReportFixtureAndParticle_s_input: b2RayCastInput;
-    static readonly ReportFixtureAndParticle_s_p: b2Vec2;
-    static readonly ReportFixtureAndParticle_s_v: b2Vec2;
-    static readonly ReportFixtureAndParticle_s_f: b2Vec2;
+    staticReportFixtureAndParticle_s_p1: b2Vec2;
+    staticReportFixtureAndParticle_s_output: b2RayCastOutput;
+    staticReportFixtureAndParticle_s_input: b2RayCastInput;
+    staticReportFixtureAndParticle_s_p: b2Vec2;
+    staticReportFixtureAndParticle_s_v: b2Vec2;
+    staticReportFixtureAndParticle_s_f: b2Vec2;
     ReportParticle(system: b2ParticleSystem, index: number): boolean;
 }
 
@@ -3586,11 +3586,11 @@ interface b2IParticleGroupDef {
 declare class b2ParticleGroupDef implements b2IParticleGroupDef {
     flags: b2ParticleFlag;
     groupFlags: b2ParticleGroupFlag;
-    readonly position: b2Vec2;
+   position: b2Vec2;
     angle: number;
-    readonly linearVelocity: b2Vec2;
+   linearVelocity: b2Vec2;
     angularVelocity: number;
-    readonly color: b2Color;
+   color: b2Color;
     strength: number;
     shape?: b2Shape;
     shapes?: b2Shape[];
@@ -3603,7 +3603,7 @@ declare class b2ParticleGroupDef implements b2IParticleGroupDef {
     group: b2ParticleGroup | null;
 }
 declare class b2ParticleGroup {
-    readonly m_system: b2ParticleSystem;
+   m_system: b2ParticleSystem;
     m_firstIndex: number;
     m_lastIndex: number;
     m_groupFlags: b2ParticleGroupFlag;
@@ -3613,10 +3613,10 @@ declare class b2ParticleGroup {
     m_timestamp: number;
     m_mass: number;
     m_inertia: number;
-    readonly m_center: b2Vec2;
-    readonly m_linearVelocity: b2Vec2;
+   m_center: b2Vec2;
+   m_linearVelocity: b2Vec2;
     m_angularVelocity: number;
-    readonly m_transform: b2Transform;
+   m_transform: b2Transform;
     m_userData: any;
     constructor(system: b2ParticleSystem);
     GetNext(): b2ParticleGroup | null;
@@ -3636,7 +3636,7 @@ declare class b2ParticleGroup {
     GetPosition(): Readonly<b2Vec2>;
     GetAngle(): number;
     GetLinearVelocityFromWorldPoint<T extends XY>(worldPoint: XY, out: T): T;
-    static readonly GetLinearVelocityFromWorldPoint_s_t0: b2Vec2;
+    staticGetLinearVelocityFromWorldPoint_s_t0: b2Vec2;
     GetUserData(): void;
     SetUserData(data: any): void;
     ApplyForce(force: XY): void;
@@ -3655,7 +3655,7 @@ declare class b2ContactFilter {
     ShouldCollide(fixtureA: b2Fixture, fixtureB: b2Fixture): boolean;
     ShouldCollideFixtureParticle(fixture: b2Fixture, system: b2ParticleSystem, index: number): boolean;
     ShouldCollideParticleParticle(system: b2ParticleSystem, indexA: number, indexB: number): boolean;
-    static readonly b2_defaultFilter: b2ContactFilter;
+    staticb2_defaultFilter: b2ContactFilter;
 }
 declare class b2ContactImpulse {
     normalImpulses: number[];
@@ -3671,7 +3671,7 @@ declare class b2ContactListener {
     EndContactParticleParticle(system: b2ParticleSystem, contact: b2ParticleContact): void;
     PreSolve(contact: b2Contact, oldManifold: b2Manifold): void;
     PostSolve(contact: b2Contact, impulse: b2ContactImpulse): void;
-    static readonly b2_defaultListener: b2ContactListener;
+    staticb2_defaultListener: b2ContactListener;
 }
 declare class b2QueryCallback {
     ReportFixture(fixture: b2Fixture): boolean;
@@ -3693,13 +3693,13 @@ declare class b2ContactEdge {
     private _other;
     get other(): b2Body;
     set other(value: b2Body);
-    readonly contact: b2Contact;
+   contact: b2Contact;
     prev: b2ContactEdge | null;
     next: b2ContactEdge | null;
     constructor(contact: b2Contact);
     Reset(): void;
 }
-declare abstract class b2Contact<A extends b2Shape = b2Shape, B extends b2Shape = b2Shape> {
+declare abstract class b2Contact<A extends b2Shape, B extends b2Shape> {
     m_islandFlag: boolean;
     m_touchingFlag: boolean;
     m_enabledFlag: boolean;
@@ -3708,8 +3708,8 @@ declare abstract class b2Contact<A extends b2Shape = b2Shape, B extends b2Shape 
     m_toiFlag: boolean;
     m_prev: b2Contact | null;
     m_next: b2Contact | null;
-    readonly m_nodeA: b2ContactEdge;
-    readonly m_nodeB: b2ContactEdge;
+   m_nodeA: b2ContactEdge;
+   m_nodeB: b2ContactEdge;
     m_fixtureA: b2Fixture;
     m_fixtureB: b2Fixture;
     m_indexA: number;
@@ -3778,9 +3778,9 @@ interface b2IBodyDef {
 }
 declare class b2BodyDef implements b2IBodyDef {
     type: b2BodyType;
-    readonly position: b2Vec2;
+   position: b2Vec2;
     angle: number;
-    readonly linearVelocity: b2Vec2;
+   linearVelocity: b2Vec2;
     angularVelocity: number;
     linearDamping: number;
     angularDamping: number;
@@ -3802,12 +3802,12 @@ declare class b2Body {
     m_enabledFlag: boolean;
     m_toiFlag: boolean;
     m_islandIndex: number;
-    readonly m_xf: b2Transform;
-    readonly m_xf0: b2Transform;
-    readonly m_sweep: b2Sweep;
-    readonly m_linearVelocity: b2Vec2;
+   m_xf: b2Transform;
+   m_xf0: b2Transform;
+   m_sweep: b2Sweep;
+   m_linearVelocity: b2Vec2;
     m_angularVelocity: number;
-    readonly m_force: b2Vec2;
+   m_force: b2Vec2;
     m_torque: number;
     m_world: b2World;
     m_prev: b2Body | null;
@@ -3924,7 +3924,7 @@ declare enum b2JointType {
     e_areaJoint = 12
 }
 declare class b2Jacobian {
-    readonly linear: b2Vec2;
+   linear: b2Vec2;
     angularA: number;
     angularB: number;
     SetZero(): b2Jacobian;
@@ -3934,7 +3934,7 @@ declare class b2JointEdge {
     private _other;
     get other(): b2Body;
     set other(value: b2Body);
-    readonly joint: b2Joint;
+   joint: b2Joint;
     prev: b2JointEdge | null;
     next: b2JointEdge | null;
     constructor(joint: b2Joint);
@@ -3948,7 +3948,7 @@ interface b2IJointDef {
     collideConnected?: boolean;
 }
 declare abstract class b2JointDef implements b2IJointDef {
-    readonly type: b2JointType;
+   type: b2JointType;
     userData: any;
     bodyA: b2Body;
     bodyB: b2Body;
@@ -3964,11 +3964,11 @@ declare function b2AngularStiffness(def: {
     damping: number;
 }, frequencyHertz: number, dampingRatio: number, bodyA: b2Body, bodyB: b2Body): void;
 declare abstract class b2Joint {
-    readonly m_type: b2JointType;
+   m_type: b2JointType;
     m_prev: b2Joint | null;
     m_next: b2Joint | null;
-    readonly m_edgeA: b2JointEdge;
-    readonly m_edgeB: b2JointEdge;
+   m_edgeA: b2JointEdge;
+   m_edgeB: b2JointEdge;
     m_bodyA: b2Body;
     m_bodyB: b2Body;
     m_index: number;
@@ -4017,12 +4017,12 @@ declare class b2AreaJoint extends b2Joint {
     m_stiffness: number;
     m_damping: number;
     m_impulse: number;
-    readonly m_targetLengths: number[];
+   m_targetLengths: number[];
     m_targetArea: number;
-    readonly m_normals: b2Vec2[];
-    readonly m_joints: b2DistanceJoint[];
-    readonly m_deltas: b2Vec2[];
-    readonly m_delta: b2Vec2;
+   m_normals: b2Vec2[];
+   m_joints: b2DistanceJoint[];
+   m_deltas: b2Vec2[];
+   m_delta: b2Vec2;
     constructor(def: b2IAreaJointDef);
     GetAnchorA<T extends XY>(out: T): T;
     GetAnchorB<T extends XY>(out: T): T;
@@ -4110,27 +4110,27 @@ declare class b2RopeTuning {
     Copy(other: Readonly<b2RopeTuning>): this;
 }
 declare class b2RopeDef {
-    readonly position: b2Vec2;
-    readonly vertices: b2Vec2[];
+   position: b2Vec2;
+   vertices: b2Vec2[];
     count: number;
-    readonly masses: number[];
-    readonly gravity: b2Vec2;
-    readonly tuning: b2RopeTuning;
+   masses: number[];
+   gravity: b2Vec2;
+   tuning: b2RopeTuning;
 }
 declare class b2Rope {
-    private readonly m_position;
+    privatem_position;
     private m_count;
     private m_stretchCount;
     private m_bendCount;
-    private readonly m_stretchConstraints;
-    private readonly m_bendConstraints;
-    private readonly m_bindPositions;
-    private readonly m_ps;
-    private readonly m_p0s;
-    private readonly m_vs;
-    private readonly m_invMasses;
-    private readonly m_gravity;
-    private readonly m_tuning;
+    privatem_stretchConstraints;
+    privatem_bendConstraints;
+    privatem_bindPositions;
+    privatem_ps;
+    privatem_p0s;
+    privatem_vs;
+    privatem_invMasses;
+    privatem_gravity;
+    privatem_tuning;
     Create(def: b2RopeDef): void;
     SetTuning(tuning: b2RopeTuning): void;
     Step(dt: number, iterations: number, position: Readonly<b2Vec2>): void;
@@ -4154,7 +4154,7 @@ declare class b2BuoyancyController extends b2Controller {
     /**
      * The outer surface normal
      */
-    readonly normal: b2Vec2;
+   normal: b2Vec2;
     /**
      * The height of the fluid surface along the normal
      */
@@ -4166,7 +4166,7 @@ declare class b2BuoyancyController extends b2Controller {
     /**
      * Fluid velocity, for drag calculations
      */
-    readonly velocity: b2Vec2;
+   velocity: b2Vec2;
     /**
      * Linear drag co-efficient
      */
@@ -4187,7 +4187,7 @@ declare class b2BuoyancyController extends b2Controller {
     /**
      * Gravity vector, if the world's gravity is not used
      */
-    readonly gravity: b2Vec2;
+   gravity: b2Vec2;
     Step(step: b2TimeStep): void;
     Draw(debugDraw: b2Draw): void;
 }
@@ -4199,7 +4199,7 @@ declare class b2ConstantAccelController extends b2Controller {
     /**
      * The acceleration to apply
      */
-    readonly A: b2Vec2;
+   A: b2Vec2;
     Step(step: b2TimeStep): void;
     private static Step_s_dtA;
     Draw(draw: b2Draw): void;
@@ -4212,7 +4212,7 @@ declare class b2ConstantForceController extends b2Controller {
     /**
      * The force to apply
      */
-    readonly F: b2Vec2;
+   F: b2Vec2;
     Step(step: b2TimeStep): void;
     Draw(draw: b2Draw): void;
 }
@@ -4243,7 +4243,7 @@ declare class b2GravityController extends b2Controller {
  * in local co-ordinates.
  */
 declare class b2TensorDampingController extends b2Controller {
-    readonly T: b2Mat22;
+   T: b2Mat22;
     maxTimestep: number;
     /**
      * @see b2Controller::Step
@@ -4258,7 +4258,7 @@ declare class b2TensorDampingController extends b2Controller {
 }
 
 declare class b2StackQueue<T> {
-    readonly m_buffer: Array<T | null>;
+   m_buffer: Array<T | null>;
     m_front: number;
     m_back: number;
     get m_capacity(): number;
@@ -4334,6 +4334,6 @@ declare const pbdTriangleBendingModel = b2BendingModel.b2_pbdTriangleBendingMode
 
 declare const pbdStretchingModel = b2StretchingModel.b2_pbdStretchingModel;
 declare const xpbdStretchingModel = b2StretchingModel.b2_xpbdStretchingModel;
-declare namespace b2 {
+declare namespace b2{
 export { b2AABB as AABB, b2Abs as Abs, b2Acos as Acos, b2Alloc as Alloc, b2AngularStiffness as AngularStiffness, b2AreaJoint as AreaJoint, b2AreaJointDef as AreaJointDef, b2Asin as Asin, b2Assert as Assert, b2Atan2 as Atan2, b2BendingModel as BendingModel, b2BlockAllocator as BlockAllocator, b2Body as Body, b2BodyDef as BodyDef, b2BodyType as BodyType, b2BroadPhase as BroadPhase, b2BuoyancyController as BuoyancyController, b2CalculateParticleIterations as CalculateParticleIterations, b2ChainAndCircleContact as ChainAndCircleContact, b2ChainAndPolygonContact as ChainAndPolygonContact, b2ChainShape as ChainShape, b2CircleContact as CircleContact, b2CircleShape as CircleShape, b2Clamp as Clamp, b2ClipSegmentToLine as ClipSegmentToLine, b2ClipVertex as ClipVertex, b2CollideCircles as CollideCircles, b2CollideEdgeAndCircle as CollideEdgeAndCircle, b2CollideEdgeAndPolygon as CollideEdgeAndPolygon, b2CollidePolygonAndCircle as CollidePolygonAndCircle, b2CollidePolygons as CollidePolygons, b2Color as Color, b2ConstantAccelController as ConstantAccelController, b2ConstantForceController as ConstantForceController, b2Contact as Contact, b2ContactEdge as ContactEdge, b2ContactFactory as ContactFactory, b2ContactFeature as ContactFeature, b2ContactFeatureType as ContactFeatureType, b2ContactFilter as ContactFilter, b2ContactID as ContactID, b2ContactImpulse as ContactImpulse, b2ContactListener as ContactListener, b2ContactManager as ContactManager, b2ContactPositionConstraint as ContactPositionConstraint, b2ContactRegister as ContactRegister, b2ContactSolver as ContactSolver, b2ContactSolverDef as ContactSolverDef, b2ContactVelocityConstraint as ContactVelocityConstraint, b2Controller as Controller, b2ControllerEdge as ControllerEdge, b2Cos as Cos, b2Counter as Counter, b2DegToRad as DegToRad, b2DestructionListener as DestructionListener, b2Distance as Distance, b2DistanceInput as DistanceInput, b2DistanceJoint as DistanceJoint, b2DistanceJointDef as DistanceJointDef, b2DistanceOutput as DistanceOutput, b2DistanceProxy as DistanceProxy, b2Draw as Draw, b2DrawFlags as DrawFlags, b2DynamicTree as DynamicTree, b2EdgeAndCircleContact as EdgeAndCircleContact, b2EdgeAndPolygonContact as EdgeAndPolygonContact, b2EdgeShape as EdgeShape, b2Filter as Filter, b2Fixture as Fixture, b2FixtureDef as FixtureDef, b2FixtureParticleQueryCallback as FixtureParticleQueryCallback, b2FixtureProxy as FixtureProxy, b2Free as Free, b2FrictionJoint as FrictionJoint, b2FrictionJointDef as FrictionJointDef, b2GearJoint as GearJoint, b2GearJointDef as GearJointDef, b2GetPointStates as GetPointStates, b2GravityController as GravityController, b2GrowableBuffer as GrowableBuffer, b2GrowableStack as GrowableStack, b2IAreaJointDef as IAreaJointDef, b2IBodyDef as IBodyDef, b2IDistanceJointDef as IDistanceJointDef, b2IFilter as IFilter, b2IFixtureDef as IFixtureDef, b2IFrictionJointDef as IFrictionJointDef, b2IGearJointDef as IGearJointDef, b2IJointDef as IJointDef, b2IMotorJointDef as IMotorJointDef, b2IMouseJointDef as IMouseJointDef, b2IParticleDef as IParticleDef, b2IParticleGroupDef as IParticleGroupDef, b2IPrismaticJointDef as IPrismaticJointDef, b2IPulleyJointDef as IPulleyJointDef, b2IRevoluteJointDef as IRevoluteJointDef, b2IWeldJointDef as IWeldJointDef, b2IWheelJointDef as IWheelJointDef, b2InvSqrt as InvSqrt, b2IsPowerOfTwo as IsPowerOfTwo, b2IsValid as IsValid, b2Island as Island, b2Jacobian as Jacobian, b2Joint as Joint, b2JointDef as JointDef, b2JointEdge as JointEdge, b2JointType as JointType, b2LinearStiffness as LinearStiffness, b2Log as Log, b2MakeArray as MakeArray, b2MakeNullArray as MakeNullArray, b2MakeNumberArray as MakeNumberArray, b2Manifold as Manifold, b2ManifoldPoint as ManifoldPoint, b2ManifoldType as ManifoldType, b2MassData as MassData, b2Mat22 as Mat22, b2Mat33 as Mat33, b2Max as Max, b2Maybe as Maybe, b2Min as Min, b2MixFriction as MixFriction, b2MixRestitution as MixRestitution, b2MixRestitutionThreshold as MixRestitutionThreshold, b2MotorJoint as MotorJoint, b2MotorJointDef as MotorJointDef, b2MouseJoint as MouseJoint, b2MouseJointDef as MouseJointDef, b2NextPowerOfTwo as NextPowerOfTwo, b2Pair as Pair, b2ParseInt as ParseInt, b2ParseUInt as ParseUInt, b2ParticleBodyContact as ParticleBodyContact, b2ParticleContact as ParticleContact, b2ParticleDef as ParticleDef, b2ParticleFlag as ParticleFlag, b2ParticleGroup as ParticleGroup, b2ParticleGroupDef as ParticleGroupDef, b2ParticleGroupFlag as ParticleGroupFlag, b2ParticleHandle as ParticleHandle, b2ParticleIndex as ParticleIndex, b2ParticlePair as ParticlePair, b2ParticlePairSet as ParticlePairSet, b2ParticleSystem as ParticleSystem, b2ParticleSystemDef as ParticleSystemDef, b2ParticleSystem_CompositeShape as ParticleSystem_CompositeShape, b2ParticleSystem_ConnectionFilter as ParticleSystem_ConnectionFilter, b2ParticleSystem_DestroyParticlesInShapeCallback as ParticleSystem_DestroyParticlesInShapeCallback, b2ParticleSystem_FixedSetAllocator as ParticleSystem_FixedSetAllocator, b2ParticleSystem_FixtureParticle as ParticleSystem_FixtureParticle, b2ParticleSystem_FixtureParticleSet as ParticleSystem_FixtureParticleSet, b2ParticleSystem_InsideBoundsEnumerator as ParticleSystem_InsideBoundsEnumerator, b2ParticleSystem_JoinParticleGroupsFilter as ParticleSystem_JoinParticleGroupsFilter, b2ParticleSystem_ParticleListNode as ParticleSystem_ParticleListNode, b2ParticleSystem_ParticlePair as ParticleSystem_ParticlePair, b2ParticleSystem_Proxy as ParticleSystem_Proxy, b2ParticleSystem_ReactiveFilter as ParticleSystem_ReactiveFilter, b2ParticleSystem_SolveCollisionCallback as ParticleSystem_SolveCollisionCallback, b2ParticleSystem_UpdateBodyContactsCallback as ParticleSystem_UpdateBodyContactsCallback, b2ParticleSystem_UserOverridableBuffer as ParticleSystem_UserOverridableBuffer, b2ParticleTriad as ParticleTriad, b2PointState as PointState, b2PolygonAndCircleContact as PolygonAndCircleContact, b2PolygonContact as PolygonContact, b2PolygonShape as PolygonShape, b2Position as Position, b2PositionSolverManifold as PositionSolverManifold, b2Pow as Pow, b2PrismaticJoint as PrismaticJoint, b2PrismaticJointDef as PrismaticJointDef, b2Profile as Profile, b2PulleyJoint as PulleyJoint, b2PulleyJointDef as PulleyJointDef, b2QueryCallback as QueryCallback, b2QueryCallbackFunction as QueryCallbackFunction, RGB, RGBA, b2RadToDeg as RadToDeg, b2Random as Random, b2RandomRange as RandomRange, b2RayCastCallback as RayCastCallback, b2RayCastCallbackFunction as RayCastCallbackFunction, b2RayCastInput as RayCastInput, b2RayCastOutput as RayCastOutput, b2RevoluteJoint as RevoluteJoint, b2RevoluteJointDef as RevoluteJointDef, b2Rope as Rope, b2RopeDef as RopeDef, b2RopeTuning as RopeTuning, b2Rot as Rot, b2SeparationFunction as SeparationFunction, b2SeparationFunctionType as SeparationFunctionType, b2Shape as Shape, b2ShapeCast as ShapeCast, b2ShapeCastInput as ShapeCastInput, b2ShapeCastOutput as ShapeCastOutput, b2ShapeType as ShapeType, b2Simplex as Simplex, b2SimplexCache as SimplexCache, b2SimplexVertex as SimplexVertex, b2Sin as Sin, b2SolverData as SolverData, b2Sq as Sq, b2Sqrt as Sqrt, b2StackAllocator as StackAllocator, b2StackQueue as StackQueue, b2StretchingModel as StretchingModel, b2Swap as Swap, b2Sweep as Sweep, b2TOIInput as TOIInput, b2TOIOutput as TOIOutput, b2TOIOutputState as TOIOutputState, b2TensorDampingController as TensorDampingController, b2TestOverlapAABB as TestOverlapAABB, b2TestOverlapShape as TestOverlapShape, b2TimeOfImpact as TimeOfImpact, b2TimeStep as TimeStep, b2Timer as Timer, b2Transform as Transform, b2TreeNode as TreeNode, b2Vec2 as Vec2, b2Vec2_zero as Vec2_zero, b2Vec3 as Vec3, b2Velocity as Velocity, b2VelocityConstraintPoint as VelocityConstraintPoint, b2Version as Version, b2VoronoiDiagram as VoronoiDiagram, b2VoronoiDiagram_Generator as VoronoiDiagram_Generator, b2VoronoiDiagram_NodeCallback as VoronoiDiagram_NodeCallback, b2VoronoiDiagram_Task as VoronoiDiagram_Task, b2WeldJoint as WeldJoint, b2WeldJointDef as WeldJointDef, b2WheelJoint as WheelJoint, b2WheelJointDef as WheelJointDef, b2World as World, b2WorldManifold as WorldManifold, XY, XYZ, b2_180_over_pi as _180_over_pi, b2_pi_over_180 as _pi_over_180, b2_aabbExtension as aabbExtension, b2_aabbMultiplier as aabbMultiplier, b2_angularSleepTolerance as angularSleepTolerance, b2_angularSlop as angularSlop, b2_barrierCollisionTime as barrierCollisionTime, b2_baumgarte as baumgarte, g_blockSolve as blockSolve, b2_branch as branch, b2_commit as commit, dynamicBody, b2_epsilon as epsilon, b2_epsilon_sq as epsilon_sq, get_g_blockSolve, b2_gjkCalls as gjkCalls, b2_gjkIters as gjkIters, b2_gjkMaxIters as gjkMaxIters, b2_gjk_reset as gjk_reset, b2_invalidParticleIndex as invalidParticleIndex, kinematicBody, b2_lengthUnitsPerMeter as lengthUnitsPerMeter, b2_linearSleepTolerance as linearSleepTolerance, b2_linearSlop as linearSlop, b2_maxAngularCorrection as maxAngularCorrection, b2_maxFloat as maxFloat, b2_maxLinearCorrection as maxLinearCorrection, b2_maxManifoldPoints as maxManifoldPoints, b2_maxParticleForce as maxParticleForce, b2_maxParticleIndex as maxParticleIndex, b2_maxParticlePressure as maxParticlePressure, b2_maxPolygonVertices as maxPolygonVertices, b2_maxRotation as maxRotation, b2_maxRotationSquared as maxRotationSquared, b2_maxSubSteps as maxSubSteps, b2_maxTOIContacts as maxTOIContacts, b2_maxTranslation as maxTranslation, b2_maxTranslationSquared as maxTranslationSquared, b2_maxTriadDistance as maxTriadDistance, b2_maxTriadDistanceSquared as maxTriadDistanceSquared, b2_minParticleSystemBufferCapacity as minParticleSystemBufferCapacity, b2_minParticleWeight as minParticleWeight, b2_minPulleyLength as minPulleyLength, b2_particleStride as particleStride, pbdAngleBendingModel, pbdDistanceBendingModel, pbdHeightBendingModel, pbdStretchingModel, pbdTriangleBendingModel, b2_pi as pi, b2_polygonRadius as polygonRadius, set_g_blockSolve, springAngleBendingModel, staticBody, b2_timeToSleep as timeToSleep, b2_toiBaumgarte as toiBaumgarte, b2_toiCalls as toiCalls, b2_toiIters as toiIters, b2_toiMaxIters as toiMaxIters, b2_toiMaxRootIters as toiMaxRootIters, b2_toiMaxTime as toiMaxTime, b2_toiRootIters as toiRootIters, b2_toiTime as toiTime, b2_toi_reset as toi_reset, b2_two_pi as two_pi, b2_version as version, xpbdAngleBendingModel, xpbdStretchingModel };
 }

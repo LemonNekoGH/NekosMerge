@@ -16,7 +16,7 @@ class UINeko extends UIBitmap {
     // 猫咪回到容器事件
     static EVENT_BACK_IN_TO_CONTAINER = "neko_back_in_to_container"
 
-    constructor(level: number, fromMerge: boolean) {
+    constructor(level: number, fromMerge: boolean, x: number = 0, y: number = 0) {
         super()
 
         this.level = level
@@ -25,6 +25,8 @@ class UINeko extends UIBitmap {
         this.height = this.width
 
         if (fromMerge) {
+            this.x = x
+            this.y = y
             colidDetector.add(this)
         } else {
             this.x = 592 - this.size

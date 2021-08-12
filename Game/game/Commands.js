@@ -20,7 +20,7 @@ var CommandExecute;
         var neko = new UINeko(randLevel, false);
         var uiRoot = GameUI.get(2);
         if (uiRoot) {
-            uiRoot.getChildAt(0).addChild(neko);
+            uiRoot.addChild(neko);
         }
         GCMain.variables.等待下一个猫咪出现 = 0;
     }

@@ -14,10 +14,9 @@ class GameConsole {
             console.log("请在\"游戏中\"界面调用此命令")
             return false
         }
+        
         const neko = new UINeko(level, true, x, y)
         GCMain.guis.游戏中.addChild(neko)
-        neko.x = x
-        neko.y = y
         return true
     }
 
@@ -26,8 +25,9 @@ class GameConsole {
      * 随机生成等级 5 以下的猫咪
      */
     static randNeko(): boolean {
-        const x = MathUtils.rand(1000)
-        const y = MathUtils.rand(504) + 100
+        const dx = WorldData.猫咪容器右上角x值 - WorldData.猫咪容器左上角x值
+        const x = MathUtils.rand(dx) + WorldData.猫咪容器左上角x值
+        const y = WorldData.新猫咪初始位置
         const level = MathUtils.rand(5) + 1
         return GameConsole.newNeko(x, y, level)
     }

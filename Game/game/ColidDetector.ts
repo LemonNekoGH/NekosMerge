@@ -11,18 +11,11 @@ class ColidDetector extends b2.ContactListener {
     shouldBeMergeA: UINeko
     shouldBeMergeB: UINeko
 
-    /**
-     * 用于修复时间步长不稳定的问题
-     */
-    currentTime: number = 0
-    accumulator: number = 0
-
     constructor() {
         super()
-        this.physicsWorld = new b2.World(worldGravity)
+        this.physicsWorld = new b2.World(new b2.Vec2(0, WorldData.重力常量))
         this.createEdge()
         this.physicsWorld.SetContactListener(this)
-        this.currentTime = Date.now()
     }
 
     /**
@@ -30,9 +23,9 @@ class ColidDetector extends b2.ContactListener {
      */
     createDefaultFixtureDef(): b2.FixtureDef {
         const fixture = new b2.FixtureDef()
-        fixture.density = nekoDensity
-        fixture.friction = nekoFriction
-        fixture.restitution = nekoFriction
+        fixture.density = WorldData.物体质量
+        fixture.friction = WorldData.摩擦系数
+        fixture.restitution = WorldData.弹力系数
 
         return fixture
     }
@@ -49,13 +42,18 @@ class ColidDetector extends b2.ContactListener {
 
         const shape = new b2.EdgeShape()
         // 创建左面边界
-        shape.SetTwoSided(new b2.Vec2(0, 0), new b2.Vec2(0, 704))
+        const groundLeftTop = new b2.Vec2(WorldData.猫咪容器左上角x值, WorldData.猫咪容器左上角y值)
+        const groundLeftBottom = new b2.Vec2(WorldData.猫咪容器左上角x值, WorldData.猫咪容器左下角y值)
+        const groundRightTop = new b2.Vec2(WorldData.猫咪容器右上角x值, WorldData.猫咪容器右上角y值)
+        const groundRightBottom = new b2.Vec2(WorldData.猫咪容器右下角x值, WorldData.猫咪容器右下角y值)
+
+        shape.SetTwoSided(groundLeftTop, groundLeftBottom)
         body.CreateFixture(shape, 0)
         // 创建底面边界
-        shape.SetTwoSided(new b2.Vec2(0, 704), new b2.Vec2(1184, 704))
+        shape.SetTwoSided(groundLeftBottom, groundRightBottom)
         body.CreateFixture(shape, 0)
         // 创建右面边界
-        shape.SetTwoSided(new b2.Vec2(1184, 0), new b2.Vec2(1184, 704))
+        shape.SetTwoSided(groundRightTop, groundRightBottom)
         body.CreateFixture(shape, 0)
     }
 
@@ -64,11 +62,10 @@ class ColidDetector extends b2.ContactListener {
      */
     createCircleBody(radius: number, position: b2.Vec2): b2.Body {
         const fixture = this.createDefaultFixtureDef()
-        fixture.density = nekoDensity / radius
+        fixture.density = WorldData.物体质量 / radius
         fixture.shape = new b2.CircleShape(radius)
         const bodyDef = new b2.BodyDef()
 
-        bodyDef.gravityScale = 2
         bodyDef.linearDamping = 0.5
         bodyDef.angularDamping = 0.5
         bodyDef.type = b2.BodyType.b2_dynamicBody
@@ -144,33 +141,19 @@ class ColidDetector extends b2.ContactListener {
             self.shouldBeMergeB = undefined
         }
 
-        self.nekos.forEach((it: UINeko) => {
+        // 更新猫咪位置
+        for (let index = 0; index < self.nekos.length; index++) {
+            const it = self.nekos[index]
+            if (!it.body) {
+                continue
+            }
             it.x = it.body.m_xf.p.x - it.size
             it.y = it.body.m_xf.p.y - it.size
-        })
-        self.physicsWorld.Step(1 / 60, 8, 3)
-        self.physicsWorld.ClearForces()
+        }
 
-        // 获取渲染时间
-        let newTime = Date.now()
-        let frameTime = Math.min(newTime - self.currentTime, 0.25)
-
-        self.currentTime = newTime
+        self.physicsWorld.Step(timeStep, 8, 3)
         self.physicsWorld.Step(timeStep, 8, 3)
     }
 }
 
-/**
- * 每个等级比前一个等级增加的半径
- */
-const sizecoefficient = 1.3
-const worldSize: b2.Vec2 = new b2.Vec2(1184, 704)
-const worldGravity: b2.Vec2 = new b2.Vec2(0, 100)
-/**
- * 猫咪刚体的参数
- */
-const nekoDensity = 100
-const nekoFriction = 0.6
-const nekoRestitution = 0.2
-
-const colidDetector: ColidDetector = new ColidDetector()
+let colidDetector: ColidDetector = undefined

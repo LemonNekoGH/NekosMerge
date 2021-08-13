@@ -40,8 +40,8 @@
                 [
                     20,
                     "移除所有猫咪",
-                    "// 当前的事件触发器：trigger: CommandTrigger;\ncolidDetector.clearAll()",
-                    "colidDetector.clearAll();\n",
+                    "// 当前的事件触发器：trigger: CommandTrigger;\ncolidDetector.clearAll()\ncolidDetector = undefined",
+                    "colidDetector.clearAll();\ncolidDetector = undefined;\n",
                     {
                         "___cmdID": "70584844995_0.5922155777337432"
                     }

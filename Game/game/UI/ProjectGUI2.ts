@@ -9,12 +9,12 @@ class ProjectGUI2 {
         GameUI.get(2).on(EventObject.MOUSE_DOWN, this, onMouseDown)
         GameUI.get(2).on(EventObject.MOUSE_MOVE, this, onMouseMove)
         GameUI.get(2).on(EventObject.MOUSE_UP, this, onMouseUp)
-        GameUI.get(2).on(EventObject.CLICK, this, onClick)
         GameUI.get(2).on(UINeko.EVENT_MERGED, this, onNekoMerge)
         GameUI.get(2).on(UINeko.EVENT_OUT_OF_CONTAINER, this, onNekoOutOfContainer)
         GameUI.get(2).on(UINeko.EVENT_BACK_IN_TO_CONTAINER, this, onNekoBackIntoContainer)
 
         let mouseDown = false
+        let mouseMoved = false
         let outOfContainerCount = 0
         let countDownText0 = 3
         let countDownText: UIString = undefined
@@ -29,7 +29,7 @@ class ProjectGUI2 {
             if (!countDownText) {
                 countDownText = new UIString()
                 this.gui.addChild(countDownText)
-                
+
                 countDownText.font = "幼圆"
                 countDownText.fontSize = 20
                 countDownText.color = "#000000"
@@ -72,15 +72,20 @@ class ProjectGUI2 {
         }
 
         function onMouseMove() {
+            if (mouseDown) {
+                mouseMoved = true
+            }
             // 鼠标是按下的，给各子组件派发鼠标拖动事件
             // 暂停时不派发事件
             if (Game.pause) {
                 return
             }
-            if (mouseDown) {
-                for (let i = 0; i < this.gui.numChildren; i++) {
-                    const child = GameUI.get(2).getChildAt(i)
-                    child.event(EventObject.DRAG_MOVE, new Point(gui.mouseX, gui.mouseY))
+            if (gui.mouseX < WorldData.猫咪容器右上角x值 && gui.mouseX > WorldData.猫咪容器左上角x值) {
+                if (mouseDown) {
+                    for (let i = 0; i < this.gui.numChildren; i++) {
+                        const child = GameUI.get(2).getChildAt(i)
+                        child.event(EventObject.DRAG_MOVE, new Point(gui.mouseX, gui.mouseY))
+                    }
                 }
             }
         }
@@ -94,26 +99,39 @@ class ProjectGUI2 {
             if (!mouseDown) {
                 return
             }
-            for (let i = 0; i < this.gui.numChildren; i++) {
-                const child = this.gui.getChildAt(i)
-                child.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
+            console.log(mouseMoved)
+            // 当鼠标弹起时，如果移动过，判断为拖拽结尾
+            // 没有移动过，判断为点击
+            if (gui.mouseX < WorldData.猫咪容器右上角x值 && gui.mouseX > WorldData.猫咪容器左上角x值) {
+                if (mouseMoved) {
+                    for (let i = 0; i < this.gui.numChildren; i++) {
+                        const child = this.gui.getChildAt(i)
+                        child.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
+                    }
+                } else {
+                    onClick(this)
+                }
+                if (GCMain.variables.等待下一个猫咪出现 === 1) {
+                    return
+                }
+                setTimeout(CommandExecute.newNeko, 1500)
+                GCMain.variables.等待下一个猫咪出现 = 1
             }
             mouseDown = false
-            if (GCMain.variables.等待下一个猫咪出现 === 1) {
-                return
-            }
-            setTimeout(CommandExecute.newNeko, 1500)
-            GCMain.variables.等待下一个猫咪出现 = 1
+            mouseMoved = false
         }
 
-        function onClick() {
+        function onClick(self: ProjectGUI2) {
             // 暂停时不派发事件
             if (Game.pause) {
                 return
             }
-            for (let i = 0; i < this.gui.numChildren; i++) {
-                const child = this.gui.getChildAt(i)
-                child.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
+            for (let i = 0; i < self.gui.numChildren; i++) {
+                const child = self.gui.getChildAt(i)
+                if (!(child instanceof UINeko)) {
+                    continue
+                }
+                child.event(EventObject.CLICK, new Point(gui.mouseX, gui.mouseY))
             }
         }
 

@@ -2,13 +2,624 @@
     "worldAttributeSetting": {
         "blockList": [
             {
-                "name": "世界属性",
-                "blockAttrs": [],
+                "name": "猫咪容器设定",
+                "blockAttrs": [
+                    {
+                        "attr": {
+                            "id": "71280017447_0.9048493219073783",
+                            "varName": "猫咪容器左上角x值",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 20,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71280107109_0.7713778361902492",
+                            "varName": "猫咪容器左上角y值",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 50,
+                        "x": 20,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71280131673_0.3285989122272186",
+                            "varName": "猫咪容器右上角x值",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 240,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71280419762_0.34544826331769896",
+                            "varName": "猫咪容器右上角y值",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 50,
+                        "x": 240,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71280454522_0.011648448146858392",
+                            "varName": "猫咪容器左下角x值",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 460,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71280454522_0.624728253571674",
+                            "varName": "猫咪容器左下角y值",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 50,
+                        "x": 460,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71280454522_0.38492190820243644",
+                            "varName": "猫咪容器右下角x值",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 680,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71280454522_0.10766886498524464",
+                            "varName": "猫咪容器右下角y值",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 50,
+                        "x": 680,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71281426980_0.9402349778264634",
+                            "varName": "新猫咪初始位置",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 900,
+                        "width": 200,
+                        "height": 32
+                    }
+                ],
                 "blockCondition": [],
-                "blockHeight": 94,
+                "blockHeight": 104,
+                "autoOrder": true
+            },
+            {
+                "name": "物理设定",
+                "blockAttrs": [
+                    {
+                        "attr": {
+                            "id": "71280712952_0.9635604037876597",
+                            "varName": "重力常量",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 20,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71280750381_0.8215581551359303",
+                            "varName": "物体质量",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 240,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71281047275_0.018493010397830023",
+                            "varName": "摩擦系数",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 460,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71281100343_0.26165122282138986",
+                            "varName": "弹力系数",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 680,
+                        "width": 200,
+                        "height": 32
+                    }
+                ],
+                "blockCondition": [],
+                "blockHeight": 72,
+                "autoOrder": true
+            },
+            {
+                "name": "猫咪设定",
+                "blockAttrs": [
+                    {
+                        "attr": {
+                            "id": "71287403983_0.04190079070233943",
+                            "varName": "猫咪大小倍率",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "设置每一等级的猫咪比上一级大的倍数",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 20,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71287611082_0.9047792725156127",
+                            "varName": "等级1的猫咪大小",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 240,
+                        "width": 200,
+                        "height": 32
+                    },
+                    {
+                        "attr": {
+                            "id": "71287658432_0.746399440893369",
+                            "varName": "生成新猫咪的高度",
+                            "varType": 0,
+                            "compData": {
+                                "compType": 0,
+                                "compParam": {}
+                            },
+                            "defaultValue": "",
+                            "hideMode": false,
+                            "useCommand": false,
+                            "onlyPointTo": false,
+                            "moduleID": 1,
+                            "dataStructureID": 1,
+                            "arrayMode": false,
+                            "arrayLength": 100,
+                            "arrayAllowDelete": false,
+                            "arrayAllowSwap": false,
+                            "arrayAllowUpdate": false,
+                            "accessMode": 1,
+                            "syncMode": 0,
+                            "attrTips": "",
+                            "alias": "",
+                            "onlyConfig": false,
+                            "preview": false,
+                            "autoTitleWidth": true,
+                            "titleWidth": 100,
+                            "eyeShow": true,
+                            "lockBlock": false
+                        },
+                        "attrConditions": [],
+                        "y": 20,
+                        "x": 460,
+                        "width": 200,
+                        "height": 32
+                    }
+                ],
+                "blockCondition": [],
+                "blockHeight": 72,
                 "autoOrder": true
             }
-        ]
+        ],
+        "compAutoOrderLimitHeight": 0,
+        "compAutoOrder": false
     },
     "playerAttributeSetting": {
         "blockList": [
@@ -22,7 +633,88 @@
         ]
     },
     "worldAttributeConfig": {
-        "attrs": {}
+        "attrs": {
+            "猫咪容器左上角x值": {
+                "varType": 0,
+                "value": 350,
+                "copy": false
+            },
+            "猫咪容器左上角y值": {
+                "varType": 0,
+                "value": 0,
+                "copy": false
+            },
+            "猫咪容器右上角y值": {
+                "varType": 0,
+                "value": 0,
+                "copy": false
+            },
+            "猫咪容器右上角x值": {
+                "varType": 0,
+                "value": 840,
+                "copy": false
+            },
+            "猫咪容器左下角x值": {
+                "varType": 0,
+                "value": 350,
+                "copy": false
+            },
+            "猫咪容器左下角y值": {
+                "varType": 0,
+                "value": 704,
+                "copy": false
+            },
+            "猫咪容器右下角x值": {
+                "varType": 0,
+                "value": 840,
+                "copy": false
+            },
+            "猫咪容器右下角y值": {
+                "varType": 0,
+                "value": 704,
+                "copy": false
+            },
+            "重力常量": {
+                "varType": 0,
+                "value": 100,
+                "copy": false
+            },
+            "物体质量": {
+                "varType": 0,
+                "value": 100,
+                "copy": false
+            },
+            "摩擦系数": {
+                "varType": 0,
+                "value": 0.5,
+                "copy": false
+            },
+            "弹力系数": {
+                "varType": 0,
+                "value": 0.6,
+                "copy": false
+            },
+            "新猫咪初始位置": {
+                "varType": 0,
+                "value": 100,
+                "copy": false
+            },
+            "猫咪大小倍率": {
+                "varType": 0,
+                "value": 1.3,
+                "copy": false
+            },
+            "等级1的猫咪大小": {
+                "varType": 0,
+                "value": 32,
+                "copy": false
+            },
+            "生成新猫咪的高度": {
+                "varType": 0,
+                "value": 100,
+                "copy": false
+            }
+        }
     },
     "playerAttributeConfig": {
         "attrs": {}

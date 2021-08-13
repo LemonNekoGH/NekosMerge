@@ -30,7 +30,6 @@ class GUI_2 extends GUI_BASE {
    标题:UIString;
    退出按钮:UIButton;
    暂停按钮:UIButton;
-   玩法说明:UIString;
    分数标签:UIString;
    最高分数标签:UIString;
    设置按钮:UIButton;
@@ -43,7 +42,6 @@ class ListItem_2 extends UIListItemData {
    分数:number;
    最高分数:number;
    标题:string;
-   玩法说明:string;
    分数标签:string;
    最高分数标签:string;
 

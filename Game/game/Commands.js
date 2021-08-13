@@ -32,6 +32,7 @@ var CommandExecute;
         GameUI.show(2);
         GCMain.variables.分数 = 0;
         new ProjectGUI2(GameUI.get(2));
+        colidDetector = new ColidDetector();
         started = true;
     }
     CommandExecute.customCommand_1 = customCommand_1;

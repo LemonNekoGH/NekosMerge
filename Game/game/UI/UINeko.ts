@@ -9,6 +9,8 @@ class UINeko extends UIBitmap {
      */
     body: b2Body
 
+    private _size: number
+
     // 猫咪合并事件
     static EVENT_MERGED = "neko_merged"
     // 猫咪飞出容器事件
@@ -21,7 +23,8 @@ class UINeko extends UIBitmap {
 
         this.level = level
 
-        this.width = level1Size * Math.pow(sizecoefficient, level)
+        this._size = WorldData.等级1的猫咪大小 * Math.pow(WorldData.猫咪大小倍率, this.level) / 2
+        this.width = this._size * 2
         this.height = this.width
 
         if (fromMerge) {
@@ -30,9 +33,10 @@ class UINeko extends UIBitmap {
             colidDetector.add(this)
         } else {
             this.x = 592 - this.size
-            this.y = 200 - this.size
+            this.y = WorldData.新猫咪初始位置 - this.size
             this.on(EventObject.DRAG_MOVE, this, this.onDrag)
             this.on(EventObject.DRAG_END, this, this.onDragEnd)
+            this.on(EventObject.CLICK, this, this.onClick)
         }
 
         this.image = `asset/image/avatar/NekoHead${this.level}.png`
@@ -47,7 +51,7 @@ class UINeko extends UIBitmap {
 
     // 猫咪半径
     get size(): number {
-        return level1Size * Math.pow(sizecoefficient, this.level) / 2
+        return this._size
     }
 
     // 返回全局坐标
@@ -58,26 +62,6 @@ class UINeko extends UIBitmap {
     // 返回中心的坐标
     get centerPos(): Point {
         return new Point(this.posObj.x + this.size, this.posObj.y + this.size)
-    }
-
-    // 返回 24 边形的坐标
-    get polygon24Cors(): Point[] {
-        return NekoMath.polygonCordinates(this.centerPos, this.size, 24)
-    }
-
-    // 是否与容器左侧碰撞
-    get isColidContainerLeft(): boolean {
-        return this.centerPos.distance(0, this.centerPos.y) <= this.size
-    }
-
-    // 是否与容器右侧碰撞
-    get isColidContainerRight(): boolean {
-        return this.centerPos.distance(1184, this.centerPos.y) <= this.size
-    }
-
-    // 是否与容器底部碰撞
-    get isColidContainerBottom(): boolean {
-        return this.centerPos.distance(this.centerPos.x, 704) <= this.size
     }
 
     /**
@@ -113,34 +97,50 @@ class UINeko extends UIBitmap {
      * 当拖动时调用
      */
     onDrag(params: Point) {
-        if (params.x - this.size < 0) {
-            this.x = 0
-        } else if (params.x + 2 * this.size > 1184) {
-            this.x = 1184 - 2 * this.size
-        } {
-            this.x = params.x - this.size
+        this.shouldNotDragOutOfContainer(params)
+        this.y = WorldData.新猫咪初始位置 - this.size
+    }
+
+    /**
+     * 猫咪不能被拖出容器
+     */
+    shouldNotDragOutOfContainer(params: Point) {
+        const pX = params.x
+        const minX = WorldData.猫咪容器左上角x值
+        const maxX = WorldData.猫咪容器右上角x值
+
+        if (pX - this.size < minX) {
+            this.x = minX
+        } else if (pX + this.size > maxX) {
+            this.x = maxX - this.size * 2
+        } else {
+            this.x = pX - this.size
         }
-        this.y = 200 - this.size
     }
 
     /**
      * 结束拖动时调用
      */
     onDragEnd(params: Point) {
-        if (params.x - this.size < 0) {
-            this.x = 0
-        } else {
-            this.x = params.x - this.size
-        }
-        this.x = params.x - this.size
-        this.y = 200 - this.size
+        this.shouldNotDragOutOfContainer(params)
+
+        this.y = WorldData.新猫咪初始位置 - this.size
         this.off(EventObject.DRAG_MOVE, this, this.onDrag)
         this.off(EventObject.DRAG_END, this, this.onDragEnd)
 
         colidDetector.add(this)
     }
-}
 
-// 猫咪等级越高，猫咪越大
-// 猫咪大小计算方式为：猫咪等级 * 1级猫咪大小
-const level1Size = 32
+    /**
+     * 界面被点击时调用
+     */
+    onClick(params: Point) {
+        console.log(params)
+        const pX = params.x
+        // 如果点击位置不在猫咪容器内，不响应
+        if (pX < WorldData.猫咪容器左上角x值 || pX > WorldData.猫咪容器右上角x值) {
+            return
+        }
+        this.onDragEnd(params)
+    }
+}

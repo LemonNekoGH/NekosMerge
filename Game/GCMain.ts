@@ -19,7 +19,7 @@ const GCMain = {
     onClientWorldInit() {
         document.body.style.cursor = 'url("./asset/image/picture/control/cursor.png"), auto'
         GameUI.show(1)
-        
+
         GlobalData.restore()
 
         // 当显示 FPS 开关打开时，显示 FPS
@@ -32,7 +32,9 @@ const GCMain = {
                 os.hideFPS()
                 showFPS = false
             }
-            colidDetector.step(colidDetector)
+            if (colidDetector) {
+                colidDetector.step(colidDetector)
+            }
         }, null)
 
         SinglePlayerGame.regSaveCustomGlobalData("GLOBAL_DATA", Callback.New(() => new GlobalData, this))
@@ -48,7 +50,7 @@ const GCMain = {
         setSwitch(index: number, payload: boolean) {
             Game.player.variable.setSwitch(index, payload ? 1 : 0)
         },
-        getSwitch(index: number): boolean{
+        getSwitch(index: number): boolean {
             return Game.player.variable.getSwitch(index) === 1
         },
         get 分数(): number {

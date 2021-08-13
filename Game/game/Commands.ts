@@ -39,6 +39,7 @@ module CommandExecute {
         GCMain.variables.分数 = 0
 
         new ProjectGUI2(GameUI.get(2) as GUI_2)
+        colidDetector = new ColidDetector()
 
         started = true;
     }

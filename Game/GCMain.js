@@ -10,7 +10,7 @@ function collectSprites(sprite, sprites) {
 }
 var GCMain = {
     onClientWorldInit: function () {
-        document.body.style.cursor = 'url("./asset/image/picture/control/cursor.cur"), auto';
+        document.body.style.cursor = 'url("./asset/image/picture/control/cursor.png"), auto';
         GameUI.show(1);
         GlobalData.restore();
         var showFPS = false;

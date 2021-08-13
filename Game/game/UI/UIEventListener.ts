@@ -20,16 +20,16 @@ function executeCommand(indexType: number): (component: UIBase) => void {
 function changeCursor(state: number) {
     switch (state) {
         case 1:
-            document.body.style.cursor = 'url("./asset/image/picture/control/cursor-down.cur"), auto'
+            document.body.style.cursor = 'url("./asset/image/picture/control/cursor-down.png"), auto'
             break
         case 2:
-            document.body.style.cursor = 'url("./asset/image/picture/control/cursor.cur"), auto'
+            document.body.style.cursor = 'url("./asset/image/picture/control/cursor.png"), auto'
             break
         case 3:
-            document.body.style.cursor = 'url("./asset/image/picture/control/cursor-over.cur"), auto'
+            document.body.style.cursor = 'url("./asset/image/picture/control/cursor-over.png"), auto'
             break
         default:
-            document.body.style.cursor = 'url("./asset/image/picture/control/cursor.cur"), auto'
+            document.body.style.cursor = 'url("./asset/image/picture/control/cursor.png"), auto'
             break
     }
 }

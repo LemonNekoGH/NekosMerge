@@ -22,6 +22,7 @@ var CommandExecute;
         if (uiRoot) {
             uiRoot.addChild(neko);
         }
+        console.log(neko.id);
         GCMain.variables.等待下一个猫咪出现 = 0;
     }
     CommandExecute.newNeko = newNeko;

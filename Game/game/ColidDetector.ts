@@ -144,9 +144,9 @@ class ColidDetector extends b2.ContactListener {
         // 更新猫咪位置
         for (let index = 0; index < self.nekos.length; index++) {
             const it = self.nekos[index]
-            if (!it.body) {
-                continue
-            }
+            // if (!it.body) {
+                // continue
+            // }
             it.x = it.body.m_xf.p.x - it.size
             it.y = it.body.m_xf.p.y - it.size
         }

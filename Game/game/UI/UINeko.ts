@@ -9,6 +9,8 @@ class UINeko extends UIBitmap {
      */
     body: b2Body
 
+    fromMerge: boolean
+
     private _size: number
 
     // 猫咪合并事件
@@ -26,6 +28,8 @@ class UINeko extends UIBitmap {
         this._size = WorldData.等级1的猫咪大小 * Math.pow(WorldData.猫咪大小倍率, this.level) / 2
         this.width = this._size * 2
         this.height = this.width
+
+        this.fromMerge = fromMerge
 
         if (fromMerge) {
             this.x = x
@@ -99,6 +103,7 @@ class UINeko extends UIBitmap {
     onDrag(params: Point) {
         this.shouldNotDragOutOfContainer(params)
         this.y = WorldData.新猫咪初始位置 - this.size
+        console.log(this.id)
     }
 
     /**
@@ -127,20 +132,18 @@ class UINeko extends UIBitmap {
         this.y = WorldData.新猫咪初始位置 - this.size
         this.off(EventObject.DRAG_MOVE, this, this.onDrag)
         this.off(EventObject.DRAG_END, this, this.onDragEnd)
+        this.off(EventObject.CLICK, this, this.onClick)
+        this.fromMerge = true
 
         colidDetector.add(this)
+
+        console.log(this.id)
     }
 
     /**
      * 界面被点击时调用
      */
     onClick(params: Point) {
-        console.log(params)
-        const pX = params.x
-        // 如果点击位置不在猫咪容器内，不响应
-        if (pX < WorldData.猫咪容器左上角x值 || pX > WorldData.猫咪容器右上角x值) {
-            return
-        }
         this.onDragEnd(params)
     }
 }

@@ -2,9 +2,8 @@
  * Created by LemonNekoGC on 2021-08-03 14:04:54.
  */
 class ProjectGUI2 {
-    gui: GUI_2
     constructor(gui: GUI_2) {
-        this.gui = gui
+        const containerRect = new Rectangle(WorldData.猫咪容器左上角x值, 0, 490, 704)
 
         GameUI.get(2).on(EventObject.MOUSE_DOWN, this, onMouseDown)
         GameUI.get(2).on(EventObject.MOUSE_MOVE, this, onMouseMove)
@@ -18,6 +17,22 @@ class ProjectGUI2 {
         let outOfContainerCount = 0
         let countDownText0 = 3
         let countDownText: UIString = undefined
+
+        /**
+         * 获取最新的猫咪
+         */
+        function getNewestNeko(): UINeko {
+            for (let i = 0; i < gui.numChildren; i++) {
+                const child = GameUI.get(2).getChildAt(i)
+                if (child instanceof UINeko) {
+                    const neko = child as UINeko
+                    if (!neko.fromMerge) {
+                        return neko
+                    }
+                }
+            }
+            return undefined
+        }
 
         /**
          * 当猫咪飞出容器时调用
@@ -67,31 +82,47 @@ class ProjectGUI2 {
             }
         }
 
+        /**
+         * 当鼠标按下时调用
+         */
         function onMouseDown() {
-            mouseDown = true
-        }
-
-        function onMouseMove() {
-            if (mouseDown) {
-                mouseMoved = true
-            }
             // 鼠标是按下的，给各子组件派发鼠标拖动事件
             // 暂停时不派发事件
             if (Game.pause) {
                 return
             }
-            if (gui.mouseX < WorldData.猫咪容器右上角x值 && gui.mouseX > WorldData.猫咪容器左上角x值) {
-                if (mouseDown) {
-                    for (let i = 0; i < this.gui.numChildren; i++) {
-                        const child = GameUI.get(2).getChildAt(i)
-                        child.event(EventObject.DRAG_MOVE, new Point(gui.mouseX, gui.mouseY))
-                    }
-                }
+            // 如果鼠标不在容器内，不处理
+            if (containerRect.contains(gui.mouseX, gui.mouseY)) {
+                mouseDown = true
+            }
+        }
+
+        /**
+         * 当鼠标移动时调用
+         */
+        function onMouseMove() {
+            // 暂停时不派发事件
+            if (Game.pause) {
+                return
+            }
+            // 如果鼠标不在容器内，不处理
+            if (!containerRect.contains(gui.mouseX, gui.mouseY)) {
+                return
+            }
+            // 如果鼠标没有在按下，不处理
+            if (!mouseDown) {
+                return
+            }
+            mouseMoved = true
+
+            let newestNeko: UINeko = getNewestNeko()
+            if (newestNeko) {
+                console.log('正在拖动：' + newestNeko.id)
+                newestNeko.event(EventObject.DRAG_MOVE, new Point(gui.mouseX, gui.mouseY))
             }
         }
 
         function onMouseUp() {
-            // 鼠标是按下的，给各子组件派发结束拖动事件
             // 暂停时不派发事件
             if (Game.pause) {
                 return
@@ -99,40 +130,29 @@ class ProjectGUI2 {
             if (!mouseDown) {
                 return
             }
-            console.log(mouseMoved)
-            // 当鼠标弹起时，如果移动过，判断为拖拽结尾
-            // 没有移动过，判断为点击
-            if (gui.mouseX < WorldData.猫咪容器右上角x值 && gui.mouseX > WorldData.猫咪容器左上角x值) {
-                if (mouseMoved) {
-                    for (let i = 0; i < this.gui.numChildren; i++) {
-                        const child = this.gui.getChildAt(i)
-                        child.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
-                    }
-                } else {
-                    onClick(this)
-                }
-                if (GCMain.variables.等待下一个猫咪出现 === 1) {
-                    return
-                }
-                setTimeout(CommandExecute.newNeko, 1500)
-                GCMain.variables.等待下一个猫咪出现 = 1
-            }
-            mouseDown = false
-            mouseMoved = false
-        }
 
-        function onClick(self: ProjectGUI2) {
-            // 暂停时不派发事件
-            if (Game.pause) {
+            let newestNeko: UINeko = getNewestNeko()
+            if (!newestNeko) {
                 return
             }
-            for (let i = 0; i < self.gui.numChildren; i++) {
-                const child = self.gui.getChildAt(i)
-                if (!(child instanceof UINeko)) {
-                    continue
-                }
-                child.event(EventObject.CLICK, new Point(gui.mouseX, gui.mouseY))
+
+            console.log('鼠标弹起：' + newestNeko.id)
+
+            if (mouseMoved) {
+                newestNeko.event(EventObject.DRAG_END, new Point(gui.mouseX, gui.mouseY))
+            } else {
+                newestNeko.event(EventObject.CLICK, new Point(gui.mouseX, gui.mouseY))
             }
+
+            if (GCMain.variables.等待下一个猫咪出现 === 1) {
+                mouseDown = false
+                mouseMoved = false
+                return
+            }
+            setTimeout(CommandExecute.newNeko, 1500)
+            GCMain.variables.等待下一个猫咪出现 = 1
+            mouseDown = false
+            mouseMoved = false
         }
 
         function onNekoMerge(data: { me: UINeko, it: UINeko }) {

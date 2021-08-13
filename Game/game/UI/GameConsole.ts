@@ -14,7 +14,7 @@ class GameConsole {
             console.log("请在\"游戏中\"界面调用此命令")
             return false
         }
-        
+
         const neko = new UINeko(level, true, x, y)
         GCMain.guis.游戏中.addChild(neko)
         return true
@@ -54,9 +54,38 @@ class GameConsole {
     }
 
     /**
+     * 获取所有猫咪
+     */
+    static listAllNekos() {
+        if (!colidDetector) {
+            console.log('请在"游戏中"界面调用此命令')
+            return 'none'
+        }
+        colidDetector.nekos.forEach((it: UINeko) => {
+            console.log(it)
+        })
+    }
+
+    /**
+     * 获取所有刚体
+     */
+    static listAllBodys() {
+        if (!colidDetector) {
+            console.log('请在"游戏中"界面调用此命令')
+            return 'none'
+        }
+        let body: b2.Body = colidDetector.physicsWorld.GetBodyList()
+        while (body) {
+            console.log(body)
+            body = body.GetNext()
+        }
+    }
+
+    /**
      * 列出所有可用命令
      */
     static listCommand() {
+        console.log("GameConsole.listAllNekos() 列出所有猫咪")
         console.log("GameConsole.listCommand() 列出所有可用指令")
         console.log("GameConsole.newNeko(x, y, level) 在坐标为 (x, y) 的地方生成一只等级为 level 的猫咪")
         console.log("GameConsole.randNeko() 在随机位置，生成等级小于 6 的猫咪")

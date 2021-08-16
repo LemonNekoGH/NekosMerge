@@ -98,6 +98,7 @@ class ColidDetector extends b2.ContactListener {
         neko.body = null
 
         ArrayUtils.remove(this.nekos, neko)
+        console.log(this.nekos.length)
     }
 
     /**
@@ -121,7 +122,10 @@ class ColidDetector extends b2.ContactListener {
      */
     clearAll() {
         for (let index = 0; index < this.nekos.length; index++) {
-            this.physicsWorld.DestroyBody(this.nekos[index].body)
+            const body = this.nekos[index].body
+            if (body) {
+                this.physicsWorld.DestroyBody(this.nekos[index].body)
+            }
         }
         this.nekos = []
     }
@@ -145,7 +149,7 @@ class ColidDetector extends b2.ContactListener {
         for (let index = 0; index < self.nekos.length; index++) {
             const it = self.nekos[index]
             // if (!it.body) {
-                // continue
+            // continue
             // }
             it.x = it.body.m_xf.p.x - it.size
             it.y = it.body.m_xf.p.y - it.size

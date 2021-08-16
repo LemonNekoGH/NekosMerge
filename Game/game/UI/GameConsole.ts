@@ -4,6 +4,8 @@
  * 包含了所有游戏内部支持的命令
  */
 class GameConsole {
+    static testGround: b2.Body = undefined
+
     /**
      * 游戏中可使用的指令
      * 可在指定位置生成一只指定等级的猫咪
@@ -25,7 +27,7 @@ class GameConsole {
      * 随机生成等级 5 以下的猫咪
      */
     static randNeko(): boolean {
-        const dx = WorldData.猫咪容器右上角x值 - WorldData.猫咪容器左上角x值
+        const dx = (WorldData.猫咪容器右上角x值 - WorldData.猫咪容器左上角x值) / 2
         const x = MathUtils.rand(dx) + WorldData.猫咪容器左上角x值
         const y = WorldData.新猫咪初始位置
         const level = MathUtils.rand(5) + 1
@@ -79,6 +81,70 @@ class GameConsole {
             console.log(body)
             body = body.GetNext()
         }
+    }
+
+    /**
+     * 在指定高度添加一个测试用地板
+     */
+    static addTestGroundAt(y: number): boolean {
+        if (!colidDetector) {
+            console.log('请在"游戏中"界面调用此命令')
+            return false
+        }
+        let lastY = 0
+
+        if (GameConsole.testGround) {
+            lastY = GameConsole.testGround.m_xf.p.y
+            colidDetector.physicsWorld.DestroyBody(GameConsole.testGround)
+        }
+        const def = new b2.BodyDef()
+        def.type = b2.BodyType.b2_staticBody
+        const shape = new b2.EdgeShape()
+        shape.SetTwoSided(new b2.Vec2(WorldData.猫咪容器左上角x值, y), new b2.Vec2(WorldData.猫咪容器右上角x值, y))
+
+        GameConsole.testGround = colidDetector.physicsWorld.CreateBody(def)
+        GameConsole.testGround.CreateFixture(shape)
+
+        console.log(`在 Y 轴位置 ${y} 的地方添加了测试用地板`)
+        if (lastY) {
+            console.log(`替换掉了之前 Y 轴位置 ${lastY} 的测试用地板`)
+        }
+        return true
+    }
+
+    /**
+     * 移除测试用地板
+     */
+    static removeTestGround(): boolean {
+        if (!colidDetector) {
+            console.log('请在"游戏中"界面调用此命令')
+            return false
+        }
+        if (GameConsole.testGround) {
+            const y = GameConsole.testGround.m_xf.p.y
+            colidDetector.physicsWorld.DestroyBody(GameConsole.testGround)
+            GameConsole.testGround = undefined
+            console.log(`移除掉了 Y 轴位置 ${y} 的测试用地板`)
+            return true
+        } else {
+            console.log("没有添加测试用地板")
+            return false
+        }
+    }
+
+    /**
+     * 重新开始游戏
+     */
+    static restartGame(): boolean {
+        if (!colidDetector) {
+            console.log('请在"游戏中"界面调用此命令')
+            return false
+        }
+        colidDetector.clearAll()
+        GCMain.variables.分数 = 0
+        GameUI.get(2).event(ProjectGUI2.EVENT_GAME_RESTART)
+        console.log("重新开始了游戏")
+        return true
     }
 
     /**

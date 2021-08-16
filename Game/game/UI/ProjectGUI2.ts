@@ -2,6 +2,9 @@
  * Created by LemonNekoGC on 2021-08-03 14:04:54.
  */
 class ProjectGUI2 {
+    static EVENT_GAME_OVER = "event_game_over"
+    static EVENT_GAME_RESTART = "event_game_restart"
+
     constructor(gui: GUI_2) {
         const containerRect = new Rectangle(WorldData.猫咪容器左上角x值, 0, 490, 704)
 
@@ -11,12 +14,13 @@ class ProjectGUI2 {
         GameUI.get(2).on(UINeko.EVENT_MERGED, this, onNekoMerge)
         GameUI.get(2).on(UINeko.EVENT_OUT_OF_CONTAINER, this, onNekoOutOfContainer)
         GameUI.get(2).on(UINeko.EVENT_BACK_IN_TO_CONTAINER, this, onNekoBackIntoContainer)
+        GameUI.get(2).on(ProjectGUI2.EVENT_GAME_OVER, this, onGameOver)
+        GameUI.get(2).on(ProjectGUI2.EVENT_GAME_RESTART, this, onRestart)
 
         let mouseDown = false
         let mouseMoved = false
-        let outOfContainerCount = 0
-        let countDownText0 = 3
-        let countDownText: UIString = undefined
+
+        let gameOverCount = 0
 
         /**
          * 获取最新的猫咪
@@ -38,34 +42,10 @@ class ProjectGUI2 {
          * 当猫咪飞出容器时调用
          */
         function onNekoOutOfContainer() {
-            // 计数器 +1
-            outOfContainerCount++
-            // 开始计时
-            if (!countDownText) {
-                countDownText = new UIString()
-                this.gui.addChild(countDownText)
-
-                countDownText.font = "幼圆"
-                countDownText.fontSize = 20
-                countDownText.color = "#000000"
-                countDownText.text = "" + countDownText0
-                countDownText.x = 0
-                countDownText.y = 190
-
-                setTimeout(countDown, 1000)
-            }
-        }
-
-        /**
-         * 游戏结束倒计时
-         */
-        function countDown() {
-            if (countDownText) {
-                countDownText0--
-                countDownText.text = "" + countDownText0
-                setTimeout(countDown, 1000)
-            } else {
-                countDownText0 = 3
+            console.log("猫咪飞出了容器" + gameOverCount)
+            gameOverCount++
+            if (gameOverCount > 0) {
+                GameOverProgressBar.show(3)
             }
         }
 
@@ -73,12 +53,10 @@ class ProjectGUI2 {
          * 当猫咪回到容器中时调用
          */
         function onNekoBackIntoContainer() {
-            // 计数器 -1
-            outOfContainerCount--
-            // 如果计数器为 0 ，重置计时器
-            if (outOfContainerCount === 0) {
-                countDownText.dispose()
-                countDownText = undefined
+            console.log("猫咪回到了容器" + gameOverCount)
+            gameOverCount--
+            if (gameOverCount <= 0) {
+                GameOverProgressBar.destroy()
             }
         }
 
@@ -189,6 +167,22 @@ class ProjectGUI2 {
             if (GCMain.variables.最高的猫咪等级 < upLevel) {
                 GCMain.variables.最高的猫咪等级 = upLevel
             }
+        }
+
+        /**
+         * 当游戏结束时调用
+         */
+        function onGameOver() {
+            GameUI.show(6)
+            GCMain.variables.游戏暂停 = true
+            Game.pause = true
+        }
+
+        /**
+         * 当游戏重开时使用
+         */
+        function onRestart() {
+            gameOverCount = 0
         }
     }
 }

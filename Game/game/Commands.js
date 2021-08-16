@@ -32,7 +32,7 @@ var CommandExecute;
         GameUI.dispose(1);
         GameUI.show(2);
         GCMain.variables.分数 = 0;
-        new ProjectGUI2(GameUI.get(2));
+        new ProjectGUI2((GameUI.get(2)));
         colidDetector = new ColidDetector();
         started = true;
     }
@@ -63,7 +63,7 @@ var CommandExecute;
             console.log("\u6E38\u620F" + (shouldPause ? '已经' : '没有') + "\u5904\u4E8E\u6682\u505C\u72B6\u6001");
             return;
         }
-        GCMain.variables.游戏暂停 = params.是否暂停;
+        GCMain.variables.游戏暂停 = shouldPause;
         Game.pause = shouldPause;
     }
     CommandExecute.customCommand_6 = customCommand_6;
@@ -73,5 +73,9 @@ var CommandExecute;
         });
     }
     CommandExecute.customCommand_7 = customCommand_7;
+    function customCommand_8(commandPage, cmd, trigger, player, playerInput, params) {
+        GameConsole.restartGame();
+    }
+    CommandExecute.customCommand_8 = customCommand_8;
 })(CommandExecute || (CommandExecute = {}));
 //# sourceMappingURL=Commands.js.map

@@ -113,6 +113,25 @@ class ListItem_5 extends UIListItemData {
 }
 
 /**
+ * 6-游戏结束 [BASE]
+ */
+class GUI_6 extends GUI_BASE {
+   对话框遮罩:UIBitmap;
+   对话框背景图片:UIBitmap;
+   重开按钮:UIButton;
+   退出按钮:UIButton;
+   退出提示:UIString;
+   constructor(){
+      super(6);
+   }
+}
+class ListItem_6 extends UIListItemData {
+   对话框遮罩:string;
+   对话框背景图片:string;
+   退出提示:string;
+}
+
+/**
  * 1001-模拟碰撞边界 [BASE]
  */
 class GUI_1001 extends GUI_BASE {

@@ -8,7 +8,8 @@
             "显示指定界面",
             "关闭指定界面",
             "暂停或继续游戏",
-            "保存全局数据"
+            "保存全局数据",
+            "重新开始游戏"
         ],
         "2": [
             null,
@@ -235,6 +236,20 @@
             "blockList": [
                 {
                     "name": "",
+                    "blockAttrs": [],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true,
+                    "cmdColor": "#FFFFFF"
+                }
+            ]
+        },
+        "8": {
+            "compAutoOrderLimitHeight": 0,
+            "id": 8,
+            "blockList": [
+                {
+                    "name": "未命名块",
                     "blockAttrs": [],
                     "blockCondition": [],
                     "blockHeight": 300,

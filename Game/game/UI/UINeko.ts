@@ -12,6 +12,10 @@ class UINeko extends UIBitmap {
     fromMerge: boolean
 
     private _size: number
+    /**
+     * 是否飞出过容器，标记
+     */
+    flag_outOfContainer: boolean = false
 
     // 猫咪合并事件
     static EVENT_MERGED = "neko_merged"
@@ -49,7 +53,9 @@ class UINeko extends UIBitmap {
     }
 
     dispose() {
-        colidDetector.remove(this)
+        if (this.fromMerge) {
+            colidDetector.remove(this)
+        }
         super.dispose()
     }
 
@@ -73,7 +79,7 @@ class UINeko extends UIBitmap {
      * 因为猫咪弹力十足，所以只有猫咪的中心点出容器了才算
      */
     get isOutOfContainer(): boolean {
-        return this.centerPos.y <= 200
+        return this.centerPos.y < WorldData.生成新猫咪的高度
     }
 
     hitTestPoint(cor: Point): boolean

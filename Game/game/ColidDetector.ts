@@ -98,7 +98,6 @@ class ColidDetector extends b2.ContactListener {
         neko.body = null
 
         ArrayUtils.remove(this.nekos, neko)
-        console.log(this.nekos.length)
     }
 
     /**
@@ -121,11 +120,8 @@ class ColidDetector extends b2.ContactListener {
      * 清除所有猫咪
      */
     clearAll() {
-        for (let index = 0; index < this.nekos.length; index++) {
-            const body = this.nekos[index].body
-            if (body) {
-                this.physicsWorld.DestroyBody(this.nekos[index].body)
-            }
+        while (this.nekos.length > 0) {
+            this.nekos[0].dispose()
         }
         this.nekos = []
     }
@@ -145,14 +141,20 @@ class ColidDetector extends b2.ContactListener {
             self.shouldBeMergeB = undefined
         }
 
-        // 更新猫咪位置
+        // 遍历所有猫咪
         for (let index = 0; index < self.nekos.length; index++) {
+            // 更新猫咪位置
             const it = self.nekos[index]
-            // if (!it.body) {
-            // continue
-            // }
             it.x = it.body.m_xf.p.x - it.size
             it.y = it.body.m_xf.p.y - it.size
+            // 检查猫咪是否飞出容器
+            if (!it.flag_outOfContainer && it.isOutOfContainer) {
+                GameUI.get(2).event(UINeko.EVENT_OUT_OF_CONTAINER)
+                it.flag_outOfContainer = true
+            } else if (it.flag_outOfContainer && !it.isOutOfContainer) {
+                GameUI.get(2).event(UINeko.EVENT_BACK_IN_TO_CONTAINER)
+                it.flag_outOfContainer = false
+            }
         }
 
         self.physicsWorld.Step(timeStep, 8, 3)

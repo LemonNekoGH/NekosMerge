@@ -2,7 +2,7 @@
     "root": {
         "children": [
             {
-                "id": "70419773892_0.33221102359302557",
+                "id": "71542467583_0.7660873265686976",
                 "condition": [],
                 "type": "UIBitmap",
                 "name": "对话框遮罩",
@@ -29,7 +29,7 @@
                 "pivotType": 0
             },
             {
-                "id": "70419856458_0.9408789424094259",
+                "id": "71542467583_0.44773377953444027",
                 "condition": [],
                 "type": "UIBitmap",
                 "name": "对话框背景图片",
@@ -56,10 +56,10 @@
                 "pivotType": 0
             },
             {
-                "id": "70420696406_0.155941100362599",
+                "id": "71542467584_0.6972289108619061",
                 "condition": [],
                 "type": "UIButton",
-                "name": "确定按钮",
+                "name": "重开按钮",
                 "x": 342,
                 "y": 424,
                 "width": 235,
@@ -79,7 +79,7 @@
                     true
                 ],
                 "isOpen": true,
-                "label": "确定",
+                "label": "重开",
                 "image1": "asset/image/picture/control/NekosMergeButton.png",
                 "grid9img1": "5,5,5,5,0",
                 "image2": "asset/image/picture/control/NekosMergeButtonHover.png",
@@ -103,10 +103,10 @@
                 "textStrokeColor": "#ffffff"
             },
             {
-                "id": "70420773510_0.40766423311348765",
+                "id": "71542467584_0.9562763503495528",
                 "condition": [],
                 "type": "UIButton",
-                "name": "取消按钮",
+                "name": "退出按钮",
                 "x": 606,
                 "y": 425,
                 "width": 235,
@@ -126,7 +126,7 @@
                     true
                 ],
                 "isOpen": true,
-                "label": "取消",
+                "label": "退出",
                 "image1": "asset/image/picture/control/NekosMergeButton.png",
                 "grid9img1": "5,5,5,5,0",
                 "image2": "asset/image/picture/control/NekosMergeButtonHover.png",
@@ -150,13 +150,13 @@
                 "textStrokeColor": "#ffffff"
             },
             {
-                "id": "70421388241_0.8776467377111732",
+                "id": "71542467584_0.61792241642317",
                 "condition": [],
                 "type": "UIString",
                 "name": "退出提示",
-                "x": 452,
+                "x": 542,
                 "y": 282,
-                "width": 280,
+                "width": 100,
                 "height": 20,
                 "opacity": 1,
                 "rotation": 0,
@@ -171,7 +171,7 @@
                 "showOnEditor": true,
                 "hasCommand": [],
                 "isOpen": true,
-                "text": "确定要退出吗？最高分已被保存",
+                "text": "游戏结束啦",
                 "fontSize": 20,
                 "color": "#f5caa7",
                 "bold": true,
@@ -194,6 +194,6 @@
             }
         ]
     },
-    "id": 4,
+    "id": 6,
     "hasRootCommand": []
 }

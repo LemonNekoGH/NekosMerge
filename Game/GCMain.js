@@ -10,7 +10,7 @@ function collectSprites(sprite, sprites) {
 }
 var GCMain = {
     onClientWorldInit: function () {
-        document.body.style.cursor = 'url("./asset/image/picture/control/cursor.png"), auto';
+        os.setCursor("url(./asset/image/picture/control/cursor.png), auto");
         GameUI.show(1);
         GlobalData.restore();
         var showFPS = false;
@@ -55,10 +55,10 @@ var GCMain = {
             this.setVariable(2, score);
         },
         get 游戏暂停() {
-            return this.getVariable(3);
+            return this.getVariable(3) === 1;
         },
-        set 游戏暂停(score) {
-            this.setVariable(3, score);
+        set 游戏暂停(pause) {
+            this.setVariable(3, pause ? 1 : 0);
         },
         get 等待下一个猫咪出现() {
             return this.getVariable(4);

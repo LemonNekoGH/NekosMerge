@@ -17,7 +17,7 @@ function collectSprites(sprite: GameSprite, sprites: GameSprite[]) {
 
 const GCMain = {
     onClientWorldInit() {
-        document.body.style.cursor = 'url("./asset/image/picture/control/cursor.png"), auto'
+        os.setCursor("url(./asset/image/picture/control/cursor.png), auto")
         GameUI.show(1)
 
         GlobalData.restore()
@@ -65,11 +65,11 @@ const GCMain = {
         set 最高分数(score: number) {
             this.setVariable(2, score)
         },
-        get 游戏暂停(): number {
-            return this.getVariable(3)
+        get 游戏暂停(): boolean {
+            return this.getVariable(3) === 1
         },
-        set 游戏暂停(score: number) {
-            this.setVariable(3, score)
+        set 游戏暂停(pause: boolean) {
+            this.setVariable(3, pause ? 1 : 0)
         },
         get 等待下一个猫咪出现(): number {
             return this.getVariable(4)

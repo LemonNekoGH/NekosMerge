@@ -2200,14 +2200,14 @@ declare class b2World {
     m_stepComplete: boolean;
    m_profile: b2Profile;
    m_island: b2Island;
-   s_stack: Array<b2Body | null>;
+   s_stack: Array<b2Body>;
     m_controllerList: b2Controller | null;
     m_controllerCount: number;
     constructor(gravity: XY);
-    SetDestructionListener(listener: b2DestructionListener | null): void;
+    SetDestructionListener(listener: b2DestructionListener): void;
     SetContactFilter(filter: b2ContactFilter): void;
     SetContactListener(listener: b2ContactListener): void;
-    SetDebugDraw(debugDraw: b2Draw | null): void;
+    SetDebugDraw(debugDraw: b2Draw): void;
     CreateBody(def?: b2IBodyDef): b2Body;
     DestroyBody(b: b2Body): void;
     private static _Joint_Create;

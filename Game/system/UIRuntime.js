@@ -73,6 +73,20 @@ var ListItem_5 = (function (_super) {
     }
     return ListItem_5;
 }(UIListItemData));
+var GUI_6 = (function (_super) {
+    __extends(GUI_6, _super);
+    function GUI_6() {
+        _super.call(this, 6);
+    }
+    return GUI_6;
+}(GUI_BASE));
+var ListItem_6 = (function (_super) {
+    __extends(ListItem_6, _super);
+    function ListItem_6() {
+        _super.apply(this, arguments);
+    }
+    return ListItem_6;
+}(UIListItemData));
 var GUI_1001 = (function (_super) {
     __extends(GUI_1001, _super);
     function GUI_1001() {

@@ -39,17 +39,19 @@ module CommandExecute {
         // 重置分数
         GCMain.variables.分数 = 0
 
-        new ProjectGUI2(GameUI.get(2) as GUI_2)
+        new ProjectGUI2((GameUI.get(2) as GUI_2))
         colidDetector = new ColidDetector()
 
         started = true;
     }
+
     /**
      * 随机生成一只猫咪
      */
     export function customCommand_2(commandPage: CommandPage, cmd, trigger, player, playerInput, p) {
         newNeko()
     }
+
     /**
      * 退出游戏
      */
@@ -84,7 +86,7 @@ module CommandExecute {
             return
         }
 
-        GCMain.variables.游戏暂停 = params.是否暂停
+        GCMain.variables.游戏暂停 = shouldPause
         Game.pause = shouldPause
     }
 
@@ -95,5 +97,12 @@ module CommandExecute {
         GlobalData.store((params) => {
             console.log(params)
         })
+    }
+
+    /**
+     * 重开游戏
+     */
+    export function customCommand_8(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, params: CustomCommandParams_8): void {
+        GameConsole.restartGame()
     }
 }

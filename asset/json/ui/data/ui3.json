@@ -21,7 +21,13 @@
                 ],
                 "mouseEventEnabledInEditor": true,
                 "showOnEditor": true,
-                "hasCommand": [],
+                "hasCommand": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    true
+                ],
                 "isOpen": true,
                 "image": "asset/image/picture/control/对话框遮罩.png",
                 "grid9": "0,0,0,0,0",

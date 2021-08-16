@@ -61,24 +61,19 @@ function moveText(component: UIButton, state: number) {
     }
 }
 
+const numberEventArr = [
+    EventObject.CLICK,
+    EventObject.DISPLAY,
+    EventObject.MOUSE_OVER,
+    EventObject.MOUSE_OUT
+]
+
 // 追加逻辑
 function onUiComponentInit(isRoot: boolean, component: UIBase) {
-    // 注册鼠标点击事件
-    // 判断指令列表里是否有指令
-    if (component.hasCommand[0]) {
-        component.on(EventObject.CLICK, component, executeCommand(0), [component])
-    }
-    // 注册组件显示事件
-    if (component.hasCommand[1]) {
-        component.once(EventObject.DISPLAY, component, executeCommand(1), [component])
-    }
-    // 注册组件鼠标悬浮事件
-    if (component.hasCommand[2]) {
-        component.once(EventObject.MOUSE_OVER, component, executeCommand(2), [component])
-    }
-    // 注册组件鼠标悬浮事件
-    if (component.hasCommand[3]) {
-        component.once(EventObject.MOUSE_OUT, component, executeCommand(3), [component])
+    for (let i = 0;i < numberEventArr.length;i ++) {
+        if (component.hasCommand[i]) {
+            component.on(numberEventArr[i], this, executeCommand(i), [component])
+        }
     }
 
     // 如果是按钮，就改成自己的样式

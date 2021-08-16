@@ -50,7 +50,8 @@ var CommandExecute;
     }
     CommandExecute.customCommand_3 = customCommand_3;
     function customCommand_4(commandPage, cmd, trigger, player, playerInput, params) {
-        GameUI.show(params.要显示的界面ID);
+        var id = params.要显示的界面ID;
+        GameUI.show(id);
     }
     CommandExecute.customCommand_4 = customCommand_4;
     function customCommand_5(commandPage, cmd, trigger, player, playerInput, params) {

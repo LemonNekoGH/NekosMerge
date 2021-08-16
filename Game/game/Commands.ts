@@ -62,13 +62,14 @@ module CommandExecute {
         started = false;
     }
     /**
-     * 关闭指定界面
+     * 开启指定界面
      */
     export function customCommand_4(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, params: CustomCommandParams_4) {
-        GameUI.show(params.要显示的界面ID)
+        const id = params.要显示的界面ID
+        GameUI.show(id)
     }
     /**
-     * 开启指定界面
+     * 关闭指定界面
      */
     export function customCommand_5(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, params: CustomCommandParams_5) {
         GameUI.dispose(params.要关闭的界面ID)

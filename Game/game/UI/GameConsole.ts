@@ -19,6 +19,7 @@ class GameConsole {
 
         const neko = new UINeko(level, true, x, y)
         GCMain.guis.游戏中.addChild(neko)
+        console.log(`在 (${x}, ${y}) 位置生成了一只 ${level} 级别的网站`)
         return true
     }
 
@@ -40,9 +41,11 @@ class GameConsole {
     static doTimes(times: number, delay: number, func: Function, ...args: any[]) {
         console.log(`准备执行${times} 次 ，间隔时间 ${delay}`)
         let executeTimes = 0
+        const indexOf = func.toString().indexOf(")")
+        const funcName = func.toString().substring(0, indexOf + 1)
 
         function exec() {
-            console.log(`正在执行第 ${executeTimes + 1} 次`)
+            console.log(`正在执行 ${funcName} 第 ${executeTimes + 1} 次`)
             // 执行失败就停止执行
             const success = func.apply(this, args)
             executeTimes++
@@ -151,10 +154,14 @@ class GameConsole {
      * 列出所有可用命令
      */
     static listCommand() {
-        console.log("GameConsole.listAllNekos() 列出所有猫咪")
-        console.log("GameConsole.listCommand() 列出所有可用指令")
-        console.log("GameConsole.newNeko(x, y, level) 在坐标为 (x, y) 的地方生成一只等级为 level 的猫咪")
-        console.log("GameConsole.randNeko() 在随机位置，生成等级小于 6 的猫咪")
-        console.log("GameConsole.doTimes(times, delay, func, args) 执行 times 次指定函数并传入参数，每次执行间隔 delay 秒")
+        console.log(
+            "GameConsole.listAllNekos() 列出所有猫咪\n" +
+            "GameConsole.listCommand() 列出所有可用指令\n" +
+            "GameConsole.newNeko(x, y, level) 在坐标为 (x, y) 的地方生成一只等级为 level 的猫咪\n" +
+            "GameConsole.randNeko() 在随机位置，生成等级小于 6 的猫咪\n" +
+            "GameConsole.doTimes(times, delay, func, args) 执行 times 次指定函数并传入参数，每次执行间隔 delay 秒"
+        )
     }
 }
+
+Object.defineProperty(parent, "GameConsole", GameConsole)

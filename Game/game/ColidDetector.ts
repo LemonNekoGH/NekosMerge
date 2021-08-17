@@ -28,18 +28,6 @@ class ColidDetector {
     }
 
     /**
-     * 创建默认的材质
-     */
-    createDefaultFixtureDef(): b2.FixtureDef {
-        const fixture = new b2.FixtureDef()
-        fixture.density = WorldData.物体质量
-        fixture.friction = WorldData.摩擦系数
-        fixture.restitution = WorldData.弹力系数
-
-        return fixture
-    }
-
-    /**
      * 创建边界刚体
      */
     createEdge() {

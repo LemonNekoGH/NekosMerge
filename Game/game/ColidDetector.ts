@@ -1,21 +1,30 @@
 /**
  * Created by LemonNekoGC on 2021-07-27 17:31:44.
  */
-class ColidDetector extends b2.ContactListener {
-    /**
-     * 物理世界
-     */
-    physicsWorld: b2.World
+class ColidDetector {
     nekos: UINeko[] = []
+
+    physicsEngine: Matter.Engine
+    physicsRunner: Matter.Runner
+    physicsWorld: Matter.World
 
     shouldBeMergeA: UINeko
     shouldBeMergeB: UINeko
 
+    tick: number = 0
+
+    map: BodyNekoMap = new BodyNekoMap()
+
     constructor() {
-        super()
-        this.physicsWorld = new b2.World(new b2.Vec2(0, WorldData.重力常量))
+        this.physicsEngine = Matter.Engine.create()
+        this.physicsWorld = this.physicsEngine.world
+        this.physicsRunner = Matter.Runner.create()
+
         this.createEdge()
-        this.physicsWorld.SetContactListener(this)
+        Matter.Events.on(this.physicsEngine, 'collisionStart', this.colisionStart)
+        Matter.Events.on(this.physicsRunner, 'tick', this.step)
+
+        Matter.Runner.run(this.physicsRunner, this.physicsEngine)
     }
 
     /**
@@ -34,47 +43,24 @@ class ColidDetector extends b2.ContactListener {
      * 创建边界刚体
      */
     createEdge() {
-        // 创建刚体定义并设置刚体类型为“静态的”
-        const bodyDef = new b2.BodyDef()
-        bodyDef.type = b2.BodyType.b2_staticBody
-        // 创建刚体并应用材质
-        const body = this.physicsWorld.CreateBody(bodyDef)
+        const height = WorldData.猫咪容器左下角y值 - WorldData.猫咪容器左上角y值
+        const width = WorldData.猫咪容器右上角x值 - WorldData.猫咪容器左上角x值
 
-        const shape = new b2.EdgeShape()
         // 创建左面边界
-        const groundLeftTop = new b2.Vec2(WorldData.猫咪容器左上角x值, WorldData.猫咪容器左上角y值)
-        const groundLeftBottom = new b2.Vec2(WorldData.猫咪容器左上角x值, WorldData.猫咪容器左下角y值)
-        const groundRightTop = new b2.Vec2(WorldData.猫咪容器右上角x值, WorldData.猫咪容器右上角y值)
-        const groundRightBottom = new b2.Vec2(WorldData.猫咪容器右下角x值, WorldData.猫咪容器右下角y值)
-
-        shape.SetTwoSided(groundLeftTop, groundLeftBottom)
-        body.CreateFixture(shape, 0)
+        const left = Matter.Bodies.rectangle(WorldData.猫咪容器左上角x值, height / 2, 5, WorldData.猫咪容器左下角y值, { isStatic: true })
         // 创建底面边界
-        shape.SetTwoSided(groundLeftBottom, groundRightBottom)
-        body.CreateFixture(shape, 0)
+        const bottom = Matter.Bodies.rectangle(WorldData.猫咪容器左下角x值 + width / 2, WorldData.猫咪容器左下角y值, width, 5, { isStatic: true })
         // 创建右面边界
-        shape.SetTwoSided(groundRightTop, groundRightBottom)
-        body.CreateFixture(shape, 0)
+        const right = Matter.Bodies.rectangle(WorldData.猫咪容器右上角x值, height / 2, 5, WorldData.猫咪容器右下角y值, { isStatic: true })
+
+        Matter.Composite.add(this.physicsWorld, [left, bottom, right])
     }
 
     /**
      * 创建圆形刚体
      */
-    createCircleBody(radius: number, position: b2.Vec2): b2.Body {
-        const fixture = this.createDefaultFixtureDef()
-        fixture.density = WorldData.物体质量 / radius
-        fixture.shape = new b2.CircleShape(radius)
-        const bodyDef = new b2.BodyDef()
-
-        bodyDef.linearDamping = 0.5
-        bodyDef.angularDamping = 0.5
-        bodyDef.type = b2.BodyType.b2_dynamicBody
-        bodyDef.position.Set(position.x, position.y)
-
-        const body = this.physicsWorld.CreateBody(bodyDef)
-        body.CreateFixture(fixture)
-
-        return body
+    createCircleBody(radius: number, position: Point): Matter.Body {
+        return Matter.Bodies.circle(position.x, position.y, radius, null, 36)
     }
 
     /**
@@ -82,9 +68,12 @@ class ColidDetector extends b2.ContactListener {
      * 同时绑定一个刚体
      */
     add(neko: UINeko) {
-        const body = this.createCircleBody(neko.size, new b2.Vec2(neko.x + neko.size, neko.y + neko.size))
+        const body = Matter.Bodies.circle(neko.x, neko.y, neko.size)
+        body.restitution = 0.8
         neko.body = body
-        neko.body.m_fixtureList.m_userData = neko
+        this.map.setByBody(body, neko)
+
+        Matter.Composite.add(this.physicsWorld, body)
 
         this.nekos.push(neko)
     }
@@ -94,7 +83,8 @@ class ColidDetector extends b2.ContactListener {
      * 并摧毁刚体
      */
     remove(neko: UINeko) {
-        this.physicsWorld.DestroyBody(neko.body)
+        this.map.remove(neko.body)
+        Matter.Composite.remove(this.physicsWorld, neko.body, true)
         neko.body = null
 
         ArrayUtils.remove(this.nekos, neko)
@@ -103,16 +93,18 @@ class ColidDetector extends b2.ContactListener {
     /**
      * 当猫咪碰撞时调用
      */
-    BeginContact(contact: b2.Contact<b2.Shape, b2.Shape>): void {
-        if (!(contact.m_fixtureA.m_userData instanceof UINeko)) {
-            return
-        }
-        const it = contact.m_fixtureA.m_userData as UINeko
-        const me = contact.m_fixtureB.m_userData as UINeko
+    colisionStart(e: Matter.IEventCollision<Matter.Engine>): void {
+        const pairs = e.pairs
+        for (let i = 0; i < pairs.length; i++) {
+            const pair = pairs[i]
+            const self = colidDetector.map.getByBody(pair.bodyA)
+            const it = colidDetector.map.getByBody(pair.bodyB)
 
-        if (it.level === me.level) {
-            this.shouldBeMergeA = it
-            this.shouldBeMergeB = me
+            if (self && it && self.level === it.level) {
+                GCMain.guis.游戏中.event(UINeko.EVENT_MERGED, {
+                    it, me: self
+                })
+            }
         }
     }
 
@@ -129,36 +121,30 @@ class ColidDetector extends b2.ContactListener {
     /**
      * 执行模拟
      */
-    step(self: ColidDetector) {
-        const timeStep = 1 / 60
-
-        if (Game.pause) {
+    step(e) {
+        if (!colidDetector) {
             return
         }
-        if (self.shouldBeMergeA && self.shouldBeMergeB) {
-            GameUI.get(2).event(UINeko.EVENT_MERGED, { it: self.shouldBeMergeA, me: self.shouldBeMergeB })
-            self.shouldBeMergeA = undefined
-            self.shouldBeMergeB = undefined
-        }
-
-        // 遍历所有猫咪
-        for (let index = 0; index < self.nekos.length; index++) {
-            // 更新猫咪位置
-            const it = self.nekos[index]
-            it.x = it.body.m_xf.p.x - it.size
-            it.y = it.body.m_xf.p.y - it.size
-            // 检查猫咪是否飞出容器
-            if (!it.flag_outOfContainer && it.isOutOfContainer) {
-                GameUI.get(2).event(UINeko.EVENT_OUT_OF_CONTAINER)
-                it.flag_outOfContainer = true
-            } else if (it.flag_outOfContainer && !it.isOutOfContainer) {
-                GameUI.get(2).event(UINeko.EVENT_BACK_IN_TO_CONTAINER)
-                it.flag_outOfContainer = false
+        const bds = colidDetector.physicsWorld.bodies
+        for (let i = 0; i < bds.length; i++) {
+            const bd = bds[i]
+            const neko = colidDetector.map.getByBody(bd)
+            if (neko) {
+                neko.x = bd.position.x
+                neko.y = bd.position.y
+                neko.rotation = NekoMath.radian2Angle(bd.angle)
             }
         }
-
-        self.physicsWorld.Step(timeStep, 8, 3)
-        self.physicsWorld.Step(timeStep, 8, 3)
+        for (let i = 0; i < colidDetector.nekos.length; i++) {
+            const neko = colidDetector.nekos[i]
+            if (!neko.flag_outOfContainer && neko.isOutOfContainer) {
+                GCMain.guis.游戏中.event(UINeko.EVENT_OUT_OF_CONTAINER)
+                neko.flag_outOfContainer = true
+            } else if (neko.flag_outOfContainer && !neko.isOutOfContainer) {
+                GCMain.guis.游戏中.event(UINeko.EVENT_BACK_IN_TO_CONTAINER)
+                neko.flag_outOfContainer = false
+            }
+        }
     }
 }
 

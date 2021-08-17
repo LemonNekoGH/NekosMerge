@@ -95,7 +95,6 @@ class ProjectGUI2 {
 
             let newestNeko: UINeko = getNewestNeko()
             if (newestNeko) {
-                console.log('正在拖动：' + newestNeko.id)
                 newestNeko.event(EventObject.DRAG_MOVE, new Point(gui.mouseX, gui.mouseY))
             }
         }

@@ -5,9 +5,9 @@
 class UINeko extends UIBitmap {
     level: number
     /**
-     * 绑定到猫咪身上的 Box2D 刚体
+     * 绑定到猫咪身上的 Matter 刚体
      */
-    body: b2Body
+    body: Matter.Body
 
     fromMerge: boolean
 
@@ -26,6 +26,7 @@ class UINeko extends UIBitmap {
 
     constructor(level: number, fromMerge: boolean, x: number = 0, y: number = 0) {
         super()
+        this.pivotType = 1
 
         this.level = level
 
@@ -40,8 +41,8 @@ class UINeko extends UIBitmap {
             this.y = y
             colidDetector.add(this)
         } else {
-            this.x = 592 - this.size
-            this.y = WorldData.新猫咪初始位置 - this.size
+            this.x = 592
+            this.y = WorldData.新猫咪初始位置
             this.on(EventObject.DRAG_MOVE, this, this.onDrag)
             this.on(EventObject.DRAG_END, this, this.onDragEnd)
             this.on(EventObject.CLICK, this, this.onClick)
@@ -79,7 +80,7 @@ class UINeko extends UIBitmap {
      * 因为猫咪弹力十足，所以只有猫咪的中心点出容器了才算
      */
     get isOutOfContainer(): boolean {
-        return this.centerPos.y < WorldData.生成新猫咪的高度
+        return this.y < WorldData.生成新猫咪的高度
     }
 
     hitTestPoint(cor: Point): boolean
@@ -108,8 +109,7 @@ class UINeko extends UIBitmap {
      */
     onDrag(params: Point) {
         this.shouldNotDragOutOfContainer(params)
-        this.y = WorldData.新猫咪初始位置 - this.size
-        console.log(this.id)
+        this.y = WorldData.新猫咪初始位置
     }
 
     /**
@@ -120,12 +120,12 @@ class UINeko extends UIBitmap {
         const minX = WorldData.猫咪容器左上角x值
         const maxX = WorldData.猫咪容器右上角x值
 
-        if (pX - this.size < minX) {
-            this.x = minX
-        } else if (pX + this.size > maxX) {
-            this.x = maxX - this.size * 2
+        if (pX < minX + this.size) {
+            this.x = minX + this.size
+        } else if (pX > maxX - this.size) {
+            this.x = maxX - this.size
         } else {
-            this.x = pX - this.size
+            this.x = pX
         }
     }
 
@@ -135,15 +135,13 @@ class UINeko extends UIBitmap {
     onDragEnd(params: Point) {
         this.shouldNotDragOutOfContainer(params)
 
-        this.y = WorldData.新猫咪初始位置 - this.size
+        this.y = WorldData.新猫咪初始位置
         this.off(EventObject.DRAG_MOVE, this, this.onDrag)
         this.off(EventObject.DRAG_END, this, this.onDragEnd)
         this.off(EventObject.CLICK, this, this.onClick)
         this.fromMerge = true
 
         colidDetector.add(this)
-
-        console.log(this.id)
     }
 
     /**

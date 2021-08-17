@@ -33,7 +33,8 @@ const GCMain = {
                 showFPS = false
             }
             if (colidDetector) {
-                colidDetector.step(colidDetector)
+                colidDetector.physicsEngine.enabled = !Game.pause
+                colidDetector.physicsRunner.enabled = !Game.pause
             }
         }, null)
 

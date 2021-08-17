@@ -4,7 +4,7 @@
  * 包含了所有游戏内部支持的命令
  */
 class GameConsole {
-    static testGround: b2.Body = undefined
+    static testGround: Matter.Body = undefined
 
     /**
      * 游戏中可使用的指令
@@ -19,7 +19,7 @@ class GameConsole {
 
         const neko = new UINeko(level, true, x, y)
         GCMain.guis.游戏中.addChild(neko)
-        console.log(`在 (${x}, ${y}) 位置生成了一只 ${level} 级别的网站`)
+        console.log(`在 (${x}, ${y}) 位置生成了一只 ${level} 级别的猫咪`)
         return true
     }
 
@@ -74,16 +74,13 @@ class GameConsole {
     /**
      * 获取所有刚体
      */
-    static listAllBodys() {
+    static listAllBodys(): boolean {
         if (!colidDetector) {
             console.log('请在"游戏中"界面调用此命令')
-            return 'none'
+            return false
         }
-        let body: b2.Body = colidDetector.physicsWorld.GetBodyList()
-        while (body) {
-            console.log(body)
-            body = body.GetNext()
-        }
+        colidDetector.physicsWorld.bodies.forEach(it => console.log(it))
+        return true
     }
 
     /**
@@ -97,19 +94,16 @@ class GameConsole {
         let lastY = 0
 
         if (GameConsole.testGround) {
-            lastY = GameConsole.testGround.m_xf.p.y
-            colidDetector.physicsWorld.DestroyBody(GameConsole.testGround)
+            lastY = GameConsole.testGround.position.y
+            Matter.Composite.remove(colidDetector.physicsWorld, GameConsole.testGround, true)
         }
-        const def = new b2.BodyDef()
-        def.type = b2.BodyType.b2_staticBody
-        const shape = new b2.EdgeShape()
-        shape.SetTwoSided(new b2.Vec2(WorldData.猫咪容器左上角x值, y), new b2.Vec2(WorldData.猫咪容器右上角x值, y))
+        const width = WorldData.猫咪容器右下角x值 - WorldData.猫咪容器左下角x值
 
-        GameConsole.testGround = colidDetector.physicsWorld.CreateBody(def)
-        GameConsole.testGround.CreateFixture(shape)
+        GameConsole.testGround = Matter.Bodies.rectangle(WorldData.猫咪容器左下角x值 + width / 2, y, width, 10, { isStatic: true })
+        Matter.Composite.add(colidDetector.physicsWorld, GameConsole.testGround)
 
         console.log(`在 Y 轴位置 ${y} 的地方添加了测试用地板`)
-        if (lastY) {
+        if (lastY !== 0) {
             console.log(`替换掉了之前 Y 轴位置 ${lastY} 的测试用地板`)
         }
         return true
@@ -124,8 +118,8 @@ class GameConsole {
             return false
         }
         if (GameConsole.testGround) {
-            const y = GameConsole.testGround.m_xf.p.y
-            colidDetector.physicsWorld.DestroyBody(GameConsole.testGround)
+            const y = GameConsole.testGround.position.y
+            Matter.Composite.remove(colidDetector.physicsWorld, GameConsole.testGround, true)
             GameConsole.testGround = undefined
             console.log(`移除掉了 Y 轴位置 ${y} 的测试用地板`)
             return true

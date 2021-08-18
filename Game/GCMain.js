@@ -7,6 +7,7 @@ function collectSprites(sprite, sprites) {
         }
     }
     sprites.push(sprite);
+    GameBase;
 }
 var GCMain = {
     onClientWorldInit: function () {
@@ -84,6 +85,12 @@ var GCMain = {
         },
         set 显示FPS(devMode) {
             this.setSwitch(2, devMode);
+        },
+        get 分数作废() {
+            return this.getSwitch(3);
+        },
+        set 分数作废(noScore) {
+            this.setSwitch(3, noScore);
         }
     },
     guis: {

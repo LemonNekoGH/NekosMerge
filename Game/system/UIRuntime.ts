@@ -33,6 +33,7 @@ class GUI_2 extends GUI_BASE {
    分数标签:UIString;
    最高分数标签:UIString;
    设置按钮:UIButton;
+   分数作废提示:UIString;
    constructor(){
       super(2);
    }
@@ -44,7 +45,7 @@ class ListItem_2 extends UIListItemData {
    标题:string;
    分数标签:string;
    最高分数标签:string;
-
+   分数作废提示:string;
 }
 
 /**

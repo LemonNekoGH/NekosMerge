@@ -13,6 +13,8 @@ function collectSprites(sprite: GameSprite, sprites: GameSprite[]) {
         }
     }
     sprites.push(sprite)
+
+    GameBase
 }
 
 const GCMain = {
@@ -95,6 +97,12 @@ const GCMain = {
         },
         set 显示FPS(devMode) {
             this.setSwitch(2, devMode)
+        },
+        get 分数作废(): boolean {
+            return this.getSwitch(3)
+        },
+        set 分数作废(noScore: boolean) {
+            this.setSwitch(3, noScore)
         }
     },
     guis: {

@@ -63,16 +63,31 @@ function moveText(component: UIButton, state: number) {
 
 const numberEventArr = [
     EventObject.CLICK,
-    EventObject.DISPLAY,
+    UIBase.ON_VISIBLE_CHANGE,
     EventObject.MOUSE_OVER,
-    EventObject.MOUSE_OUT
+    EventObject.MOUSE_OUT,
+    UIBase.ON_VISIBLE_CHANGE,
+    EventObject.DISPLAY
 ]
 
 // 追加逻辑
 function onUiComponentInit(isRoot: boolean, component: UIBase) {
     for (let i = 0;i < numberEventArr.length;i ++) {
         if (component.hasCommand[i]) {
-            component.on(numberEventArr[i], this, executeCommand(i), [component])
+            // 当出现或消失时有额外条件
+            if (i === 1) {
+                if (component.visible) {
+                    console.log(component.visible)
+                    component.on(numberEventArr[i], this, executeCommand(i), [component])
+                }
+            } else if (i === 4) {
+                if (!component.visible) {
+                    console.log(component.visible)
+                    component.on(numberEventArr[i], this, executeCommand(i), [component])
+                }
+            } else {
+                component.on(numberEventArr[i], this, executeCommand(i), [component])
+            }
         }
     }
 

@@ -20,6 +20,8 @@ class GameConsole {
         const neko = new UINeko(level, true, x, y)
         GCMain.guis.游戏中.addChild(neko)
         console.log(`在 (${x}, ${y}) 位置生成了一只 ${level} 级别的猫咪`)
+
+        GCMain.variables.分数作废 = true
         return true
     }
 
@@ -106,6 +108,8 @@ class GameConsole {
         if (lastY !== 0) {
             console.log(`替换掉了之前 Y 轴位置 ${lastY} 的测试用地板`)
         }
+
+        GCMain.variables.分数作废 = true
         return true
     }
 
@@ -121,6 +125,7 @@ class GameConsole {
             const y = GameConsole.testGround.position.y
             Matter.Composite.remove(colidDetector.physicsWorld, GameConsole.testGround, true)
             GameConsole.testGround = undefined
+
             console.log(`移除掉了 Y 轴位置 ${y} 的测试用地板`)
             return true
         } else {
@@ -141,6 +146,48 @@ class GameConsole {
         GCMain.variables.分数 = 0
         GameUI.get(2).event(ProjectGUI2.EVENT_GAME_RESTART)
         console.log("重新开始了游戏")
+
+        GCMain.variables.分数作废 = false
+        return true
+    }
+
+    /**
+     * 使指定界面组件产生透明度变化
+     * @params id 界面 id
+     * @params name 组件名称
+     * @params to 将透明度调整至
+     * @params duration 调整时长
+     */
+    static changeOpacity(id: number, name: string, to: number, duration: number): boolean {
+        const ui = GameUI.get(id)
+        if (!ui) {
+            console.log(`界面不存在 ${id}`)
+            return false
+        }
+        const comp: UIBase = ui[name]
+        if (!comp) {
+            console.log(`界面组件不存在 ${name}`)
+            return false
+        }
+        const time = duration * 1000
+        const nowAlpha = comp.alpha
+        const toAlpha = to / 100
+        const alphaChangePerFrame = (nowAlpha - toAlpha) / time * 60
+
+        const change0 = (comp: UIBase, changeVal: number, to: number): void => {
+            comp.alpha -= changeVal
+
+            if (changeVal < 0 && comp.alpha < to) {
+                setTimeout(change0, 100 / 6, comp, changeVal, to)
+            } else if (changeVal > 0 && comp.alpha > to) {
+                setTimeout(change0, 100 / 6, comp, changeVal, to)
+            } else {
+                console.log("组件的透明度已被调整至：" + comp.alpha)
+            }
+        }
+
+        change0(comp, alphaChangePerFrame, toAlpha)
+
         return true
     }
 
@@ -157,5 +204,3 @@ class GameConsole {
         )
     }
 }
-
-Object.defineProperty(parent, "GameConsole", GameConsole)

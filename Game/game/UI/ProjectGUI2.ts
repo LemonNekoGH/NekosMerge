@@ -155,7 +155,7 @@ class ProjectGUI2 {
             GCMain.variables.分数 += upLevel
 
             // 如果超过了最高分，把最高分设置成当前分数
-            if (GCMain.variables.最高分数 < GCMain.variables.分数) {
+            if (GCMain.variables.最高分数 < GCMain.variables.分数 && !GCMain.variables.分数作废) {
                 GCMain.variables.最高分数 = GCMain.variables.分数
                 GlobalData.store((params) => {
                     console.log("存档成功？ " + params)

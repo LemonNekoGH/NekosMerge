@@ -106,4 +106,16 @@ module CommandExecute {
     export function customCommand_8(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, params: CustomCommandParams_8): void {
         GameConsole.restartGame()
     }
+
+    /**
+     * 使指定界面组件发生透明度变化
+     */
+    export function customCommand_9(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, params: CustomCommandParams_9): void {
+        GameConsole.changeOpacity(
+            params.选择组件,
+            params.组件名称,
+            params.透明度调整至,
+            params.变化时长
+        )
+    }
 }

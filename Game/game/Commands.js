@@ -78,5 +78,9 @@ var CommandExecute;
         GameConsole.restartGame();
     }
     CommandExecute.customCommand_8 = customCommand_8;
+    function customCommand_9(commandPage, cmd, trigger, player, playerInput, params) {
+        GameConsole.changeOpacity(params.选择组件, params.组件名称, params.透明度调整至, params.变化时长);
+    }
+    CommandExecute.customCommand_9 = customCommand_9;
 })(CommandExecute || (CommandExecute = {}));
 //# sourceMappingURL=Commands.js.map

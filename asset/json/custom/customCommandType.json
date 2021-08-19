@@ -227,7 +227,7 @@
                     "blockCondition": [],
                     "blockHeight": 300,
                     "autoOrder": true,
-                    "cmdColor": "#FFFFFF"
+                    "cmdColor": "#fc7299"
                 }
             ],
             "isCustomPhraseDesc": false

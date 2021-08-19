@@ -3,6 +3,12 @@
     "startupPreloadFonts": true,
     "FONTS": [
         {
+            "name": "Menlo-Regular",
+            "path": "asset/font/Menlo-Regular.ttf",
+            "fonttype": "ttf",
+            "size": 0
+        },
+        {
             "name": "幼圆",
             "path": "asset/font/幼圆.TTF",
             "fonttype": "TTF",
@@ -108,6 +114,6 @@
         },
         "customAttribute": {}
     },
-    "DEFAULT_FONT": "SIMYOU",
+    "DEFAULT_FONT": "幼圆",
     "gameSID": "0.03912418679636476-1599608422101"
 }

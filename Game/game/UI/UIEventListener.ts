@@ -6,6 +6,9 @@ EventUtils.addEventListenerFunction(UIBase, UIBase.EVENT_COMPONENT_CONSTRUCTOR_I
 
 function executeCommand(indexType: number): (component: UIBase) => void {
     return (component: UIBase) => {
+        if (GameUI.get(7) && component instanceof UIButton) {
+            return
+        }
         GameCommand.startUICommand(component, indexType, null, null)
     }
 }

@@ -34,6 +34,9 @@ class GUI_2 extends GUI_BASE {
    最高分数标签:UIString;
    设置按钮:UIButton;
    分数作废提示:UIString;
+   重开按钮:UIButton;
+   终端按钮:UIButton;
+   作弊标题:UIString;
    constructor(){
       super(2);
    }
@@ -46,6 +49,7 @@ class ListItem_2 extends UIListItemData {
    分数标签:string;
    最高分数标签:string;
    分数作废提示:string;
+   作弊标题:string;
 }
 
 /**
@@ -130,6 +134,33 @@ class ListItem_6 extends UIListItemData {
    对话框遮罩:string;
    对话框背景图片:string;
    退出提示:string;
+}
+
+/**
+ * 7-指令界面 [BASE]
+ */
+class GUI_7 extends GUI_BASE {
+   对话框遮罩:UIBitmap;
+   输入框背景图片:UIBitmap;
+   指令输入:UIInput;
+   输入提示:UIString;
+   输出框背景图片:UIBitmap;
+   输出框容器:UIRoot;
+   文本:UIString;
+   返回按钮:UIButton;
+   执行按钮:UIButton;
+   constructor(){
+      super(7);
+   }
+}
+class ListItem_7 extends UIListItemData {
+   对话框遮罩:string;
+   输入框背景图片:string;
+   指令输入:string;
+   输入提示:string;
+   输出框背景图片:string;
+   文本:string;
+
 }
 
 /**

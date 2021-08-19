@@ -358,5 +358,6 @@
         ]
     },
     "id": 3,
-    "hasRootCommand": []
+    "hasRootCommand": [],
+    "instanceClassName": ""
 }

@@ -1,0 +1,341 @@
+{
+    "root": {
+        "children": [
+            {
+                "id": "71728712056_0.7288028058254157",
+                "condition": [],
+                "type": "UIBitmap",
+                "name": "对话框遮罩",
+                "x": 0,
+                "y": 0,
+                "width": 1184,
+                "height": 704,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "image": "asset/image/picture/control/控制台遮罩.png",
+                "grid9": "0,0,0,0,0",
+                "flip": null,
+                "pivotType": 0
+            },
+            {
+                "id": "71729484783_0.6833026333106373",
+                "condition": [],
+                "type": "UIBitmap",
+                "name": "输入框背景图片",
+                "x": 20,
+                "y": 624,
+                "width": 964,
+                "height": 60,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "image": "asset/image/picture/control/控制台遮罩.png",
+                "grid9": "10,10,20,10,0",
+                "flip": null,
+                "pivotType": 0,
+                "children": [
+                    {
+                        "id": "71728742370_0.5831890101020043",
+                        "condition": [],
+                        "type": "UIInput",
+                        "name": "指令输入",
+                        "x": 60,
+                        "y": 14,
+                        "width": 884,
+                        "height": 25,
+                        "opacity": 1,
+                        "rotation": 0,
+                        "show": true,
+                        "mouseEventEnabledData": true,
+                        "materialData": [
+                            {
+                                "materials": []
+                            }
+                        ],
+                        "mouseEventEnabledInEditor": true,
+                        "showOnEditor": true,
+                        "hasCommand": [],
+                        "isOpen": true,
+                        "text": "",
+                        "fontSize": 20,
+                        "color": "#f5caa7",
+                        "bold": false,
+                        "italic": false,
+                        "align": 0,
+                        "leading": 0,
+                        "font": "Menlo-Regular",
+                        "wordWrap": true,
+                        "restrict": "",
+                        "inputMode": 0,
+                        "maxChars": 99999,
+                        "shadowEnabled": false,
+                        "shadowColor": "#000000",
+                        "shadowDx": 1,
+                        "shadowDy": 1,
+                        "onInputFragEvent": null,
+                        "onEnterFragEvent": null
+                    },
+                    {
+                        "id": "71787371145_0.873272962777782",
+                        "condition": [],
+                        "type": "UIString",
+                        "name": "输入提示",
+                        "x": 20,
+                        "y": 19,
+                        "width": 50,
+                        "height": 30,
+                        "opacity": 1,
+                        "rotation": 0,
+                        "show": true,
+                        "mouseEventEnabledData": false,
+                        "materialData": [
+                            {
+                                "materials": []
+                            }
+                        ],
+                        "mouseEventEnabledInEditor": true,
+                        "showOnEditor": true,
+                        "hasCommand": [],
+                        "isOpen": true,
+                        "text": ">_",
+                        "fontSize": 20,
+                        "color": "#f5caa7",
+                        "bold": false,
+                        "italic": false,
+                        "align": 0,
+                        "valign": 0,
+                        "leading": 0,
+                        "letterSpacing": 0,
+                        "font": "Menlo-Regular",
+                        "wordWrap": true,
+                        "overflow": 0,
+                        "shadowColor": "#000000",
+                        "shadowDx": 1,
+                        "shadowDy": 1,
+                        "stroke": 0,
+                        "strokeColor": "#000000"
+                    }
+                ]
+            },
+            {
+                "id": "71729552397_0.30492833551006493",
+                "condition": [],
+                "type": "UIBitmap",
+                "name": "输出框背景图片",
+                "x": 20,
+                "y": 20,
+                "width": 1144,
+                "height": 584,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "image": "asset/image/picture/control/控制台遮罩.png",
+                "grid9": "10,10,20,10,0",
+                "flip": null,
+                "pivotType": 0,
+                "children": [
+                    {
+                        "id": "71805727971_0.14706780194198843",
+                        "condition": [],
+                        "type": "UIRoot",
+                        "name": "输出框容器",
+                        "x": 20,
+                        "y": 20,
+                        "width": 1104,
+                        "height": 534,
+                        "opacity": 1,
+                        "rotation": 0,
+                        "show": true,
+                        "mouseEventEnabledData": true,
+                        "materialData": [
+                            {
+                                "materials": []
+                            }
+                        ],
+                        "mouseEventEnabledInEditor": true,
+                        "showOnEditor": true,
+                        "hasCommand": [],
+                        "isOpen": true,
+                        "enabledLimitView": true,
+                        "scrollShowType": 2,
+                        "hScrollBar": "asset/image/picture/control/控制台遮罩.png",
+                        "hScrollBg": "asset/image/picture/control/控制台遮罩.png",
+                        "vScrollBar": "asset/image/picture/control/控制台遮罩.png",
+                        "vScrollBg": "asset/image/picture/control/控制台遮罩.png",
+                        "scrollWidth": 10,
+                        "slowmotionType": 0,
+                        "enabledWheel": true,
+                        "hScrollValue": 0,
+                        "vScrollValue": 0,
+                        "children": [
+                            {
+                                "id": "71788869810_0.05323528670634303",
+                                "condition": [],
+                                "type": "UIString",
+                                "name": "文本",
+                                "x": 0,
+                                "y": 0,
+                                "width": 1104,
+                                "height": 823,
+                                "opacity": 1,
+                                "rotation": 0,
+                                "show": true,
+                                "mouseEventEnabledData": false,
+                                "materialData": [
+                                    {
+                                        "materials": []
+                                    }
+                                ],
+                                "mouseEventEnabledInEditor": true,
+                                "showOnEditor": true,
+                                "hasCommand": [],
+                                "isOpen": true,
+                                "text": "$1",
+                                "fontSize": 16,
+                                "color": "#f5caa7",
+                                "bold": false,
+                                "italic": false,
+                                "align": 0,
+                                "valign": 2,
+                                "leading": 5,
+                                "letterSpacing": 0,
+                                "font": "Menlo-Regular",
+                                "wordWrap": true,
+                                "overflow": 0,
+                                "shadowColor": "#000000",
+                                "shadowDx": 1,
+                                "shadowDy": 1,
+                                "stroke": 0,
+                                "strokeColor": "#000000"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "71729737605_0.2741038164326348",
+                "condition": [],
+                "type": "UIButton",
+                "name": "返回按钮",
+                "x": 1094,
+                "y": 624,
+                "width": 70,
+                "height": 60,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "label": "返回",
+                "image1": "asset/image/picture/control/控制台遮罩.png",
+                "grid9img1": "5,5,5,5,0",
+                "image2": "asset/image/picture/control/控制台遮罩.png",
+                "grid9img2": "5,5,5,5,0",
+                "image3": "asset/image/picture/control/对话框遮罩.png",
+                "grid9img3": "10,5,5,5,0",
+                "fontSize": 16,
+                "color": "#f5caa7",
+                "overColor": "#f5caa7",
+                "clickColor": "#f5caa7",
+                "bold": true,
+                "italic": false,
+                "smooth": true,
+                "align": 1,
+                "valign": 1,
+                "letterSpacing": 0,
+                "font": "幼圆",
+                "textDx": 0,
+                "textDy": -5,
+                "textStroke": 0,
+                "textStrokeColor": "#ffffff"
+            },
+            {
+                "id": "71783022170_0.9114966502393482",
+                "condition": [],
+                "type": "UIButton",
+                "name": "执行按钮",
+                "x": 1006,
+                "y": 624,
+                "width": 70,
+                "height": 60,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "label": "执行",
+                "image1": "asset/image/picture/control/控制台遮罩.png",
+                "grid9img1": "5,5,5,5,0",
+                "image2": "asset/image/picture/control/控制台遮罩.png",
+                "grid9img2": "5,5,5,5,0",
+                "image3": "asset/image/picture/control/对话框遮罩.png",
+                "grid9img3": "10,5,5,5,0",
+                "fontSize": 16,
+                "color": "#f5caa7",
+                "overColor": "#f5caa7",
+                "clickColor": "#f5caa7",
+                "bold": true,
+                "italic": false,
+                "smooth": true,
+                "align": 1,
+                "valign": 1,
+                "letterSpacing": 0,
+                "font": "幼圆",
+                "textDx": 0,
+                "textDy": -5,
+                "textStroke": 0,
+                "textStrokeColor": "#ffffff"
+            }
+        ]
+    },
+    "id": 7,
+    "hasRootCommand": [],
+    "instanceClassName": "GameConsoleGUI"
+}

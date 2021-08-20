@@ -214,10 +214,22 @@ class GameConsole {
     static log(msg: string) {
         GCMain.variables.控制台文本 += "\n" + "[" + GameConsole.getTimeNow(false) + "] " + msg 
         console.log("[" + GameConsole.getTimeNow(false) + "] " + msg)
+        // 获取控制台文本行数，然后更改文本高度
+        const lines = GameConsoleGUI.outputLinesCount()
+        const height = lines * 25
+
+        const uiText = (GameUI.get(7) as GUI_7).输出文本
+        const uiTextContainer = (GameUI.get(7) as GUI_7).输出框容器
+        // 不能小于 600 ，不然滚动条消失之后会报错
+        if (height < 600) {
+            uiText.height = 600
+        } else {
+            uiText.height = height
+        }
+        // 设置滚动条的占比
+        (GameUI.get(7) as GUI_7).输出框容器.refresh()
         // 把滚动条移动到最底
-        const ui = (GameUI.get(7) as GUI_7).输出框容器
-        const scrollBar = ui.getChildAt(1)
-        scrollBar.slider.value = 100
+        GameConsoleGUI.scrollDown()
     }
 
     /**

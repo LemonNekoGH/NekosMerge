@@ -12,6 +12,27 @@ class GameConsoleGUI extends GUI_7 {
         this.返回按钮.on(EventObject.CLICK, this, this.dispose)
         this.指令输入.on(EventObject.ENTER, this, this.executeCmd)
         this.指令输入.on(EventObject.KEY_UP, this, this.onInputKeyUp)
+        // 将滚动条移到最底
+        const scrollbar: any = this.输出框容器.getChildAt(1)
+        const textHeight = GameConsoleGUI.outputLinesCount() * 25
+        this.输出文本.height = textHeight > 600 ? textHeight : 600
+        this.输出框容器.refresh()      
+        Callback.New((s) => s.slider.value = 100,this).delayRun(100, null, [scrollbar])
+    }
+
+    /**
+     * 将滚动条拉到最底
+     */
+    static scrollDown() {
+        const scrollbar: any = (GameUI.get(7) as GUI_7).输出框容器.getChildAt(1)
+        scrollbar.slider.value = 100
+    }
+
+    /**
+     * 获取控制台输出框总行数
+     */
+    static outputLinesCount(): number {
+        return GCMain.variables.控制台文本.split('\n').length
     }
 
     /**
@@ -29,7 +50,7 @@ class GameConsoleGUI extends GUI_7 {
         GameConsoleGUI.cmdPtr = undefined
 
         if (this.指令输入.text === "+1s") {
-            GameConsole.log("不要老是想搞个大新闻")
+            GameConsole.log("不要老想搞个大新闻")
             this.指令输入.text = ""
             return
         } else if (!GameConsole[funName]) {

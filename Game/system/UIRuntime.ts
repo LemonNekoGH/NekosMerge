@@ -146,7 +146,7 @@ class GUI_7 extends GUI_BASE {
    输入提示:UIString;
    输出框背景图片:UIBitmap;
    输出框容器:UIRoot;
-   文本:UIString;
+   输出文本:UIString;
    返回按钮:UIButton;
    执行按钮:UIButton;
    constructor(){
@@ -159,7 +159,7 @@ class ListItem_7 extends UIListItemData {
    指令输入:string;
    输入提示:string;
    输出框背景图片:string;
-   文本:string;
+   输出文本:string;
 
 }
 

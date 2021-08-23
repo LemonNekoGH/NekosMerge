@@ -30,7 +30,7 @@ class GameConsole {
      * 可在指定位置生成一只指定等级的猫咪
      * @return boolean 返回是否执行成功
      */
-    static newNeko(x: number, y: number, level: number): boolean {
+    static newNeko(x: number, y: number, level: number, disableScore: boolean = true): boolean {
         if (!GCMain.guis.游戏中) {
             GameConsole.log("请在\"游戏中\"界面调用此命令")
             return false
@@ -40,7 +40,7 @@ class GameConsole {
         GCMain.guis.游戏中.addChild(neko)
         GameConsole.log(`在 (${x}, ${y}) 位置生成了一只 ${level} 级别的猫咪`)
 
-        GCMain.variables.分数作废 = true
+        GCMain.variables.分数作废 = disableScore
         return true
     }
 
@@ -48,12 +48,12 @@ class GameConsole {
      * 游戏中可使用的指令
      * 随机生成等级 5 以下的猫咪
      */
-    static randNeko(): boolean {
+    static randNeko(disableScore: boolean = true): boolean {
         const dx = (WorldData.猫咪容器右上角x值 - WorldData.猫咪容器左上角x值) / 2
         const x = MathUtils.rand(dx) + WorldData.猫咪容器左上角x值
         const y = WorldData.新猫咪初始位置
         const level = MathUtils.rand(5) + 1
-        return GameConsole.newNeko(x, y, level)
+        return GameConsole.newNeko(x, y, level, disableScore)
     }
 
     /**
@@ -217,8 +217,12 @@ class GameConsole {
         // 获取控制台文本行数，然后更改文本高度
         const lines = GameConsoleGUI.outputLinesCount()
         const height = lines * 25
-
-        const uiText = (GameUI.get(7) as GUI_7).输出文本
+        // 获取控制台界面，如果已经关闭就不进行处理
+        const gui7 = GameUI.get(7) as GUI_7
+        if (!gui7) {
+            return
+        }
+        const uiText = gui7.输出文本
         const uiTextContainer = (GameUI.get(7) as GUI_7).输出框容器
         // 不能小于 600 ，不然滚动条消失之后会报错
         if (height < 600) {

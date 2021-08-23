@@ -10,7 +10,8 @@
             "暂停或继续游戏",
             "保存全局数据",
             "重新开始游戏",
-            "让指定组件产生透明度变化"
+            "让指定组件产生透明度变化",
+            "显示确认对话框"
         ],
         "2": [
             null,
@@ -21,14 +22,14 @@
         ],
         "16": [
             null,
-            ""
+            "记录排行榜积分"
         ]
     },
     "type": {
         "1": "游戏系统",
         "2": "",
         "3": "",
-        "16": ""
+        "16": "排行榜插件"
     },
     "data": {
         "1": {
@@ -430,6 +431,207 @@
             ],
             "compAutoOrder": true
         },
+        "10": {
+            "compAutoOrderLimitHeight": 0,
+            "id": 10,
+            "blockList": [
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [
+                        {
+                            "attr": {
+                                "id": "72144106337_0.2548647922588625",
+                                "varName": "提示信息",
+                                "varType": 1,
+                                "compData": {
+                                    "compType": 9,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "提示",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "",
+                                "alias": "",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": true,
+                                "titleWidth": 100,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 0,
+                            "x": 0,
+                            "width": 200,
+                            "height": 32
+                        },
+                        {
+                            "attr": {
+                                "id": "72144134123_0.7464866727957078",
+                                "varName": "确认按钮文本",
+                                "varType": 1,
+                                "compData": {
+                                    "compType": 9,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "确认",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "",
+                                "alias": "",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": true,
+                                "titleWidth": 100,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 0,
+                            "x": 0,
+                            "width": 200,
+                            "height": 32
+                        },
+                        {
+                            "attr": {
+                                "id": "72144149497_0.32767542347920586",
+                                "varName": "取消按钮文本",
+                                "varType": 1,
+                                "compData": {
+                                    "compType": 9,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "取消",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "",
+                                "alias": "",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": true,
+                                "titleWidth": 100,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 0,
+                            "x": 0,
+                            "width": 200,
+                            "height": 32
+                        },
+                        {
+                            "attr": {
+                                "id": "72144225148_0.21134315192769737",
+                                "varName": "当确认时执行",
+                                "varType": 1,
+                                "compData": {
+                                    "compType": 35,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "",
+                                "alias": "",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": true,
+                                "titleWidth": 100,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 0,
+                            "x": 0,
+                            "width": 200,
+                            "height": 32
+                        },
+                        {
+                            "attr": {
+                                "id": "72144274507_0.43688524243697224",
+                                "varName": "当取消时执行",
+                                "varType": 1,
+                                "compData": {
+                                    "compType": 35,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "",
+                                "alias": "",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": true,
+                                "titleWidth": 100,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 0,
+                            "x": 0,
+                            "width": 200,
+                            "height": 32
+                        }
+                    ],
+                    "blockCondition": [],
+                    "blockHeight": 300,
+                    "autoOrder": true,
+                    "cmdColor": "#FFFFFF"
+                }
+            ],
+            "compAutoOrder": true
+        },
         "1001": {
             "compAutoOrderLimitHeight": 0,
             "id": 1001,
@@ -449,12 +651,216 @@
             "blockList": [
                 {
                     "name": "未命名块",
-                    "blockAttrs": [],
+                    "blockAttrs": [
+                        {
+                            "attr": {
+                                "id": "63024893809_0.6498129445165328",
+                                "varName": "nickname",
+                                "varType": 0,
+                                "compData": {
+                                    "compType": 8,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "1",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "如可以使用「等待玩家输入文本」指令来让玩家输入名称储存至指定的字符串中。",
+                                "alias": "记录昵称的字符串",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": false,
+                                "titleWidth": 120,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 50,
+                            "x": 5,
+                            "width": 350,
+                            "height": 32
+                        },
+                        {
+                            "attr": {
+                                "id": "63024913191_0.06541621937075237",
+                                "varName": "score",
+                                "varType": 0,
+                                "compData": {
+                                    "compType": 6,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "1",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "根据指定数值变量当前的值作为分数进行计算排名。",
+                                "alias": "记录积分的数值",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": false,
+                                "titleWidth": 120,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 90,
+                            "x": 5,
+                            "width": 350,
+                            "height": 32
+                        },
+                        {
+                            "attr": {
+                                "id": "63024979392_0.2556203564549029",
+                                "varName": "type",
+                                "varType": 0,
+                                "compData": {
+                                    "compType": 2,
+                                    "compParam": {
+                                        "items": "分类1,分类2,分类3,分类4,分类5,分类6,分类7,分类8,分类9,分类10",
+                                        "showIndex": false
+                                    }
+                                },
+                                "defaultValue": "",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "如对应标签分类的项",
+                                "alias": "分类",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": false,
+                                "titleWidth": 120,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 10,
+                            "x": 5,
+                            "width": 246,
+                            "height": 32
+                        }
+                    ],
                     "blockCondition": [],
-                    "blockHeight": 300,
-                    "autoOrder": true
+                    "blockHeight": 138,
+                    "autoOrder": true,
+                    "hideBlockTitle": true,
+                    "cmdColor": "#00ff1e"
+                },
+                {
+                    "name": "未命名块",
+                    "blockAttrs": [
+                        {
+                            "attr": {
+                                "id": "63048591187_0.3451591176667683",
+                                "varName": "Legend",
+                                "varType": 1,
+                                "compData": {
+                                    "compType": 33,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "",
+                                "alias": "说明",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": true,
+                                "titleWidth": 100,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 14,
+                            "x": 12,
+                            "width": 637,
+                            "height": 76
+                        },
+                        {
+                            "attr": {
+                                "id": "63048609171_0.3462191360081843",
+                                "varName": "thisTips",
+                                "varType": 1,
+                                "compData": {
+                                    "compType": 32,
+                                    "compParam": {}
+                                },
+                                "defaultValue": "",
+                                "hideMode": false,
+                                "useCommand": false,
+                                "onlyPointTo": false,
+                                "moduleID": 1,
+                                "dataStructureID": 1,
+                                "arrayMode": false,
+                                "arrayLength": 100,
+                                "arrayAllowDelete": false,
+                                "arrayAllowSwap": false,
+                                "arrayAllowUpdate": false,
+                                "accessMode": 1,
+                                "syncMode": 0,
+                                "attrTips": "",
+                                "alias": "发布在GC云平台时则使用正式版排行数据，否则仅供本地测试（可通过清空测试存档清空排行数据）",
+                                "onlyConfig": false,
+                                "preview": false,
+                                "autoTitleWidth": true,
+                                "titleWidth": 100,
+                                "eyeShow": true,
+                                "lockBlock": false
+                            },
+                            "attrConditions": [],
+                            "y": 50,
+                            "x": 25,
+                            "width": 608,
+                            "height": 28
+                        }
+                    ],
+                    "blockCondition": [],
+                    "blockHeight": 114,
+                    "autoOrder": true,
+                    "hideBlockTitle": true
                 }
-            ]
+            ],
+            "isCustomPhraseDesc": true,
+            "customPhraseDescTS": "// 根据属性名称值编写自定义短语描述，如：\"我的短语是\"+attrs.xxx\n// 使用下拉框组件的变量attrs.xxx有对应的attrs.xxxItems的属性以便获得标签名集合\n// 获取自定义模块的数据名称的函数：getModuleDataName(moduleID:number,dataID:number):string;\n// 获取各种列表内数据名称的函数：getTypeDataListName(typeID: number, dataID: number):string;\n// -- typeID ：0-全局变量 1-全局开关 2-全局字符串 3-玩家变量 4-玩家开关 5-玩家字符串\n//           ：6-场景列表 7-场景对象模型列表 8-图块列表 9-行走图列表 10-行走图动作列表 11-立绘列表 12-立绘表情列表\n//           ：13-公共事件 14-对话框列表 15-动画列表 16-动画信号列表 17-界面列表 18-数据结构列表 19-自定义模块列表\n//           ：20-自定义命令列表 21-自定义行为列表 22-自动元件列表 23-行走图部件列表 24-立绘部件列表 25-材质列表\nvar str = attrs.typeItems[attrs.type];\nstr += `「${attrs.nickname}-${getTypeDataListName(5, attrs.nickname)}」`;\nstr += `「${attrs.score}-${getTypeDataListName(3, attrs.score)}」`;",
+            "customPhraseDescJS": "var str = attrs.typeItems[attrs.type];\nstr += \"\\u300C\" + attrs.nickname + \"-\" + getTypeDataListName(5, attrs.nickname) + \"\\u300D\";\nstr += \"\\u300C\" + attrs.score + \"-\" + getTypeDataListName(3, attrs.score) + \"\\u300D\";\n",
+            "name": "记录排行榜积分"
         }
     }
 }

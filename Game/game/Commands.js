@@ -82,5 +82,23 @@ var CommandExecute;
         GameConsole.changeOpacity(params.选择组件, params.组件名称, params.透明度调整至, params.变化时长);
     }
     CommandExecute.customCommand_9 = customCommand_9;
+    function customCommand_10(commandPage, cmd, trigger, player, playerInput, params) {
+        var gui9 = GameUI.get(9);
+        if (gui9) {
+            return;
+        }
+        GameUI.show(9);
+        gui9 = GameUI.get(9);
+        gui9.对话框文本.text = params.提示信息;
+        gui9.确定按钮.label = params.确认按钮文本;
+        gui9.取消按钮.label = params.取消按钮文本;
+        gui9.确定按钮.on(EventObject.CLICK, this, function (eventSegment) {
+            CommandPage.startTriggerFragmentEvent(eventSegment, Game.player.sceneObject, Game.player.sceneObject);
+        }, [params.当确认时执行]);
+        gui9.取消按钮.on(EventObject.CLICK, this, function (eventSegment) {
+            CommandPage.startTriggerFragmentEvent(eventSegment, Game.player.sceneObject, Game.player.sceneObject);
+        }, [params.当取消时执行]);
+    }
+    CommandExecute.customCommand_10 = customCommand_10;
 })(CommandExecute || (CommandExecute = {}));
 //# sourceMappingURL=Commands.js.map

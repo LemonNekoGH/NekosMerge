@@ -175,6 +175,9 @@ class ProjectGUI2 {
             GameUI.show(6)
             GCMain.variables.游戏暂停 = true
             Game.pause = true
+            // 如果没有名称，或者检测到作弊，不更新排行榜
+            if (GCMain.variables.玩家名称 === "" || GCMain.variables.分数作废) return
+            CommandExecute.doRecord(GCMain.variables.玩家名称, GCMain.variables.分数, 0)
         }
 
         /**

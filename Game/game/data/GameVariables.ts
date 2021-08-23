@@ -78,4 +78,12 @@ class GameVariables {
     set 控制台文本(text: string) {
         this.setString(1, text)
     }
+
+    get 玩家名称(): string {
+        return this.getString(2)
+    }
+
+    set 玩家名称(text: string) {
+        this.setString(2, text)
+    }
 }

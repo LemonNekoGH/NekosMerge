@@ -118,4 +118,29 @@ module CommandExecute {
             params.变化时长
         )
     }
+
+    /**
+     * 显示一个确认对话框
+     */
+    export function customCommand_10(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, params: CustomCommandParams_10): void {
+        let gui9 = GameUI.get(9) as GUI_9
+        // 如果界面正在显示，不进行任何操作
+        if (gui9) {
+            return
+        }
+        // 如果没有在显示，进行显示
+        GameUI.show(9)
+        gui9 = GameUI.get(9) as GUI_9
+        // 设置文本
+        gui9.对话框文本.text = params.提示信息
+        gui9.确定按钮.label = params.确认按钮文本
+        gui9.取消按钮.label = params.取消按钮文本
+        // 设置事件
+        gui9.确定按钮.on(EventObject.CLICK, this, (eventSegment) => {
+            CommandPage.startTriggerFragmentEvent(eventSegment, Game.player.sceneObject, Game.player.sceneObject)
+        }, [params.当确认时执行])
+        gui9.取消按钮.on(EventObject.CLICK, this, (eventSegment) => {
+            CommandPage.startTriggerFragmentEvent(eventSegment, Game.player.sceneObject, Game.player.sceneObject)
+        }, [params.当取消时执行])
+    }
 }

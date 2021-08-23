@@ -1,1 +1,46 @@
-[]
+[
+    {
+        "allPlugUseData": [
+            null,
+            null,
+            null,
+            [
+                15001,
+                15002
+            ],
+            null,
+            null,
+            null,
+            null,
+            [],
+            [],
+            [],
+            [],
+            [
+                15001
+            ],
+            [],
+            null,
+            null,
+            [],
+            [
+                {
+                    "filePath": "Game/GCplug/201/GUI_GCUserRanking.ts",
+                    "isServer": false
+                },
+                {
+                    "filePath": "Game/GCplug/201/GC_OpenAPI_Ranking.ts",
+                    "isServer": false
+                }
+            ],
+            null,
+            null,
+            [],
+            []
+        ],
+        "id": 201,
+        "name": "GC云排行榜",
+        "lastUpdateTime": 1620656716,
+        "author": "黑暗之神KDS"
+    }
+]

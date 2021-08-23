@@ -1,9 +1,9 @@
 {
     "picUrls": [
-        "asset/image/avatar/NekoHead1.png"
+        "editorAsset/img/empty.png"
     ],
-    "oriMode": 1,
-    "autoFlip": false,
+    "oriMode": 4,
+    "autoFlip": true,
     "refObjs": {},
     "parts": [
         {
@@ -15,34 +15,7 @@
     "actionListArr": [
         {
             "id": 1,
-            "frameImageInfo": [
-                [
-                    {
-                        "picUrlIndex": 0,
-                        "rect": [
-                            0,
-                            0,
-                            128,
-                            128
-                        ],
-                        "x": -64,
-                        "y": -128,
-                        "width": 128,
-                        "height": 128,
-                        "rotation": 0,
-                        "alpha": 1,
-                        "hue": 0,
-                        "blur": 0,
-                        "tonal_r": 0,
-                        "tonal_g": 0,
-                        "tonal_b": 0,
-                        "tonal_gray": 0,
-                        "tonal_mr": 1,
-                        "tonal_mg": 1,
-                        "tonal_mb": 1
-                    }
-                ]
-            ]
+            "frameImageInfo": []
         }
     ],
     "id": 1

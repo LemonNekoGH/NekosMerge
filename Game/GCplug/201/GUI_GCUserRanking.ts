@@ -43,7 +43,7 @@ class GUI_GCUserRanking extends GUI_15001 {
             var gameID = GCCloudGameID();
             if (gameID == 0) return;
             var ur = new HttpRequest();
-            var url = `${GCWebOrigin()}/sdk/openAPI.php?act=getUserRankingList&t=0&i=${gameID}&top=${GUI_GCUserRanking.maxDisplayCount}`;
+            var url = `${GCWebOrigin()}/sdk/openAPI.php?act=getUserRankingList&t=1&i=${gameID}&top=${GUI_GCUserRanking.maxDisplayCount}`;
             ur.send(url);
             ur.on(EventObject.COMPLETE, this, (openSID: number, content: string) => {
                 if (this.openSID != openSID) return;
@@ -62,7 +62,6 @@ class GUI_GCUserRanking extends GUI_15001 {
                 this.refreshList();
             }, [this.openSID]);
         } else {
-            console.log(GUI_GCUserRanking.rankingDatabase)
             for (var i = 0; i < GUI_GCUserRanking.rankingDatabase.length; i++) {
                 var rankUserArr = GUI_GCUserRanking.rankingDatabase[i];
                 var type = rankUserArr.type;
@@ -79,6 +78,7 @@ class GUI_GCUserRanking extends GUI_15001 {
      * 刷新显示
      */
     private refreshList() {
+        console.log(this.rankDataList)
         var type = 0;
         this.list.items = [];
         if (type >= 0) {

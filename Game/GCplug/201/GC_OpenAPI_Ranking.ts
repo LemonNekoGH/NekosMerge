@@ -12,7 +12,7 @@ module CommandExecute {
             var gameID = GCCloudGameID();
             if (gameID == 0) return;
             var ur = new HttpRequest();
-            var url = `${GCWebOrigin()}/sdk/openAPI.php?act=createUserRanking&n=${nickname}&s=${score}&t=${type}&g=${gameID}`;
+            var url = `${GCWebOrigin()}/sdk/openAPI.php?act=createUserRanking&n=${nickname}&s=${score}&t=0&g=${gameID}`;
             ur.send(url);
             ur.on(EventObject.COMPLETE, this, (content: string) => { });
         } else {
@@ -35,6 +35,7 @@ module CommandExecute {
         var score = Game.player.variable.getVariable(p.score);
         var nickname = Game.player.variable.getString(p.nickname);
         var type = p.type
+        console.log(type)
         doRecord(nickname, score, type)
     }
 

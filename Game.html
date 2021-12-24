@@ -40,36 +40,98 @@
 		}
 	},true);
 	// debugEnd
-    window.onerror = function(errorMessage, scriptURI, lineNumber,columnNumber,errorObj){
-		if(parent.catchError){
-		    parent.catchError("kdsrpgConsoleError",errorMessage, scriptURI, lineNumber, columnNumber, errorObj);
-			if(!errorObj.stack)return;
+    window.isReportToGC = null;
+	window.gcUrlParams = null;
+	var paramStr = window.location.href.split("?").pop();
+	if (paramStr.indexOf("gcDebugPort") == 0) {
+		var paramArr = paramStr.split("&");
+		var paramObj = {};
+		for (var i = 0; i < paramArr.length; i++) {
+			var onParamStr = paramArr[i].split("=");
+			var paramName = onParamStr.shift();
+			var paramValue = onParamStr.join("=");
+			paramObj[paramName] = paramValue;
+		}
+		window.isReportToGC = true;
+		window.gcUrlParams = paramObj;
+		var xhr = new XMLHttpRequest();
+		var debugPort = parseInt(window.gcUrlParams["gcDebugPort"]);
+		var url = "http://127.0.0.1:"+debugPort+"/kdsrpg_http_indieapp.js?cmd=1";
+		xhr.open("GET", url, true);
+		xhr.send();
+	}
+	else{
+		window.isReportToGC = false;
+	}
+	var em1 = /.*? \((http|file)\:.*?:\d+:\d+\)/g;
+	var em2 = /^(http|file)\:.*?:\d+:\d+/g;
+	window.onerror = function(errorMessage, scriptURI, lineNumber,columnNumber,errorObj){
+		// check report to gc
+		if(parent.catchError || window.isReportToGC){
+			if(window.isReportToGC)reportToGC_Content("kdsrpgConsoleError",errorMessage, scriptURI, lineNumber, columnNumber, window.gcUrlParams["gcAppID"]);
+		    else if(parent.catchError) parent.catchError("kdsrpgConsoleError",errorMessage, scriptURI, lineNumber, columnNumber, errorObj);
+			if(!errorObj || !errorObj.stack)return;
 			var stackArr = errorObj.stack.split("\n    at ");
 			stackArr.shift();
 			stackArr.shift();
-			stackArr.pop();
+			// stackArr.pop();
 			for(var i in stackArr){
-				//setTimeout(function(i){
-					var stackStr = stackArr[i];
-					var fileNameArr = stackStr.split(" ");
+				var stackStr = stackArr[i];
+				var m =  stackStr.match(em1);
+				if(m){
+					var fileNameArr = m[0].split(" ");
 					var uriIdx = fileNameArr.length-1;
 					var fileNameIdx = fileNameArr.length-2;
 					var fileName = fileNameArr[fileNameIdx];
 					var scriptURI = fileNameArr[uriIdx].split(".js")[0].substr(1) + ".js";
-					var lineNumber = fileNameArr[uriIdx].split(":")[2];
-					var columnNumber = fileNameArr[uriIdx].split(":")[3];
-					parent.catchError("kdsrpgConsoleError","调用堆栈 at "+fileName, scriptURI, lineNumber, columnNumber, errorObj);
-				//},i*50,i)
+					var lineArr = fileNameArr[uriIdx].split(":");
+					var lineNumber = parseInt(lineArr[lineArr.length-2]);
+					var columnNumber = parseInt(lineArr[lineArr.length-1]);
+				}
+				else {
+					m = stackStr.match(em2);
+					if(m){
+						var lineStr = m[0];
+						var scriptURI = lineStr.split(".js")[0] + ".js";
+						var lineArr = lineStr.split(":");
+						var lineNumber = parseInt(lineArr[lineArr.length-2]);
+						var columnNumber = parseInt(lineArr[lineArr.length-1]);
+					}
+					else{
+						continue;
+					}
+				}
+				if(window.isReportToGC)reportToGC_Content("kdsrpgConsoleError","调用堆栈 at "+fileName, scriptURI, lineNumber, columnNumber, window.gcUrlParams["gcAppID"]);
+				else if(parent.catchError) parent.catchError("kdsrpgConsoleError","调用堆栈 at "+fileName, scriptURI, lineNumber, columnNumber, errorObj);
 			}
 		}
     };
+	function reportToGC_Content(mode,errMsg,fullURL,line,column,gcAppID){
+		var xhr = new XMLHttpRequest();
+		var debugPort = parseInt(window.gcUrlParams["gcDebugPort"]);
+		var url = "http://127.0.0.1:"+debugPort+"/kdsrpg_http_indieapp.js?cmd=0&mode="+mode+"&errMsg="+errMsg+"&fullURL="+fullURL+"&line="+line+"&column="+column+"&gcAppID="+gcAppID;
+		xhr.open("GET", url, true);
+		xhr.send();
+	}
 	var _log = console.log;
 		console.log = function(){
 			if(parent!=window){
-			parent.console.log.apply(this,arguments);
+				parent.console.log.apply(this,arguments);
+			}
+			else if(window.isReportToGC){
+				var traceContent = "";
+				for (var i in arguments){
+					traceContent += arguments[i] + " ";
+				}
+				var xhr = new XMLHttpRequest();
+				var debugPort = parseInt(window.gcUrlParams["gcDebugPort"]);
+				var url = "http://127.0.0.1:"+debugPort+"/kdsrpg_http_indieapp.js?cmd=2&gcAppID="+window.gcUrlParams["gcAppID"]+"&traceContent="+encodeURIComponent(traceContent);
+				xhr.open("GET", url, true);
+				xhr.send();
+				reportToGC_Content(this.arguments);
 			}
 			else{
-			_log.apply(this,arguments);
+				_log.apply(this,arguments);
 			}
         };
     var __extends = (this && this.__extends) || function (d, b) {

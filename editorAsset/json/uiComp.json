@@ -2685,6 +2685,22 @@
                 "compParam": {}
             },
             {
+                "compParam": {},
+                "enable": true,
+                "attribute": "prompt",
+                "name": "提示文本内容",
+                "tips": "提示文本内容",
+                "compType": 9
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "promptColor",
+                "name": "提示文本颜色",
+                "tips": "提示文本颜色",
+                "compType": 12
+            },
+            {
                 "enable": true,
                 "attribute": "bold",
                 "name": "粗体",
@@ -2698,6 +2714,14 @@
                 "attribute": "italic",
                 "name": "斜体",
                 "tips": "文本字体是否斜体",
+                "compType": 15
+            },
+            {
+                "compParam": {},
+                "enable": true,
+                "attribute": "smooth",
+                "name": "平滑",
+                "tips": "勾选此项后文本边缘会进行简单的平滑处理",
                 "compType": 15
             },
             {
@@ -3029,14 +3053,6 @@
                 "name": "当确认时处理",
                 "tips": "当Enter键按下时执行的片段事件",
                 "compType": 35
-            },
-            {
-                "compParam": {},
-                "enable": false,
-                "attribute": "smooth",
-                "name": "smooth",
-                "tips": "",
-                "compType": 16
             },
             {
                 "compParam": {},
@@ -4908,18 +4924,18 @@
             {
                 "compParam": {},
                 "enable": true,
-                "attribute": "itemHeight",
-                "name": "单元格高度",
-                "tips": "下拉框单元格高度",
-                "compType": 0
+                "attribute": "listBgColor",
+                "name": "下拉框背景颜色",
+                "tips": "下拉框列表背景颜色",
+                "compType": 12
             },
             {
                 "compParam": {},
                 "enable": true,
-                "attribute": "listBgColor",
-                "name": "滚动条背景颜色",
-                "tips": "下拉框滚动条背景颜色",
-                "compType": 12
+                "attribute": "itemHeight",
+                "name": "单元格高度",
+                "tips": "下拉框单元格高度",
+                "compType": 0
             },
             {
                 "compParam": {
@@ -5182,7 +5198,7 @@
         "class": "UIVideo",
         "icon": "editorAsset/img/UIIcon/c_video.png",
         "name": "视频",
-        "tips": "视频组件\\n移动端不支持",
+        "tips": "视频组件",
         "attributes": [
             {
                 "compParam": {},

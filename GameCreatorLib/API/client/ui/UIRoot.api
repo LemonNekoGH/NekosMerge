@@ -46,6 +46,14 @@ class UIRoot extends UIBase {
      */
     slowmotionType: number = 0;
     /**
+     * 垂直方向滚动值(0~100)
+     */
+    vScrollValue: number;
+    /**
+     * 水平方向滚动值(0~100)
+     */
+    hScrollValue: number;
+    /**
      * 刷新滚动条根据内容区域大小，如果更改了容器内子对象的尺寸
      * 则需要调用此方法重新计算以便刷新滚动条。
      */

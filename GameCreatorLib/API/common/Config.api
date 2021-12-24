@@ -5,6 +5,10 @@
  */
 class Config {
     /**
+     * 创建工程时会生成游戏项目的唯一SID
+     */
+    static gameSID: number;
+    /**
      * 使用F1-F12功能键，关闭此项功能后同时也会禁止浏览器环境下的该按键功能
      * -- F5：重置游戏
      * -- F11：全屏化
@@ -23,6 +27,12 @@ class Config {
      * 以便让游戏或行为编辑器中解决兼容性问题
      */
     static get BEHAVIOR_EDIT_MODE(): boolean {
+        return null;
+    }
+    /**
+     * 游戏发布后的版本，用于区分是否正式版游戏
+     */
+    static get RELEASE_GAME(): boolean {
         return null;
     }
     /**

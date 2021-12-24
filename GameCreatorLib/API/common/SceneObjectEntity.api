@@ -5,6 +5,8 @@
  * -- 对象开关（存档时系统会自动记录所有场景的对象开关，同时可以影响到出现条件）
  * -- 添加对象行为（详情参考:[SceneObjectBehaviors]）
  * -- 携带自定义事件：如RPG模板中可能拥有点击事件、碰触事件多种触发事件
+ * -- 状态页：根据满足出现条件决定出现的哪一页状态
+ * -- 场景对象模块：可安装多个模块，安装后拥有模块的特性
  * Created by 黑暗之神KDS on 2020-02-22 03:47:27.
  */
 class SceneObjectEntity extends SceneObject {
@@ -50,6 +52,26 @@ class SceneObjectEntity extends SceneObject {
      * </code>
      */
     static EVENT_CHANGE_STATUS_PAGE_FOR_INSTANCE: string;
+    /**
+     * 事件：当附加模块时 派发对象=SceneObjectEntity
+     * <code>
+     * // 监听玩家添加模块时事件
+     * EventUtils.addEventListener(SceneObjectEntity, SceneObjectEntity.EVENT_ON_ADD_MODULE, Callback.New((soe:SceneObjectEntity,soModule:SceneObjectModule) => {
+     *       // to do
+     * }, this));
+     * </code>
+     */
+    static EVENT_ON_ADD_MODULE: string;
+    /**
+     * 事件：当移除模块时 派发对象=SceneObjectEntity onRemoveModule(soe:SceneObjectEntity,soModule:SceneObjectModule)
+     * <code>
+     * // 监听玩家移除模块时事件
+     * EventUtils.addEventListener(SceneObjectEntity, SceneObjectEntity.EVENT_ON_REMOVE_MODULE, Callback.New((soe:SceneObjectEntity,soModule:SceneObjectModule) => {
+     *       // to do
+     * }, this));
+     * </code>
+     */
+    static EVENT_ON_REMOVE_MODULE: string;
     /**
      * 是否已释放
      */
@@ -154,6 +176,152 @@ class SceneObjectEntity extends SceneObject {
      * @return 事件触发器
      */
     getCommandTrigger(mainType: number, indexType: number, scene: Scene, executor: SceneObjectEntity): CommandTrigger {
+        return null;
+    }
+    //------------------------------------------------------------------------------------------------------
+    //  模块
+    //------------------------------------------------------------------------------------------------------
+    /**
+     * 添加模块
+     * @param soModule 模块
+     * @return [boolean] 是否添加成功
+     */
+    addModule(soModule: SceneObjectModule, sendEvent: boolean = true): boolean {
+        return false;
+    }
+    /**
+     * 添加模块-到指定的位置上
+     * @param soModule 模块
+     * @param index 指定的位置
+     * @return [boolean] 是否添加成功
+     */
+    addModuleAt(soModule: SceneObjectModule, index: number, sendEvent: boolean = true): boolean {
+        return false;
+    }
+    /**
+     * 添加模块-根据模块编号
+     * -- 模块的属性为默认值
+     * @param moduleID 模块编号
+     * @return [SceneObjectModule] 被添加的模块，如果不成功则返回null
+     */
+    addModuleByID(moduleID: number, sendEvent: boolean = true): SceneObjectModule {
+        return null;
+    }
+    /**
+     * 添加模块-到指定的位置上-根据模块的编号
+     * @param moduleID 模块编号
+     * @param index 指定的位置
+     * @return [SceneObjectModule] 被添加的模块，如果不成功则返回null
+     */
+    addModuleByIDAt(moduleID: number, index: number, sendEvent: boolean = true): SceneObjectModule {
+        return null;
+    }
+    /**
+     * 移除所有模块
+     * @param isDispose [可选] 默认值=true 是否销毁模块
+     */
+    removeAllModules(isDispose: boolean = true, sendEvent: boolean = true): void {
+
+    }
+    /**
+     * 移除指定编号的模块
+     * @param moduleID 模块的编号
+     * @param isDispose [可选] 默认值=true 是否销毁模块
+     * @return [SceneObjectModule] 被移除的模块，如果不成功则返回null
+     */
+    removeModuleByID(moduleID: number, isDispose: boolean = true, sendEvent: boolean = true): SceneObjectModule {
+        return null;
+    }
+    /**
+     * 移除模块-根据其拥有的模块
+     * @param soModule 拥有的模块
+     * @param isDispose [可选] 默认值=true 是否销毁模块
+     * @return [boolean] 是否移除成功
+     */
+    removeModule(soModule: SceneObjectModule, isDispose: boolean = true, sendEvent: boolean = true): boolean {
+        return false;
+    }
+    /**
+     * 移除模块-根据指定的位置
+     * @param index 指定的位置
+     * @param isDispose [可选] 默认值=true 是否销毁
+     * @return [boolean] 是否移除成功
+     */
+    removeModuleAt(index: number, isDispose: boolean = true, sendEvent: boolean = true): boolean {
+        return false;
+    }
+    /**
+     * 设置已拥有的模块到指定位置
+     * @param soModule 拥有的模块
+     * @param toIndex 设置到达指定的位置
+     * @return [boolean] 是否成功
+     */
+    setModuleIndex(soModule: SceneObjectModule, toIndex: number): boolean {
+        return false;
+    }
+    /**
+     * 设置已拥有的模块到指定位置-根据模块编号
+     * @param moduleID 已拥有的模块的编号
+     * @param toIndex 设置到达指定的位置
+     * @return [boolean] 是否成功
+     */
+    setModuleIndexByID(moduleID: number, toIndex: number): boolean {
+        return false;
+    }
+    /**
+     * 调整模块位置
+     * @param fromIndex 模块的原始位置
+     * @param toIndex 模块的新位置
+     * @return [boolean] 是否成功
+     */
+    setModuleIndexByIndex(fromIndex: number, toIndex: number): boolean {
+        return true;
+    }
+    /**
+     * 获取已拥有的模块-根据模块编号
+     * @param moduleID 模块编号
+     * @return [SceneObjectModule] 返回拥有的该模块，如果未拥有则返回null
+     */
+    getModule(moduleID: number): SceneObjectModule {
+        return null;
+    }
+    /**
+     * 获取已拥有的模块-根据模块名称
+     * @param moduleName 模块名称
+     * @return [SceneObjectModule] 返回拥有的该模块，如果未拥有则返回null
+     */
+    getModuleByName(moduleName: string): SceneObjectModule {
+        return null;
+    }
+    /**
+     * 获取已拥有的模块-根据模块位置
+     * @param index 模块位置
+     * @return [SceneObjectModule] 返回拥有的该模块，如果未拥有则返回null
+     */
+    getModuleAt(index: number): SceneObjectModule {
+        return null;
+    }
+    /**
+     * 获取已拥有的模块的位置
+     * @param soModule 模块
+     * @return [number] 已拥有的该模块的位置，如果未拥有则返回-1
+     */
+    getModuleIndex(soModule: SceneObjectModule): number {
+        return null;
+    }
+    /**
+     * 获取已拥有的模块位置-根据模块的编号
+     * @param moduleID 模块编号
+     * @return [number] 已拥有的该模块的位置，如果未拥有则返回-1
+     */
+    getModuleIndexByID(moduleID: number): number {
+        return null;
+    }
+    /**
+     * 获取所有模块的数目
+     * @return [number] 模块的数目
+     */
+    get moduleLength(): number {
         return null;
     }
 }

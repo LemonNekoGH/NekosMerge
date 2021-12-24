@@ -54,9 +54,9 @@ class FileUtils {
      * -- PC版本删除本地文件
      * -- WEB版本清理对应的LocalStorage
      * @param localURL 文件相对地址 ，如asset/xxx.json
-     * @param onFin 是否删除成功 onFin(success:boolean)
+     * @param onFin [可选] 默认值=null  是否删除成功 onFin(success:boolean)
      */
-    static deleteFile(localURL: string, onFin: Callback): void {
+    static deleteFile(localURL: string, onFin: Callback = null): void {
 
     }
     /**

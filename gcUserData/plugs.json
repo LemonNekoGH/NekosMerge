@@ -42,5 +42,49 @@
         "name": "GC云排行榜",
         "lastUpdateTime": 1620656716,
         "author": "黑暗之神KDS"
+    },
+    {
+        "allPlugUseData": [
+            null,
+            null,
+            null,
+            [
+                11
+            ],
+            null,
+            null,
+            null,
+            [
+                "asset/image/picture/control/uibitmap.png",
+                "asset/image/picture/control/btn_normal.png",
+                "asset/image/picture/control/btn_over.png",
+                "asset/image/picture/control/btn_click.png"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
+                11
+            ],
+            [],
+            null,
+            null,
+            [],
+            [
+                {
+                    "filePath": "Game/GCplug/283/MessageBoxCommand.ts",
+                    "isServer": false
+                }
+            ],
+            null,
+            null,
+            [],
+            []
+        ],
+        "id": 283,
+        "name": "提示框和对话框插件",
+        "lastUpdateTime": 1629880553,
+        "author": "LemonNekoGC"
     }
 ]

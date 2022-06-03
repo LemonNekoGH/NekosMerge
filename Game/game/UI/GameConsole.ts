@@ -163,7 +163,7 @@ class GameConsole {
         }
         colidDetector.clearAll()
         GCMain.variables.分数 = 0
-        GameUI.get(2).event(ProjectGUI2.EVENT_GAME_RESTART)
+        GameUI.get(2).event(GamingPageGUI.EVENT_GAME_RESTART)
         GameConsole.log("重新开始了游戏")
 
         GCMain.variables.分数作废 = false

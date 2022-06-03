@@ -1,8 +1,9 @@
 var CommandExecute;
 (function (CommandExecute) {
-    var started = false;
+    CommandExecute.started = false;
     function newNeko() {
         if (Game.pause) {
+            console.log('游戏暂停中，稍后添加新的猫咪');
             setTimeout(newNeko, 1500);
             return;
         }
@@ -26,27 +27,36 @@ var CommandExecute;
         GCMain.variables.等待下一个猫咪出现 = 0;
     }
     CommandExecute.newNeko = newNeko;
-    function customCommand_1(commandPage, cmd, trigger, player, playerInput, p) {
-        if (started)
+    function enterGame() {
+        if (CommandExecute.started)
             return;
         GameUI.dispose(1);
         GameUI.show(2);
         GCMain.variables.分数 = 0;
-        new ProjectGUI2((GameUI.get(2)));
+        GCMain.variables.分数作废 = false;
         colidDetector = new ColidDetector();
-        started = true;
+        newNeko();
+        CommandExecute.started = true;
+    }
+    CommandExecute.enterGame = enterGame;
+    function customCommand_1(commandPage, cmd, trigger, player, playerInput, p) {
+        enterGame();
     }
     CommandExecute.customCommand_1 = customCommand_1;
     function customCommand_2(commandPage, cmd, trigger, player, playerInput, p) {
         newNeko();
     }
     CommandExecute.customCommand_2 = customCommand_2;
-    function customCommand_3(commandPage, cmd, trigger, player, playerInput, p) {
-        if (!started)
+    function exitGame() {
+        if (!CommandExecute.started)
             return;
         GameUI.dispose(2);
         GameUI.show(1);
-        started = false;
+        CommandExecute.started = false;
+    }
+    CommandExecute.exitGame = exitGame;
+    function customCommand_3(commandPage, cmd, trigger, player, playerInput, p) {
+        exitGame();
     }
     CommandExecute.customCommand_3 = customCommand_3;
     function customCommand_4(commandPage, cmd, trigger, player, playerInput, params) {
@@ -58,14 +68,18 @@ var CommandExecute;
         GameUI.dispose(params.要关闭的界面ID);
     }
     CommandExecute.customCommand_5 = customCommand_5;
-    function customCommand_6(commandPage, cmd, trigger, player, playerInput, params) {
-        var shouldPause = params.是否暂停 === 1;
-        if (shouldPause === Game.pause) {
-            console.log("\u6E38\u620F" + (shouldPause ? '已经' : '没有') + "\u5904\u4E8E\u6682\u505C\u72B6\u6001");
+    function pauseOrResumeGame(pause) {
+        if (pause === Game.pause) {
+            console.log("\u6E38\u620F" + (pause ? '已经' : '没有') + "\u5904\u4E8E\u6682\u505C\u72B6\u6001");
             return;
         }
-        GCMain.variables.游戏暂停 = shouldPause;
-        Game.pause = shouldPause;
+        GCMain.variables.游戏暂停 = pause;
+        Game.pause = pause;
+    }
+    CommandExecute.pauseOrResumeGame = pauseOrResumeGame;
+    function customCommand_6(commandPage, cmd, trigger, player, playerInput, params) {
+        var shouldPause = params.是否暂停 === 1;
+        pauseOrResumeGame(shouldPause);
     }
     CommandExecute.customCommand_6 = customCommand_6;
     function customCommand_7(commandPage, cmd, trigger, player, playerInput, params) {
@@ -83,21 +97,6 @@ var CommandExecute;
     }
     CommandExecute.customCommand_9 = customCommand_9;
     function customCommand_10(commandPage, cmd, trigger, player, playerInput, params) {
-        var gui9 = GameUI.get(9);
-        if (gui9) {
-            return;
-        }
-        GameUI.show(9);
-        gui9 = GameUI.get(9);
-        gui9.对话框文本.text = params.提示信息;
-        gui9.确定按钮.label = params.确认按钮文本;
-        gui9.取消按钮.label = params.取消按钮文本;
-        gui9.确定按钮.on(EventObject.CLICK, this, function (eventSegment) {
-            CommandPage.startTriggerFragmentEvent(eventSegment, Game.player.sceneObject, Game.player.sceneObject);
-        }, [params.当确认时执行]);
-        gui9.取消按钮.on(EventObject.CLICK, this, function (eventSegment) {
-            CommandPage.startTriggerFragmentEvent(eventSegment, Game.player.sceneObject, Game.player.sceneObject);
-        }, [params.当取消时执行]);
     }
     CommandExecute.customCommand_10 = customCommand_10;
 })(CommandExecute || (CommandExecute = {}));

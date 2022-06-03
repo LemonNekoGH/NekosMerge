@@ -1,6 +1,188 @@
 {
     "root": {
-        "children": []
+        "children": [
+            {
+                "id": "96719349395_0.6507897689838693",
+                "condition": [],
+                "type": "UIBitmap",
+                "name": "图片",
+                "x": 0,
+                "y": 0,
+                "width": 1184,
+                "height": 704,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "image": "asset/image/picture/control/对话框遮罩.png",
+                "grid9": "0,0,0,0,0",
+                "pivotType": 0
+            },
+            {
+                "id": "96710558194_0.9661941066235986",
+                "condition": [],
+                "type": "UIRoot",
+                "name": "容器",
+                "x": 342,
+                "y": 217,
+                "width": 500,
+                "height": 270,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "scrollShowType": 2,
+                "hScrollBar": "asset/image/picture/control/hscroll_bar.png",
+                "hScrollBg": "asset/image/picture/control/hscroll_bg.png",
+                "vScrollBar": "asset/image/picture/control/vscroll_bar.png",
+                "vScrollBg": "asset/image/picture/control/vscroll_bg.png",
+                "scrollWidth": 16,
+                "slowmotionType": 0,
+                "enabledWheel": true,
+                "hScrollValue": 0,
+                "vScrollValue": 0,
+                "children": [
+                    {
+                        "id": "72157368100_0.01851676441426897",
+                        "condition": [],
+                        "type": "UIBitmap",
+                        "name": "消息背景",
+                        "x": 0,
+                        "y": 0,
+                        "width": 500,
+                        "height": 200,
+                        "opacity": 1,
+                        "rotation": 0,
+                        "show": true,
+                        "mouseEventEnabledData": false,
+                        "materialData": [
+                            {
+                                "materials": []
+                            }
+                        ],
+                        "mouseEventEnabledInEditor": true,
+                        "showOnEditor": true,
+                        "hasCommand": [],
+                        "isOpen": true,
+                        "image": "asset/image/picture/control/NekosMergeButton.png",
+                        "grid9": "5,5,10,5,0",
+                        "pivotType": 0
+                    },
+                    {
+                        "id": "72157480858_0.9934856438811179",
+                        "condition": [],
+                        "type": "UIString",
+                        "name": "消息文本",
+                        "x": 0,
+                        "y": 0,
+                        "width": 500,
+                        "height": 200,
+                        "opacity": 1,
+                        "rotation": 0,
+                        "show": true,
+                        "mouseEventEnabledData": false,
+                        "materialData": [
+                            {
+                                "materials": []
+                            }
+                        ],
+                        "mouseEventEnabledInEditor": true,
+                        "showOnEditor": true,
+                        "hasCommand": [],
+                        "isOpen": true,
+                        "text": "字符串",
+                        "fontSize": 20,
+                        "color": "#ffffff",
+                        "bold": false,
+                        "italic": false,
+                        "align": 1,
+                        "valign": 1,
+                        "leading": 0,
+                        "letterSpacing": 0,
+                        "font": "阿里巴巴普惠体",
+                        "wordWrap": true,
+                        "overflow": 0,
+                        "shadowColor": "#000000",
+                        "shadowDx": 1,
+                        "shadowDy": 1,
+                        "stroke": 0,
+                        "strokeColor": "#000000"
+                    },
+                    {
+                        "id": "96710787330_0.771490415567105",
+                        "condition": [],
+                        "type": "UIGUI",
+                        "name": "确认按钮",
+                        "x": 0,
+                        "y": 220,
+                        "width": 0,
+                        "height": 0,
+                        "opacity": 1,
+                        "rotation": 0,
+                        "show": true,
+                        "mouseEventEnabledData": true,
+                        "materialData": [
+                            {
+                                "materials": []
+                            }
+                        ],
+                        "mouseEventEnabledInEditor": true,
+                        "showOnEditor": true,
+                        "hasCommand": [],
+                        "isOpen": true,
+                        "guiID": 1001,
+                        "instanceClassName": "",
+                        "dpWidth": 0
+                    },
+                    {
+                        "id": "96710867410_0.6354722209708796",
+                        "condition": [],
+                        "type": "UIGUI",
+                        "name": "取消按钮",
+                        "x": 260,
+                        "y": 220,
+                        "width": 0,
+                        "height": 0,
+                        "opacity": 1,
+                        "rotation": 0,
+                        "show": true,
+                        "mouseEventEnabledData": true,
+                        "materialData": [
+                            {
+                                "materials": []
+                            }
+                        ],
+                        "mouseEventEnabledInEditor": true,
+                        "showOnEditor": true,
+                        "hasCommand": [],
+                        "isOpen": true,
+                        "guiID": 1001,
+                        "instanceClassName": "",
+                        "dpWidth": 0
+                    }
+                ]
+            }
+        ]
     },
-    "id": 11
+    "id": 11,
+    "hasRootCommand": [],
+    "instanceClassName": "DialogGUI"
 }

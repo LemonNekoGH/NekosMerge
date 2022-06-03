@@ -1,8 +1,9 @@
 module CommandExecute {
-    var started = false;
+    export let started = false;
 
     export function newNeko() {
         if (Game.pause) {
+            console.log('游戏暂停中，稍后添加新的猫咪')
             setTimeout(newNeko, 1500)
             return
         }
@@ -27,10 +28,7 @@ module CommandExecute {
         GCMain.variables.等待下一个猫咪出现 = 0
     }
 
-    /**
-     * 进入游戏
-     */
-    export function customCommand_1(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, p: CustomCommandParams_1) {
+    export function enterGame() {
         if (started)
             return;
         GameUI.dispose(1);
@@ -38,11 +36,19 @@ module CommandExecute {
 
         // 重置分数
         GCMain.variables.分数 = 0
-
-        new ProjectGUI2((GameUI.get(2) as GUI_2))
+        // 重置作弊状态
+        GCMain.variables.分数作废 = false
         colidDetector = new ColidDetector()
 
+        newNeko()
         started = true;
+    }
+
+    /**
+     * 进入游戏
+     */
+    export function customCommand_1(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, p: CustomCommandParams_1) {
+        enterGame()
     }
 
     /**
@@ -52,14 +58,18 @@ module CommandExecute {
         newNeko()
     }
 
-    /**
-     * 退出游戏
-     */
-    export function customCommand_3(commandPage, cmd, trigger, player, playerInput, p) {
+    export function exitGame() {
         if (!started) return
         GameUI.dispose(2)
         GameUI.show(1);
         started = false;
+    }
+
+    /**
+     * 退出游戏
+     */
+    export function customCommand_3(commandPage, cmd, trigger, player, playerInput, p) {
+        exitGame()
     }
     /**
      * 开启指定界面
@@ -75,20 +85,23 @@ module CommandExecute {
         GameUI.dispose(params.要关闭的界面ID)
     }
 
+    export function pauseOrResumeGame(pause: boolean) {
+        if (pause === Game.pause) {
+            console.log(`游戏${pause ? '已经' : '没有'}处于暂停状态`)
+            return
+        }
+
+        GCMain.variables.游戏暂停 = pause
+        Game.pause = pause
+    }
+
     /**
      * 暂停或继续游戏
      * @params params 指令参数
      */
     export function customCommand_6(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, params: CustomCommandParams_6): void {
         const shouldPause = params.是否暂停 === 1
-
-        if (shouldPause === Game.pause) {
-            console.log(`游戏${shouldPause ? '已经' : '没有'}处于暂停状态`)
-            return
-        }
-
-        GCMain.variables.游戏暂停 = shouldPause
-        Game.pause = shouldPause
+        pauseOrResumeGame(shouldPause)
     }
 
     /**
@@ -123,24 +136,6 @@ module CommandExecute {
      * 显示一个确认对话框
      */
     export function customCommand_10(commandPage: CommandPage, cmd: Command, trigger: CommandTrigger, player: ClientPlayer, playerInput: any, params: CustomCommandParams_10): void {
-        let gui9 = GameUI.get(9) as GUI_9
-        // 如果界面正在显示，不进行任何操作
-        if (gui9) {
-            return
-        }
-        // 如果没有在显示，进行显示
-        GameUI.show(9)
-        gui9 = GameUI.get(9) as GUI_9
-        // 设置文本
-        gui9.对话框文本.text = params.提示信息
-        gui9.确定按钮.label = params.确认按钮文本
-        gui9.取消按钮.label = params.取消按钮文本
-        // 设置事件
-        gui9.确定按钮.on(EventObject.CLICK, this, (eventSegment) => {
-            CommandPage.startTriggerFragmentEvent(eventSegment, Game.player.sceneObject, Game.player.sceneObject)
-        }, [params.当确认时执行])
-        gui9.取消按钮.on(EventObject.CLICK, this, (eventSegment) => {
-            CommandPage.startTriggerFragmentEvent(eventSegment, Game.player.sceneObject, Game.player.sceneObject)
-        }, [params.当取消时执行])
+
     }
 }

@@ -57,7 +57,7 @@ class GameOverProgressBar extends UIBitmap {
              * 倒计时结束，发送游戏结束事件
              */
             if (i && i.width <= 0 && !i.canceled) {
-                GameUI.get(2).event(ProjectGUI2.EVENT_GAME_OVER)
+                GameUI.get(2).event(GamingPageGUI.EVENT_GAME_OVER)
                 GameOverProgressBar.INSTANCE.dispose()
                 GameOverProgressBar.INSTANCE = undefined
             }

@@ -49,7 +49,7 @@ class LoadingPageGUI extends GUI_10 {
     renderProgress = () => {
         console.log(this.progress)
         this.graphics.clear();
-        this.graphics.drawPie(592, 352, 100, -90, this.progress * 360 - 90, '#FFFFFF');
+        this.graphics.drawPie(592, 352, 100, -90, this.progress * 360 - 90, '#ef832d');
         this.graphics.drawCircle(592, 352, 95, '#000000');
     }
 

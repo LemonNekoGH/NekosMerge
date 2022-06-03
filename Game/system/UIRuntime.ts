@@ -8,9 +8,9 @@
 class GUI_1 extends GUI_BASE {
    背景:UIBitmap;
    标题:UIString;
-   开始按钮:UIButton;
-   设置按钮:UIButton;
-   排行榜按钮:UIButton;
+   开始按钮:NekoButton;
+   排行榜按钮:NekoButton;
+   设置按钮:NekoButton;
    constructor(){
       super(1);
    }
@@ -18,7 +18,9 @@ class GUI_1 extends GUI_BASE {
 class ListItem_1 extends UIListItemData {
    背景:string;
    标题:string;
-
+   开始按钮:number;
+   排行榜按钮:number;
+   设置按钮:number;
 }
 
 /**
@@ -29,15 +31,15 @@ class GUI_2 extends GUI_BASE {
    分数:UIVariable;
    最高分数:UIVariable;
    标题:UIString;
-   退出按钮:UIButton;
-   暂停按钮:UIButton;
    分数标签:UIString;
    最高分数标签:UIString;
-   设置按钮:UIButton;
    分数作废提示:UIString;
-   重开按钮:UIButton;
-   终端按钮:UIButton;
    作弊标题:UIString;
+   终端按钮:NekoButton;
+   暂停按钮:NekoButton;
+   重开按钮:NekoButton;
+   设置按钮:NekoButton;
+   退出按钮:NekoButton;
    constructor(){
       super(2);
    }
@@ -51,6 +53,11 @@ class ListItem_2 extends UIListItemData {
    最高分数标签:string;
    分数作废提示:string;
    作弊标题:string;
+   终端按钮:number;
+   暂停按钮:number;
+   重开按钮:number;
+   设置按钮:number;
+   退出按钮:number;
 }
 
 /**
@@ -65,7 +72,7 @@ class GUI_3 extends GUI_BASE {
    开发者模式开关标签:UIString;
    FPS开关:UISwitch;
    FPS开关标签:UIString;
-   确定按钮:UIButton;
+   确定按钮:NekoButton;
    constructor(){
       super(3);
    }
@@ -78,20 +85,20 @@ class ListItem_3 extends UIListItemData {
    开发者模式开关标签:string;
    FPS开关:number;
    FPS开关标签:string;
-
+   确定按钮:number;
 }
 
 /**
- * 4-伪加载界面 [BASE]
+ * 4- [BASE]
  */
 class GUI_4 extends GUI_BASE {
-   文本:UIString;
+
    constructor(){
       super(4);
    }
 }
 class ListItem_4 extends UIListItemData {
-   文本:string;
+
 }
 
 /**
@@ -113,23 +120,15 @@ class ListItem_5 extends UIListItemData {
 }
 
 /**
- * 6-游戏结束 [BASE]
+ * 6- [BASE]
  */
 class GUI_6 extends GUI_BASE {
-   对话框遮罩:UIBitmap;
-   对话框背景图片:UIBitmap;
-   退出提示:UIString;
-   重开按钮:UIButton;
-   退出按钮:UIButton;
-   排行榜按钮:UIButton;
+
    constructor(){
       super(6);
    }
 }
 class ListItem_6 extends UIListItemData {
-   对话框遮罩:string;
-   对话框背景图片:string;
-   退出提示:string;
 
 }
 
@@ -165,12 +164,13 @@ class ListItem_7 extends UIListItemData {
  */
 class GUI_8 extends GUI_BASE {
    对话框遮罩:UIBitmap;
+   容器:UIRoot;
    对话框背景图片:UIBitmap;
    提示文本:UIString;
    可输入文本:UIInput;
    输入提示:UIString;
-   开始按钮:UIButton;
-   取消按钮:UIButton;
+   确定按钮:NekoButton;
+   取消按钮:NekoButton;
    constructor(){
       super(8);
    }
@@ -181,26 +181,21 @@ class ListItem_8 extends UIListItemData {
    提示文本:string;
    可输入文本:string;
    输入提示:string;
-
+   确定按钮:number;
+   取消按钮:number;
 }
 
 /**
- * 9-确认对话框 [BASE]
+ * 9- [BASE]
  */
 class GUI_9 extends GUI_BASE {
-   对话框遮罩:UIBitmap;
-   对话框背景图片:UIBitmap;
-   确定按钮:UIButton;
-   取消按钮:UIButton;
-   对话框文本:UIString;
+
    constructor(){
       super(9);
    }
 }
 class ListItem_9 extends UIListItemData {
-   对话框遮罩:string;
-   对话框背景图片:string;
-   对话框文本:string;
+
 }
 
 /**
@@ -217,75 +212,38 @@ class ListItem_10 extends UIListItemData {
 }
 
 /**
- * 11- [BASE]
+ * 11-plug_对话框界面 [BASE]
  */
 class GUI_11 extends GUI_BASE {
-
+   图片:UIBitmap;
+   容器:UIRoot;
+   消息背景:UIBitmap;
+   消息文本:UIString;
+   确认按钮:NekoButton;
+   取消按钮:NekoButton;
    constructor(){
       super(11);
    }
 }
 class ListItem_11 extends UIListItemData {
-
+   图片:string;
+   消息背景:string;
+   消息文本:string;
+   确认按钮:number;
+   取消按钮:number;
 }
 
 /**
- * 1001-模拟碰撞边界 [BASE]
+ * 1001-基础按钮 [BASE]
  */
 class GUI_1001 extends GUI_BASE {
-   碰撞位置1:UIString;
-   碰撞位置2:UIString;
-   碰撞位置3:UIString;
-   碰撞位置4:UIString;
-   碰撞位置5:UIString;
-   碰撞位置6:UIString;
-   碰撞位置7:UIString;
-   碰撞位置8:UIString;
-   碰撞位置9:UIString;
-   碰撞位置10:UIString;
-   碰撞位置11:UIString;
-   碰撞位置12:UIString;
-   碰撞位置13:UIString;
-   碰撞位置14:UIString;
-   碰撞位置15:UIString;
-   碰撞位置16:UIString;
-   碰撞位置17:UIString;
-   碰撞位置18:UIString;
-   碰撞位置19:UIString;
-   碰撞位置20:UIString;
-   碰撞位置21:UIString;
-   碰撞位置22:UIString;
-   碰撞位置23:UIString;
-   碰撞位置24:UIString;
+   btn:UIButton;
    constructor(){
       super(1001);
    }
 }
 class ListItem_1001 extends UIListItemData {
-   碰撞位置1:string;
-   碰撞位置2:string;
-   碰撞位置3:string;
-   碰撞位置4:string;
-   碰撞位置5:string;
-   碰撞位置6:string;
-   碰撞位置7:string;
-   碰撞位置8:string;
-   碰撞位置9:string;
-   碰撞位置10:string;
-   碰撞位置11:string;
-   碰撞位置12:string;
-   碰撞位置13:string;
-   碰撞位置14:string;
-   碰撞位置15:string;
-   碰撞位置16:string;
-   碰撞位置17:string;
-   碰撞位置18:string;
-   碰撞位置19:string;
-   碰撞位置20:string;
-   碰撞位置21:string;
-   碰撞位置22:string;
-   碰撞位置23:string;
-   碰撞位置24:string;
+
 }
 
 /**
@@ -299,7 +257,7 @@ class GUI_15001 extends GUI_BASE {
    rank:UIString;
    nickname:UIString;
    score:UIString;
-   重开按钮:UIButton;
+   确定界面:NekoButton;
    constructor(){
       super(15001);
    }
@@ -311,7 +269,7 @@ class ListItem_15001 extends UIListItemData {
    rank:string;
    nickname:string;
    score:string;
-
+   确定界面:number;
 }
 
 /**

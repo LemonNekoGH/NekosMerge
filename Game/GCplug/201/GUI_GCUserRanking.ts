@@ -28,6 +28,12 @@ class GUI_GCUserRanking extends GUI_15001 {
     constructor() {
         super();
         this.on(EventObject.DISPLAY, this, this.onDisplay);
+        this.确定界面.btn.label = '确 定'
+        this.确定界面.btn.width = 700
+        this.确定界面.btn.on(EventObject.CLICK, this, () => {
+            CommandExecute.pauseOrResumeGame(false)
+            this.dispose()
+        })
     }
     /**
      * 显示

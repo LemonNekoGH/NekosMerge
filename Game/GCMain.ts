@@ -13,14 +13,12 @@ function collectSprites(sprite: GameSprite, sprites: GameSprite[]) {
         }
     }
     sprites.push(sprite)
-
-    GameBase
 }
 
 const GCMain = {
     onClientWorldInit() {
-        os.setCursor("url(./asset/image/picture/control/cursor.png), auto")
-        GameUI.show(1)
+        // 显示加载界面
+        GameUI.show(10)
 
         GlobalData.restore()
 

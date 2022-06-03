@@ -129,6 +129,34 @@ var ListItem_9 = (function (_super) {
     }
     return ListItem_9;
 }(UIListItemData));
+var GUI_10 = (function (_super) {
+    __extends(GUI_10, _super);
+    function GUI_10() {
+        _super.call(this, 10);
+    }
+    return GUI_10;
+}(GUI_BASE));
+var ListItem_10 = (function (_super) {
+    __extends(ListItem_10, _super);
+    function ListItem_10() {
+        _super.apply(this, arguments);
+    }
+    return ListItem_10;
+}(UIListItemData));
+var GUI_11 = (function (_super) {
+    __extends(GUI_11, _super);
+    function GUI_11() {
+        _super.call(this, 11);
+    }
+    return GUI_11;
+}(GUI_BASE));
+var ListItem_11 = (function (_super) {
+    __extends(ListItem_11, _super);
+    function ListItem_11() {
+        _super.apply(this, arguments);
+    }
+    return ListItem_11;
+}(UIListItemData));
 var GUI_1001 = (function (_super) {
     __extends(GUI_1001, _super);
     function GUI_1001() {

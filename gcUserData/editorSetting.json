@@ -7,10 +7,10 @@
         "animationSetting": true,
         "dialogSetting": true,
         "uiSetting": true,
+        "sceneObjectModelSetting": true,
         "live2dSetting": true,
         "tileSystem": true,
         "sceneObjectSystem": true,
-        "fastEditEditor": false,
         "standingSystem": true,
         "mapGrid": true,
         "dataGrid": true,
@@ -72,7 +72,6 @@
             "#0000FF"
         ],
         "resourceunLimit": true,
-        "isWhowQRCode": true,
         "runtimeClassInfo": {
             "soClientExtends": "ClientSceneObject",
             "soServerExtends": "ServerSceneObject",
@@ -108,9 +107,12 @@
             true,
             true,
             1,
+            true,
             true
         ],
+        "fastEditEditor": false,
+        "isWhowQRCode": true,
         "applyModuleToAllScene": false,
-        "sceneObjectModelSetting": true
+        "editorFontSize": 0
     }
 }

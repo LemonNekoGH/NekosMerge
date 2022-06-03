@@ -9,9 +9,9 @@
             "size": 0
         },
         {
-            "name": "幼圆",
-            "path": "asset/font/幼圆.TTF",
-            "fonttype": "TTF",
+            "name": "阿里巴巴普惠体",
+            "path": "asset/font/阿里巴巴普惠体.ttf",
+            "fonttype": "ttf",
             "size": 0
         }
     ],
@@ -116,5 +116,5 @@
         },
         "customAttribute": {}
     },
-    "DEFAULT_FONT": "幼圆"
+    "DEFAULT_FONT": "阿里巴巴普惠体"
 }

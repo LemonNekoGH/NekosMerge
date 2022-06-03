@@ -1,0 +1,49 @@
+{
+    "root": {
+        "children": [
+            {
+                "id": "96695288848_0.581698812005677",
+                "condition": [],
+                "type": "UIString",
+                "name": "文本",
+                "x": 552,
+                "y": 344,
+                "width": 79,
+                "height": 16,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": false,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "text": "Loading...",
+                "fontSize": 16,
+                "color": "#ffffff",
+                "bold": false,
+                "italic": false,
+                "align": 0,
+                "valign": 0,
+                "leading": 0,
+                "letterSpacing": 0,
+                "font": "阿里巴巴普惠体",
+                "wordWrap": true,
+                "overflow": 0,
+                "shadowColor": "#000000",
+                "shadowDx": 1,
+                "shadowDy": 1,
+                "stroke": 0,
+                "strokeColor": "#000000"
+            }
+        ]
+    },
+    "id": 10,
+    "instanceClassName": "LoadingPageGUI",
+    "hasRootCommand": []
+}

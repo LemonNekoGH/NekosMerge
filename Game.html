@@ -40,98 +40,36 @@
 		}
 	},true);
 	// debugEnd
-    window.isReportToGC = null;
-	window.gcUrlParams = null;
-	var paramStr = window.location.href.split("?").pop();
-	if (paramStr.indexOf("gcDebugPort") == 0) {
-		var paramArr = paramStr.split("&");
-		var paramObj = {};
-		for (var i = 0; i < paramArr.length; i++) {
-			var onParamStr = paramArr[i].split("=");
-			var paramName = onParamStr.shift();
-			var paramValue = onParamStr.join("=");
-			paramObj[paramName] = paramValue;
-		}
-		window.isReportToGC = true;
-		window.gcUrlParams = paramObj;
-		var xhr = new XMLHttpRequest();
-		var debugPort = parseInt(window.gcUrlParams["gcDebugPort"]);
-		var url = "http://127.0.0.1:"+debugPort+"/kdsrpg_http_indieapp.js?cmd=1";
-		xhr.open("GET", url, true);
-		xhr.send();
-	}
-	else{
-		window.isReportToGC = false;
-	}
-	var em1 = /.*? \((http|file)\:.*?:\d+:\d+\)/g;
-	var em2 = /^(http|file)\:.*?:\d+:\d+/g;
-	window.onerror = function(errorMessage, scriptURI, lineNumber,columnNumber,errorObj){
-		// check report to gc
-		if(parent.catchError || window.isReportToGC){
-			if(window.isReportToGC)reportToGC_Content("kdsrpgConsoleError",errorMessage, scriptURI, lineNumber, columnNumber, window.gcUrlParams["gcAppID"]);
-		    else if(parent.catchError) parent.catchError("kdsrpgConsoleError",errorMessage, scriptURI, lineNumber, columnNumber, errorObj);
-			if(!errorObj || !errorObj.stack)return;
+    window.onerror = function(errorMessage, scriptURI, lineNumber,columnNumber,errorObj){
+		if(parent.catchError){
+		    parent.catchError("kdsrpgConsoleError",errorMessage, scriptURI, lineNumber, columnNumber, errorObj);
+			if(!errorObj.stack)return;
 			var stackArr = errorObj.stack.split("\n    at ");
 			stackArr.shift();
 			stackArr.shift();
-			// stackArr.pop();
+			stackArr.pop();
 			for(var i in stackArr){
-				var stackStr = stackArr[i];
-				var m =  stackStr.match(em1);
-				if(m){
-					var fileNameArr = m[0].split(" ");
+				//setTimeout(function(i){
+					var stackStr = stackArr[i];
+					var fileNameArr = stackStr.split(" ");
 					var uriIdx = fileNameArr.length-1;
 					var fileNameIdx = fileNameArr.length-2;
 					var fileName = fileNameArr[fileNameIdx];
 					var scriptURI = fileNameArr[uriIdx].split(".js")[0].substr(1) + ".js";
-					var lineArr = fileNameArr[uriIdx].split(":");
-					var lineNumber = parseInt(lineArr[lineArr.length-2]);
-					var columnNumber = parseInt(lineArr[lineArr.length-1]);
-				}
-				else {
-					m = stackStr.match(em2);
-					if(m){
-						var lineStr = m[0];
-						var scriptURI = lineStr.split(".js")[0] + ".js";
-						var lineArr = lineStr.split(":");
-						var lineNumber = parseInt(lineArr[lineArr.length-2]);
-						var columnNumber = parseInt(lineArr[lineArr.length-1]);
-					}
-					else{
-						continue;
-					}
-				}
-				if(window.isReportToGC)reportToGC_Content("kdsrpgConsoleError","调用堆栈 at "+fileName, scriptURI, lineNumber, columnNumber, window.gcUrlParams["gcAppID"]);
-				else if(parent.catchError) parent.catchError("kdsrpgConsoleError","调用堆栈 at "+fileName, scriptURI, lineNumber, columnNumber, errorObj);
+					var lineNumber = fileNameArr[uriIdx].split(":")[2];
+					var columnNumber = fileNameArr[uriIdx].split(":")[3];
+					parent.catchError("kdsrpgConsoleError","调用堆栈 at "+fileName, scriptURI, lineNumber, columnNumber, errorObj);
+				//},i*50,i)
 			}
 		}
     };
-	function reportToGC_Content(mode,errMsg,fullURL,line,column,gcAppID){
-		var xhr = new XMLHttpRequest();
-		var debugPort = parseInt(window.gcUrlParams["gcDebugPort"]);
-		var url = "http://127.0.0.1:"+debugPort+"/kdsrpg_http_indieapp.js?cmd=0&mode="+mode+"&errMsg="+errMsg+"&fullURL="+fullURL+"&line="+line+"&column="+column+"&gcAppID="+gcAppID;
-		xhr.open("GET", url, true);
-		xhr.send();
-	}
 	var _log = console.log;
 		console.log = function(){
 			if(parent!=window){
-				parent.console.log.apply(this,arguments);
-			}
-			else if(window.isReportToGC){
-				var traceContent = "";
-				for (var i in arguments){
-					traceContent += arguments[i] + " ";
-				}
-				var xhr = new XMLHttpRequest();
-				var debugPort = parseInt(window.gcUrlParams["gcDebugPort"]);
-				var url = "http://127.0.0.1:"+debugPort+"/kdsrpg_http_indieapp.js?cmd=2&gcAppID="+window.gcUrlParams["gcAppID"]+"&traceContent="+encodeURIComponent(traceContent);
-				xhr.open("GET", url, true);
-				xhr.send();
-				reportToGC_Content(this.arguments);
+			parent.console.log.apply(this,arguments);
 			}
 			else{
-				_log.apply(this,arguments);
+			_log.apply(this,arguments);
 			}
         };
     var __extends = (this && this.__extends) || function (d, b) {
@@ -145,23 +83,33 @@
 </script>
 <script type="text/javascript" src="GameCreatorLib/gamecreator.js" ></script>
 <script type="text/javascript" src="matterjs/matter.js" ></script>
+<script type="text/javascript" src="gsap/gsap.min.js" ></script>
 <script type="text/javascript" src="Game/game/data/GameVariables.js" ></script>
 <script type="text/javascript" src="Game/game/data/GlobalData.js" ></script>
 <script type="text/javascript" src="Game/game/UI/GameConsole.js" ></script>
-<script type="text/javascript" src="Game/game/UI/GameOverProgressBar.js" ></script>
 <script type="text/javascript" src="Game/game/UI/ProjectGUI2.js" ></script>
 <script type="text/javascript" src="Game/game/UI/UIEventListener.js" ></script>
-<script type="text/javascript" src="Game/game/UI/UINeko.js" ></script>
 <script type="text/javascript" src="Game/game/BodyNekoMap.js" ></script>
 <script type="text/javascript" src="Game/game/ColidDetector.js" ></script>
 <script type="text/javascript" src="Game/game/Commands.js" ></script>
 <script type="text/javascript" src="Game/GCplug/201/GC_OpenAPI_Ranking.js" ></script>
-<script type="text/javascript" src="Game/system/SceneObjectModels.js" ></script>
-<script type="text/javascript" src="Game/system/UIRuntime.js" ></script>
+<script type="text/javascript" src="Game/system/CustomCommandParams.js" ></script>
+<script type="text/javascript" src="Game/system/CustomConditionParams.js" ></script>
+<script type="text/javascript" src="Game/system/CustomGameNumberParams.js" ></script>
+<script type="text/javascript" src="Game/system/CustomGameStringParams.js" ></script>
+<script type="text/javascript" src="Game/system/CustomModuleRuntime.js" ></script>
+<script type="text/javascript" src="Game/system/DataStructureRuntime.js" ></script>
+<script type="text/javascript" src="Game/system/GameAttributeRuntime.js" ></script>
 <script type="text/javascript" src="Game/GCMain.js" ></script>
 <script type="text/javascript" src="Game/NekoMath.js" ></script>
 <script type="text/javascript" src="Game/NekoUtils.js" ></script>
+<script type="text/javascript" src="Game/game/UI/GameOverProgressBar.js" ></script>
+<script type="text/javascript" src="Game/game/UI/UINeko.js" ></script>
+<script type="text/javascript" src="Game/system/SceneObjectModels.js" ></script>
+<script type="text/javascript" src="Game/system/UIRuntime.js" ></script>
+<script type="text/javascript" src="Game/game/UI/EmptyGUI.js" ></script>
 <script type="text/javascript" src="Game/game/UI/GameConsoleGUI.js" ></script>
+<script type="text/javascript" src="Game/game/UI/LoadingPageGUI.js" ></script>
 <script type="text/javascript" src="Game/GCplug/201/GUI_GCUserRanking.js" ></script><script>
                var runParamsArr = window.location.href.split("?").pop().split("runParams=");
                var runParams;

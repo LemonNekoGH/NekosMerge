@@ -7,12 +7,10 @@ function collectSprites(sprite, sprites) {
         }
     }
     sprites.push(sprite);
-    GameBase;
 }
 var GCMain = {
     onClientWorldInit: function () {
-        os.setCursor("url(./asset/image/picture/control/cursor.png), auto");
-        GameUI.show(1);
+        GameUI.show(10);
         GlobalData.restore();
         var showFPS = false;
         os.add_ENTERFRAME(function () {

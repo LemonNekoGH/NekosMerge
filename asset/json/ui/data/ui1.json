@@ -215,5 +215,6 @@
         ]
     },
     "id": 1,
-    "hasRootCommand": []
+    "hasRootCommand": [],
+    "instanceClassName": ""
 }

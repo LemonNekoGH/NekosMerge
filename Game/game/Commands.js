@@ -1,6 +1,22 @@
 var CommandExecute;
 (function (CommandExecute) {
     CommandExecute.started = false;
+    CommandExecute.changeCursor = function (state) {
+        switch (state) {
+            case 1:
+                os.setCursor('url("./asset/image/picture/control/cursor-down.png"), auto');
+                break;
+            case 2:
+                os.setCursor('url("./asset/image/picture/control/cursor.png"), auto');
+                break;
+            case 3:
+                os.setCursor('url("./asset/image/picture/control/cursor-over.png"), auto');
+                break;
+            default:
+                os.setCursor('url("./asset/image/picture/control/cursor.png"), auto');
+                break;
+        }
+    };
     function newNeko() {
         if (Game.pause) {
             console.log('游戏暂停中，稍后添加新的猫咪');

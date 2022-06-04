@@ -282,9 +282,9 @@
                 "align": 1,
                 "valign": 1,
                 "letterSpacing": 0,
-                "font": "幼圆",
+                "font": "阿里巴巴普惠体",
                 "textDx": 0,
-                "textDy": -5,
+                "textDy": 0,
                 "textStroke": 0,
                 "textStrokeColor": "#ffffff"
             },
@@ -327,9 +327,9 @@
                 "align": 1,
                 "valign": 1,
                 "letterSpacing": 0,
-                "font": "幼圆",
+                "font": "阿里巴巴普惠体",
                 "textDx": 0,
-                "textDy": -5,
+                "textDy": 0,
                 "textStroke": 0,
                 "textStrokeColor": "#ffffff"
             }

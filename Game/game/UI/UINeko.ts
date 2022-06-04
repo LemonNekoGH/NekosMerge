@@ -26,6 +26,7 @@ class UINeko extends UIBitmap {
 
     constructor(level: number, fromMerge: boolean, x: number = 0, y: number = 0) {
         super()
+        // 设置轴心点
         this.pivotType = 1
 
         this.level = level
@@ -50,13 +51,22 @@ class UINeko extends UIBitmap {
 
         this.image = `asset/image/avatar/NekoHead${this.level}.png`
 
-        onUiComponentInit(false, this)
+        // 开始显示时，播放动画
+        this.scaleX = 0
+        this.scaleY = 0
+        this.on(EventObject.DISPLAY, this, () => gsap.to(this, {
+            scaleX: 1,
+            scaleY: 1,
+            duration: 0.25,
+            ease: 'power4'
+        }))
     }
 
     dispose() {
         if (this.fromMerge) {
             colidDetector.remove(this)
         }
+        gsap.killTweensOf(this)
         super.dispose()
     }
 
@@ -108,6 +118,7 @@ class UINeko extends UIBitmap {
      * 当拖动时调用
      */
     onDrag(params: Point) {
+        CommandExecute.changeCursor(1)
         this.shouldNotDragOutOfContainer(params)
         this.y = WorldData.新猫咪初始位置
     }
@@ -133,6 +144,7 @@ class UINeko extends UIBitmap {
      * 结束拖动时调用
      */
     onDragEnd(params: Point) {
+        CommandExecute.changeCursor(2)
         this.shouldNotDragOutOfContainer(params)
 
         this.y = WorldData.新猫咪初始位置

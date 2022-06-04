@@ -93,6 +93,13 @@ class GamingPageGUI extends GUI_2 {
             GameUI.show(3)
         })
 
+        // 设置进入动画
+        this.opacity = 0
+        this.on(EventObject.DISPLAY, this, () => gsap.to(this, {
+            opacity: 1,
+            duration: 0.5
+        }))
+
         const containerRect = new Rectangle(WorldData.猫咪容器左上角x值, 0, 490, 704)
 
         this.on(EventObject.MOUSE_DOWN, this, onMouseDown)
@@ -296,5 +303,14 @@ class GamingPageGUI extends GUI_2 {
         function onRestart() {
             gameOverCount = 0
         }
+    }
+
+    // 退出时渐隐
+    dispsoe() {
+        gsap.to(this, {
+            opacity: 0,
+            duration: 0.5,
+            onComplete: () => super.dispose()
+        })
     }
 }

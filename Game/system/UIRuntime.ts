@@ -102,21 +102,16 @@ class ListItem_4 extends UIListItemData {
 }
 
 /**
- * 5-暂停提示 [BASE]
+ * 5- [BASE]
  */
 class GUI_5 extends GUI_BASE {
-   对话框遮罩:UIBitmap;
-   对话框背景图片:UIBitmap;
-   继续按钮:UIButton;
-   暂停提示:UIString;
+
    constructor(){
       super(5);
    }
 }
 class ListItem_5 extends UIListItemData {
-   对话框遮罩:string;
-   对话框背景图片:string;
-   暂停提示:string;
+
 }
 
 /**
@@ -251,6 +246,7 @@ class ListItem_1001 extends UIListItemData {
  */
 class GUI_15001 extends GUI_BASE {
    背景遮罩:UIBitmap;
+   容器:UIRoot;
    背景:UIBitmap;
    list:UIList; // Item=15002
    表头容器:UIRoot;

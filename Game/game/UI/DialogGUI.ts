@@ -15,7 +15,7 @@ class DialogGUI extends GUI_11 {
             gsap.to(this.容器, {
                 scaleX: 1,
                 scaleY: 1,
-                duration: 1,
+                duration: 0.5,
                 ease: 'power4'
             })
         })
@@ -26,7 +26,7 @@ class DialogGUI extends GUI_11 {
         gsap.to(this.容器, {
             scaleX: 0,
             scaleY: 0,
-            duration: 0.5,
+            duration: 0.25,
             ease: Power4.easeIn,
             onComplete: () => {
                 super.dispose()

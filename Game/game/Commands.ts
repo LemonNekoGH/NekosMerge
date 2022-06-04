@@ -1,6 +1,30 @@
 module CommandExecute {
     export let started = false;
 
+    /**
+     * 自定义鼠标样式
+     * state
+     * --- 1 鼠标按下
+     * --- 2 鼠标抬起
+     * --- 3 鼠标悬浮
+     */
+    export const changeCursor = (state: number): void => {
+        switch (state) {
+            case 1:
+                os.setCursor('url("./asset/image/picture/control/cursor-down.png"), auto')
+                break
+            case 2:
+                os.setCursor('url("./asset/image/picture/control/cursor.png"), auto')
+                break
+            case 3:
+                os.setCursor('url("./asset/image/picture/control/cursor-over.png"), auto')
+                break
+            default:
+                os.setCursor('url("./asset/image/picture/control/cursor.png"), auto')
+                break
+        }
+    }
+
     export function newNeko() {
         if (Game.pause) {
             console.log('游戏暂停中，稍后添加新的猫咪')

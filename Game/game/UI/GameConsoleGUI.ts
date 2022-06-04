@@ -16,8 +16,17 @@ class GameConsoleGUI extends GUI_7 {
         const scrollbar: any = this.输出框容器.getChildAt(1)
         const textHeight = GameConsoleGUI.outputLinesCount() * 25
         this.输出文本.height = textHeight > 600 ? textHeight : 600
-        this.输出框容器.refresh()      
-        Callback.New((s) => s.slider.value = 100,this).delayRun(100, null, [scrollbar])
+        this.输出框容器.refresh()
+        Callback.New((s) => s.slider.value = 100, this).delayRun(100, null, [scrollbar])
+        // 显示入场动画
+        console.log(this.height)
+        this.y = -this.对话框遮罩.height
+        this.on(EventObject.DISPLAY, this, () => gsap.to(this, {
+            y: 0,
+            duration: 0.5,
+            ease: Power4.easeOut,
+            onComplete: () => console.log('Console animation done.')
+        }))
     }
 
     /**
@@ -107,5 +116,17 @@ class GameConsoleGUI extends GUI_7 {
         }
         const cmd = GameConsoleGUI.lastCmd[GameConsoleGUI.cmdPtr]
         if (cmd) this.指令输入.text = cmd
+    }
+
+    // 当销毁时，播放退出动画
+    dispose() {
+        gsap.to(this, {
+            y: -this.对话框遮罩.height,
+            duration: 0.25,
+            ease: Power4.easeIn,
+            onComplete: () => {
+                super.dispose()
+            }
+        })
     }
 }

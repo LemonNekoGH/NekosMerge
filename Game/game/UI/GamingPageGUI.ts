@@ -13,39 +13,45 @@ class GamingPageGUI extends GUI_2 {
         // 重置最高猫咪等级
         GCMain.variables.最高的猫咪等级 = 1
 
-        this.终端按钮.btn.label = ">_  终端"
+        this.标题.text = locales.t('gaming.title')
+        this.作弊标题.text = locales.t('gaming.cheatTitle')
+        this.分数标签.text = locales.t('gaming.score')
+        this.最高分数标签.text = locales.t('gaming.highestScore')
+        this.分数作废提示.text = locales.t('gaming.cheatNotify')
+
+        this.终端按钮.btn.label = locales.t('gaming.console')
         this.终端按钮.btn.width = 132
         this.终端按钮.btn.on(EventObject.CLICK, this, () => {
             // 打开终端界面
             GameUI.show(7)
         })
 
-        this.暂停按钮.btn.label = "暂 停"
+        this.暂停按钮.btn.label = locales.t('gaming.pause')
         this.暂停按钮.btn.width = 132
         this.暂停按钮.btn.on(EventObject.CLICK, this, () => {
             // 暂停游戏，并显示暂停框
             CommandExecute.pauseOrResumeGame(true)
             CommandExecute.showMessageBox({
-                text: '猫咪摸鱼中...',
+                text: 'pause.msg',
                 confirmBtnOpt: {
                     width: 500,
-                    text: '继续',
+                    text: 'pause.resume',
                     onClick: Callback.New(() => CommandExecute.pauseOrResumeGame(false), this),
                     clickToCloseMessageBox: true
                 }
             })
         })
 
-        this.重开按钮.btn.label = "重 开"
+        this.重开按钮.btn.label = locales.t('gaming.restart')
         this.重开按钮.btn.width = 132
         this.重开按钮.btn.on(EventObject.CLICK, this, () => {
             // 暂停游戏，并显示提示框
             CommandExecute.pauseOrResumeGame(true)
             CommandExecute.showMessageBox({
-                text: '确定要重开游戏吗？猫咪们会想你的。\n你的分数不会被记录到排行榜',
+                text: 'restart.msg',
                 confirmBtnOpt: {
                     width: 240,
-                    text: '是的',
+                    text: 'restart.ok',
                     onClick: Callback.New(() => {
                         GCMain.variables.游戏暂停 = false
                         GameConsole.restartGame()
@@ -54,23 +60,23 @@ class GamingPageGUI extends GUI_2 {
                 },
                 cancelBtnOpt: {
                     width: 240,
-                    text: '算了',
+                    text: 'restart.cancel',
                     onClick: Callback.New(() => CommandExecute.pauseOrResumeGame(false), this),
                     clickToCloseMessageBox: true
                 }
             })
         })
 
-        this.退出按钮.btn.label = "退 出"
+        this.退出按钮.btn.label = locales.t('gaming.exit')
         this.退出按钮.btn.width = 132
         this.退出按钮.btn.on(EventObject.CLICK, this, () => {
             // 暂停游戏，并显示提示框
             CommandExecute.pauseOrResumeGame(true)
             CommandExecute.showMessageBox({
-                text: '要撤了吗？你的分数已经保存好了',
+                text: 'exit.msg',
                 confirmBtnOpt: {
                     width: 240,
-                    text: '是的',
+                    text: 'exit.ok',
                     onClick: Callback.New(() => {
                         CommandExecute.exitGame()
                     }, this),
@@ -78,14 +84,14 @@ class GamingPageGUI extends GUI_2 {
                 },
                 cancelBtnOpt: {
                     width: 240,
-                    text: '算了',
+                    text: 'exit.cancel',
                     onClick: Callback.New(() => CommandExecute.pauseOrResumeGame(false), this),
                     clickToCloseMessageBox: true
                 }
             })
         })
 
-        this.设置按钮.btn.label = "设 置"
+        this.设置按钮.btn.label = locales.t('gaming.settings')
         this.设置按钮.btn.width = 132
         this.设置按钮.btn.on(EventObject.CLICK, this, () => {
             // 暂停游戏，并显示设置界面
@@ -273,9 +279,9 @@ class GamingPageGUI extends GUI_2 {
                 CommandExecute.doRecord(encodeURIComponent(GCMain.variables.玩家名称), GCMain.variables.分数, 0)
             }
             CommandExecute.showMessageBox({
-                text: '猫咪溢出来啦！',
+                text: 'gameOver.msg',
                 confirmBtnOpt: {
-                    text: '重开',
+                    text: 'gameOver.restart',
                     width: 240,
                     clickToCloseMessageBox: true,
                     onClick: Callback.New(() => {
@@ -284,7 +290,7 @@ class GamingPageGUI extends GUI_2 {
                     }, this)
                 },
                 cancelBtnOpt: {
-                    text: '退出',
+                    text: 'gameOver.exit',
                     width: 240,
                     clickToCloseMessageBox: true,
                     onClick: Callback.New(() => {

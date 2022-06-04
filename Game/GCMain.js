@@ -10,10 +10,11 @@ function collectSprites(sprite, sprites) {
 }
 var GCMain = {
     onClientWorldInit: function () {
+        console.log('浏览器语言是：' + navigator.language);
         locales = new LocaleManager({
             zh: Locale.zh,
             en: Locale.en
-        }, 'zh');
+        }, navigator.language === 'zh_CN' ? 'zh' : 'en');
         if (Browser.onMobile) {
             stage.screenMode = "horizontal";
             stage.setScreenSize(Browser.width, Browser.height);

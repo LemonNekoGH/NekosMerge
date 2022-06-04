@@ -5,7 +5,10 @@ class SettingsGUI extends GUI_3 {
     constructor() {
         super()
 
-        this.确定按钮.btn.label = '保 存'
+        this.文本.text = locales.t('settings.title')
+        this.开发者模式开关标签.text = locales.t('settings.developerMode')
+        this.FPS开关标签.text = locales.t('settings.showFPS')
+        this.确定按钮.btn.label = locales.t('settings.save')
         this.确定按钮.btn.width = 500
         this.确定按钮.btn.on(EventObject.CLICK, this, () => {
             // 取消暂停游戏

@@ -5,7 +5,7 @@ class InputNameGUI extends GUI_8 {
     constructor() {
         super()
 
-        this.确定按钮.btn.label = '决定了'
+        this.确定按钮.btn.label = locales.t('inputName.ok')
         this.确定按钮.btn.width = 235
         this.确定按钮.btn.on(EventObject.CLICK, this, () => {
             // 设置名字
@@ -17,11 +17,13 @@ class InputNameGUI extends GUI_8 {
             this.dispose()
         })
 
-        this.取消按钮.btn.label = '算了'
+        this.取消按钮.btn.label = locales.t('inputName.cancel')
         this.取消按钮.btn.width = 235
         this.取消按钮.btn.on(EventObject.CLICK, this, () => {
             this.dispose()
         })
+
+        this.提示文本.text = locales.t('inputName.msg')
 
         // 把容器的缩放设置到 0
         this.容器.scaleX = 0

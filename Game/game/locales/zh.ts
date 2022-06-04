@@ -22,7 +22,7 @@ module Locale {
             save: '保 存'
         },
         leaderBoard: {
-            ranking: '排名',
+            rank: '排名',
             nickname: '昵称',
             score: '分数',
             ok: '确 定'
@@ -30,7 +30,7 @@ module Locale {
         gaming: {
             title: '合成大猫咪',
             cheatTitle: '作弊大猫咪',
-            cheatNotity: '作弊性质指令已启用，本次游戏分数无效',
+            cheatNotify: '作弊性质指令已启用，本次游戏分数无效',
             score: '分数：',
             highestScore: '最高分数：',
             console: '>_  终端',

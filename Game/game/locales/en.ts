@@ -22,15 +22,15 @@ module Locale {
             save: 'Save'
         },
         leaderBoard: {
-            ranking: 'Ranking',
+            rank: 'Rank',
             nickname: 'Nickname',
             score: 'Score',
             ok: 'OK'
         },
         gaming: {
             title: 'Nekos Merge',
-            cheatTitle: 'The Cheating Nekos',
-            cheatNotity: 'The cheating command has been enabled, and the score of this game is invalid',
+            cheatTitle: 'Nekos Cheating',
+            cheatNotify: 'The cheating command has been enabled, and the score of this game is invalid',
             score: 'Score:',
             highestScore: 'Top score:',
             console: '>_  console',
@@ -46,7 +46,7 @@ module Locale {
             back: 'Back'
         },
         gameOver: {
-            msg: () => `Nekos overflow! Your score ${GCMain.variables.分数}`,
+            msg: () => `Nekos overflow! Your score is ${GCMain.variables.分数}`,
             restart: 'Restart',
             exit: 'Exit'
         },

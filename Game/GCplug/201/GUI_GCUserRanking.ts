@@ -35,13 +35,18 @@ class GUI_GCUserRanking extends GUI_15001 {
         this.容器.x += this.容器.pivotX
         this.容器.y += this.容器.pivotY
 
-        this.on(EventObject.DISPLAY, this, this.onDisplay);
-        this.确定界面.btn.label = '确 定'
+        this.on(EventObject.DISPLAY, this, this.onDisplay)
+
+        this.确定界面.btn.label = locales.t('leaderBoard.ok')
         this.确定界面.btn.width = 700
         this.确定界面.btn.on(EventObject.CLICK, this, () => {
             CommandExecute.pauseOrResumeGame(false)
             this.dispose()
         })
+
+        this.rank.text = locales.t('leaderBoard.rank')
+        this.nickname.text = locales.t('leaderBoard.nickname')
+        this.score.text = locales.t('leaderBoard.score')
     }
     /**
      * 显示

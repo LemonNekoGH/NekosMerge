@@ -53,7 +53,7 @@ module CommandExecute {
      * 设置按钮属性
      */
     function setBtnProperties(btn: UIButton, opt: IMessageBtnOptions) {
-        btn.label = opt.text
+        btn.label = locales.t(opt.text) // 会调用 i18n 函数获取真正文本
         opt.x && (btn.x = opt.x)
         opt.y && (btn.y = opt.y)
         opt.width && (btn.width = opt.width)
@@ -93,7 +93,7 @@ module CommandExecute {
         options.height && (msgBox.消息文本.height = options.height)
         options.width && (msgBox.消息文本.width = options.width)
         options.background && (msgBox.消息背景.image = options.background)
-        msgBox.消息文本.text = options.text
+        msgBox.消息文本.text = locales.t(options.text) // 会调用 i18n 函数获取真正文本
         // 设置确认按钮
         let btn = msgBox.确认按钮.btn
         let opt = options.confirmBtnOpt

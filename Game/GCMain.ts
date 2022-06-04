@@ -17,11 +17,12 @@ function collectSprites(sprite: GameSprite, sprites: GameSprite[]) {
 
 const GCMain = {
     onClientWorldInit() {
+        console.log('浏览器语言是：' + navigator.language)
         // 加载语言文件
         locales = new LocaleManager({
             zh: Locale.zh,
             en: Locale.en
-        }, 'zh')
+        }, navigator.language === 'zh_CN' ? 'zh' : 'en')
 
         // 如果在手机上，就自动横屏
         if (Browser.onMobile) {

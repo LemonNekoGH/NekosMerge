@@ -26,6 +26,7 @@ class StartPageGUI extends GUI_1 {
                 this.排行榜按钮.btn.label = locales.t('startPage.topBtn')
                 this.设置按钮.btn.label = locales.t('startPage.settingsBtn')
                 this.语言切换按钮.btn.label = locales.t('startPage.localeBtn')
+                this.标题.text = locales.t('startPage.title')
             })
         })
         // 设置进入动画

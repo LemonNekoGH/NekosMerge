@@ -60,6 +60,12 @@ class GameVariables {
     set 开发者模式(devMode) {
         this.setSwitch(1, devMode)
     }
+    get 当前语言(): boolean {
+        return this.getSwitch(3)
+    }
+    set 当前语言(devMode) {
+        this.setSwitch(3, devMode)
+    }
     get 显示FPS(): boolean {
         return this.getSwitch(2)
     }

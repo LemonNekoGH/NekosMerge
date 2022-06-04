@@ -7,10 +7,12 @@
  */
 class GUI_1 extends GUI_BASE {
    背景:UIBitmap;
+   容器:UIRoot;
    标题:UIString;
    开始按钮:NekoButton;
    排行榜按钮:NekoButton;
    设置按钮:NekoButton;
+   语言切换按钮:NekoButton;
    constructor(){
       super(1);
    }
@@ -21,6 +23,7 @@ class ListItem_1 extends UIListItemData {
    开始按钮:number;
    排行榜按钮:number;
    设置按钮:number;
+   语言切换按钮:number;
 }
 
 /**

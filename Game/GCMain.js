@@ -10,12 +10,16 @@ function collectSprites(sprite, sprites) {
 }
 var GCMain = {
     onClientWorldInit: function () {
+        locales = new LocaleManager({
+            zh: Locale.zh,
+            en: Locale.en
+        }, 'zh');
         if (Browser.onMobile) {
             stage.screenMode = "horizontal";
             stage.setScreenSize(Browser.width, Browser.height);
         }
-        GameUI.show(10);
         GlobalData.restore();
+        GameUI.show(10);
         var showFPS = false;
         os.add_ENTERFRAME(function () {
             if (GCMain.variables.显示FPS && !showFPS) {
@@ -31,7 +35,7 @@ var GCMain = {
                 colidDetector.physicsRunner.enabled = !Game.pause;
             }
         }, null);
-        SinglePlayerGame.regSaveCustomGlobalData("GLOBAL_DATA", Callback.New(function () { return new GlobalData; }, this));
+        SinglePlayerGame.regSaveCustomGlobalData("GLOBAL_DATA", Callback.New(function () { return new GlobalData(); }, this));
     },
     variables: new GameVariables(),
     guis: {

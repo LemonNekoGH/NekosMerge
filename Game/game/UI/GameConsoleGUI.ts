@@ -9,7 +9,9 @@ class GameConsoleGUI extends GUI_7 {
         super()
 
         this.执行按钮.on(EventObject.CLICK, this, this.executeCmd)
+        this.执行按钮.label = locales.t('console.execute')
         this.返回按钮.on(EventObject.CLICK, this, this.dispose)
+        this.返回按钮.label = locales.t('console.back')
         this.指令输入.on(EventObject.ENTER, this, this.executeCmd)
         this.指令输入.on(EventObject.KEY_UP, this, this.onInputKeyUp)
         // 将滚动条移到最底
@@ -49,7 +51,7 @@ class GameConsoleGUI extends GUI_7 {
      */
     executeCmd() {
         if (this.指令输入.text === "") {
-            GameConsole.log("没有输入指令，不懂怎么执行")
+            GameConsole.log(locales.t('console.noCommand'))
             return
         }
         const index = this.指令输入.text.indexOf("(")
@@ -63,7 +65,7 @@ class GameConsoleGUI extends GUI_7 {
             this.指令输入.text = ""
             return
         } else if (!GameConsole[funName]) {
-            GameConsole.log("不认识这个指令，你可以用 listCommand() 指令列出所有可用指令")
+            GameConsole.log(locales.t('console.commandNotFound'))
             this.指令输入.text = ""
             return
         }

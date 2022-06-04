@@ -43,6 +43,8 @@ class LoadingPageGUI extends GUI_10 {
             this.startLoad(0)
         }, this).run()
         console.log('实例已建立')
+        // 设定语言
+        locales.switchTo(GCMain.variables.当前语言 ? 'en' : 'zh')
     }
 
     // 渲染进度条
@@ -84,7 +86,7 @@ class LoadingPageGUI extends GUI_10 {
             ease: 'power4',
             onComplete: () => {
                 // 如果动画结束时已经加载完毕，调用结束方法
-               if (this.loadedNums === this.allNums) this.onFinish()
+                if (this.loadedNums === this.allNums) this.onFinish()
             },
             onUpdate: () => {
                 this.renderProgress()

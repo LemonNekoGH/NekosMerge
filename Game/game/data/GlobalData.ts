@@ -6,6 +6,7 @@ interface IGlobalData {
     topScore: number
     devMode: boolean
     showFPS: boolean
+    language: boolean
 }
 /**
  * 全局数据类。
@@ -15,6 +16,7 @@ class GlobalData implements IGlobalData {
     topScore: number
     devMode: boolean
     showFPS: boolean
+    language: boolean
 
     /**
      * 构造方法，如果传入了参数会用参数的值进行构建
@@ -23,6 +25,7 @@ class GlobalData implements IGlobalData {
         this.topScore = GCMain.variables.最高分数
         this.devMode = GCMain.variables.开发者模式
         this.showFPS = GCMain.variables.显示FPS
+        this.language = GCMain.variables.当前语言
     }
 
     /**
@@ -44,5 +47,6 @@ class GlobalData implements IGlobalData {
         GCMain.variables.最高分数 = data.topScore
         GCMain.variables.开发者模式 = data.devMode
         GCMain.variables.显示FPS = data.showFPS
+        GCMain.variables.当前语言 = data.language
     }
 }

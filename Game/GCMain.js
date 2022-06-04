@@ -10,6 +10,10 @@ function collectSprites(sprite, sprites) {
 }
 var GCMain = {
     onClientWorldInit: function () {
+        if (Browser.onMobile) {
+            stage.screenMode = "horizontal";
+            stage.setScreenSize(Browser.width, Browser.height);
+        }
         GameUI.show(10);
         GlobalData.restore();
         var showFPS = false;

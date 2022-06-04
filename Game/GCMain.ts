@@ -17,6 +17,11 @@ function collectSprites(sprite: GameSprite, sprites: GameSprite[]) {
 
 const GCMain = {
     onClientWorldInit() {
+        // 如果在手机上，就自动横屏
+        if (Browser.onMobile) {
+            stage.screenMode = "horizontal"
+            stage.setScreenSize(Browser.width, Browser.height)
+        }
         // 显示加载界面
         GameUI.show(10)
 

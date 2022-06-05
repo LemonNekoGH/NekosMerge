@@ -8,7 +8,13 @@ module Locale {
             startBtn: 'Start',
             topBtn: 'LeaderBoard',
             settingsBtn: 'Settings',
-            localeBtn: '切换语言'
+            localeBtn: '切换语言',
+            aboutBtn: 'About'
+        },
+        about: {
+            msg: 'This is LemonNeko\'s First Game, Thanks for playing.\n\nTwitter: @lemon_neko_cn\nBilibili: LemonNeko柠喵\n\nThanks: 7Stars, AyakaRizumu, Yuki, AyakaNeko, LiliumNeko',
+            ok: 'OK',
+            openGitHub: 'Go to LemonNeko\'s GitHub'
         },
         inputName: {
             msg: 'Tell me your name, if you want to add your name and score to the leaderboard.',

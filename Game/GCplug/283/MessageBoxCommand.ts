@@ -16,7 +16,7 @@ module CommandExecute {
         normalGrid?: string
         hoverGrid?: string
         clickGrid?: string
-        onClick: string | Callback
+        onClick?: string | Callback
         clickToCloseMessageBox: boolean
     }
 
@@ -24,6 +24,7 @@ module CommandExecute {
         x?: number
         y?: number
         text: string
+        textAlign?: 'left'
         width?: number
         height?: number
         background?: string
@@ -40,7 +41,7 @@ module CommandExecute {
             // 否则执行回调方法
             if (typeof onClick === 'string') {
                 CommandPage.startTriggerFragmentEvent(onClick as string, Game.player.sceneObject, Game.player.sceneObject)
-            } else {
+            } else if (typeof onClick !== 'undefined') {
                 (onClick as Callback).run()
             }
             if (clickToClose) {
@@ -75,8 +76,6 @@ module CommandExecute {
      * 但还是建议用可视化
      */
     export function showMessageBox(options: IMessageBoxOptions): void {
-        console.log(options)
-
         let msgBox = GameUI.get(PLUGIN_GUI_MESSAGE_BOX) as GUI_11
         // 当前有对话框正在显示，返回
         if (msgBox) {
@@ -94,6 +93,7 @@ module CommandExecute {
         options.width && (msgBox.消息文本.width = options.width)
         options.background && (msgBox.消息背景.image = options.background)
         msgBox.消息文本.text = locales.t(options.text) // 会调用 i18n 函数获取真正文本
+        options.textAlign && (msgBox.消息文本.align = 0)
         // 设置确认按钮
         let btn = msgBox.确认按钮.btn
         let opt = options.confirmBtnOpt

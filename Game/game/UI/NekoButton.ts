@@ -19,6 +19,11 @@ class NekoButton extends GUI_1001 {
             this.moveText(1)
             CommandExecute.changeCursor(1)
         })
+        // 设置鼠标抬起效果
+        this.on(EventObject.MOUSE_UP, this, () => {
+            this.moveText(3)
+            CommandExecute.changeCursor(3)
+        })
     }
 
     // 修改文字的位置，让按钮看上去真的按下去了

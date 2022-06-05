@@ -7,7 +7,7 @@
                 "type": "UIBitmap",
                 "name": "背景",
                 "x": 0,
-                "y": -1,
+                "y": 0,
                 "width": 1184,
                 "height": 704,
                 "opacity": 1,
@@ -210,6 +210,32 @@
                         "dpWidth": 0
                     }
                 ]
+            },
+            {
+                "id": "96850862267_0.36147337501120336",
+                "condition": [],
+                "type": "UIGUI",
+                "name": "关于按钮",
+                "x": 32,
+                "y": 32,
+                "width": 0,
+                "height": 0,
+                "opacity": 1,
+                "rotation": 0,
+                "show": true,
+                "mouseEventEnabledData": true,
+                "materialData": [
+                    {
+                        "materials": []
+                    }
+                ],
+                "mouseEventEnabledInEditor": true,
+                "showOnEditor": true,
+                "hasCommand": [],
+                "isOpen": true,
+                "guiID": 1001,
+                "instanceClassName": "",
+                "dpWidth": 0
             }
         ]
     },

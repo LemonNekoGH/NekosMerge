@@ -13,6 +13,7 @@ class GUI_1 extends GUI_BASE {
    排行榜按钮:NekoButton;
    设置按钮:NekoButton;
    语言切换按钮:NekoButton;
+   关于按钮:NekoButton;
    constructor(){
       super(1);
    }
@@ -24,6 +25,7 @@ class ListItem_1 extends UIListItemData {
    排行榜按钮:number;
    设置按钮:number;
    语言切换按钮:number;
+   关于按钮:number;
 }
 
 /**

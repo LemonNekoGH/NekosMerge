@@ -8,7 +8,13 @@ module Locale {
             startBtn: '开 始',
             topBtn: '排 行 榜',
             settingsBtn: '设 置',
-            localeBtn: 'Switch Language'
+            localeBtn: 'Switch Language',
+            aboutBtn: '关于'
+        },
+        about: {
+            msg: '这是柠喵做的第一个游戏，感谢游玩。\n\nTwitter: @lemon_neko_cn\nB 站: LemonNeko柠喵\n\n感谢列表：七星瓢虫、AyakaRizumu、Yuki、AyakaNeko、百合喵',
+            ok: '知道了',
+            openGitHub: '前往柠喵的 GitHub'
         },
         inputName: {
             msg: '如果你愿意的话，可以把名字写在下面，当游戏结束时，你的名字和分数将被记录到排行榜',

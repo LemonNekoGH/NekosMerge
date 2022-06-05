@@ -12,6 +12,25 @@ class StartPageGUI extends GUI_1 {
         this.设置按钮.btn.label = locales.t('startPage.settingsBtn')
         this.语言切换按钮.btn.label = locales.t('startPage.localeBtn')
         this.标题.text = locales.t('startPage.title')
+        this.关于按钮.btn.label = locales.t('startPage.aboutBtn')
+        this.关于按钮.btn.width = 132
+        this.关于按钮.btn.on(EventObject.CLICK, this, () => {
+            CommandExecute.showMessageBox({
+                text: 'about.msg',
+                textAlign: 'left',
+                confirmBtnOpt: {
+                    text: 'about.ok',
+                    clickToCloseMessageBox: true,
+                    width: 240
+                },
+                cancelBtnOpt: {
+                    text: 'about.openGitHub',
+                    clickToCloseMessageBox: true,
+                    onClick: Callback.New(() => window.open('https://github.com/LemonNekoGH', '_blank'), this),
+                    width: 240
+                }
+            })
+        })
         // 设置按钮监听事件
         this.开始按钮.btn.on(EventObject.CLICK, this, () => GameUI.show(8))
         this.设置按钮.btn.on(EventObject.CLICK, this, () => GameUI.show(3))
@@ -27,6 +46,7 @@ class StartPageGUI extends GUI_1 {
                 this.设置按钮.btn.label = locales.t('startPage.settingsBtn')
                 this.语言切换按钮.btn.label = locales.t('startPage.localeBtn')
                 this.标题.text = locales.t('startPage.title')
+                this.关于按钮.btn.label = locales.t('startPage.aboutBtn')
             })
         })
         // 设置进入动画
